@@ -408,7 +408,7 @@ function StepThree({
     annualLoss: number;
     callRecoveryAnnual: number;
     websiteBoostAnnual: number;
-    followUpAnnual: number;
+    seoBoostAnnual: number;
     totalRecoverable: number;
     threeYearLoss: number;
   };
@@ -446,11 +446,11 @@ function StepThree({
       </p>
 
       {/* Warning callout */}
-      {data.chasesLeads === false && (
+      {data.isTopRanked === false && (
         <div className="calc-warning mb-8">
           <span className="text-[#FFB400] text-lg mt-0.5">⚠</span>
           <p className="text-white/60 text-sm font-body leading-relaxed">
-            You&apos;re not automating your follow-ups. That&apos;s a massive systemic failure costing you jobs daily.
+            You&apos;re not ranking in the top 3 on Google. That means your competitors are catching almost 100% of the high-intent buyers in your city.
           </p>
         </div>
       )}
