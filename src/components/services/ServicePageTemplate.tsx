@@ -319,9 +319,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
           </FadeInView>
           
           <FadeInView delay={0.1}>
-            <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden divide-y divide-white/[0.06]">
-              <ServiceFaq faqs={service.faqs} />
-            </div>
+            <ServiceFaq faqs={service.faqs} />
           </FadeInView>
         </div>
       </section>
