@@ -264,8 +264,9 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 <div className="w-12 h-12 rounded-full bg-sumac-brandy border-4 border-sumac-dark flex items-center justify-center text-white font-bold text-lg mb-6 shadow-[0_0_20px_rgba(136,47,24,0.3)]">
                   {i + 1}
                 </div>
-                <div className="group bg-white/[0.03] border border-white/[0.08] p-5 rounded-2xl w-full h-full hover:border-sumac-brandy/30 hover:bg-white/[0.05] transition-all duration-300">
-                  <h3 className="text-base font-bold text-white">{step.title}</h3>
+                <div className="group bg-white/[0.03] border border-white/[0.08] p-5 md:p-6 rounded-2xl w-full h-full hover:border-sumac-brandy/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                  <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-white/45 font-body text-sm leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -342,7 +343,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               {service.middleCta.ctaLabel}
             </Link>
             <FadeInView delay={0.2} className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl border border-white/10 mt-4 md:mt-8 flex items-center justify-center p-0 md:p-8">
-              <BuiltToConvertGraphic />
+              <BuiltToConvertGraphic slug={service.slug} />
             </FadeInView>
           </FadeInView>
         </div>
@@ -368,7 +369,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 <Link href={`/services/${s.slug}`} className="block group h-full">
                   <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.05] hover:border-sumac-brandy/40 hover:shadow-[0_0_30px_rgba(136,47,24,0.1)] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sumac-brandy transition-colors">{s.title}</h3>
-                    <p className="text-white/50 font-body text-sm mb-6 flex-grow">{s.hero.description.split('.')[0]}.</p>
+                    <p className="text-white/50 font-body text-sm leading-relaxed mb-6 flex-grow">{s.definition.description}</p>
                     <div className="flex items-center text-sumac-brandy font-medium text-sm">
                       Learn More 
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -383,25 +384,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* 11. Bottom CTA */}
-      <section className="py-16 md:py-24 bg-[#0a0000] border-t border-white/[0.06] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/[0.08] via-transparent to-sumac-brandy/[0.04] pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-6 text-center relative">
-          <FadeInView>
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-4 text-balance">
-              {service.bottomCta.title}
-            </h2>
-            <p className="text-white/60 font-body text-lg md:text-xl mb-10 max-w-xl mx-auto">{service.bottomCta.description}</p>
-            <Link
-              href={service.bottomCta.ctaHref}
-              className="group relative inline-flex items-center justify-center px-10 py-5 bg-sumac-brandy text-white rounded-full font-bold text-lg overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.5)] transition-all"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              {service.bottomCta.ctaLabel}
-            </Link>
-          </FadeInView>
-        </div>
-      </section>
+
     </div>
   );
 }

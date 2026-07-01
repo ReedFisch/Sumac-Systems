@@ -166,77 +166,101 @@ function AiSeoVisual() {
   );
 }
 
-/* ─── Google Business Profile Visual (Isometric Grid) ─── */
+/* ─── Google Business Profile Visual (Minimal Map UI) ─── */
 function GbpVisual() {
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center bg-[#111] overflow-hidden rounded-2xl">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sumac-brandy/20 via-transparent to-transparent" />
-      
-      {/* Isometric Container */}
-      <div className="relative w-full h-full perspective-[1000px] flex items-center justify-center">
-        <motion.div 
-          initial={{ rotateX: 60, rotateZ: -45, scale: 0.8 }}
-          animate={{ rotateX: 60, rotateZ: -45, scale: 1.2 }}
-          transition={{ duration: 1.5, type: "spring", stiffness: 40 }}
-          className="relative w-[300px] h-[300px] bg-[#1a1a24] border border-white/10 rounded-xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] transform-style-3d"
-        >
-          {/* Map Grid Surface */}
-          <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:40px_40px]" />
-          
-          {/* Roads */}
-          <div className="absolute top-[40%] w-full h-[15px] bg-[#222] border-y border-white/5 flex items-center justify-between overflow-hidden">
-             <div className="w-full border-t border-dashed border-yellow-500/30" />
-          </div>
-          <div className="absolute left-[60%] h-full w-[15px] bg-[#222] border-x border-white/5 flex flex-col items-center justify-between overflow-hidden">
-             <div className="h-full border-l border-dashed border-yellow-500/30" />
-          </div>
-          
-          {/* Competitor Buildings (Small Blocks) */}
-          <div className="absolute top-[20%] left-[20%] w-[30px] h-[30px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(10px)" }} />
-          <div className="absolute top-[70%] left-[30%] w-[40px] h-[40px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(15px)" }} />
-          <div className="absolute top-[30%] left-[80%] w-[25px] h-[25px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(8px)" }} />
-
-          {/* Your Business Dominance */}
-          <motion.div 
-            initial={{ z: 200, opacity: 0 }}
-            animate={{ z: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5, type: "spring", bounce: 0.6 }}
-            className="absolute top-[35%] left-[55%] transform-style-3d"
-          >
-            {/* The Drop Pin (Stands upright despite isometric floor) */}
-            <div className="relative" style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateY(-20px)" }}>
-               <svg className="w-16 h-20 text-sumac-brandy drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]" viewBox="0 0 24 32" fill="currentColor">
-                 <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0zm0 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
-               </svg>
-               {/* Ground Ripple */}
-               <motion.div 
-                 animate={{ scale: [1, 3], opacity: [0.8, 0] }}
-                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                 className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-8 h-3 bg-sumac-brandy rounded-[100%] blur-sm"
-                 style={{ transform: "rotateX(60deg)" }} // Flatten ripple to floor
-               />
-
-               {/* Exploding Review Cards */}
-               {[
-                 { x: -60, y: -40, rotate: -15, delay: 1.5 },
-                 { x: 60, y: -20, rotate: 10, delay: 1.7 },
-                 { x: -40, y: 40, rotate: -5, delay: 1.9 },
-               ].map((pos, i) => (
-                 <motion.div
-                   key={i}
-                   initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                   animate={{ opacity: 1, x: pos.x, y: pos.y, scale: 1, rotate: pos.rotate }}
-                   transition={{ duration: 0.6, delay: pos.delay, type: "spring", stiffness: 100 }}
-                   className="absolute top-1/2 left-1/2 w-28 bg-white rounded-lg p-2 shadow-2xl border border-gray-100 flex flex-col items-center gap-1 z-20"
-                 >
-                   <div className="flex gap-0.5 text-yellow-400">★★★★★</div>
-                   <div className="w-16 h-1.5 bg-gray-200 rounded-full" />
-                 </motion.div>
-               ))}
-            </div>
-          </motion.div>
-        </motion.div>
+    <div className="relative w-full aspect-[4/3] flex flex-col items-center justify-center bg-[#181820] overflow-hidden rounded-2xl border border-white/[0.08]">
+      {/* Sleek Dark Map Background */}
+      <div className="absolute inset-0 z-0">
+         {/* Subtle radial gradient */}
+         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(136,47,24,0.15),_transparent)]" />
+         
+         {/* Stylized Roads (SVG) */}
+         <svg className="w-full h-full opacity-30" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <path d="M 0 120 C 150 140, 250 80, 400 100" fill="none" stroke="#ffffff" strokeWidth="2" strokeDasharray="4 4" />
+            <path d="M 120 0 C 140 150, 100 250, 150 300" fill="none" stroke="#ffffff" strokeWidth="2" strokeDasharray="4 4" />
+            <path d="M 0 180 L 400 220" fill="none" stroke="#ffffff" strokeWidth="4" opacity="0.5" />
+            <path d="M 280 0 L 220 300" fill="none" stroke="#ffffff" strokeWidth="4" opacity="0.5" />
+            
+            {/* Minimalist buildings/blocks */}
+            <rect x="50" y="50" width="30" height="30" rx="4" fill="rgba(255,255,255,0.05)" />
+            <rect x="300" y="80" width="45" height="25" rx="4" fill="rgba(255,255,255,0.05)" />
+            <rect x="80" y="220" width="40" height="40" rx="4" fill="rgba(255,255,255,0.05)" />
+            <rect x="320" y="240" width="25" height="25" rx="4" fill="rgba(255,255,255,0.05)" />
+         </svg>
       </div>
+
+      {/* Main Drop Pin */}
+      <motion.div 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3, type: "spring", bounce: 0.5 }}
+        className="relative z-20 flex flex-col items-center"
+      >
+        {/* Tooltip/Title */}
+        <motion.div 
+           initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1 }}
+           className="bg-white text-gray-900 text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg mb-2"
+        >
+          Your Local Business
+        </motion.div>
+        
+        {/* Pin Icon */}
+        <div className="relative">
+           <svg className="w-12 h-16 text-sumac-brandy drop-shadow-[0_10px_15px_rgba(136,47,24,0.6)]" viewBox="0 0 24 32" fill="currentColor">
+             <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0zm0 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
+           </svg>
+           {/* Center dot in pin */}
+           <div className="absolute top-[32%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white shadow-inner" />
+        </div>
+
+        {/* Ground Ripple */}
+        <motion.div 
+          animate={{ scale: [1, 2.5], opacity: [0.8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
+          className="w-12 h-3 bg-sumac-brandy rounded-[100%] blur-sm -mt-2"
+        />
+      </motion.div>
+
+      {/* Floating UI Elements */}
+      
+      {/* 5-Star Reviews Card */}
+      <motion.div
+        initial={{ opacity: 0, x: 40, y: 20 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 100 }}
+        className="absolute right-4 md:right-8 top-[30%] bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-2xl border border-white/20 z-30"
+      >
+        <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex gap-0.5">
+            {[1,2,3,4,5].map(i => (
+              <svg key={i} className="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            ))}
+          </div>
+          <span className="text-gray-900 font-bold text-xs">5.0</span>
+        </div>
+        <div className="text-gray-500 text-[9px] mb-2">150+ Google Reviews</div>
+        {/* Fake review skeleton */}
+        <div className="space-y-1">
+           <div className="w-20 h-1.5 bg-gray-200 rounded-full" />
+           <div className="w-16 h-1.5 bg-gray-200 rounded-full" />
+        </div>
+      </motion.div>
+
+      {/* Traffic/Views Card */}
+      <motion.div
+        initial={{ opacity: 0, x: -40, y: -20 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 100 }}
+        className="absolute left-4 md:left-8 bottom-[25%] bg-[#222]/90 backdrop-blur-md rounded-xl p-3 shadow-2xl border border-white/10 z-30"
+      >
+        <div className="text-white/60 text-[9px] uppercase tracking-wider font-mono mb-1.5">Profile Views</div>
+        <div className="flex items-end gap-2">
+           <div className="text-white font-bold text-lg leading-none">+342%</div>
+           <svg className="w-4 h-4 text-green-500 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+        </div>
+      </motion.div>
+
     </div>
   );
 }

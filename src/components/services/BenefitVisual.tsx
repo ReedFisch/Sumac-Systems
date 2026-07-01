@@ -343,19 +343,50 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
           </div>
         ) : (
           // Chat / Notification Interface
-          <div className="flex-1 bg-[#111] p-3 pt-12 flex flex-col gap-3">
+          <div className="flex-1 bg-[#111] p-3 pt-12 flex flex-col gap-3 relative">
              <div className="text-[10px] text-center text-white/40 font-mono mb-2">Today</div>
              
+             {/* Push Notification (Drops in from notch) */}
+             <motion.div
+                initial={{ y: -60, opacity: 0 }}
+                whileInView={{ y: -30, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
+                className="absolute top-12 left-1/2 -translate-x-1/2 w-[85%] bg-[#222]/90 backdrop-blur-md rounded-lg p-2 border border-white/10 shadow-xl flex items-center gap-2 z-40"
+             >
+                <div className="w-5 h-5 bg-green-500/20 rounded flex items-center justify-center shrink-0">
+                  <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                </div>
+                <div className="flex-1">
+                  <div className="text-[8px] font-bold text-white mb-0.5">Missed Call</div>
+                  <div className="text-[7px] text-white/50">(555) 123-4567</div>
+                </div>
+             </motion.div>
+
              {/* Incoming Message */}
              <motion.div 
                initial={{ opacity: 0, scale: 0.9, originX: 0, originY: 1 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
-               transition={{ type: "spring", delay: 0.4 }}
-               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5"
+               transition={{ type: "spring", delay: 1.0 }}
+               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 mt-4"
              >
                <div className="h-1.5 w-16 bg-white/60 rounded mb-1.5" />
                <div className="h-1.5 w-24 bg-white/40 rounded" />
+             </motion.div>
+
+             {/* Typing Indicator */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.9, originX: 1, originY: 1 }}
+               whileInView={{ opacity: 0 }}
+               animate={{ opacity: [0, 1, 1, 0], scale: [0.9, 1, 1, 0.9] }}
+               viewport={{ once: true }}
+               transition={{ times: [0, 0.1, 0.9, 1], duration: 1.5, delay: 1.5 }}
+               className="bg-sumac-brandy/20 p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[40%] flex items-center gap-1"
+             >
+               <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0 }} className="w-1.5 h-1.5 bg-sumac-brandy rounded-full" />
+               <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0.2 }} className="w-1.5 h-1.5 bg-sumac-brandy rounded-full" />
+               <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0.4 }} className="w-1.5 h-1.5 bg-sumac-brandy rounded-full" />
              </motion.div>
              
              {/* Outgoing Automated Reply */}
@@ -363,8 +394,8 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
                initial={{ opacity: 0, scale: 0.9, originX: 1, originY: 1 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
-               transition={{ type: "spring", delay: 1.2 }}
-               className="bg-sumac-brandy p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[85%] shadow-lg"
+               transition={{ type: "spring", delay: 3.1 }} // Appears after typing indicator disappears
+               className="bg-sumac-brandy p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[85%] shadow-lg -mt-10"
              >
                <div className="h-1.5 w-20 bg-white rounded mb-1.5" />
                <div className="h-1.5 w-16 bg-white/80 rounded" />
@@ -378,11 +409,13 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
                initial={{ opacity: 0, y: 10 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ delay: 1.6 }}
-               className="mt-auto mx-auto bg-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/10"
+               transition={{ delay: 3.6 }}
+               className="mt-auto mx-auto bg-white/10 px-3 py-1.5 rounded-full flex items-center justify-center gap-1.5 border border-white/10"
              >
-               <div className="text-sumac-brandy w-3 h-3"><ServiceIcon name="zap" /></div>
-               <span className="text-[8px] uppercase tracking-widest text-white/80 font-mono">Auto-Reply Sent</span>
+               <svg className="w-2.5 h-2.5 text-sumac-brandy mt-[0.5px]" fill="currentColor" viewBox="0 0 16 16">
+                 <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+               </svg>
+               <span className="text-[8px] uppercase tracking-widest text-white/80 font-mono leading-none pt-px">Auto-Reply Sent</span>
              </motion.div>
           </div>
         )}
