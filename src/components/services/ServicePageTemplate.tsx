@@ -5,6 +5,7 @@ import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceHeroVisual } from "@/components/services/ServiceHeroVisual";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
+import Image from "next/image";
 
 export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
   const related = services.filter((s) => s.slug !== service.slug);
@@ -54,95 +55,100 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="py-20 md:py-32 relative">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <div className="mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
-              {service.approach.title}
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {service.approach.items.map((item, i) => (
-              <div key={i} className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="text-sumac-brandy font-mono text-xs mb-4">0{i+1}</div>
-                <p className="text-white/80 font-medium text-base">{item}</p>
+      {/* 4-Card Benefits Section */}
+      <section className="py-20 md:py-24 relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {service.benefits.map((benefit, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.05] hover:border-sumac-brandy/30 transition-all text-center flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-6">
+                  <ServiceIcon name={benefit.icon} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
+                <p className="text-white/60 font-body leading-relaxed text-sm">{benefit.tagline}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Struggles Section (Red 'X' Cards) */}
       <section className="py-20 md:py-32 bg-black/40 border-y border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-6">
-                Why this matters.
-              </h2>
-              <p className="text-white/55 font-body text-base md:text-lg leading-relaxed">
-                Our focus is always on delivering measurable value and a tangible return on your investment.
-              </p>
-            </div>
-            <div className="space-y-8">
-              {service.benefits.map((benefit, i) => (
-                <div key={i} className="flex gap-4 md:gap-6 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-sumac-brandy/15 border border-sumac-brandy/25 flex items-center justify-center shrink-0 text-sumac-brandy mt-1">
-                    <ServiceIcon name={benefit.icon} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-white/60 font-body leading-relaxed">{benefit.tagline}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
-              Frequently Asked Questions
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
+              {service.struggles.title}
             </h2>
-            <p className="text-white/55">Common questions about this service.</p>
+            <p className="text-white/55 font-body text-lg md:text-xl leading-relaxed">
+              {service.struggles.subtitle}
+            </p>
           </div>
-          <ServiceFaq slug={service.slug} />
-        </div>
-      </section>
-
-      {/* Related Services */}
-      <section className="py-20 border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <h2 className="text-2xl font-bold text-white mb-10">Other Services</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {related.slice(0, 3).map((rel) => (
-              <Link href={`/services/${rel.slug}`} key={rel.slug} className="group block p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] hover:border-sumac-brandy/30 transition-all">
-                <div className="w-10 h-10 rounded-lg bg-sumac-brandy/10 flex items-center justify-center text-sumac-brandy mb-4">
-                  <ServiceIcon name={rel.benefits[0]?.icon ?? "sparkles"} />
-                </div>
-                <h3 className="font-sans font-bold text-white text-lg mb-2 group-hover:text-sumac-brandy transition-colors">
-                  {rel.title}
-                </h3>
-                <p className="text-white/45 font-body text-sm leading-relaxed mb-4">{rel.hero.description.slice(0, 80)}...</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-sumac-brandy group-hover:gap-2.5 transition-all">
-                  Learn More
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {service.struggles.items.map((item, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-[#2A0808]/40 border border-[#802020]/40 flex flex-col sm:flex-row gap-5 items-start">
+                <div className="w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                </span>
-              </Link>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-white/55 font-body text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Middle CTA & Proof Section */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-sans font-bold text-white tracking-tight mb-8 text-balance">
+            {service.middleCta.title}
+          </h2>
+          <p className="text-white/60 font-body text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
+            {service.middleCta.subtitle}
+          </p>
+          <Link
+            href={service.middleCta.ctaHref}
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#2563EB] text-white rounded-full font-bold text-base hover:bg-blue-600 transition-all shadow-[0_0_30px_rgba(37,99,235,0.35)] mb-16"
+          >
+            {service.middleCta.ctaLabel}
+          </Link>
+          
+          {service.middleCta.image && (
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <Image 
+                src={service.middleCta.image}
+                alt="Results"
+                width={1200}
+                height={600}
+                className="w-full h-auto"
+              />
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* FAQ Accordion */}
+      <section className="py-20 md:py-32 bg-black/20 border-t border-white/[0.06]">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          
+          <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden divide-y divide-white/[0.06]">
+            <ServiceFaq faqs={service.faqs} />
+          </div>
+        </div>
+      </section>
+
       {/* Bottom CTA */}
-      <section className="py-20 md:py-28 bg-[#1f0a05]">
+      <section className="py-20 md:py-28 bg-[#1f0a05] border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
             {service.bottomCta.title}
