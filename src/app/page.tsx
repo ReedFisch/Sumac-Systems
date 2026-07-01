@@ -2,23 +2,22 @@
 
 import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
-import Footer from "@/components/layout/Footer";
 import { motion } from "motion/react";
-import BlurText from "@/components/ui/BlurText/BlurText";
-import TrueFocus from "@/components/ui/TrueFocus/TrueFocus";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-
-const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
-const TiltCard = dynamic(() => import("@/components/ui/TiltCard"));
-const Particles = dynamic(() => import("@/components/ui/Particles"));
-const RevenueCalculator = dynamic(() => import("@/components/calculator/RevenueCalculator"));
 import Link from "next/link";
 import { useRef } from "react";
 
-const ScrollParallax = dynamic(() => import("@/components/ui/ScrollParallax").then(mod => mod.ScrollParallax));
-const CurvedLoop = dynamic(() => import("@/components/ui/CurvedLoop"));
-const Accordion = dynamic(() => import("@/components/ui/Accordion").then(mod => mod.Accordion));
+const Footer = dynamic(() => import("@/components/layout/Footer"));
+const BlurText = dynamic(() => import("@/components/ui/BlurText/BlurText"));
+const TrueFocus = dynamic(() => import("@/components/ui/TrueFocus/TrueFocus"));
+const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
+const TiltCard = dynamic(() => import("@/components/ui/TiltCard"));
+const Particles = dynamic(() => import("@/components/ui/Particles"), { ssr: false });
+const RevenueCalculator = dynamic(() => import("@/components/calculator/RevenueCalculator"), { ssr: false });
+const ScrollParallax = dynamic(() => import("@/components/ui/ScrollParallax").then(mod => mod.ScrollParallax), { ssr: false });
+const CurvedLoop = dynamic(() => import("@/components/ui/CurvedLoop"), { ssr: false });
+const Accordion = dynamic(() => import("@/components/ui/Accordion").then(mod => mod.Accordion), { ssr: false });
 
 const HOME_FAQ = [
   {
@@ -259,8 +258,7 @@ export default function Home() {
  src="/images/sumac/image7.webp" 
  alt="" 
  fill 
- sizes="100vw"
- priority
+ sizes="(max-width: 768px) 100vw, 1280px"
  className="object-cover object-center" 
  aria-hidden="true" 
  />

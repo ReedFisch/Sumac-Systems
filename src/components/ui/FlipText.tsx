@@ -7,16 +7,18 @@ interface FlipTextProps {
   text: string;
   className?: string;
   delay?: number;
+  /** Above-the-fold hero copy: paint immediately, animate without hiding text. */
+  eager?: boolean;
 }
 
-export const FlipText: React.FC<FlipTextProps> = ({ text, className = '', delay = 0 }) => {
+export const FlipText: React.FC<FlipTextProps> = ({ text, className = '', delay = 0, eager = false }) => {
   const words = text.split(' ');
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: eager ? 1 : 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.04, delayChildren: delay * i },
+      transition: { staggerChildren: eager ? 0.02 : 0.04, delayChildren: eager ? 0 : delay * i },
     }),
   };
 
@@ -28,14 +30,12 @@ export const FlipText: React.FC<FlipTextProps> = ({ text, className = '', delay 
       transition: {
         type: 'spring' as const,
         damping: 12,
-        stiffness: 200,
+        stiffness: eager ? 260 : 200,
       },
     },
-    hidden: {
-      opacity: 0,
-      rotateX: -90,
-      y: 10,
-    },
+    hidden: eager
+      ? { opacity: 1, rotateX: -18, y: 6 }
+      : { opacity: 0, rotateX: -90, y: 10 },
   };
 
   return (
@@ -43,8 +43,9 @@ export const FlipText: React.FC<FlipTextProps> = ({ text, className = '', delay 
       style={{ display: 'inline-block', perspective: '1000px' }}
       variants={container}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
+      animate={eager ? 'visible' : undefined}
+      whileInView={eager ? undefined : 'visible'}
+      viewport={eager ? undefined : { once: true, margin: '-50px' }}
       className={className}
     >
       {words.map((word, index) => (

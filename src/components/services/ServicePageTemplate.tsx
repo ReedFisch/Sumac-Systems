@@ -1,14 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import type { ServiceDetail } from "@/data/services";
 import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
-import { ServiceHeroVisual } from "@/components/services/ServiceHeroVisual";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
-import { BenefitVisual } from "@/components/services/BenefitVisual";
-import { BuiltToConvertGraphic } from "@/components/services/BuiltToConvertGraphic";
+
+const ServiceHeroVisual = dynamic(
+  () => import("@/components/services/ServiceHeroVisual").then((m) => ({ default: m.ServiceHeroVisual })),
+  { ssr: false }
+);
+const BenefitVisual = dynamic(
+  () => import("@/components/services/BenefitVisual").then((m) => ({ default: m.BenefitVisual })),
+  { ssr: false }
+);
+const BuiltToConvertGraphic = dynamic(
+  () => import("@/components/services/BuiltToConvertGraphic").then((m) => ({ default: m.BuiltToConvertGraphic })),
+  { ssr: false }
+);
 
 function FadeInView({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (

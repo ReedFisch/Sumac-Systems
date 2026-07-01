@@ -28,6 +28,7 @@ const Footer = () => {
  src="/images/sumac/image2.webp"
  alt="Decorative Sumac Branch"
  fill
+ sizes="(max-width: 768px) 300px, 700px"
  className="object-contain"
  />
  </div>

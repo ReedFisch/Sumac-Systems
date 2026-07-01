@@ -22,7 +22,16 @@ const Hero = () => {
  <section ref={containerRef} className="relative min-h-0 md:min-h-screen flex flex-col justify-center pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-32 pb-6 md:pb-8 overflow-visible bg-sumac-dark">
  {/* Background Aurora */}
  <div className="absolute inset-0 z-0 opacity-30">
- <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
+ <Image
+ src="/images/sumac/image12-blurred.webp"
+ alt=""
+ fill
+ priority
+ fetchPriority="high"
+ sizes="100vw"
+ className="object-cover object-center scale-110"
+ aria-hidden="true"
+ />
  <div className="absolute inset-0 bg-gradient-to-b from-sumac-dark/60 via-transparent to-sumac-dark pointer-events-none" />
  </div>
 
@@ -35,7 +44,7 @@ const Hero = () => {
  animate={{ y: [0, -20, 0], x: [0, 8, 0], rotate: [0, 4, 0] }}
  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
  >
- <Image src="/images/sumac/image2.webp" alt="" fill sizes="280px" className="object-contain" aria-hidden="true" priority />
+ <Image src="/images/sumac/image2.webp" alt="" fill sizes="280px" className="object-contain" aria-hidden="true" />
  </motion.div>
  <motion.div 
  className="absolute bottom-10 -right-10 z-0 opacity-30 w-[260px] h-[260px] pointer-events-none hidden md:block"
@@ -71,7 +80,7 @@ const Hero = () => {
 
 
  <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-6 md:mb-8 text-balance">
- <FlipText text="We build websites and the" delay={0.08} /> <span className="font-accent italic text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy via-[#7cff67] to-sumac-slate pr-2">systems</span> <FlipText text="around them" delay={0.08} />
+ <FlipText text="We build websites and the" eager /> <span className="font-accent italic text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy via-[#7cff67] to-sumac-slate pr-2">systems</span> <FlipText text="around them" eager />
  </h1>
 
 
@@ -102,12 +111,11 @@ const Hero = () => {
 
  {/* Computer Frame Mockup */}
  <motion.div
- initial={{ opacity: 0, y: 80 }}
+ initial={{ opacity: 1, y: 32 }}
  animate={{ opacity: 1, y: 0 }}
  style={{ opacity: opacityScroll }}
- transition={{ 
- opacity: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
- y: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }
+ transition={{
+ y: { duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] },
  }}
  className="relative z-20 w-[92%] max-w-5xl mx-auto mt-6 md:mt-16 -mb-14 md:-mb-48 pointer-events-none"
  >
@@ -188,9 +196,8 @@ const Hero = () => {
  src="/images/titan-roofing.webp"
  alt="Titan Roofing Preview"
  fill
- sizes="(max-width: 768px) 100vw, 1024px"
+ sizes="(max-width: 768px) 92vw, 1024px"
  className="object-cover object-top opacity-90"
- priority
  />
  </div>
  </div>

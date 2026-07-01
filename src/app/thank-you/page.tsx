@@ -30,7 +30,7 @@ export default function ThankYouPage() {
  <div className="w-full bg-white/[0.02] border border-white/[0.06] p-4 md:p-8 rounded-2xl">
  <div className="w-full bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden p-2 md:p-4">
    <div className="calendly-inline-widget" data-url="https://calendly.com/hello-sumac/free-systems-audit?hide_event_type_details=1&hide_gdpr_banner=1" style={{ minWidth: "320px", height: "min(700px, 75vh)" }} />
-   <Script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+   <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
  </div>
  </div>
 
