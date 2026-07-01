@@ -8,6 +8,7 @@ import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceHeroVisual } from "@/components/services/ServiceHeroVisual";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
 import { BenefitVisual } from "@/components/services/BenefitVisual";
+import { BuiltToConvertGraphic } from "@/components/services/BuiltToConvertGraphic";
 import Image from "next/image";
 
 function FadeInView({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -357,8 +358,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.middleCta.ctaLabel}
             </Link>
-            <FadeInView delay={0.2} className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10 mt-4 md:mt-8 bg-[#111] flex items-center justify-center p-8">
-              <ServiceHeroVisual slug={service.slug} />
+            <FadeInView delay={0.2} className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl border border-white/10 mt-4 md:mt-8 flex items-center justify-center p-0 md:p-8">
+              <BuiltToConvertGraphic />
             </FadeInView>
           </FadeInView>
         </div>

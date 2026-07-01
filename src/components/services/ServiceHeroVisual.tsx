@@ -15,7 +15,7 @@ function WebDesignVisual() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-[85%] bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden z-10"
+        className="relative w-[75%] bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden z-10"
       >
         {/* Chrome bar */}
         <div className="flex items-center px-3 py-2.5 gap-2 border-b border-white/[0.06] bg-[#222]">
