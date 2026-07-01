@@ -70,7 +70,7 @@ const Footer = () => {
  {[
  { label: 'Web Design', href: '/services/web-design' },
  { label: 'SEO & AI Search', href: '/services/ai-seo' },
- { label: 'Brand Kits', href: '/services/brand-kits' },
+ { label: 'Google Business Profile', href: '/services/google-business-profile' },
  { label: 'Automations', href: '/services/automations' }
  ].map((item) => (
  <li key={item.label}>
