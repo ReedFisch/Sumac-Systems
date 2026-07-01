@@ -152,7 +152,7 @@ export default function Home() {
  <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
  <motion.p variants={fadeUpVariant} className="text-white/40 text-lg font-body max-w-2xl mx-auto mt-6">
- We don't just build a digital brochure. We engineer comprehensive digital assets designed to convert traffic into revenue.
+ We don't just build digital brochures. We engineer complete systems designed to actually convert traffic into revenue.
  </motion.p>
  </div>
 
@@ -227,8 +227,8 @@ export default function Home() {
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2018.</span>
  </h2>
  <p className="text-lg md:text-xl font-body leading-relaxed text-white/50 max-w-2xl mx-auto">
- We optimize for what matters now: content structure that makes sense to humans, search engines, and <span className="text-white font-medium">AI tools like ChatGPT and Perplexity.</span>
- </p>
+  We optimize for what actually matters now: structuring your content so it makes sense to humans, search engines, and <span className="text-white font-medium">AI tools like ChatGPT and Perplexity.</span>
+  </p>
  </motion.div>
  </section>
 
@@ -278,22 +278,22 @@ export default function Home() {
  items={[
  { 
  title: "How does pricing work?", 
- desc: "We operate on a flat monthly subscription combined with a one-time setup fee, rather than charging a massive upfront project cost. The setup fee covers your custom design and initial build, while your monthly rate covers high-speed hosting, active SEO, and the ongoing management of your automated systems.", 
+ desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.", 
  items: [] 
  },
  { 
- title: "How long does it take to launch?", 
- desc: "Because we build custom layouts instead of relying on generic templates, a standard build takes a few weeks from our kickoff call to launch. We move quickly, but never rush the technical foundation.", 
+ title: "How long does it actually take to launch?", 
+ desc: "Usually a few weeks from our first call to launch. We move fast, but we aren't going to rush the build just to hit an arbitrary date. Every site we ship has to be built right.", 
  items: [] 
  },
  { 
- title: "What happens if I cancel? Do I lose my site?", 
- desc: "Our service is an ongoing package that includes hosting, active SEO, and software management. If you cancel, the website and its connected automations will be taken offline at the end of your billing cycle. However, we have a strict Business Continuity Safeguard: if Sumac Systems ever permanently closes, we transfer full ownership of the code and domain directly to you at no cost. You are never left stranded.", 
+ title: "What happens if I want to cancel?", 
+ desc: "The site and its connected automations come down at the end of your billing cycle. That being said, we have a strict safeguard: if we ever shut down as a company, you get full ownership of the code and domain. You're never left stranded.", 
  items: [] 
  },
  { 
- title: "Do I have to manage the technical updates?", 
- desc: "No. You are hiring us so you can focus on running your business. We handle the web hosting, security updates, site speed optimization, and ongoing technical maintenance.", 
+ title: "Do I have to deal with hosting and updates?", 
+ desc: "Nope, that's on us. Hosting, security patches, speed optimization - we handle all of it. You run your business, we keep the site running smoothly.", 
  items: [] 
  }
  ]} 
@@ -340,13 +340,13 @@ export default function Home() {
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline-block mr-2" /> <span className="whitespace-nowrap"><span className="italic font-accent pr-2 text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,</span> <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline-block ml-2" />
  </h2>
  <div className="space-y-5 text-white/50 font-body text-base leading-relaxed">
- <p>Hey, I am Reed.</p>
- <p>I am young, and I consider that a massive advantage in this industry. I grew up entirely native to the technology that older agencies are just now trying to understand.</p>
- <p>I run a lean, independent operation. When you hire Sumac Systems, you work directly with me. I do not outsource the development, and I do not rely on bloated templates.</p>
- <div className="pt-5 border-t border-white/[0.06] mt-6">
- <p className="font-accent text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I am genuinely proud of.&rdquo;</p>
- </div>
- </div>
+  <p>Hey, I'm Reed.</p>
+  <p>I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
+  <p>I run a lean, independent operation. When you hire Sumac Systems, you work directly with me. I don't outsource the development, and I don't rely on bloated templates.</p>
+  <div className="pt-5 border-t border-white/[0.06] mt-6">
+  <p className="font-accent text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I'm genuinely proud of.&rdquo;</p>
+  </div>
+  </div>
  </motion.div>
  </motion.div>
  </section>

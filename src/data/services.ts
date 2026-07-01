@@ -233,15 +233,15 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "ai-seo",
-    title: "SEO & AIEO",
+    title: "SEO & AIO",
     hero: {
       headline: "Get found on Google",
       headlineAccent: "& AI",
-      description: "Traditional SEO gets you on Google. AIEO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both - so no matter how people search, your business shows up first."
+      description: "Traditional SEO gets you on Google. AIO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both - so no matter how people search, your business shows up first."
     },
     definition: {
-      title: "What Is SEO & AIEO?",
-      description: "SEO (Search Engine Optimization) gets your website ranking on Google. AIEO (AI Engine Optimization) structures your content so AI tools like ChatGPT and Perplexity recommend your business when people ask for services. Together, they cover every way modern customers find local businesses.",
+      title: "What Is SEO & AIO?",
+      description: "SEO (Search Engine Optimization) gets your website ranking on Google. AIO (AI Optimization) structures your content so AI tools like ChatGPT and Perplexity recommend your business when people ask for services. Together, they cover every way modern customers find local businesses.",
       examples: [
         '"Best roofer in Rochester" - Google',
         '"Find me a reliable HVAC company" - ChatGPT',
@@ -250,7 +250,7 @@ export const services: ServiceDetail[] = [
       ]
     },
     approach: {
-      title: "Our SEO & AIEO Methodology",
+      title: "Our SEO & AIO Methodology",
       items: [
         "AI-driven keyword gap analysis",
         "Semantic content optimization",
@@ -368,8 +368,8 @@ export const services: ServiceDetail[] = [
         answer: "Honest answer - SEO takes time. You might see movement in a few weeks, but meaningful, lasting rankings usually take 3 to 6 months. Anyone promising page one in 30 days is lying to you."
       },
       {
-        question: "What even is AIEO and why does it matter?",
-        answer: "AIEO stands for AI Engine Optimization. When someone asks ChatGPT or Perplexity to recommend a local business, those AI tools pull from structured content on the web. If your site isn't built to be read by those models, you're invisible to that entire channel. We fix that."
+        question: "What even is AIO and why does it matter?",
+        answer: "AIO stands for AI Optimization. When someone asks ChatGPT or Perplexity to recommend a local business, those AI tools pull from structured content on the web. If your site isn't built to be read by those models, you're invisible to that entire channel. We fix that."
       },
       {
         question: "Do I need a new website for this to work?",
