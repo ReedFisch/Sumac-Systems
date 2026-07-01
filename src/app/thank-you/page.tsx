@@ -1,13 +1,20 @@
 "use client";
 
+import Header from "@/components/layout/Header";
+import BackButton from "@/components/ui/BackButton";
+
 import { FlipText } from "@/components/ui/FlipText";
 import Script from "next/script";
 
 export default function ThankYouPage() {
  return (
  <div className="flex flex-col min-h-screen bg-sumac-dark text-white">
- <main className="flex-1 w-full pt-20 md:pt-28 pb-20 relative overflow-hidden">
+ <Header />
+ <main className="flex-1 w-full pt-32 md:pt-40 pb-20 relative overflow-hidden">
  <div className="max-w-3xl mx-auto px-6 relative z-10 flex flex-col items-center">
+ <div className="w-full flex justify-start mb-6">
+ <BackButton />
+ </div>
  <div className="text-center mb-10">
  <h1 className="text-3xl md:text-5xl font-bold font-sans mb-4 tracking-tight">
  <FlipText text="We have your details." delay={0.02} /> <br className="hidden md:block"/>
