@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "motion/react";
 
-/* ─── Web Design Visual ─── */
+/* ─── Web Design Visual (Browser Mockup) ─── */
 function WebDesignVisual() {
   return (
     <div className="relative w-full aspect-[4/3] flex items-center justify-center">
@@ -27,18 +27,18 @@ function WebDesignVisual() {
           </div>
         </div>
         {/* Content skeleton */}
-        <div className="p-4 space-y-3 bg-[#0d0d0d]">
-          <div className="h-8 w-3/4 bg-white/[0.06] rounded-lg" />
-          <div className="h-3 w-full bg-white/[0.04] rounded" />
-          <div className="h-3 w-5/6 bg-white/[0.04] rounded" />
+        <div className="p-4 space-y-3 bg-[#0d0d0d] h-[200px]">
+          <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.6 }} className="h-8 w-3/4 bg-white/[0.06] rounded-lg origin-left" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="h-3 w-full bg-white/[0.04] rounded" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }} className="h-3 w-5/6 bg-white/[0.04] rounded" />
           <div className="flex gap-2 mt-4">
-            <div className="h-8 w-28 bg-sumac-brandy/30 rounded-full" />
-            <div className="h-8 w-24 bg-white/[0.06] rounded-full" />
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3 }} className="h-8 w-28 bg-sumac-brandy/30 rounded-full" />
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }} className="h-8 w-24 bg-white/[0.06] rounded-full" />
           </div>
           <div className="grid grid-cols-3 gap-2 mt-4">
-            <div className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
-            <div className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
-            <div className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.6 }} className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.7 }} className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.8 }} className="h-16 bg-white/[0.03] rounded-lg border border-white/[0.06]" />
           </div>
         </div>
       </motion.div>
@@ -47,7 +47,7 @@ function WebDesignVisual() {
       <motion.div
         initial={{ opacity: 0, x: 30, scale: 0.9 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.9, type: "spring", stiffness: 100, damping: 18 }}
+        transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 100, damping: 18 }}
         className="absolute -right-3 md:-right-6 top-[10%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans"
       >
         <div className="flex items-center gap-3">
@@ -65,7 +65,7 @@ function WebDesignVisual() {
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 100, damping: 18 }}
+        transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 100, damping: 18 }}
         className="absolute -left-2 md:-left-4 bottom-[15%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-2.5"
       >
         <div className="w-8 h-8 rounded-lg bg-sumac-brandy/10 flex items-center justify-center">
@@ -82,299 +82,239 @@ function WebDesignVisual() {
   );
 }
 
-/* ─── AI SEO Visual ─── */
+/* ─── AI SEO Visual (SERP Ascending Rank) ─── */
 function AiSeoVisual() {
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/15 via-transparent to-transparent rounded-3xl blur-xl" />
+    <div className="relative w-full aspect-[4/3] flex flex-col pt-8 items-center bg-[#f8f9fa] rounded-2xl overflow-hidden shadow-inner border border-black/5">
+      
+      {/* Fake Search Header */}
+      <div className="absolute top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 flex items-center px-6 shadow-sm z-20">
+         <div className="w-24 h-4 bg-gray-200 rounded-full mr-6" />
+         <div className="flex-1 max-w-sm h-8 bg-gray-100 rounded-full border border-gray-200 flex items-center px-4 gap-2">
+            <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <div className="w-1/2 h-2 bg-gray-300 rounded" />
+         </div>
+      </div>
 
-      {/* Search bar container */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative w-[88%] z-10"
-      >
-        {/* Google-style search box */}
-        <div className="bg-white rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/20">
-          <div className="flex items-center gap-3 mb-4">
-            <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <div className="text-gray-800 text-sm font-medium">roofer near me</div>
-            <motion.div
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="w-0.5 h-5 bg-sumac-brandy"
-            />
-          </div>
+      {/* Search Results Container */}
+      <div className="relative w-full max-w-sm mt-12 flex flex-col gap-4 px-4 h-full">
+         
+         {/* Competitor 1 (Pushed Down) */}
+         <motion.div 
+           initial={{ y: 0 }}
+           animate={{ y: 110 }} 
+           transition={{ duration: 1.5, delay: 1, type: "spring", stiffness: 60 }}
+           className="absolute top-0 left-4 right-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 opacity-60"
+         >
+           <div className="flex items-center gap-2 mb-2">
+             <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-[10px] text-gray-500">2</div>
+             <div className="w-32 h-2.5 bg-gray-200 rounded-full" />
+           </div>
+           <div className="w-48 h-4 bg-gray-300 rounded mb-2" />
+           <div className="w-full h-2 bg-gray-100 rounded mb-1" />
+           <div className="w-5/6 h-2 bg-gray-100 rounded" />
+         </motion.div>
 
-          {/* Search results */}
-          <div className="space-y-3 border-t border-gray-100 pt-3">
-            {/* #1 Result (highlighted) */}
-            <div className="flex items-start gap-3 bg-green-50 rounded-lg p-2.5 border border-green-200/60">
-              <div className="w-5 h-5 rounded-full bg-green-500 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</div>
-              <div>
-                <div className="text-sm font-bold text-gray-900">Your Business Name</div>
-                <div className="text-[10px] text-green-600 font-medium">yourbusiness.com</div>
-                <div className="text-[10px] text-gray-500 mt-0.5">★★★★★ 4.9 (87 reviews)</div>
-              </div>
-            </div>
-            {/* Dimmed competitors */}
-            <div className="flex items-start gap-3 opacity-40 p-2.5">
-              <div className="w-5 h-5 rounded-full bg-gray-300 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</div>
-              <div>
-                <div className="text-xs text-gray-500">competitor-a.com</div>
-                <div className="text-[10px] text-gray-400">★★★★ 4.2</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 opacity-25 p-2.5">
-              <div className="w-5 h-5 rounded-full bg-gray-300 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</div>
-              <div>
-                <div className="text-xs text-gray-500">competitor-b.com</div>
-                <div className="text-[10px] text-gray-400">★★★ 3.8</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+         {/* Competitor 2 (Pushed Down) */}
+         <motion.div 
+           initial={{ y: 110 }}
+           animate={{ y: 220 }} 
+           transition={{ duration: 1.5, delay: 1, type: "spring", stiffness: 60 }}
+           className="absolute top-0 left-4 right-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 opacity-40"
+         >
+           <div className="flex items-center gap-2 mb-2">
+             <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-[10px] text-gray-500">3</div>
+             <div className="w-24 h-2.5 bg-gray-200 rounded-full" />
+           </div>
+           <div className="w-40 h-4 bg-gray-300 rounded mb-2" />
+           <div className="w-full h-2 bg-gray-100 rounded mb-1" />
+           <div className="w-4/6 h-2 bg-gray-100 rounded" />
+         </motion.div>
 
-      {/* #1 Ranking floating tag */}
-      <motion.div
-        initial={{ opacity: 0, x: 30, scale: 0.9 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 1.0, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -right-2 md:-right-5 top-[8%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-2"
-      >
-        <div className="w-9 h-9 rounded-full bg-sumac-brandy/10 flex items-center justify-center">
-          <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-        </div>
-        <div>
-          <div className="text-gray-900 font-bold text-xs">#1 Ranking</div>
-          <div className="text-green-500 text-[10px] font-medium">↑ 14 positions</div>
-        </div>
-      </motion.div>
+         {/* YOUR BUSINESS (Shoots to Top) */}
+         <motion.div 
+           initial={{ y: 220, scale: 0.95, opacity: 0 }}
+           animate={{ y: 0, scale: 1, opacity: 1 }} 
+           transition={{ duration: 1.5, delay: 1, type: "spring", stiffness: 60 }}
+           className="absolute top-0 left-4 right-4 bg-white p-4 rounded-xl shadow-[0_10px_30px_rgba(34,197,94,0.15)] border-2 border-green-500 z-10"
+         >
+           <div className="flex justify-between items-start mb-2">
+             <div className="flex items-center gap-2">
+               <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-[10px] text-white font-bold">1</div>
+               <div className="text-[10px] text-green-600 font-bold uppercase tracking-wider">yourbusiness.com</div>
+             </div>
+             <motion.div 
+               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}
+               className="bg-green-100 text-green-700 text-[9px] px-2 py-0.5 rounded-full font-bold flex items-center gap-1"
+             >
+               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+               RANKING
+             </motion.div>
+           </div>
+           <div className="text-lg font-bold text-gray-900 mb-1">Your Local Business Name</div>
+           <div className="flex items-center gap-1 mb-2">
+             <span className="text-yellow-400 text-[10px]">★★★★★</span>
+             <span className="text-gray-500 text-[10px]">5.0 (150+ Reviews)</span>
+           </div>
+           <div className="text-xs text-gray-600 leading-relaxed">
+             The most trusted, highly-rated service provider in your area. Contact us today for a free quote.
+           </div>
+         </motion.div>
 
-      {/* Organic traffic chip */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -left-2 md:-left-5 bottom-[10%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans"
-      >
-        <div className="text-gray-900 font-bold text-xs mb-1">Organic Traffic</div>
-        <div className="flex items-end gap-1 h-8">
-          {[20, 30, 25, 45, 55, 50, 70, 85].map((h, i) => (
-            <motion.div
-              key={i}
-              initial={{ height: 0 }}
-              animate={{ height: `${h}%` }}
-              transition={{ duration: 0.5, delay: 1.5 + i * 0.08 }}
-              className="w-2.5 bg-sumac-brandy/70 rounded-sm"
-            />
-          ))}
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
-/* ─── Google Business Profile Visual ─── */
+/* ─── Google Business Profile Visual (Isometric Grid) ─── */
 function GbpVisual() {
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/15 via-transparent to-transparent rounded-3xl blur-xl" />
+    <div className="relative w-full aspect-[4/3] flex items-center justify-center bg-[#111] overflow-hidden rounded-2xl">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sumac-brandy/20 via-transparent to-transparent" />
+      
+      {/* Isometric Container */}
+      <div className="relative w-full h-full perspective-[1000px] flex items-center justify-center">
+        <motion.div 
+          initial={{ rotateX: 60, rotateZ: -45, scale: 0.8 }}
+          animate={{ rotateX: 60, rotateZ: -45, scale: 1.2 }}
+          transition={{ duration: 1.5, type: "spring", stiffness: 40 }}
+          className="relative w-[300px] h-[300px] bg-[#1a1a24] border border-white/10 rounded-xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] transform-style-3d"
+        >
+          {/* Map Grid Surface */}
+          <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:40px_40px]" />
+          
+          {/* Roads */}
+          <div className="absolute top-[40%] w-full h-[15px] bg-[#222] border-y border-white/5 flex items-center justify-between overflow-hidden">
+             <div className="w-full border-t border-dashed border-yellow-500/30" />
+          </div>
+          <div className="absolute left-[60%] h-full w-[15px] bg-[#222] border-x border-white/5 flex flex-col items-center justify-between overflow-hidden">
+             <div className="h-full border-l border-dashed border-yellow-500/30" />
+          </div>
+          
+          {/* Competitor Buildings (Small Blocks) */}
+          <div className="absolute top-[20%] left-[20%] w-[30px] h-[30px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(10px)" }} />
+          <div className="absolute top-[70%] left-[30%] w-[40px] h-[40px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(15px)" }} />
+          <div className="absolute top-[30%] left-[80%] w-[25px] h-[25px] bg-white/5 border-t border-l border-white/10 rounded-sm shadow-xl" style={{ transform: "translateZ(8px)" }} />
 
-      {/* Map mockup */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative w-[85%] bg-[#1e1e1e] rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden z-10"
-      >
-        {/* Map background with grid */}
-        <div className="relative aspect-[4/3] bg-[#1a1a2e]">
-          {/* Stylized map grid */}
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }} />
-          {/* "Streets" */}
-          <div className="absolute top-[40%] left-0 right-0 h-[2px] bg-white/10" />
-          <div className="absolute top-0 bottom-0 left-[35%] w-[2px] bg-white/10" />
-          <div className="absolute top-0 bottom-0 left-[65%] w-[2px] bg-white/10" />
-          <div className="absolute top-[70%] left-0 right-0 h-[2px] bg-white/10" />
-
-          {/* Your pin (prominent) */}
-          <motion.div
-            initial={{ y: -30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7, type: "spring", stiffness: 200, damping: 15 }}
-            className="absolute top-[30%] left-[45%] -translate-x-1/2 z-20"
+          {/* Your Business Dominance */}
+          <motion.div 
+            initial={{ z: 200, opacity: 0 }}
+            animate={{ z: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, type: "spring", bounce: 0.6 }}
+            className="absolute top-[35%] left-[55%] transform-style-3d"
           >
-            <div className="relative">
-              <svg className="w-10 h-14 text-sumac-brandy drop-shadow-lg" viewBox="0 0 24 32" fill="currentColor">
-                <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0zm0 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
-              </svg>
-              {/* Pulse ring */}
-              <motion.div
-                animate={{ scale: [1, 2.5], opacity: [0.4, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-sumac-brandy"
-              />
+            {/* The Drop Pin (Stands upright despite isometric floor) */}
+            <div className="relative" style={{ transform: "rotateZ(45deg) rotateX(-60deg) translateY(-20px)" }}>
+               <svg className="w-16 h-20 text-sumac-brandy drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]" viewBox="0 0 24 32" fill="currentColor">
+                 <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0zm0 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
+               </svg>
+               {/* Ground Ripple */}
+               <motion.div 
+                 animate={{ scale: [1, 3], opacity: [0.8, 0] }}
+                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                 className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-8 h-3 bg-sumac-brandy rounded-[100%] blur-sm"
+                 style={{ transform: "rotateX(60deg)" }} // Flatten ripple to floor
+               />
+
+               {/* Exploding Review Cards */}
+               {[
+                 { x: -60, y: -40, rotate: -15, delay: 1.5 },
+                 { x: 60, y: -20, rotate: 10, delay: 1.7 },
+                 { x: -40, y: 40, rotate: -5, delay: 1.9 },
+               ].map((pos, i) => (
+                 <motion.div
+                   key={i}
+                   initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
+                   animate={{ opacity: 1, x: pos.x, y: pos.y, scale: 1, rotate: pos.rotate }}
+                   transition={{ duration: 0.6, delay: pos.delay, type: "spring", stiffness: 100 }}
+                   className="absolute top-1/2 left-1/2 w-28 bg-white rounded-lg p-2 shadow-2xl border border-gray-100 flex flex-col items-center gap-1 z-20"
+                 >
+                   <div className="flex gap-0.5 text-yellow-400">★★★★★</div>
+                   <div className="w-16 h-1.5 bg-gray-200 rounded-full" />
+                 </motion.div>
+               ))}
             </div>
           </motion.div>
-
-          {/* Dimmed competitor pins */}
-          <div className="absolute top-[55%] left-[25%] w-3 h-3 rounded-full bg-gray-500/40 border border-gray-500/60" />
-          <div className="absolute top-[20%] left-[70%] w-3 h-3 rounded-full bg-gray-500/40 border border-gray-500/60" />
-          <div className="absolute top-[65%] left-[60%] w-3 h-3 rounded-full bg-gray-500/40 border border-gray-500/60" />
-        </div>
-      </motion.div>
-
-      {/* 5-star review card */}
-      <motion.div
-        initial={{ opacity: 0, x: 30, scale: 0.9 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 1.0, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -right-2 md:-right-5 top-[8%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans"
-      >
-        <div className="flex gap-0.5 mb-1">
-          {[...Array(5)].map((_, i) => (
-            <svg key={i} className="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
-        </div>
-        <div className="text-gray-900 font-bold text-xs">5.0 (124 reviews)</div>
-        <div className="text-green-500 text-[10px] font-medium mt-0.5">Verified Business</div>
-      </motion.div>
-
-      {/* Open Now badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -left-2 md:-left-5 bottom-[12%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-2.5"
-      >
-        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-        <div>
-          <div className="text-gray-900 font-bold text-xs">Open Now</div>
-          <div className="text-gray-400 text-[10px]">Closes 6:00 PM</div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
 
-/* ─── Automations Visual ─── */
+/* ─── Automations Visual (Orbiting Nodes) ─── */
 function AutomationsVisual() {
   const nodes = [
-    { label: "New Lead", x: "8%", y: "20%", icon: "user" },
-    { label: "CRM Saved", x: "38%", y: "10%", icon: "database" },
-    { label: "Auto SMS", x: "68%", y: "20%", icon: "message" },
-    { label: "Review Ask", x: "38%", y: "65%", icon: "star" },
+    { label: "New Lead", angle: 0, icon: "user", color: "bg-blue-500" },
+    { label: "CRM Sync", angle: 120, icon: "database", color: "bg-purple-500" },
+    { label: "Auto SMS", angle: 240, icon: "message", color: "bg-green-500" },
   ];
 
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/15 via-transparent to-transparent rounded-3xl blur-xl" />
-
-      <div className="relative w-[90%] h-full z-10">
-        {/* Connection lines (SVG) */}
-        <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 400 300">
-          {/* Lines between nodes */}
-          <motion.line
-            x1="65" y1="75" x2="180" y2="50"
-            stroke="rgba(136, 47, 24, 0.4)" strokeWidth="2" strokeDasharray="6 4"
-            initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          />
-          <motion.line
-            x1="200" y1="50" x2="310" y2="75"
-            stroke="rgba(136, 47, 24, 0.4)" strokeWidth="2" strokeDasharray="6 4"
-            initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-          />
-          <motion.line
-            x1="310" y1="95" x2="200" y2="210"
-            stroke="rgba(136, 47, 24, 0.4)" strokeWidth="2" strokeDasharray="6 4"
-            initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-          />
-          <motion.line
-            x1="180" y1="210" x2="65" y2="95"
-            stroke="rgba(136, 47, 24, 0.4)" strokeWidth="2" strokeDasharray="6 4"
-            initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.7 }}
-          />
-
-          {/* Animated data dots traveling along paths */}
-          <motion.circle r="3" fill="#882F18"
-            animate={{ cx: [65, 180], cy: [75, 50], opacity: [1, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 2, repeatDelay: 1 }}
-          />
-          <motion.circle r="3" fill="#882F18"
-            animate={{ cx: [200, 310], cy: [50, 75], opacity: [1, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 2.5, repeatDelay: 1 }}
-          />
-          <motion.circle r="3" fill="#882F18"
-            animate={{ cx: [310, 200], cy: [95, 210], opacity: [1, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 3, repeatDelay: 1 }}
-          />
+    <div className="relative w-full aspect-[4/3] flex items-center justify-center bg-[#0d0d0d] rounded-2xl overflow-hidden border border-white/[0.08]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sumac-brandy/20 via-transparent to-transparent opacity-80" />
+      
+      {/* Central Hub */}
+      <motion.div 
+        initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", bounce: 0.5, duration: 1 }}
+        className="relative z-20 w-24 h-24 bg-sumac-brandy/20 border border-sumac-brandy/40 rounded-3xl flex items-center justify-center shadow-[0_0_40px_rgba(136,47,24,0.3)] backdrop-blur-md"
+      >
+        <svg className="w-10 h-10 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
+        {/* Pulsing rings */}
+        <motion.div animate={{ scale: [1, 2], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 rounded-3xl border border-sumac-brandy" />
+        <motion.div animate={{ scale: [1, 2.5], opacity: [0.3, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="absolute inset-0 rounded-3xl border border-sumac-brandy" />
+      </motion.div>
 
-        {/* Nodes */}
-        {nodes.map((node, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 + i * 0.2, type: "spring", stiffness: 150, damping: 15 }}
-            className="absolute z-10"
-            style={{ left: node.x, top: node.y }}
-          >
-            <div className="bg-white/[0.06] backdrop-blur-md border border-white/[0.12] rounded-2xl p-4 flex flex-col items-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-sumac-brandy/40 transition-colors min-w-[90px]">
-              <div className="w-10 h-10 rounded-full bg-sumac-brandy/15 border border-sumac-brandy/30 flex items-center justify-center">
-                {node.icon === "user" && (
-                  <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                )}
-                {node.icon === "database" && (
-                  <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                  </svg>
-                )}
-                {node.icon === "message" && (
-                  <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                )}
-                {node.icon === "star" && (
-                  <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
-                )}
-              </div>
-              <span className="text-white/80 text-[11px] font-medium whitespace-nowrap">{node.label}</span>
-            </div>
-          </motion.div>
-        ))}
+      {/* Orbit Track */}
+      <div className="absolute w-[280px] h-[280px] rounded-full border border-white/5 border-dashed" />
+      <div className="absolute w-[180px] h-[180px] rounded-full border border-white/5 border-dashed" />
 
-        {/* "Automated" status badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-          className="absolute bottom-[5%] right-[5%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-2"
-        >
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-          <div className="text-gray-900 font-bold text-xs">All Systems Active</div>
-        </motion.div>
-      </div>
+      {/* Orbiting Nodes */}
+      <motion.div 
+        animate={{ rotate: 360 }} 
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[280px] h-[280px] z-10"
+      >
+        {nodes.map((node, i) => {
+          const r = 140; // radius
+          const x = Math.cos((node.angle * Math.PI) / 180) * r;
+          const y = Math.sin((node.angle * Math.PI) / 180) * r;
+
+          return (
+            <motion.div
+              key={i}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1 + i * 0.2 }}
+              className="absolute top-1/2 left-1/2 flex flex-col items-center gap-2"
+              style={{ x, y, marginLeft: -32, marginTop: -32 }}
+            >
+               {/* Anti-rotate to keep nodes upright */}
+               <motion.div 
+                 animate={{ rotate: -360 }} 
+                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                 className="flex flex-col items-center"
+               >
+                 <div className={`w-14 h-14 ${node.color}/10 border border-${node.color.split('-')[1]}-500/30 rounded-2xl flex items-center justify-center backdrop-blur-md shadow-xl`}>
+                   {node.icon === "user" && <svg className={`w-6 h-6 text-${node.color.split('-')[1]}-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>}
+                   {node.icon === "database" && <svg className={`w-6 h-6 text-${node.color.split('-')[1]}-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>}
+                   {node.icon === "message" && <svg className={`w-6 h-6 text-${node.color.split('-')[1]}-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>}
+                 </div>
+                 <div className="text-white/80 text-[10px] uppercase tracking-wider font-bold mt-2 bg-[#111] px-2 py-1 rounded border border-white/10">{node.label}</div>
+               </motion.div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+      
+      {/* Streaming Data Dots */}
+      <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <defs>
+          <filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <motion.circle r="3" fill="#882F18" filter="url(#glow)" animate={{ cx: [150, 200, 250], cy: [150, 200, 150], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
+      </svg>
     </div>
   );
 }

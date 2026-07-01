@@ -75,11 +75,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Websites engineered for",
       headlineAccent: "growth",
-      description: "Custom-coded, lightning-fast websites with built-in lead capture. No templates, no page builders. Just clean code that loads instantly and turns visitors into booked jobs."
+      description: "Custom-coded sites with built-in lead capture. No templates, just fast code that converts."
     },
     definition: {
       title: "What Is Next-Gen Web Design?",
-      description: "It's not a generic Wix template or a bloated WordPress theme. It's a custom, hand-coded website built on modern tech that actually loads instantly, ranks well on Google, and is specifically designed to turn your visitors into paying customers.",
+      description: "Custom code websites built to load fast, rank on Google, and turn visitors into customers.",
       examples: [
         '"Why does my website look outdated?"',
         '"My site is slow on mobile"',
@@ -98,25 +98,25 @@ export const services: ServiceDetail[] = [
     benefits: [
       {
         title: "Blazing Fast",
-        tagline: "Lightning-fast load times that keep visitors on your site instead of bouncing to competitors.",
+        tagline: "Load times that keep visitors on your site, not your competitor's.",
         icon: "zap",
         visualType: "dashboard"
       },
       {
         title: "Built to Convert",
-        tagline: "Every layout decision is engineered to guide visitors toward calling or booking.",
+        tagline: "Every layout guides visitors toward calling or booking.",
         icon: "target",
         visualType: "dashboard"
       },
       {
         title: "Fully Custom",
-        tagline: "No templates. Custom-coded using advanced AI to deliver a flawless, premium experience on every device.",
+        tagline: "No templates. Custom-coded for a premium experience on every device.",
         icon: "code",
         visualType: "code"
       },
       {
         title: "Managed For You",
-        tagline: "Hosting, updates, and security handled completely, so you can focus on your business.",
+        tagline: "Hosting, updates, and security handled for you.",
         icon: "shield",
         visualType: "server"
       }
@@ -198,8 +198,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "Web Design That Helps Customers Find Your Business",
-      subtitle: "When people in your area search for what you do, you need to be the obvious choice. We build high-performance sites that make you look like the most trusted option in town, which naturally drives more calls.",
+      title: "Get Found When Customers Search",
+      subtitle: "High-performance sites that make you the obvious local choice.",
       ctaLabel: "Get My Free Website Audit",
       ctaHref: "/thank-you",
       image: "/images/titan-roofing.webp"
@@ -224,7 +224,7 @@ export const services: ServiceDetail[] = [
     ],
     bottomCta: {
       title: "Ready for a new website?",
-      description: "Let's build something amazing together.",
+      description: "Book a free strategy call.",
       ctaLabel: "Get Started",
       ctaHref: "/thank-you"
     }
@@ -235,11 +235,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Get found on Google",
       headlineAccent: "& AI",
-      description: "Traditional SEO gets you on Google. AIO gets you recommended by tools like ChatGPT and Perplexity. We do both, so no matter how people are searching, your business shows up first."
+      description: "SEO for Google. AIO for ChatGPT and Perplexity. We cover both.",
     },
     definition: {
       title: "What Is SEO & AIO?",
-      description: "SEO (Search Engine Optimization) gets your website ranking on Google. AIO (AI Optimization) structures your content so AI tools like ChatGPT and Perplexity recommend your business when people ask for services. Together, they cover every way modern customers find local businesses.",
+      description: "SEO ranks you on Google. AIO gets AI tools to recommend your business when people search.",
       examples: [
         '"Best roofer in Rochester" - Google',
         '"Find me a reliable HVAC company" - ChatGPT',
@@ -358,8 +358,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "Local SEO That Helps Customers Find Your Business",
-      subtitle: "When someone nearby needs your services, you should be the first name they see. Our approach builds real local authority that improves your visibility and actually generates phone calls from Google.",
+      title: "Rank Where Your Customers Search",
+      subtitle: "Local authority that drives calls from Google and AI tools.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "/thank-you",
       image: "/images/sumac/image12-blurred.webp"
@@ -395,11 +395,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Dominate the local",
       headlineAccent: "map pack",
-      description: "Your Google Business Profile is usually the first thing customers see, even before your website. We optimize every single detail so you show up in the map pack, look highly trustworthy, and actually get the call."
+      description: "Your Google profile is often the first thing customers see. We optimize it so you show up in the map pack and get the call.",
     },
     definition: {
       title: "What Is Google Business Profile Optimization?",
-      description: "It means making sure your Google Maps listing is perfectly dialed in with the right categories, photos, and reviews, so when someone searches for what you do, you show up in those top three map results.",
+      description: "Dial in your Google Maps listing with the right categories, photos, and reviews to land in the top three map results.",
       examples: [
         '"Roofer near me" - triggers map pack',
         '"HVAC repair open now" - shows hours',
@@ -518,8 +518,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "Local SEO That Helps Customers Find Your Business",
-      subtitle: "If you want local customers to call you, you need to dominate the map pack. We optimize your profile to build trust and get you in front of the people actively searching for your services.",
+      title: "Own the Local Map Pack",
+      subtitle: "A profile optimized to build trust and drive calls.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "/thank-you",
       image: "/images/sumac/image12-blurred.webp"
@@ -555,11 +555,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Stop losing leads to",
       headlineAccent: "slow follow-up",
-      description: "When a lead reaches out and doesn't get an answer, they move on in minutes. Our systems respond instantly with a personalized text, log the lead, and queue up the follow-up, all without you lifting a finger."
+      description: "Leads move on fast when no one responds. Our systems reply instantly, log the lead, and handle follow-up automatically.",
     },
     definition: {
       title: "What Are Business Automations?",
-      description: "We connect your website, phone, and messaging tools into one smooth system. When a customer reaches out, the system instantly replies and organizes their information, ensuring you never lose a lead just because you were busy.",
+      description: "We connect your website, phone, and messaging into one system that replies instantly and never loses a lead.",
       examples: [
         'Missed call → instant text reply sent',
         'Form submitted → lead saved to CRM automatically',
@@ -678,8 +678,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "Automations That Help You Close More Deals",
-      subtitle: "Stop wasting time on repetitive manual tasks. We build systems that ensure every single lead gets an instant reply and every happy customer gets asked for a review automatically.",
+      title: "Close More Deals on Autopilot",
+      subtitle: "Instant replies and review requests without the manual work.",
       ctaLabel: "Book a Strategy Call",
       ctaHref: "/thank-you",
       image: "/images/sumac/image12-blurred.webp"

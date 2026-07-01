@@ -19,7 +19,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sumac.io'),
   title: "Sumac Systems & Development",
-  description: "Stop losing leads to outdated templates. We hand-code custom, lightning-fast websites with built-in automation to turn local traffic into booked jobs.",
+  description: "Stop losing leads to outdated templates. We custom code lightning-fast websites with built-in automation to turn local traffic into booked jobs.",
   keywords: ["web design", "local business websites", "SEO for contractors", "automated lead follow-up", "custom web development", "local SEO", "service business software"],
   openGraph: {
     title: "Sumac Systems & Development",
