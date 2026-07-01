@@ -348,10 +348,8 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
              
              {/* Push Notification (Drops in from notch) */}
              <motion.div
-                initial={{ y: -60, opacity: 0 }}
-                whileInView={{ y: -30, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
+                animate={{ y: [-60, -30, -30, -60], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 7, times: [0, 0.07, 0.9, 1], repeat: Infinity, ease: "easeOut" }}
                 className="absolute top-12 left-1/2 -translate-x-1/2 w-[85%] bg-[#222]/90 backdrop-blur-md rounded-lg p-2 border border-white/10 shadow-xl flex items-center gap-2 z-40"
              >
                 <div className="w-5 h-5 bg-green-500/20 rounded flex items-center justify-center shrink-0">
@@ -365,11 +363,9 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
 
              {/* Incoming Message */}
              <motion.div 
-               initial={{ opacity: 0, scale: 0.9, originX: 0, originY: 1 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ type: "spring", delay: 1.0 }}
-               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 mt-4"
+               animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.9, 0.9, 1, 1, 0.9] }}
+               transition={{ duration: 7, times: [0, 0.2, 0.25, 0.9, 1], repeat: Infinity, ease: "backOut" }}
+               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 mt-4 origin-bottom-left"
              >
                <div className="h-1.5 w-16 bg-white/60 rounded mb-1.5" />
                <div className="h-1.5 w-24 bg-white/40 rounded" />
@@ -377,12 +373,9 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
 
              {/* Typing Indicator */}
              <motion.div 
-               initial={{ opacity: 0, scale: 0.9, originX: 1, originY: 1 }}
-               whileInView={{ opacity: 0 }}
-               animate={{ opacity: [0, 1, 1, 0], scale: [0.9, 1, 1, 0.9] }}
-               viewport={{ once: true }}
-               transition={{ times: [0, 0.1, 0.9, 1], duration: 1.5, delay: 1.5 }}
-               className="bg-sumac-brandy/20 p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[40%] flex items-center gap-1"
+               animate={{ opacity: [0, 0, 1, 1, 0, 0], scale: [0.9, 0.9, 1, 1, 0.9, 0.9] }}
+               transition={{ duration: 7, times: [0, 0.35, 0.4, 0.55, 0.6, 1], repeat: Infinity, ease: "backOut" }}
+               className="bg-sumac-brandy/20 p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[40%] flex items-center gap-1 origin-bottom-right"
              >
                <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0 }} className="w-1.5 h-1.5 bg-sumac-brandy rounded-full" />
                <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0.2 }} className="w-1.5 h-1.5 bg-sumac-brandy rounded-full" />
@@ -391,11 +384,9 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
              
              {/* Outgoing Automated Reply */}
              <motion.div 
-               initial={{ opacity: 0, scale: 0.9, originX: 1, originY: 1 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ type: "spring", delay: 3.1 }} // Appears after typing indicator disappears
-               className="bg-sumac-brandy p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[85%] shadow-lg -mt-10"
+               animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.9, 0.9, 1, 1, 0.9] }}
+               transition={{ duration: 7, times: [0, 0.58, 0.63, 0.9, 1], repeat: Infinity, ease: "backOut" }}
+               className="bg-sumac-brandy p-2.5 rounded-2xl rounded-tr-sm self-end max-w-[85%] shadow-lg -mt-10 origin-bottom-right"
              >
                <div className="h-1.5 w-20 bg-white rounded mb-1.5" />
                <div className="h-1.5 w-16 bg-white/80 rounded" />
@@ -406,10 +397,8 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
              
              {/* Badge */}
              <motion.div
-               initial={{ opacity: 0, y: 10 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: 3.6 }}
+               animate={{ opacity: [0, 0, 1, 1, 0], y: [10, 10, 0, 0, 10] }}
+               transition={{ duration: 7, times: [0, 0.65, 0.7, 0.9, 1], repeat: Infinity, ease: "easeOut" }}
                className="mt-auto mx-auto bg-white/10 px-3 py-1.5 rounded-full flex items-center justify-center gap-1.5 border border-white/10"
              >
                <svg className="w-2.5 h-2.5 text-sumac-brandy mt-[0.5px]" fill="currentColor" viewBox="0 0 16 16">
@@ -505,6 +494,130 @@ function ServerGraphic({ benefit }: { benefit: BenefitType }) {
   );
 }
 
+/* ─── 6. Orbit Graphic (Reputation & Stars) ─── */
+function OrbitGraphic({ benefit }: { benefit: BenefitType }) {
+  return (
+    <div className="relative w-full h-full p-8 bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex items-center justify-center">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent opacity-80" />
+      
+      {/* Center Star */}
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", delay: 0.2 }}
+        className="relative z-10 w-16 h-16 bg-[#1a1a1a] rounded-full border border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.2)] flex items-center justify-center text-yellow-500"
+      >
+        <div className="w-8 h-8"><ServiceIcon name="star" /></div>
+        <motion.div
+          animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute inset-0 rounded-full bg-yellow-500/20 blur-md -z-10"
+        />
+      </motion.div>
+
+      {/* Orbit Rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <motion.div className="absolute w-40 h-40 rounded-full border border-yellow-500/10" />
+        <motion.div className="absolute w-64 h-64 rounded-full border border-yellow-500/10" />
+      </div>
+
+      {/* Orbiting Planets (Reviews) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Orbit 1 */}
+        <motion.div 
+          animate={{ rotate: 360 }} 
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute w-40 h-40 rounded-full"
+        >
+          <motion.div 
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+            className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1a1a1a] border border-yellow-500/30 text-yellow-500 text-[8px] font-bold px-2 py-1 rounded-full shadow-lg flex items-center gap-1"
+          >
+            5.0 <ServiceIcon name="star" />
+          </motion.div>
+        </motion.div>
+
+        {/* Orbit 2 */}
+        <motion.div 
+          animate={{ rotate: -360 }} 
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute w-64 h-64 rounded-full"
+        >
+          <motion.div 
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8 }}
+            className="absolute top-1/4 -right-4 bg-[#1a1a1a] border border-yellow-500/30 text-yellow-500 text-[8px] font-bold px-2 py-1 rounded-full shadow-lg flex items-center gap-1"
+          >
+            5.0 <ServiceIcon name="star" />
+          </motion.div>
+          <motion.div 
+            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1.1 }}
+            className="absolute bottom-1/4 -left-4 bg-[#1a1a1a] border border-yellow-500/30 text-yellow-500 text-[8px] font-bold px-2 py-1 rounded-full shadow-lg flex items-center gap-1"
+          >
+            5.0 <ServiceIcon name="star" />
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── 7. Target Graphic (Radar & SEO) ─── */
+function TargetGraphic({ benefit }: { benefit: BenefitType }) {
+  return (
+    <div className="relative w-full h-full p-8 bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex items-center justify-center">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-80" />
+      
+      {/* Radar Rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute w-24 h-24 rounded-full border border-blue-500/20" />
+        <div className="absolute w-48 h-48 rounded-full border border-blue-500/20" />
+        <div className="absolute w-72 h-72 rounded-full border border-blue-500/20" />
+        {/* Crosshairs */}
+        <div className="absolute w-full h-px bg-blue-500/10" />
+        <div className="absolute h-full w-px bg-blue-500/10" />
+      </div>
+
+      {/* Radar Sweep */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          className="absolute w-full h-full origin-center"
+          style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(59, 130, 246, 0.4) 100%)', borderRadius: '50%' }}
+        />
+      </div>
+
+      {/* Center Target */}
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", delay: 0.2 }}
+        className="relative z-10 w-12 h-12 bg-[#1a1a1a] rounded-full border border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center text-blue-500"
+      >
+        <div className="w-6 h-6"><ServiceIcon name="target" /></div>
+      </motion.div>
+
+      {/* Blips */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <motion.div 
+          animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 1.5] }} transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+          className="absolute -top-12 left-12 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_#60a5fa]" 
+        />
+        <motion.div 
+          animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 1.5] }} transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
+          className="absolute top-16 right-16 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_#60a5fa]" 
+        />
+        <motion.div 
+          animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 1.5] }} transition={{ duration: 4, repeat: Infinity, delay: 2.8 }}
+          className="absolute -bottom-16 -left-8 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_#60a5fa]" 
+        />
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main Export Component ─── */
 export function BenefitVisual({ benefit }: { benefit: BenefitType }) {
   const type = benefit.visualType || "dashboard";
@@ -512,7 +625,10 @@ export function BenefitVisual({ benefit }: { benefit: BenefitType }) {
   switch (type) {
     case "dashboard": return <DashboardGraphic benefit={benefit} />;
     case "code": return <CodeGraphic benefit={benefit} />;
-    case "network": return <NetworkGraphic benefit={benefit} />;
+    case "network": 
+      if (benefit.icon === "star") return <OrbitGraphic benefit={benefit} />;
+      if (benefit.icon === "target") return <TargetGraphic benefit={benefit} />;
+      return <NetworkGraphic benefit={benefit} />;
     case "mobile": return <MobileGraphic benefit={benefit} />;
     case "server": return <ServerGraphic benefit={benefit} />;
     default: return <DashboardGraphic benefit={benefit} />;
