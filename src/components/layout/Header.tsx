@@ -80,7 +80,7 @@ const Header = () => {
  {/* CTA */}
  <div className="hidden md:flex items-center gap-4">
  <Link 
- href="https://calendly.com/sumac-systems" 
+ href="/thank-you" 
  className={`bg-white text-black rounded-full font-bold tracking-wider uppercase hover:bg-white/90 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.06)] hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] hover:-translate-y-px ${scrolled ? 'px-5 py-2 text-xs' : 'px-6 py-2.5 text-sm'}`}
  >
  Book Strategy Call

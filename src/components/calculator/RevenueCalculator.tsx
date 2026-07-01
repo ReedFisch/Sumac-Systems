@@ -547,7 +547,7 @@ function StepThree({
           Let&apos;s plug the leaks. Book a free, no-pressure systems audit to see exactly how we can automate your growth.
         </p>
         <a
-          href="https://calendly.com/sumac-systems"
+          href="/thank-you"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block w-full py-4 bg-sumac-brandy text-white font-bold text-base tracking-wider rounded-full hover:brightness-110 transition-all shadow-[0_0_30px_rgba(77,93,16,0.3)] hover:shadow-[0_0_50px_rgba(77,93,16,0.45)] text-center"
