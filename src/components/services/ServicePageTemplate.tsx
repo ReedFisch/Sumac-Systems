@@ -73,7 +73,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* Struggles Section (Red 'X' Cards) */}
-      <section className="py-20 md:py-32 bg-black/40 border-y border-white/[0.06]">
+      <section className="py-20 md:py-32 bg-sumac-slate border-y border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
@@ -133,7 +133,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-20 md:py-32 bg-black/20 border-t border-white/[0.06]">
+      <section className="py-20 md:py-32 bg-sumac-slate border-t border-white/[0.06]">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
