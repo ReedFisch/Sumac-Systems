@@ -200,28 +200,28 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
-        question: "How long does a new website take to build?",
-        answer: "Because we build custom layouts instead of relying on generic templates, a standard build takes a few weeks from our kickoff call to launch. We move quickly because we know every day you are stuck with an outdated site is a missed opportunity, but we never rush the technical foundation."
-      },
-      {
-        question: "How does pricing work?",
-        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems. We walk through the exact numbers on our strategy call once we understand your specific needs."
+        question: "How long does it actually take to build?",
+        answer: "Usually a few weeks from our first call to launch. We move fast, but we're not going to rush the build just to hit a date. Every site we ship has to be something we're genuinely proud of."
       },
       {
         question: "What if I already have a website?",
-        answer: "We will look at what you currently have and figure out what is working and what needs rebuilding. In most cases, it makes sense to rebuild from the ground up so we can properly integrate modern AI search visibility and lead automations. We handle the transition so you do not lose any existing traffic."
+        answer: "We'll take a look at it honestly. Sometimes there are pieces worth keeping. More often, rebuilding from scratch is the right call - especially if we're wiring in automations and AI visibility from the ground up."
       },
       {
-        question: "Do I have to manage the technical updates?",
-        answer: "No. You are hiring us so you can focus on running your business. We handle the web hosting, security updates, site speed optimization, and ongoing technical maintenance."
+        question: "Do I have to deal with hosting, updates, and all that?",
+        answer: "Nope. That's on us. Hosting, security patches, speed optimization - we handle it all. You run your business, we keep the site running."
       },
       {
-        question: "Will my website be mobile-friendly?",
-        answer: "Absolutely. All of our websites are built mobile-first, ensuring they look and perform flawlessly on any device."
+        question: "How does the pricing work?",
+        answer: "Flat monthly rate, no surprise invoices. It covers the build, hosting, and ongoing management. We'll go through the numbers on our strategy call once we understand what you actually need."
       },
       {
-        question: "What happens if I cancel?",
-        answer: "Our service is an ongoing package that includes hosting, active SEO, and software management. If you cancel, the website and its connected automations will be taken offline at the end of your billing cycle. However, we have a strict Business Continuity Safeguard - if Sumac ever permanently closes, we transfer full ownership of the code and domain directly to you at no cost."
+        question: "Will it look good on my phone?",
+        answer: "Yes. We build mobile-first because that's how most of your customers are finding you. It will look and feel sharp on every device."
+      },
+      {
+        question: "What happens if I want to cancel?",
+        answer: "The site comes down at the end of your billing cycle. That said, we have a Business Continuity Safeguard - if we ever shut down as a company, you get full ownership of the code and domain. You're never left stranded."
       }
     ],
     bottomCta: {
@@ -364,28 +364,28 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
-        question: "How long does local SEO take?",
-        answer: "SEO is a long-term strategy. While you might see initial improvements in weeks, substantial and lasting growth typically takes 3 to 6 months of consistent effort."
+        question: "How long until I see results?",
+        answer: "Honest answer - SEO takes time. You might see movement in a few weeks, but meaningful, lasting rankings usually take 3 to 6 months. Anyone promising page one in 30 days is lying to you."
       },
       {
-        question: "What exactly is AI Search Optimization?",
-        answer: "Traditional SEO focuses on getting you to the top of a standard Google search page. That is still important, but people are increasingly using tools like ChatGPT, Perplexity, and Google AI Overviews to find businesses. We structure your website code and content specifically so those AI models can easily read, understand, and recommend your services to potential clients."
+        question: "What even is AIEO and why does it matter?",
+        answer: "AIEO stands for AI Engine Optimization. When someone asks ChatGPT or Perplexity to recommend a local business, those AI tools pull from structured content on the web. If your site isn't built to be read by those models, you're invisible to that entire channel. We fix that."
       },
       {
-        question: "Do I need a website for SEO?",
-        answer: "Yes, a well-optimized website is the foundation of any successful SEO campaign. It is where you convert the traffic you earn."
+        question: "Do I need a new website for this to work?",
+        answer: "Not necessarily, but your website is the foundation. If it's slow, poorly structured, or missing the right content, no SEO strategy will stick. We'll tell you upfront if a rebuild makes sense."
       },
       {
-        question: "Can local SEO help my type of business?",
-        answer: "If you serve local customers within a specific geographic area, local SEO is essential to ensure you capture high-intent search traffic."
+        question: "Can this actually help my type of business?",
+        answer: "If people search for what you do online - and they do - then yes. Local service businesses especially have a massive opportunity here because most of your competitors haven't figured this out yet."
       },
       {
         question: "How does pricing work?",
-        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems."
+        answer: "Flat monthly rate, no retainer shock. It covers strategy, implementation, and ongoing optimization. We'll walk through the specifics on a call."
       },
       {
-        question: "What makes you different from other agencies?",
-        answer: "Most agencies just design a digital brochure, hand over the keys, and disappear. We build systems designed to capture leads and save you time. Every decision we make is backed by a focus on human behavior, technical performance, and making sure your business looks highly credible."
+        question: "What makes you different from every other SEO agency?",
+        answer: "Most agencies send you a monthly PDF and call it a day. We build the actual technical infrastructure - schema markup, entity optimization, AI-readable content structure - and we tie it directly to your lead flow. Results you can measure."
       }
     ],
     bottomCta: {
@@ -528,28 +528,28 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
-        question: "How long does local SEO take?",
-        answer: "While profile optimization can yield quick initial wins, climbing the local rankings usually takes 30 to 90 days depending on competition."
+        question: "How long does it take to climb the map pack?",
+        answer: "Profile optimization can move the needle fast - sometimes within a few weeks. Climbing into the top 3 consistently depends on how competitive your area is, but most clients see real movement within 30 to 90 days."
       },
       {
-        question: "Do reviews help local SEO?",
-        answer: "Absolutely. Consistent, positive reviews are one of the strongest ranking factors for Google Business Profiles."
+        question: "Why do reviews matter so much?",
+        answer: "Reviews are one of the biggest signals Google uses to decide who shows up in the map pack. More reviews, higher rating, and steady velocity of new ones - that combo is hard for competitors to beat."
       },
       {
-        question: "How does the audit work?",
-        answer: "We analyze your current Google Business Profile, compare it against local competitors, and identify exactly what steps are needed to dominate your area."
+        question: "I already have a Google Business Profile - can you still help?",
+        answer: "Almost always, yes. Most profiles we audit are missing categories, have thin service descriptions, inconsistent hours, or no photos. There's usually a lot of room to improve without starting from scratch."
       },
       {
-        question: "What if I already have a Google Business Profile?",
-        answer: "Great - we will audit what you currently have, fix inconsistencies, expand your categories and services, and build out a strategy to consistently outrank competitors in the local map pack."
+        question: "Do I have to post on it or manage it myself?",
+        answer: "No. We handle the profile updates, write the Google Posts, respond to reviews, and keep everything current. You just focus on the actual jobs."
       },
       {
-        question: "Do I have to manage anything myself?",
-        answer: "No. You are hiring us so you can focus on running your business. We handle the profile updates, review responses, Google Posts, and ongoing optimization."
+        question: "Does my Google profile affect my regular Google search rankings too?",
+        answer: "Yes. A well-optimized GBP sends strong local authority signals to Google that lift both your map pack position and your organic rankings. It's connected."
       },
       {
-        question: "Can local SEO help my type of business?",
-        answer: "If you serve local customers within a specific geographic area, local SEO is essential to ensure you capture high-intent search traffic."
+        question: "What if my business operates in multiple cities?",
+        answer: "We can build out a strategy that covers your full service area - creating local landing pages and citation signals for each location so you show up wherever your customers are searching."
       }
     ],
     bottomCta: {
@@ -692,28 +692,28 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
-        question: "How do the automated text follow-ups work?",
-        answer: "When someone interacts with your business online, you have a very short window to reply before they move on to a competitor. We connect your website forms and phone lines to an automated system. If a lead submits a form or calls and you miss it, the system instantly sends them a customized text message to keep them engaged until you can personally reply."
+        question: "How fast does the missed call text actually go out?",
+        answer: "Within seconds. The moment someone calls and you don't pick up, the system fires a personalized text to keep them engaged. You'd be shocked how many jobs are won just by being the first one to respond."
       },
       {
-        question: "What kind of tools do you integrate?",
-        answer: "We integrate with CRMs, Zapier, Make, Twilio, and almost any modern software with an API."
+        question: "What tools do you integrate with?",
+        answer: "Pretty much anything with an API. We work with HubSpot, GoHighLevel, Zapier, Make, Twilio, Stripe, Google Calendar, and more. If you already use something, we'll connect it."
       },
       {
-        question: "Is it difficult to learn the new systems?",
-        answer: "We build intuitive workflows and provide full training so your team can adapt effortlessly."
+        question: "Is this going to be complicated to learn?",
+        answer: "No. We build the whole thing and walk you through exactly how it works. Most clients are running it confidently within a day. The point is to make your life easier, not add another thing to manage."
       },
       {
-        question: "Will this replace my employees?",
-        answer: "No, automations empower your employees to focus on high-value, creative work instead of robotic data entry."
+        question: "Am I going to lose the personal touch with customers?",
+        answer: "The automations handle the mechanical stuff - the instant reply, the follow-up, the review ask. You still handle the real conversations. Think of it as having a reliable system working in the background while you focus on the actual relationship."
       },
       {
         question: "How does pricing work?",
-        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems."
+        answer: "Flat monthly rate, no project sticker shock. Covers the build and ongoing management. We'll go through the specifics on a strategy call once we understand your current workflow."
       },
       {
-        question: "Do I need to provide anything to get started?",
-        answer: "Yes, you know your business better than anyone. We ask that you provide core details about your workflows, the tools you currently use, and the pain points you want solved. We handle the technical architecture from there."
+        question: "What do I need to provide to get started?",
+        answer: "Just a clear picture of how your business currently operates - how leads come in, what happens next, what's slipping through the cracks. We take it from there and build the system around your actual workflow."
       }
     ],
     bottomCta: {

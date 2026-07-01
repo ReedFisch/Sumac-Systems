@@ -344,7 +344,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 <Link href={`/services/${s.slug}`} className="block group h-full">
                   <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.05] hover:border-sumac-brandy/40 hover:shadow-[0_0_30px_rgba(136,47,24,0.1)] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sumac-brandy transition-colors">{s.title}</h3>
-                    <p className="text-white/50 font-body text-sm mb-6 flex-grow">{s.hero.description}</p>
+                    <p className="text-white/50 font-body text-sm mb-6 flex-grow">{s.hero.description.split('.')[0]}.</p>
                     <div className="flex items-center text-sumac-brandy font-medium text-sm">
                       Learn More 
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
