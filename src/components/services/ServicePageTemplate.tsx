@@ -7,6 +7,7 @@ import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceHeroVisual } from "@/components/services/ServiceHeroVisual";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
+import { BenefitVisual } from "@/components/services/BenefitVisual";
 import Image from "next/image";
 
 function FadeInView({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -38,7 +39,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-[180px] md:pt-[280px] pb-16 md:pb-24">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(var(--site-header-h)+2rem)] md:pt-[280px] pb-12 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -64,7 +65,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                   className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-sumac-brandy text-white rounded-full font-semibold text-sm overflow-hidden hover:shadow-[0_0_30px_rgba(136,47,24,0.5)] transition-all"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  Book a Strategy Call
+                  <span className="md:hidden">Book a Call</span>
+                  <span className="hidden md:inline">Book a Strategy Call</span>
                 </Link>
               </div>
             </motion.div>
@@ -141,13 +143,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                       className="aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
                     >
-                      {benefit.image ? (
-                        <Image src={benefit.image} alt={benefit.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-white/5 flex items-center justify-center">
-                           <ServiceIcon name={benefit.icon} />
-                        </div>
-                      )}
+                      <BenefitVisual benefit={benefit as any} />
                       <div className="absolute inset-0 bg-gradient-to-tr from-sumac-dark/40 to-transparent pointer-events-none" />
                     </motion.div>
                   </div>
@@ -178,29 +174,29 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
            <FadeInView className="text-center mb-16 md:mb-20">
-            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight">The Numbers Speak For Themselves</h2>
+            <h2 className="text-sm md:text-base uppercase tracking-[0.2em] font-mono font-bold text-sumac-brandy">The Numbers Speak For Themselves</h2>
            </FadeInView>
            
            <div className="grid md:grid-cols-3 gap-12 md:gap-16 text-center">
              <FadeInView delay={0.1} className="flex flex-col items-center group">
                <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">75%</span>
                <h4 className="text-white font-bold text-xl mb-3">Credibility Judged by Design</h4>
-               <p className="text-white/50 text-base leading-relaxed mb-6">Users judge a business&apos;s credibility directly based on their website design and speed.</p>
-               <a href="https://exhibits.stanford.edu/fogg/catalog/yg466vx0159" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Stanford Research</a>
+               <p className="text-white/80 text-base leading-relaxed mb-6">Users judge a business&apos;s credibility directly based on their website design and speed.</p>
+               <a href="https://exhibits.stanford.edu/fogg/catalog/yg466vx0159" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Stanford Research</a>
              </FadeInView>
              
              <FadeInView delay={0.2} className="flex flex-col items-center group">
                <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">27%</span>
                <h4 className="text-white font-bold text-xl mb-3">Clicks Go to Rank #1</h4>
-               <p className="text-white/50 text-base leading-relaxed mb-6">The #1 organic result in Google captures over a quarter of all local search traffic.</p>
-               <a href="https://backlinko.com/google-ctr-stats" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Backlinko SEO Study</a>
+               <p className="text-white/80 text-base leading-relaxed mb-6">The #1 organic result in Google captures over a quarter of all local search traffic.</p>
+               <a href="https://backlinko.com/google-ctr-stats" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Backlinko SEO Study</a>
              </FadeInView>
              
              <FadeInView delay={0.3} className="flex flex-col items-center group">
                <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">5m</span>
                <h4 className="text-white font-bold text-xl mb-3">The Golden Window</h4>
-               <p className="text-white/50 text-base leading-relaxed mb-6">Waiting longer than 5 minutes to reply to a lead drops contact rates by 10x.</p>
-               <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Harvard Business Review</a>
+               <p className="text-white/80 text-base leading-relaxed mb-6">Waiting longer than 5 minutes to reply to a lead drops contact rates by 10x.</p>
+               <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Harvard Business Review</a>
              </FadeInView>
            </div>
         </div>

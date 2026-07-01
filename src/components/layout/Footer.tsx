@@ -54,14 +54,14 @@ const Footer = () => {
  <p className="hidden md:block text-white/50 text-sm max-w-xs font-body leading-relaxed">
  High-performance websites and automated marketing systems for businesses that want to grow.
  </p>
- <div className="flex gap-4 mt-6">
+ <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mt-5 md:mt-6">
  <a href="tel:+15185514125" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">(518) 551-4125</a>
- <span className="text-white/30">·</span>
- <a href="mailto:hello@sumac.systems" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">hello@sumac.systems</a>
+ <span className="hidden sm:inline text-white/30">·</span>
+ <a href="mailto:hello@sumac.systems" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider break-all">hello@sumac.systems</a>
  </div>
  </div>
  
- <div className="col-span-1 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-4 md:gap-8 pt-4 md:pt-[120px]">
+ <div className="col-span-1 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6 md:gap-8 pt-2 md:pt-[120px]">
  {/* Services column */}
  <div>
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Services</h4>

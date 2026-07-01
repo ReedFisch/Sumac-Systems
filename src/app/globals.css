@@ -25,6 +25,7 @@ html:focus-within {
 }
 
 body {
+  overflow-x: hidden;
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
