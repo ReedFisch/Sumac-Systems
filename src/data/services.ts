@@ -73,7 +73,7 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Websites engineered for",
       headlineAccent: "growth",
-      description: "Custom-coded, lightning-fast websites with built-in lead capture. No templates, no page builders. Just clean code that loads in under a second and turns visitors into booked jobs."
+      description: "Custom-coded, lightning-fast websites with built-in lead capture. No templates, no page builders. Just clean code that loads instantly and turns visitors into booked jobs."
     },
     definition: {
       title: "What Is Next-Gen Web Design?",
@@ -96,7 +96,7 @@ export const services: ServiceDetail[] = [
     benefits: [
       {
         title: "Blazing Fast",
-        tagline: "Sub-second load times that keep visitors on your site instead of bouncing to competitors.",
+        tagline: "Lightning-fast load times that keep visitors on your site instead of bouncing to competitors.",
         icon: "zap"
       },
       {
