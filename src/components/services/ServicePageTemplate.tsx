@@ -22,7 +22,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-[180px] md:pt-[280px] pb-16 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-sumac-brandy uppercase mb-6">

@@ -103,7 +103,7 @@ export const services: ServiceDetail[] = [
       title: "Web Design That Helps Customers Find Your Business",
       subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our high-performance sites help improve your visibility, build trust, and generate more opportunities.",
       ctaLabel: "Get My Free Website Audit",
-      ctaHref: "/audit",
+      ctaHref: "/#contact",
       image: "/images/titan-roofing.webp"
     },
     faqs: [
@@ -124,7 +124,7 @@ export const services: ServiceDetail[] = [
       title: "Ready for a new website?",
       description: "Let's build something amazing together.",
       ctaLabel: "Get Started",
-      ctaHref: "/audit"
+      ctaHref: "/#contact"
     }
   },
   {
@@ -187,7 +187,7 @@ export const services: ServiceDetail[] = [
       title: "Local SEO That Helps Customers Find Your Business",
       subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our Local Authority System helps improve your visibility, build trust, and generate more opportunities from Google.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "/audit",
+      ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp" // Using a generic image as placeholder
     },
     faqs: [
@@ -208,7 +208,7 @@ export const services: ServiceDetail[] = [
       title: "Want more organic traffic?",
       description: "Start ranking higher today.",
       ctaLabel: "Get a Free Audit",
-      ctaHref: "/audit"
+      ctaHref: "/#contact"
     }
   },
   {
@@ -271,7 +271,7 @@ export const services: ServiceDetail[] = [
       title: "Local SEO That Helps Customers Find Your Business",
       subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our Local Authority System helps improve your visibility, build trust, and generate more opportunities from Google.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "/audit",
+      ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp" // Need to replace with map rankings if available
     },
     faqs: [
@@ -292,7 +292,7 @@ export const services: ServiceDetail[] = [
       title: "Need more local customers?",
       description: "Let's optimize your profile.",
       ctaLabel: "Start Now",
-      ctaHref: "/audit"
+      ctaHref: "/#contact"
     }
   },
   {
@@ -355,7 +355,7 @@ export const services: ServiceDetail[] = [
       title: "Automations That Help You Close More Deals",
       subtitle: "Stop doing repetitive manual tasks. Our automation systems ensure every lead is followed up with instantly and every happy customer is asked for a review.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "/audit",
+      ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -376,7 +376,7 @@ export const services: ServiceDetail[] = [
       title: "Ready to scale efficiently?",
       description: "Automate your business today.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "/audit"
+      ctaHref: "/#contact"
     }
   }
 ];
