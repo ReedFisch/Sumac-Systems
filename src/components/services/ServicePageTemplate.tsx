@@ -22,7 +22,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-[calc(var(--site-header-h-hero)+2.5rem)] md:pt-[calc(var(--site-header-h-hero)+3.5rem)] pb-16 md:pb-24">
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-sumac-brandy uppercase mb-6">
@@ -56,7 +56,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 4-Card Benefits Section */}
-      <section className="py-20 md:py-24 relative">
+      <section className="py-16 md:py-24 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {service.benefits.map((benefit, i) => (
@@ -73,7 +73,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* Struggles Section (Red 'X' Cards) */}
-      <section className="py-20 md:py-32 bg-sumac-slate border-y border-white/[0.06]">
+      <section className="py-16 md:py-24 bg-sumac-slate border-y border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
@@ -103,7 +103,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* Middle CTA & Proof Section */}
-      <section className="py-20 md:py-32">
+      <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <h2 className="text-4xl md:text-6xl font-sans font-bold text-white tracking-tight mb-8 text-balance">
             {service.middleCta.title}
@@ -133,7 +133,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-20 md:py-32 bg-sumac-slate border-t border-white/[0.06]">
+      <section className="py-16 md:py-24 bg-sumac-slate border-t border-white/[0.06]">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
@@ -148,7 +148,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 md:py-28 bg-[#1f0a05] border-t border-white/[0.06]">
+      <section className="py-16 md:py-24 bg-[#1f0a05] border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
             {service.bottomCta.title}
