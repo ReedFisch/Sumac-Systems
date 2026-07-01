@@ -213,7 +213,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "How does the pricing work?",
-        answer: "Flat monthly rate, no surprise invoices. It covers the build, hosting, and ongoing management. We'll go through the numbers on our strategy call once we understand what you actually need."
+        answer: "There's a one-time fee to build the site, and then a flat monthly rate after that. The monthly fee covers all hosting, security updates, and ongoing management so you don't have to touch a thing. We'll go through the exact numbers on our strategy call."
       },
       {
         question: "Will it look good on my phone?",
@@ -381,7 +381,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "How does pricing work?",
-        answer: "Flat monthly rate, no retainer shock. It covers strategy, implementation, and ongoing optimization. We'll walk through the specifics on a call."
+        answer: "It's a one-time setup fee to build out the technical infrastructure, followed by a flat monthly rate for ongoing strategy and optimization. No retainer shock. We'll walk through the specifics on a call."
       },
       {
         question: "What makes you different from every other SEO agency?",
@@ -709,7 +709,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "How does pricing work?",
-        answer: "Flat monthly rate, no project sticker shock. Covers the build and ongoing management. We'll go through the specifics on a strategy call once we understand your current workflow."
+        answer: "There's a one-time build fee to engineer the workflows, and then a flat monthly rate to keep the systems running and managed. No project sticker shock. We'll go through the specifics on a strategy call once we understand your current workflow."
       },
       {
         question: "What do I need to provide to get started?",
