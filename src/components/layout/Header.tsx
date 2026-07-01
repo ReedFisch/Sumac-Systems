@@ -40,13 +40,13 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 pt-[env(safe-area-inset-top,0px)] ${
         scrolled || menuOpen
           ? 'bg-black/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-4 md:py-6 flex items-center justify-between gap-4 relative min-h-[64px] md:min-h-0">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 h-16 md:h-auto md:py-6 flex items-center justify-between gap-3 md:gap-4 relative">
         <Link
           href="/"
           onClick={closeMenu}

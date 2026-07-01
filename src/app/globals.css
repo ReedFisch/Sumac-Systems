@@ -17,6 +17,13 @@
 
 :root {
   color-scheme: dark;
+  --site-header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-header-h: 120px;
+  }
 }
 
 /* Smooth scroll only on focus to fix Next.js back button scroll restoration */

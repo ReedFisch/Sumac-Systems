@@ -10,7 +10,7 @@ export default function ThankYouPage() {
  return (
  <div className="flex flex-col min-h-screen bg-sumac-dark text-white">
  <Header />
- <main className="flex-1 w-full pt-40 md:pt-56 pb-20 relative overflow-hidden">
+ <main className="flex-1 w-full pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+2.5rem)] md:pt-56 pb-20 relative overflow-hidden">
  <div className="max-w-3xl mx-auto px-6 relative z-10 flex flex-col items-center">
  <div className="w-full flex justify-start mb-6">
  <BackButton />

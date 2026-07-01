@@ -275,6 +275,7 @@ function NetworkGraphic({ benefit }: { benefit: BenefitType }) {
 /* ─── 4. Mobile Graphic (GBP & Instant Response) ─── */
 function MobileGraphic({ benefit }: { benefit: BenefitType }) {
   const isMap = benefit.icon === "map-pin";
+  const isPhone = benefit.icon === "phone";
 
   return (
     <div className="relative w-full h-full flex items-center justify-center p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group">
@@ -338,6 +339,77 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
                <div className="flex gap-2">
                  <div className="h-6 flex-1 bg-sumac-brandy rounded-md" />
                  <div className="h-6 flex-1 bg-white/10 rounded-md" />
+               </div>
+            </motion.div>
+          </div>
+        ) : isPhone ? (
+          // Direct Call Interface
+          <div className="flex-1 bg-white p-3 pt-8 flex flex-col gap-3 relative overflow-hidden">
+            {/* Fake Search Bar */}
+            <div className="h-7 bg-gray-100 rounded-full flex items-center px-3 gap-2 w-full shadow-inner border border-gray-200">
+              <svg className="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <div className="h-1.5 w-16 bg-gray-300 rounded" />
+            </div>
+
+            {/* GBP Listing Card */}
+            <div className="bg-white border border-gray-200 rounded-xl p-3 shadow-sm flex flex-col gap-2 mt-1">
+              <div className="h-2 w-24 bg-gray-800 rounded" />
+              <div className="flex items-center gap-1">
+                <span className="text-[8px] font-bold text-gray-800">5.0</span>
+                <div className="flex gap-0.5">
+                   {[1,2,3,4,5].map(i => (
+                     <svg key={i} className="w-2 h-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                   ))}
+                </div>
+                <span className="text-[7px] text-gray-500">(142)</span>
+              </div>
+              <div className="h-1 w-20 bg-gray-300 rounded" />
+              <div className="h-1 w-32 bg-gray-200 rounded" />
+
+              {/* Call Button Grid */}
+              <div className="grid grid-cols-3 gap-2 mt-2">
+                 <motion.div
+                   animate={{ scale: [1, 1, 0.9, 1, 1], backgroundColor: ["#22c55e", "#22c55e", "#16a34a", "#22c55e", "#22c55e"] }}
+                   transition={{ duration: 6, times: [0, 0.2, 0.25, 0.3, 1], repeat: Infinity }}
+                   className="col-span-3 bg-green-500 text-white rounded-full py-2 flex items-center justify-center gap-1.5 font-bold text-[9px] shadow-sm relative overflow-hidden"
+                 >
+                   <motion.div 
+                     animate={{ x: ["-100%", "200%", "200%"] }} 
+                     transition={{ duration: 6, times: [0, 0.15, 1], repeat: Infinity }}
+                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full"
+                   />
+                   <div className="w-2.5 h-2.5"><ServiceIcon name="phone" /></div>
+                   Call Now
+                 </motion.div>
+                 <div className="bg-gray-100 rounded-full py-1.5 flex justify-center"><div className="h-1 w-4 bg-gray-300 rounded" /></div>
+                 <div className="bg-gray-100 rounded-full py-1.5 flex justify-center"><div className="h-1 w-4 bg-gray-300 rounded" /></div>
+                 <div className="bg-gray-100 rounded-full py-1.5 flex justify-center"><div className="h-1 w-4 bg-gray-300 rounded" /></div>
+              </div>
+            </div>
+
+            {/* Incoming Call Screen (slides up) */}
+            <motion.div
+               animate={{ y: ["100%", "100%", "0%", "0%", "100%"] }}
+               transition={{ duration: 6, times: [0, 0.3, 0.4, 0.9, 1], repeat: Infinity, ease: "easeInOut" }}
+               className="absolute inset-x-0 bottom-0 top-0 bg-[#0a0a0a] flex flex-col items-center justify-center z-50 pt-4"
+            >
+               <div className="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center mb-3 text-gray-400">
+                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+               </div>
+               <div className="text-[12px] font-bold text-white mb-0.5 tracking-tight">New Customer</div>
+               <div className="text-[9px] text-green-400 mb-8 font-mono">Calling... 0:01</div>
+               
+               <div className="flex gap-6 mt-4">
+                 <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white">
+                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M5 3a2 2 0 00-2 2v1c0 10 8 18 18 18h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.516l2.257-1.13a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" /></svg>
+                 </div>
+                 <motion.div 
+                   animate={{ scale: [1, 1.1, 1], boxShadow: ["0 0 0px #22c55e", "0 0 20px #22c55e", "0 0 0px #22c55e"] }} 
+                   transition={{ duration: 1.5, repeat: Infinity }}
+                   className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white"
+                 >
+                   <div className="w-4 h-4"><ServiceIcon name="phone" /></div>
+                 </motion.div>
                </div>
             </motion.div>
           </div>
@@ -618,12 +690,64 @@ function TargetGraphic({ benefit }: { benefit: BenefitType }) {
   );
 }
 
+/* ─── 8. Funnel Graphic (Conversion) ─── */
+function FunnelGraphic({ benefit }: { benefit: BenefitType }) {
+  return (
+    <div className="relative w-full h-full p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex flex-col justify-center gap-6">
+      <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 via-transparent to-transparent opacity-60" />
+      
+      {/* Funnel Container */}
+      <div className="relative w-full max-w-[280px] mx-auto flex flex-col gap-3">
+        {/* Top Level - Traffic */}
+        <div className="w-full bg-[#1c1c1c] border border-white/10 p-3 rounded-xl flex items-center justify-between relative z-30">
+          <div className="flex items-center gap-3">
+            <div className="text-gray-400 w-5 h-5"><ServiceIcon name="users" /></div>
+            <div className="text-xs font-bold text-white">Local Traffic</div>
+          </div>
+          <div className="text-sm font-mono text-white/50">2,450</div>
+          {/* Animated Particles flowing down */}
+          <motion.div animate={{ y: [0, 40, 40], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -bottom-4 left-1/4 w-1.5 h-1.5 bg-green-500/50 rounded-full" />
+          <motion.div animate={{ y: [0, 40, 40], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.6 }} className="absolute -bottom-4 left-1/2 w-1.5 h-1.5 bg-green-500/50 rounded-full" />
+          <motion.div animate={{ y: [0, 40, 40], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 1.2 }} className="absolute -bottom-4 right-1/4 w-1.5 h-1.5 bg-green-500/50 rounded-full" />
+        </div>
+
+        {/* Middle Level - Optimized Site */}
+        <div className="w-[85%] mx-auto bg-[#1a1a1a] border border-green-500/30 shadow-[0_0_20px_rgba(34,197,94,0.1)] p-3 rounded-xl flex items-center justify-between relative z-20">
+          <div className="flex items-center gap-3">
+            <div className="text-green-500 w-5 h-5"><ServiceIcon name="zap" /></div>
+            <div className="text-xs font-bold text-white">Optimized Site</div>
+          </div>
+          <div className="text-xs font-bold text-green-400">14.2% CVR</div>
+          {/* Animated Particles flowing down */}
+          <motion.div animate={{ y: [0, 40, 40], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.3 }} className="absolute -bottom-4 left-1/3 w-1.5 h-1.5 bg-green-500 rounded-full" />
+          <motion.div animate={{ y: [0, 40, 40], opacity: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.9 }} className="absolute -bottom-4 right-1/3 w-1.5 h-1.5 bg-green-500 rounded-full" />
+        </div>
+
+        {/* Bottom Level - Leads */}
+        <div className="w-[70%] mx-auto bg-green-500/10 border border-green-500 p-4 rounded-xl flex items-center justify-between relative z-10 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+          <div className="flex items-center gap-3">
+            <div className="text-green-500 w-5 h-5"><ServiceIcon name="target" /></div>
+            <div className="text-sm font-bold text-white">New Leads</div>
+          </div>
+          <div className="flex items-center gap-2">
+             <div className="text-lg font-bold text-green-400 font-mono tracking-tight">348</div>
+             <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  );
+}
+
 /* ─── Main Export Component ─── */
 export function BenefitVisual({ benefit }: { benefit: BenefitType }) {
   const type = benefit.visualType || "dashboard";
 
   switch (type) {
-    case "dashboard": return <DashboardGraphic benefit={benefit} />;
+    case "dashboard": 
+      if (benefit.icon === "target" && benefit.title.includes("Convert")) return <FunnelGraphic benefit={benefit} />;
+      return <DashboardGraphic benefit={benefit} />;
     case "code": return <CodeGraphic benefit={benefit} />;
     case "network": 
       if (benefit.icon === "star") return <OrbitGraphic benefit={benefit} />;

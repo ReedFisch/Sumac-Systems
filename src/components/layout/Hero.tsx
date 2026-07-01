@@ -21,7 +21,7 @@ const Hero = () => {
  const opacityScroll = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
  return (
- <section ref={containerRef} className="relative min-h-screen flex flex-col justify-center pt-[180px] md:pt-[280px] pb-8 overflow-visible bg-sumac-dark">
+ <section ref={containerRef} className="relative min-h-0 md:min-h-screen flex flex-col justify-center pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-[280px] pb-8 overflow-visible bg-sumac-dark">
  {/* Background Aurora */}
  <div className="absolute inset-0 z-0 opacity-30">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
@@ -47,7 +47,7 @@ const Hero = () => {
  <Image src="/images/sumac/image4.webp" alt="" fill sizes="260px" className="object-contain scale-x-[-1]" aria-hidden="true" />
  </motion.div>
  <motion.div 
- className="absolute top-[20%] right-4 md:right-16 z-0 opacity-40 w-[300px] h-[300px] md:w-[450px] md:h-[450px] md:-right-20 pointer-events-none"
+ className="absolute top-[20%] right-4 md:right-16 z-0 opacity-40 w-[300px] h-[300px] md:w-[450px] md:h-[450px] md:-right-20 pointer-events-none hidden md:block"
  animate={{ y: [0, -15, 0], x: [0, -12, 0], rotate: [0, 10, 0] }}
  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
  >
@@ -61,7 +61,7 @@ const Hero = () => {
  <Image src="/images/sumac/image8.webp" alt="" fill sizes="450px" className="object-contain rotate-45" aria-hidden="true" />
  </motion.div>
  <motion.div 
- className="absolute bottom-16 left-[10%] md:left-[22%] z-0 opacity-30 w-[250px] h-[250px] md:w-[350px] md:h-[350px] md:left-[10%] pointer-events-none"
+ className="absolute bottom-16 left-[10%] md:left-[22%] z-0 opacity-30 w-[250px] h-[250px] md:w-[350px] md:h-[350px] md:left-[10%] pointer-events-none hidden md:block"
  animate={{ y: [0, 18, 0], x: [0, 10, 0], rotate: [0, -10, 0] }}
  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
  >
@@ -72,7 +72,7 @@ const Hero = () => {
  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center flex-1">
 
 
- <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-8 text-balance">
+ <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-6 md:mb-8 text-balance">
  <FlipText text="We build websites and the" delay={0.08} /> <span className="font-accent italic text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy via-[#7cff67] to-sumac-slate pr-2">systems</span> <FlipText text="around them" delay={0.08} />
  </h1>
 
@@ -82,12 +82,12 @@ const Hero = () => {
  initial={{ opacity: 0, y: 30 }}
  animate={{ opacity: 1, y: 0 }}
  transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
- className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 pb-32 md:pb-0 pointer-events-auto"
+ className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-16 pb-8 md:pb-0 pointer-events-auto"
  >
  <MagneticButton>
  <a
  href="/thank-you"
- className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-black rounded-full font-bold text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
+ className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white text-black rounded-full font-bold text-base md:text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
  Book a Free Strategy Call
@@ -111,7 +111,7 @@ const Hero = () => {
  opacity: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
  y: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }
  }}
- className="relative z-20 w-[88%] max-w-5xl mx-auto mt-16 -mb-24 md:-mb-48 pointer-events-none"
+ className="relative z-20 w-[88%] max-w-5xl mx-auto mt-16 -mb-24 md:-mb-48 pointer-events-none hidden md:block"
  >
   {/* Glow behind mockup */}
   <div className="absolute -inset-8 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" />

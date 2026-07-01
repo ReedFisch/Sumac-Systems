@@ -114,24 +114,24 @@ export default function Home() {
  <Hero />
  
  {/* Services Section */}
- <section id="services" className="bg-sumac-dark text-white pt-48 pb-28 md:pt-72 md:pb-40 relative overflow-hidden">
+ <section id="services" className="bg-sumac-dark text-white pt-32 pb-16 md:pt-72 md:pb-40 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
  <Particles
- className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+ className="absolute inset-0 z-0 opacity-30 pointer-events-none hidden md:block"
  quantity={80}
  ease={80}
  staticity={50}
  />
  
  {/* Floating Decor */}
- <ScrollParallax offset={200} className="absolute top-40 right-10 w-72 h-72 pointer-events-none z-0">
+ <ScrollParallax offset={200} className="absolute top-40 right-10 w-72 h-72 pointer-events-none z-0 hidden md:block">
  <motion.div variants={floatVariant(0, 12)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
  <Image src="/images/sumac/image6.webp" alt="" fill sizes="288px" className="object-contain opacity-10 animate-[float_10s_ease-in-out_infinite]" aria-hidden="true" />
  </motion.div>
  </ScrollParallax>
- <ScrollParallax offset={-150} className="absolute bottom-40 -left-10 w-56 h-56 pointer-events-none z-0">
+ <ScrollParallax offset={-150} className="absolute bottom-40 -left-10 w-56 h-56 pointer-events-none z-0 hidden md:block">
  <motion.div variants={floatVariant(2, 10)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
  <Image src="/images/sumac/image2.webp" alt="" fill sizes="500px" className="object-contain opacity-30 animate-[float_8s_ease-in-out_infinite] scale-x-[-1]" aria-hidden="true" />
  </motion.div>
@@ -144,19 +144,19 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-6xl mx-auto px-6 w-full relative z-10"
  >
- <div className="text-center mb-20">
+ <div className="text-center mb-10 md:mb-20">
  <motion.div variants={fadeUpVariant}>
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">What We Do</span>
  </motion.div>
- <h2 className="text-4xl md:text-6xl font-sans font-bold tracking-tight text-white">
+ <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white">
  <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
- <motion.p variants={fadeUpVariant} className="text-white/40 text-lg font-body max-w-2xl mx-auto mt-6">
+ <motion.p variants={fadeUpVariant} className="hidden md:block text-white/40 text-lg font-body max-w-2xl mx-auto mt-6">
  We don't just build digital brochures. We engineer complete systems designed to actually convert traffic into revenue.
  </motion.p>
  </div>
 
- <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+ <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
  {services.map((service, i) => {
  const isWide = i === 0 || i === 3;
  return (
@@ -167,24 +167,16 @@ export default function Home() {
  transition={{ type: "spring", stiffness: 400, damping: 25 }}
  className={isWide ? "md:col-span-7" : "md:col-span-5"}
  >
- <SpotlightCard className="bg-sumac-dark/40 backdrop-blur-md border border-white/5 hover:border-white/10 rounded-2xl p-8 md:p-10 transition-all duration-500 h-full flex flex-col justify-between group">
- <div className="absolute -top-24 -right-24 w-64 h-64 bg-sumac-brandy/10 rounded-full blur-[80px] group-hover:bg-sumac-brandy/20 group-hover:scale-150 transition-all duration-700 ease-in-out pointer-events-none" />
+ <SpotlightCard className="bg-sumac-dark/40 backdrop-blur-md border border-white/5 hover:border-white/10 rounded-2xl p-6 md:p-10 transition-all duration-500 h-full flex flex-col justify-between group">
+ <div className="absolute -top-24 -right-24 w-64 h-64 bg-sumac-brandy/10 rounded-full blur-[80px] group-hover:bg-sumac-brandy/20 group-hover:scale-150 transition-all duration-700 ease-in-out pointer-events-none hidden md:block" />
  
  <div>
- <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:-translate-y-2 group-hover:rotate-3 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+ <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center mb-5 md:mb-8 relative z-10 group-hover:-translate-y-2 group-hover:rotate-3 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
  {service.icon}
  </div>
- <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
- <p className="text-white/60 font-body leading-relaxed text-base relative z-10 mb-8 max-w-sm">{service.desc}</p>
+ <h3 className="text-xl md:text-3xl font-sans font-bold tracking-tight mb-2 md:mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
+ <p className="text-white/60 font-body leading-relaxed text-sm md:text-base relative z-10 mb-0 md:mb-8 max-w-sm">{service.desc}</p>
  
- <ul className="space-y-3 relative z-10 md:hidden">
- {service.bullets.slice(0, 1).map((bullet, idx) => (
- <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
- <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy mt-1.5 shrink-0 shadow-[0_0_8px_var(--color-sumac-brandy)]" />
- <span className="leading-relaxed">{bullet}</span>
- </li>
- ))}
- </ul>
  <ul className="hidden md:block space-y-4 relative z-10">
  {service.bullets.map((bullet, idx) => (
  <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
@@ -195,7 +187,7 @@ export default function Home() {
  </ul>
  </div>
 
- <Link href={`/services/${service.slug}`} className="mt-10 flex items-center gap-2 text-white/55 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
+ <Link href={`/services/${service.slug}`} className="mt-5 md:mt-10 flex items-center gap-2 text-white/55 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
  <span className="text-xs font-bold tracking-wider uppercase">
   Explore {service.title}
  </span>
@@ -209,13 +201,13 @@ export default function Home() {
  </section>
 
  {/* AI Differentiator Section */}
- <section className="bg-gradient-to-b from-sumac-dark via-[#180000] to-sumac-dark text-white py-32 md:py-44 relative overflow-hidden">
- <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+ <section className="bg-gradient-to-b from-sumac-dark via-[#180000] to-sumac-dark text-white py-16 md:py-44 relative overflow-hidden">
+ <div className="absolute inset-0 z-0 opacity-20 pointer-events-none hidden md:block">
     <Particles className="absolute inset-0" quantity={50} ease={80} staticity={50} />
  </div>
  
  {/* Floating Decor */}
- <ScrollParallax offset={100} className="absolute top-1/2 left-20 w-[400px] h-[400px] pointer-events-none z-0">
+ <ScrollParallax offset={100} className="absolute top-1/2 left-20 w-[400px] h-[400px] pointer-events-none z-0 hidden md:block">
  <motion.div variants={floatVariant(1, 14)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
  <Image src="/images/sumac/image6.webp" alt="" fill sizes="400px" className="object-contain opacity-10 animate-[float_10s_ease-in-out_infinite]" aria-hidden="true" />
  </motion.div>
@@ -229,7 +221,7 @@ export default function Home() {
  className="max-w-3xl mx-auto px-6 text-center relative z-10"
  >
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-6">Our Approach</span>
- <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans mb-8 tracking-tight leading-[1.1]">
+ <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
  <BlurText text="Most SEO advice is" delay={30} animateBy="words" direction="bottom" className="inline-block md:block" />{" "}
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2016.</span>
  </h2>
@@ -240,9 +232,9 @@ export default function Home() {
  </section>
 
  {/* FAQ Section */}
- <section className="bg-[#0a0a0a] text-white py-28 md:py-40 relative overflow-hidden border-y border-white/[0.04]">
+ <section className="bg-[#0a0a0a] text-white py-16 md:py-40 relative overflow-hidden border-y border-white/[0.04]">
  {/* Frosted Background Asset */}
- <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+ <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center hidden md:flex">
  <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a] z-10" />
  <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] z-10" />
  <div className="w-full max-w-7xl h-[120%] relative opacity-30 mix-blend-screen blur-[12px]">
@@ -258,7 +250,7 @@ export default function Home() {
  </div>
  </div>
  
- <ScrollParallax offset={-150} className="absolute bottom-20 right-0 w-96 h-96 pointer-events-none z-10">
+ <ScrollParallax offset={-150} className="absolute bottom-20 right-0 w-96 h-96 pointer-events-none z-10 hidden md:block">
  <motion.div variants={floatVariant(3, 16)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
  <Image src="/images/sumac/image8.webp" alt="" fill sizes="384px" className="object-contain opacity-15 animate-[float_12s_ease-in-out_infinite] scale-x-[-1] scale-y-[-1]" aria-hidden="true" />
  </motion.div>
@@ -271,17 +263,33 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-4xl mx-auto px-6 relative z-20"
  >
- <div className="text-center mb-16 md:mb-20">
+ <div className="text-center mb-10 md:mb-20">
  <motion.div variants={fadeUpVariant}>
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Questions</span>
  </motion.div>
- <h2 className="text-4xl md:text-6xl font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+ <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
  <TrueFocus sentence="Frequently Asked" manualMode={false} blurAmount={4} borderColor="#882F18" animationDuration={1.5} pauseBetweenAnimations={1} />
  <span>Questions</span>
  </h2>
  </div>
  
- <motion.div variants={fadeUpVariant}>
+ <motion.div variants={fadeUpVariant} className="md:hidden">
+ <Accordion 
+ items={[
+ { 
+ title: "How does pricing work?", 
+ desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.", 
+ items: [] 
+ },
+ { 
+ title: "How long does it actually take to launch?", 
+ desc: "Usually a few weeks from our first call to launch. We move fast, but we aren't going to rush the build just to hit an arbitrary date. Every site we ship has to be built right.", 
+ items: [] 
+ }
+ ]} 
+ />
+ </motion.div>
+ <motion.div variants={fadeUpVariant} className="hidden md:block">
  <Accordion 
  items={[
  { 
@@ -311,12 +319,12 @@ export default function Home() {
  </section>
 
  {/* About Section */}
- <section id="about" className="bg-sumac-dark text-white py-28 md:py-40 relative overflow-hidden">
+ <section id="about" className="bg-sumac-dark text-white py-16 md:py-40 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
  
- <ScrollParallax offset={150} className="absolute top-40 left-10 w-[350px] h-[350px] pointer-events-none z-0">
+ <ScrollParallax offset={150} className="absolute top-40 left-10 w-[350px] h-[350px] pointer-events-none z-0 hidden md:block">
  <motion.div variants={floatVariant(0, 16)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
  <Image src="/images/sumac/image7.webp" alt="" fill sizes="350px" className="object-contain opacity-15 animate-[float_12s_ease-in-out_infinite]" aria-hidden="true" />
  </motion.div>
@@ -334,7 +342,7 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16 md:gap-20"
  >
- <motion.div variants={fadeUpVariant} className="w-full md:w-5/12">
+ <motion.div variants={fadeUpVariant} className="hidden md:block w-full md:w-5/12">
  <TiltCard rotationIntensity={15} className="w-full">
  <div className="relative aspect-[4/5] max-w-sm mx-auto rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_20px_80px_rgba(0,0,0,0.4)] group">
  <Image src="/images/founder.webp" alt="Reed" fill sizes="(max-width: 768px) 100vw, 384px" className="object-cover group-hover:scale-[1.03] transition-all duration-700 pointer-events-none select-none" />
@@ -347,12 +355,12 @@ export default function Home() {
  <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight">
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline-block mr-2" /> <span className="whitespace-nowrap"><span className="italic font-accent pr-2 text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,</span> <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline-block ml-2" />
  </h2>
- <div className="space-y-5 text-white/50 font-body text-base leading-relaxed">
-  <p>Hey, I'm Reed.</p>
-  <p>I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
-  <p>I run a lean, independent operation. When you hire Sumac Systems, you work directly with me. I don't outsource the development, and I don't rely on bloated templates.</p>
-  <div className="pt-5 border-t border-white/[0.06] mt-6">
-  <p className="font-accent text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I'm genuinely proud of.&rdquo;</p>
+ <div className="space-y-4 md:space-y-5 text-white/50 font-body text-base leading-relaxed">
+  <p>Hey, I'm Reed. I run a lean, independent operation — when you hire Sumac Systems, you work directly with me.</p>
+  <p className="hidden md:block">I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
+  <p className="hidden md:block">I don't outsource the development, and I don't rely on bloated templates.</p>
+  <div className="pt-4 md:pt-5 border-t border-white/[0.06] mt-4 md:mt-6">
+  <p className="font-accent text-lg md:text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I'm genuinely proud of.&rdquo;</p>
   </div>
   </div>
  </motion.div>
@@ -360,7 +368,7 @@ export default function Home() {
  </section>
 
  {/* CurvedLoop Marquee Transition */}
- <section className="bg-sumac-dark overflow-hidden relative z-10 py-7 md:py-8">
+ <section className="bg-sumac-dark overflow-hidden relative z-10 py-7 md:py-8 hidden md:block">
  <CurvedLoop 
  marqueeText="✦ STRATEGIC ARCHITECTURE ✦ SEAMLESS AUTOMATION ✦ AI SEARCH OPTIMIZATION ✦ HIGH PERFORMANCE ✦" 
  speed={1} 

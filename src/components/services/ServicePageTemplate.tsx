@@ -40,14 +40,14 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(var(--site-header-h)+2rem)] md:pt-[280px] pb-12 md:pb-24">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-[280px] pb-10 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="font-mono text-[10px] tracking-[0.3em] text-sumac-brandy uppercase mb-6">
+              <p className="font-mono text-[10px] tracking-[0.3em] text-sumac-brandy uppercase mb-4 md:mb-6">
                 {service.title}
               </p>
               <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-sans font-bold text-white tracking-tight leading-[1.1] text-balance">
@@ -76,7 +76,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:pl-8"
+              className="hidden lg:block lg:pl-8"
             >
               <ServiceHeroVisual slug={service.slug} />
             </motion.div>
@@ -85,20 +85,20 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 2. Definition Section */}
-      <section className="py-16 md:py-24 border-b border-white/[0.06] relative overflow-hidden">
+      <section className="py-10 md:py-24 border-b border-white/[0.06] relative overflow-hidden">
         {/* Subtle radial glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-sumac-brandy/[0.04] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
             <FadeInView>
-              <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
+              <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-4 md:mb-6">
                 {service.definition.title}
               </h2>
-              <p className="text-white/60 font-body text-lg leading-relaxed">
+              <p className="text-white/60 font-body text-base md:text-lg leading-relaxed">
                 {service.definition.description}
               </p>
             </FadeInView>
-            <FadeInView delay={0.15}>
+            <FadeInView delay={0.15} className="hidden md:block">
               <div className="relative">
                 {/* Decorative background blur */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-sumac-brandy/5 blur-[80px] rounded-full pointer-events-none" />
@@ -146,8 +146,28 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* 3. Benefits Zig-Zag Section */}
-      <section className="py-16 md:py-32 relative">
+      {/* 3. Benefits — mobile list */}
+      <section className="py-10 md:hidden border-b border-white/[0.06]">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl font-sans font-bold text-white tracking-tight mb-6">What you get</h2>
+          <div className="space-y-4">
+            {service.benefits.slice(0, 3).map((benefit, i) => (
+              <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <div className="w-10 h-10 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy shrink-0">
+                  <ServiceIcon name={benefit.icon} />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-white mb-1">{benefit.title}</h3>
+                  <p className="text-white/50 font-body text-sm leading-relaxed">{benefit.tagline}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Benefits Zig-Zag Section — desktop */}
+      <section className="hidden md:block py-16 md:py-32 relative">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <FadeInView className="text-center mb-16 md:mb-24">
             <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight">
@@ -193,7 +213,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 4. Struggles Section */}
-      <section className="py-16 md:py-28 relative overflow-hidden border-y border-white/[0.04]">
+      <section className="hidden md:block py-16 md:py-28 relative overflow-hidden border-y border-white/[0.04]">
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-cover bg-center" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sumac-brandy/[0.06] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 lg:px-10 relative">
@@ -239,7 +259,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 5. Process Flow Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
+      <section className="hidden md:block py-16 md:py-24 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-sumac-brandy/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
           <FadeInView className="text-center mb-16">
@@ -277,7 +297,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
 
 
       {/* 7. Features Checklist Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
+      <section className="hidden md:block py-16 md:py-24 relative overflow-hidden">
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-sumac-brandy/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 relative">
           <FadeInView className="text-center mb-16">
@@ -313,36 +333,41 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 8. FAQ Accordion */}
-      <section className="py-16 md:py-24 border-t border-white/[0.06]">
+      <section className="py-10 md:py-24 border-t border-white/[0.06]">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <FadeInView className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4">
+          <FadeInView className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight">
               Frequently Asked Questions
             </h2>
           </FadeInView>
           
           <FadeInView delay={0.1}>
-            <ServiceFaq faqs={service.faqs} />
+            <div className="md:hidden">
+              <ServiceFaq faqs={service.faqs.slice(0, 2)} />
+            </div>
+            <div className="hidden md:block">
+              <ServiceFaq faqs={service.faqs} />
+            </div>
           </FadeInView>
         </div>
       </section>
 
       {/* 9. Middle CTA & Proof Section */}
-      <section className="py-16 md:py-24 bg-[#0a0000] border-t border-white/[0.06] relative overflow-hidden">
+      <section className="py-10 md:py-24 bg-[#0a0000] border-t border-white/[0.06] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-sumac-brandy/[0.03] via-transparent to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center relative">
           <FadeInView>
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6 text-balance">
+            <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6 text-balance">
               {service.middleCta.title}
             </h2>
             <Link
               href={service.middleCta.ctaHref}
-              className="group relative inline-flex items-center justify-center px-8 py-4 bg-sumac-brandy text-white rounded-full font-bold text-base overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.4)] transition-all mb-16"
+              className="group relative inline-flex items-center justify-center px-8 py-4 bg-sumac-brandy text-white rounded-full font-bold text-base overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.4)] transition-all md:mb-16"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.middleCta.ctaLabel}
             </Link>
-            <FadeInView delay={0.2} className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl border border-white/10 mt-4 md:mt-8 flex items-center justify-center p-0 md:p-8">
+            <FadeInView delay={0.2} className="hidden md:flex relative w-full aspect-[21/9] rounded-2xl border border-white/10 mt-8 items-center justify-center p-8">
               <BuiltToConvertGraphic slug={service.slug} />
             </FadeInView>
           </FadeInView>
@@ -350,7 +375,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 10. Related Services */}
-      <section className="py-16 md:py-24 border-t border-white/[0.06] bg-[#0e0202]">
+      <section className="hidden md:block py-16 md:py-24 border-t border-white/[0.06] bg-[#0e0202]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <FadeInView className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
