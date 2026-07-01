@@ -742,12 +742,11 @@ function FunnelGraphic({ benefit }: { benefit: BenefitType }) {
 
 /* ─── 9. Organic Traffic Graphic ─── */
 function OrganicTrafficGraphic({ benefit }: { benefit: BenefitType }) {
-  const bars = [30, 45, 40, 65, 85, 100];
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
 
   return (
     <div className="relative w-full h-full p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex flex-col justify-end gap-6">
-      <div className="absolute inset-0 bg-gradient-to-tr from-sumac-brandy/15 via-transparent to-transparent opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 via-transparent to-transparent opacity-60" />
       
       <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-20">
         <div>
@@ -755,36 +754,76 @@ function OrganicTrafficGraphic({ benefit }: { benefit: BenefitType }) {
           <div className="text-white text-3xl font-bold tracking-tight">12.4k</div>
         </div>
         <div className="bg-green-500/10 text-green-500 text-[10px] font-bold px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
-          <ServiceIcon name="trending-up" /> +24%
+          <ServiceIcon name="trending-up" className="w-3 h-3" /> +24%
         </div>
       </div>
 
-      <div className="relative h-32 w-full flex items-end justify-between gap-2 z-10 px-2 mt-12">
-        {/* Grid Lines */}
-        <div className="absolute inset-x-0 bottom-0 top-0 pointer-events-none flex flex-col justify-between">
-          {[0, 1, 2].map(i => (
-            <div key={i} className="w-full h-px bg-white/5 border-dashed" />
+      <div className="relative h-40 w-full z-10 mt-12 flex flex-col justify-end pb-6 border-b border-white/10">
+        
+        {/* Animated Line Chart */}
+        <div className="absolute inset-0 bottom-6 left-0 right-0">
+          <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="organicChartGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+
+            {/* Grid lines */}
+            <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="2 2" />
+            
+            {/* The Line */}
+            <motion.path
+              d="M0 90 Q 20 85, 40 60 T 70 40 T 100 10"
+              fill="none"
+              stroke="#22c55e"
+              strokeWidth="3"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+            
+            {/* Glowing Dot at end */}
+            <motion.circle 
+              cx="100" cy="10" r="3" fill="#22c55e" 
+              initial={{ scale: 0, opacity: 0 }} 
+              whileInView={{ scale: 1, opacity: 1 }} 
+              viewport={{ once: true }}
+              transition={{ delay: 1.5, duration: 0.3 }}
+            />
+            <motion.circle 
+              cx="100" cy="10" r="3" fill="#22c55e" 
+              initial={{ scale: 1, opacity: 0 }} 
+              whileInView={{ scale: [1, 2.5], opacity: [0.5, 0] }} 
+              viewport={{ once: true }}
+              transition={{ delay: 1.8, duration: 1.5, repeat: Infinity }}
+            />
+
+            {/* Gradient Fill under line */}
+            <motion.path
+              d="M0 90 Q 20 85, 40 60 T 70 40 T 100 10 L 100 100 L 0 100 Z"
+              fill="url(#organicChartGradient)"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+          </svg>
+        </div>
+
+        {/* X Axis Labels */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-between px-2 pt-2">
+          {months.map((month, i) => (
+            <div key={i} className={`text-[8px] font-mono uppercase tracking-widest ${i === months.length - 1 ? 'text-green-500 font-bold' : 'text-gray-500'}`}>
+              {month}
+            </div>
           ))}
         </div>
 
-        {bars.map((height, i) => (
-          <div key={i} className="w-full flex flex-col items-center gap-2 group/bar">
-            <motion.div 
-              initial={{ height: 0 }} 
-              whileInView={{ height: `${height}%` }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.8, delay: i * 0.1, type: "spring" }}
-              className={`w-full rounded-t-sm relative overflow-hidden ${i === bars.length - 1 ? 'bg-sumac-brandy shadow-[0_0_15px_#882F18]' : 'bg-white/10 group-hover/bar:bg-white/20'}`}
-            >
-              {i === bars.length - 1 && (
-                <motion.div animate={{ y: ["100%", "-100%"] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-gradient-to-t from-transparent via-white/30 to-transparent w-full" />
-              )}
-            </motion.div>
-            <div className={`text-[8px] font-mono uppercase tracking-widest ${i === bars.length - 1 ? 'text-sumac-brandy font-bold' : 'text-gray-500'}`}>
-              {months[i]}
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
