@@ -8,7 +8,7 @@ const PORTAL_URL = 'https://portal.sumac.systems/';
 
 const NAV_LINKS = [
   { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/#about' },
+  { label: 'Work with Reed', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
 

@@ -351,7 +351,7 @@ export default function Home() {
  </TiltCard>
  </motion.div>
  <motion.div variants={fadeUpVariant} className="w-full md:w-7/12">
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">About</span>
+ <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Work with Reed</span>
  <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight">
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline-block mr-2" /> <span className="whitespace-nowrap"><span className="italic font-accent pr-2 text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,</span> <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline-block ml-2" />
  </h2>
