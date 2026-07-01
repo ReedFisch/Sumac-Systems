@@ -12,13 +12,13 @@ import dynamic from "next/dynamic";
 const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
 const TiltCard = dynamic(() => import("@/components/ui/TiltCard"));
 const Particles = dynamic(() => import("@/components/ui/Particles"));
-import RevenueCalculator from "@/components/calculator/RevenueCalculator";
+const RevenueCalculator = dynamic(() => import("@/components/calculator/RevenueCalculator"));
 import Link from "next/link";
 import { useRef } from "react";
 
-import { ScrollParallax } from "@/components/ui/ScrollParallax";
-import CurvedLoop from "@/components/ui/CurvedLoop";
-import { Accordion } from "@/components/ui/Accordion";
+const ScrollParallax = dynamic(() => import("@/components/ui/ScrollParallax").then(mod => mod.ScrollParallax));
+const CurvedLoop = dynamic(() => import("@/components/ui/CurvedLoop"));
+const Accordion = dynamic(() => import("@/components/ui/Accordion").then(mod => mod.Accordion));
 
 const HOME_FAQ = [
   {
@@ -131,7 +131,7 @@ export default function Home() {
  <Hero />
  
  {/* Services Section */}
- <section id="services" className="bg-sumac-dark text-white pt-16 pb-16 md:pt-72 md:pb-40 relative overflow-hidden">
+ <section id="services" className="bg-sumac-dark text-white pt-8 pb-16 md:pt-72 md:pb-40 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
@@ -218,7 +218,7 @@ export default function Home() {
  </section>
 
  {/* AI Differentiator Section */}
- <section className="bg-gradient-to-b from-sumac-dark via-[#180000] to-sumac-dark text-white py-16 md:py-44 relative overflow-hidden">
+ <section className="hidden md:block bg-gradient-to-b from-sumac-dark via-[#180000] to-sumac-dark text-white py-16 md:py-44 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-20 pointer-events-none hidden md:block">
     <Particles className="absolute inset-0" quantity={50} ease={80} staticity={50} />
  </div>
@@ -297,7 +297,7 @@ export default function Home() {
  </section>
 
  {/* About Section */}
- <section id="about" className="bg-sumac-dark text-white py-16 md:py-40 relative overflow-hidden">
+ <section id="about" className="bg-sumac-dark text-white py-16 md:py-40 relative overflow-x-clip scroll-mt-[calc(var(--site-header-h)+1rem)]">
  <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
@@ -318,9 +318,13 @@ export default function Home() {
  whileInView="visible"
  viewport={{ once: true, margin: "-80px" }}
  variants={staggerContainer}
- className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16 md:gap-20"
+ className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-20"
  >
- <motion.div variants={fadeUpVariant} className="w-full max-w-[280px] md:max-w-none mx-auto md:w-5/12 mb-10 md:mb-0">
+ <motion.div
+ initial={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+ animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+ className="w-full max-w-[300px] md:max-w-none mx-auto md:w-5/12 mb-2 md:mb-0 shrink-0"
+ >
  <TiltCard rotationIntensity={15} className="w-full">
  <div className="relative aspect-[4/5] max-w-sm mx-auto rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_20px_80px_rgba(0,0,0,0.4)] group">
  <Image src="/images/founder.webp" alt="Reed Fisch, founder of Sumac Systems" fill sizes="(max-width: 768px) 100vw, 384px" className="object-cover group-hover:scale-[1.03] transition-all duration-700 pointer-events-none select-none" />

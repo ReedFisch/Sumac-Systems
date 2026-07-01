@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const PORTAL_URL = 'https://portal.sumac.systems/';
 
@@ -12,6 +13,8 @@ const NAV_LINKS = [
   { label: 'Contact', href: '/#contact' },
 ];
 
+const SECTION_HASHES = new Set(['#services', '#about', '#contact']);
+
 function LoginIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -20,9 +23,24 @@ function LoginIcon({ className }: { className?: string }) {
   );
 }
 
+function BackIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  );
+}
+
 const Header = () => {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hash, setHash] = useState('');
+
+  const isServicePage = pathname.startsWith('/services/');
+  const isHomeSection = pathname === '/' && SECTION_HASHES.has(hash);
+  const showMobileBack = isServicePage || isHomeSection;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -32,25 +50,77 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener('hashchange', syncHash);
+    window.addEventListener('popstate', syncHash);
+    return () => {
+      window.removeEventListener('hashchange', syncHash);
+      window.removeEventListener('popstate', syncHash);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
+  const handleMobileBack = useCallback(() => {
+    closeMenu();
+    if (isServicePage) {
+      if (window.history.length > 1) {
+        router.back();
+      } else {
+        router.push('/#services');
+      }
+      return;
+    }
+    if (isHomeSection) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router.replace('/', { scroll: false });
+      setHash('');
+    }
+  }, [isHomeSection, isServicePage, router]);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
-        scrolled || menuOpen
-          ? 'bg-black/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
-          : 'bg-transparent border-b border-transparent'
+        menuOpen
+          ? 'max-md:bg-black max-md:backdrop-blur-none border-b border-white/[0.06]'
+          : scrolled
+            ? 'bg-black/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+            : 'bg-transparent border-b border-transparent'
+      } ${
+        scrolled && menuOpen
+          ? 'md:bg-black/70 md:backdrop-blur-xl md:shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+          : ''
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6 h-[var(--site-header-h)] flex items-center justify-between gap-4">
+        {showMobileBack ? (
+          <button
+            type="button"
+            onClick={handleMobileBack}
+            className="md:hidden inline-flex items-center gap-1.5 shrink-0 -ml-1 pl-1 pr-2.5 py-2 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-white/80 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-colors"
+            aria-label="Go back"
+          >
+            <BackIcon className="w-4 h-4" />
+            <span className="text-[11px] font-medium tracking-[0.14em] uppercase">Back</span>
+          </button>
+        ) : null}
+
+        {showMobileBack ? (
+          <span className="md:hidden flex-1 text-center text-[11px] font-medium tracking-[0.18em] uppercase text-white/45 truncate px-2 pointer-events-none">
+            {isServicePage ? 'Services' : hash === '#about' ? 'About' : hash === '#contact' ? 'Contact' : 'Services'}
+          </span>
+        ) : null}
+
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex items-center group shrink-0 min-w-0 gap-2.5 md:gap-3"
+          className={`flex items-center group shrink-0 min-w-0 gap-2.5 md:gap-3 ${showMobileBack ? 'hidden md:flex' : ''}`}
         >
           <div className="relative w-9 h-9 md:w-10 md:h-10 shrink-0">
             <Image
@@ -122,7 +192,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden border-t border-white/[0.06] bg-black/90 backdrop-blur-xl px-5 pb-8 pt-3">
+        <div className="md:hidden border-t border-white/[0.06] bg-black px-5 pb-8 pt-3">
           <nav className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link

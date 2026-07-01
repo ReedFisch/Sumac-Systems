@@ -67,7 +67,7 @@ const Hero = () => {
  </motion.div>
 
   {/* Top Text Content */}
- <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center flex-1">
+ <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center md:flex-1">
 
 
  <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-6 md:mb-8 text-balance">
@@ -80,7 +80,7 @@ const Hero = () => {
  initial={{ opacity: 0, y: 30 }}
  animate={{ opacity: 1, y: 0 }}
  transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
- className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-16 pointer-events-auto"
+ className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6 md:mt-16 pointer-events-auto"
  >
  <MagneticButton>
  <a
@@ -109,7 +109,7 @@ const Hero = () => {
  opacity: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
  y: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }
  }}
- className="relative z-20 w-[92%] max-w-5xl mx-auto mt-8 md:mt-16 -mb-6 md:-mb-48 pointer-events-none"
+ className="relative z-20 w-[92%] max-w-5xl mx-auto mt-6 md:mt-16 -mb-14 md:-mb-48 pointer-events-none"
  >
   {/* Glow behind mockup */}
   <div className="absolute -inset-8 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" />
@@ -188,6 +188,7 @@ const Hero = () => {
  src="/images/titan-roofing.webp"
  alt="Titan Roofing Preview"
  fill
+ sizes="(max-width: 768px) 100vw, 1024px"
  className="object-cover object-top opacity-90"
  priority
  />
