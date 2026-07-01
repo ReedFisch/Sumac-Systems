@@ -78,17 +78,48 @@ export default function RootLayout({
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #800000;
+            pointer-events: all;
+          }
+          #global-loader::before, #global-loader::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #120000;
             background-image: 
               linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
               linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
-            background-position: center center;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+            z-index: -1;
+            transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1) 0.3s;
+          }
+          #global-loader::before {
+            left: 0;
+          }
+          #global-loader::after {
+            right: 0;
           }
           .loader-hidden {
+            pointer-events: none !important;
+          }
+          .loader-hidden::before {
+            transform: translateX(-100%);
+          }
+          .loader-hidden::after {
+            transform: translateX(100%);
+          }
+          .loader-hidden .loader-content {
             opacity: 0;
-            visibility: hidden;
+            transform: scale(0.9);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+          }
+          .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease, transform 0.4s ease;
           }
           .loader-center {
             position: relative;
@@ -109,17 +140,11 @@ export default function RootLayout({
           @keyframes spin {
             100% { transform: rotate(360deg); }
           }
-          .draw-path {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          }
-          @keyframes draw { to { stroke-dashoffset: 0; } }
           .svg-glow {
             filter: drop-shadow(0 0 15px rgba(124, 255, 103, 0));
             animation: pulseGlow 2s ease-in-out infinite alternate 0.5s;
           }
-          @keyframes pulseGlow { to { filter: drop-shadow(0 0 20px rgba(124, 255, 103, 0.3)); } }
+          @keyframes pulseGlow { to { filter: drop-shadow(0 0 20px rgba(136, 47, 24, 0.4)); } }
           
           .boot-sequence {
             margin-top: 20px;
@@ -131,7 +156,7 @@ export default function RootLayout({
           .boot-line {
             font-family: monospace;
             letter-spacing: 0.2em;
-            color: rgba(124, 255, 103, 0.6);
+            color: rgba(136, 47, 24, 0.7);
             font-size: 9px;
             text-transform: uppercase;
             opacity: 0;
@@ -142,20 +167,22 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <div id="global-loader">
-          <div className="loader-center">
-            <div className="ring ring-1"></div>
-            <div className="ring ring-2"></div>
-            <img 
-              src="/images/sumac/image3.webp" 
-              alt="Sumac Logo"
-              className="svg-glow"
-              style={{ width: '135px', height: '135px', objectFit: 'contain', position: 'relative', zIndex: 10 }} 
-            />
-          </div>
-          <div className="boot-sequence">
-            <div className="boot-line" style={{ animationDelay: '0.2s' }}>INITIALIZING PROTOCOLS...</div>
-            <div className="boot-line" style={{ animationDelay: '0.7s', color: 'rgba(255,255,255,0.4)' }}>COMPILING DIGITAL ASSETS...</div>
-            <div className="boot-line" style={{ animationDelay: '1.2s', color: '#7cff67', fontWeight: 'bold' }}>SYSTEMS ONLINE</div>
+          <div className="loader-content">
+            <div className="loader-center">
+              <div className="ring ring-1"></div>
+              <div className="ring ring-2"></div>
+              <img 
+                src="/images/sumac/image3.webp" 
+                alt="Sumac Logo"
+                className="svg-glow"
+                style={{ width: '135px', height: '135px', objectFit: 'contain', position: 'relative', zIndex: 10 }} 
+              />
+            </div>
+            <div className="boot-sequence">
+              <div className="boot-line" style={{ animationDelay: '0.2s' }}>INITIALIZING PROTOCOLS...</div>
+              <div className="boot-line" style={{ animationDelay: '0.7s', color: 'rgba(255,255,255,0.4)' }}>COMPILING DIGITAL ASSETS...</div>
+              <div className="boot-line" style={{ animationDelay: '1.2s', color: '#882F18', fontWeight: 'bold' }}>SYSTEMS ONLINE</div>
+            </div>
           </div>
         </div>
         <script dangerouslySetInnerHTML={{__html: `

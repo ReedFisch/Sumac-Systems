@@ -118,10 +118,10 @@ const Hero = () => {
  
  {/* Maps Ranking Card (Right) */}
  <motion.div
- initial={{ opacity: 0, x: 40, scale: 0.95 }}
+ initial={{ opacity: 0, x: 60, scale: 0.9 }}
  whileInView={{ opacity: 1, x: 0, scale: 1 }}
  viewport={{ once: true }}
- transition={{ duration: 0.8, delay: 1.0, type: "spring", stiffness: 100, damping: 20 }}
+ transition={{ duration: 1.0, delay: 2.0, type: "spring", stiffness: 80, damping: 15 }}
  className="absolute -right-4 md:-right-16 top-[15%] bg-white rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-[280px] flex gap-4 items-center z-30 font-sans pointer-events-auto hidden md:flex border border-white/10"
  >
  <div className="w-12 h-12 rounded-full bg-sumac-brandy/10 flex items-center justify-center shrink-0">
@@ -141,10 +141,10 @@ const Hero = () => {
 
  {/* Review Card (Left) */}
  <motion.div
- initial={{ opacity: 0, x: -40, scale: 0.95 }}
+ initial={{ opacity: 0, x: -60, scale: 0.9 }}
  whileInView={{ opacity: 1, x: 0, scale: 1 }}
  viewport={{ once: true }}
- transition={{ duration: 0.8, delay: 0.7, type: "spring", stiffness: 100, damping: 20 }}
+ transition={{ duration: 1.0, delay: 1.4, type: "spring", stiffness: 80, damping: 15 }}
  className="absolute -left-4 md:-left-24 bottom-[25%] bg-white rounded-2xl p-5 shadow-[0_30px_60px_rgba(0,0,0,0.4)] w-[300px] z-30 pointer-events-auto hidden md:block border border-white/10"
  >
  <div className="flex gap-1 mb-2">
@@ -160,10 +160,10 @@ const Hero = () => {
 
  {/* Lead Card (Top Left) */}
  <motion.div
- initial={{ opacity: 0, y: 30, scale: 0.95 }}
+ initial={{ opacity: 0, y: 50, scale: 0.9 }}
  whileInView={{ opacity: 1, y: 0, scale: 1 }}
  viewport={{ once: true }}
- transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 100, damping: 20 }}
+ transition={{ duration: 1.0, delay: 1.7, type: "spring", stiffness: 80, damping: 15 }}
  className="absolute -left-4 md:left-[5%] top-[10%] bg-white rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.25)] w-[280px] flex gap-4 items-center z-40 font-sans pointer-events-auto hidden md:flex border border-white/10"
  >
  <div className="w-12 h-12 rounded-full bg-sumac-brandy/10 flex items-center justify-center shrink-0">
