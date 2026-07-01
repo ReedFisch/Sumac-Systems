@@ -11,6 +11,7 @@ import { ScrollParallax } from "@/components/ui/ScrollParallax";
 const Aurora = dynamic(() => import("@/components/Aurora/Aurora"));
 const Particles = dynamic(() => import("@/components/ui/Particles"));
 const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
+import Script from "next/script";
 
 export default function ThankYouPage() {
  const fadeUpVariant = {
@@ -82,13 +83,11 @@ export default function ThankYouPage() {
  <p className="text-white/40 font-body text-sm">Discuss your goals and see how a custom system can solve your current bottlenecks. No commitment required.</p>
  </div>
  
- {/* Calendly Embed Placeholder */}
- <SpotlightCard className="w-full h-[500px] bg-white/[0.02] rounded-xl border border-white/[0.04] flex items-center justify-center flex-col gap-3 group">
- <svg className="w-10 h-10 text-white/15 group-hover:text-sumac-brandy transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
- </svg>
- <p className="text-white/20 font-mono text-xs tracking-widest">[CALENDLY WIDGET]</p>
- </SpotlightCard>
+ {/* Calendly Embed */}
+ <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden relative z-10 p-2 md:p-4">
+   <div className="calendly-inline-widget" data-url="https://calendly.com/hello-sumac/free-systems-audit?hide_event_type_details=1&hide_gdpr_banner=1" style={{ minWidth: '320px', height: '700px' }}></div>
+   <Script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+ </div>
  </motion.div>
 
  <motion.div 
