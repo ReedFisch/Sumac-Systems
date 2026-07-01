@@ -110,7 +110,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Fully Custom",
-        tagline: "No templates. Hand-coded designs that look and feel premium on every device.",
+        tagline: "No templates. Custom-coded using advanced AI to deliver a flawless, premium experience on every device.",
         icon: "code",
         visualType: "code"
       },
