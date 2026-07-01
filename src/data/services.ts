@@ -73,16 +73,16 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Websites engineered for",
       headlineAccent: "growth",
-      description: "We build sites that don't just look pretty, but are engineered for speed, conversions, and scale."
+      description: "Custom-coded, lightning-fast websites with built-in lead capture. No templates, no page builders. Just clean code that loads in under a second and turns visitors into booked jobs."
     },
     definition: {
       title: "What Is Next-Gen Web Design?",
-      description: "It's building a digital storefront that actively sells for you. It means fast load times, clear navigation, and a structure designed to turn visitors into leads.",
+      description: "It's not a Wix template or a WordPress theme. It's a hand-coded, custom-designed website built on a modern tech stack that loads instantly, ranks higher on Google, and is specifically structured to convert visitors into paying customers.",
       examples: [
-        '"Landscaping services near me"',
-        '"Best roofer in Rochester"',
-        '"Plumber for emergency leak"',
-        '"Affordable HVAC installation"'
+        '"Why does my website look outdated?"',
+        '"My site is slow on mobile"',
+        '"I need a website that generates leads"',
+        '"Competitors have better websites than me"'
       ]
     },
     approach: {
@@ -95,24 +95,24 @@ export const services: ServiceDetail[] = [
     },
     benefits: [
       {
-        title: "More Visibility",
-        tagline: "Show up when customers search for your services.",
-        icon: "map-pin"
+        title: "Blazing Fast",
+        tagline: "Sub-second load times that keep visitors on your site instead of bouncing to competitors.",
+        icon: "zap"
       },
       {
-        title: "More Trust",
-        tagline: "Appear alongside great reviews and a professional look.",
-        icon: "star"
-      },
-      {
-        title: "More Calls",
-        tagline: "Make it incredibly easy for customers to contact you directly.",
-        icon: "phone"
-      },
-      {
-        title: "More Opportunities",
-        tagline: "Generate more leads from high-intent local searches.",
+        title: "Built to Convert",
+        tagline: "Every layout decision is engineered to guide visitors toward calling or booking.",
         icon: "target"
+      },
+      {
+        title: "Fully Custom",
+        tagline: "No templates. Hand-coded designs that look and feel premium on every device.",
+        icon: "code"
+      },
+      {
+        title: "Managed For You",
+        tagline: "Hosting, updates, and security handled completely — you focus on your business.",
+        icon: "shield"
       }
     ],
     struggles: {
@@ -235,22 +235,22 @@ export const services: ServiceDetail[] = [
     slug: "ai-seo",
     title: "SEO & AIEO",
     hero: {
-      headline: "Dominate search with",
-      headlineAccent: "AI",
-      description: "Leverage advanced AI to uncover hidden opportunities and outrank your competitors."
+      headline: "Get found on Google",
+      headlineAccent: "& AI",
+      description: "Traditional SEO gets you on Google. AIEO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both — so no matter how people search, your business shows up first."
     },
     definition: {
       title: "What Is SEO & AIEO?",
-      description: "It's using modern algorithms to optimize your online presence so your business appears when customers search for services in your area.",
+      description: "SEO (Search Engine Optimization) gets your website ranking on Google. AIEO (AI Engine Optimization) structures your content so AI tools like ChatGPT and Perplexity recommend your business when people ask for services. Together, they cover every way modern customers find local businesses.",
       examples: [
-        '"Emergency plumber near me"',
-        '"Best HVAC contractor in Rochester"',
-        '"Local junk removal company"',
-        '"Affordable landscaping"'
+        '"Best roofer in Rochester" — Google',
+        '"Find me a reliable HVAC company" — ChatGPT',
+        '"Who does emergency plumbing near me?" — Perplexity',
+        '"Compare local landscapers" — Google AI Overview'
       ]
     },
     approach: {
-      title: "Our SEO Methodology",
+      title: "Our SEO & AIEO Methodology",
       items: [
         "AI-driven keyword gap analysis",
         "Semantic content optimization",
@@ -259,24 +259,24 @@ export const services: ServiceDetail[] = [
     },
     benefits: [
       {
-        title: "More Visibility",
-        tagline: "Show up when customers search for your services.",
-        icon: "map-pin"
+        title: "Google Rankings",
+        tagline: "Climb to the top of organic search results for your most valuable local keywords.",
+        icon: "trending-up"
       },
       {
-        title: "More Trust",
-        tagline: "Appear alongside great reviews and a professional look.",
-        icon: "star"
+        title: "AI Recommendations",
+        tagline: "Get your business recommended by ChatGPT, Perplexity, and Google AI Overviews.",
+        icon: "cpu"
       },
       {
-        title: "More Calls",
-        tagline: "Make it incredibly easy for customers to contact you directly.",
-        icon: "phone"
+        title: "Organic Traffic",
+        tagline: "Drive a steady stream of high-intent visitors who are actively looking for your services.",
+        icon: "bar-chart"
       },
       {
-        title: "More Opportunities",
-        tagline: "Generate more leads from high-intent local searches.",
-        icon: "target"
+        title: "Long-Term Authority",
+        tagline: "Build lasting online authority that compounds over time, unlike paid ads.",
+        icon: "shield"
       }
     ],
     struggles: {
@@ -399,22 +399,22 @@ export const services: ServiceDetail[] = [
     slug: "google-business-profile",
     title: "Google Business Profile",
     hero: {
-      headline: "Own your local",
-      headlineAccent: "market",
-      description: "Optimize your Google presence to capture local intent and drive foot traffic."
+      headline: "Dominate the local",
+      headlineAccent: "map pack",
+      description: "Your Google Business Profile is often the first thing customers see — before your website. We optimize every detail so you show up in the map pack, look trustworthy, and get the call."
     },
     definition: {
-      title: "What Is Profile Optimization?",
-      description: "It's taking control of your Google listing so when people search for your business, they see a complete, trustworthy profile that compels them to call.",
+      title: "What Is Google Business Profile Optimization?",
+      description: "It's making sure your Google Maps listing is fully optimized with the right categories, services, photos, posts, and reviews — so when someone searches 'near me,' your business appears in the top 3 map results with a profile that converts.",
       examples: [
-        '"Roofer near me"',
-        '"HVAC repair open now"',
-        '"Best local contractor"',
-        '"Emergency plumbing services"'
+        '"Roofer near me" — triggers map pack',
+        '"HVAC repair open now" — shows hours',
+        '"Best local contractor" — shows reviews',
+        '"Emergency plumbing" — shows phone number'
       ]
     },
     approach: {
-      title: "Local SEO Strategy",
+      title: "GBP Optimization Strategy",
       items: [
         "Profile optimization and verification",
         "Review management strategies",
@@ -423,24 +423,24 @@ export const services: ServiceDetail[] = [
     },
     benefits: [
       {
-        title: "More Visibility",
-        tagline: "Show up when customers search for your services locally.",
+        title: "Map Pack Placement",
+        tagline: "Appear in the top 3 Google Maps results where 42% of local searchers click.",
         icon: "map-pin"
       },
       {
-        title: "More Trust",
-        tagline: "Appear alongside great reviews and professional business information.",
+        title: "5-Star Reputation",
+        tagline: "Systematic review collection that builds a wall of social proof competitors can't match.",
         icon: "star"
       },
       {
-        title: "More Calls",
-        tagline: "Make it incredibly easy for customers to contact you directly.",
+        title: "Direct Calls",
+        tagline: "Click-to-call directly from search results — no website visit needed.",
         icon: "phone"
       },
       {
-        title: "More Opportunities",
-        tagline: "Generate more leads from high-intent local searches.",
-        icon: "target"
+        title: "Local Authority",
+        tagline: "Consistent citations and posts that signal to Google your business is active and relevant.",
+        icon: "badge"
       }
     ],
     struggles: {
@@ -563,18 +563,18 @@ export const services: ServiceDetail[] = [
     slug: "automations",
     title: "Business Automations",
     hero: {
-      headline: "Work smarter, not",
-      headlineAccent: "harder",
-      description: "Streamline your operations with custom workflows that save time and reduce errors."
+      headline: "Stop losing leads to",
+      headlineAccent: "slow follow-up",
+      description: "When a lead fills out your form or calls and gets no answer, they move on in minutes. Our automation systems respond instantly with a personalized text, log the lead in your CRM, and queue up follow-ups — all without you lifting a finger."
     },
     definition: {
       title: "What Are Business Automations?",
-      description: "It's connecting your different software tools so they talk to each other, automatically moving data and triggering actions without human intervention.",
+      description: "Automations connect your website, phone system, CRM, and messaging tools into one seamless machine. When a customer interacts with your business, the system instantly responds, organizes their info, and follows up — so you never lose a lead to slow response time again.",
       examples: [
-        '"Auto-reply to missed calls"',
-        '"Automated review requests"',
-        '"Instant lead notifications"',
-        '"Seamless CRM syncing"'
+        'Missed call → instant text reply sent',
+        'Form submitted → lead saved to CRM automatically',
+        'Job completed → review request sent via SMS',
+        'New booking → calendar + confirmation text synced'
       ]
     },
     approach: {
@@ -587,24 +587,24 @@ export const services: ServiceDetail[] = [
     },
     benefits: [
       {
-        title: "More Visibility",
-        tagline: "Show up when customers search for your services.",
-        icon: "map-pin"
+        title: "Instant Response",
+        tagline: "Leads get a text within seconds of reaching out — even at 2 AM on a Saturday.",
+        icon: "zap"
       },
       {
-        title: "More Trust",
-        tagline: "Appear alongside great reviews and a professional look.",
+        title: "Zero Leads Lost",
+        tagline: "Every inquiry is captured, logged, and followed up with automatically.",
+        icon: "target"
+      },
+      {
+        title: "More Reviews",
+        tagline: "Happy customers automatically get a review request at the perfect moment.",
         icon: "star"
       },
       {
-        title: "More Calls",
-        tagline: "Make it incredibly easy for customers to contact you directly.",
-        icon: "phone"
-      },
-      {
-        title: "More Opportunities",
-        tagline: "Generate more leads from high-intent local searches.",
-        icon: "target"
+        title: "Hours Saved Weekly",
+        tagline: "Eliminate repetitive admin work so you can focus on the jobs that make money.",
+        icon: "clock"
       }
     ],
     struggles: {
