@@ -742,79 +742,111 @@ function FunnelGraphic({ benefit }: { benefit: BenefitType }) {
 
 /* ─── 9. Organic Traffic Graphic ─── */
 function OrganicTrafficGraphic({ benefit }: { benefit: BenefitType }) {
+  const gradientId = React.useId();
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
-  const linePath = "M0 88 L20 82 L40 68 L60 52 L80 32 L100 18";
+  const values = [58, 50, 42, 32, 24, 14];
+  const chartW = 252;
+  const chartH = 72;
+  const padX = 6;
+  const step = (chartW - padX * 2) / (values.length - 1);
+
+  const points = values.map((y, i) => ({
+    x: padX + i * step,
+    y,
+  }));
+
+  const linePath = points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)
+    .join(" ");
+  const areaPath = `${linePath} L ${points[points.length - 1].x.toFixed(1)} ${chartH} L ${points[0].x.toFixed(1)} ${chartH} Z`;
+  const last = points[points.length - 1];
 
   return (
-    <div className="relative w-full h-full p-6 md:p-8 bg-[#121212] rounded-2xl overflow-hidden border border-white/[0.08] flex flex-col justify-end gap-6">
-      <div className="flex justify-between items-start">
+    <div className="relative w-full h-full p-6 md:p-8 bg-[#121212] rounded-2xl overflow-hidden border border-white/[0.08] flex flex-col gap-5">
+      <div className="flex justify-between items-start gap-4">
         <div>
-          <div className="text-gray-500 text-[10px] uppercase tracking-widest font-mono mb-1">Organic Visitors</div>
-          <div className="text-white text-3xl font-bold tracking-tight tabular-nums">12.4k</div>
+          <div className="text-gray-500 text-xs uppercase tracking-widest font-mono mb-1.5">Organic Visitors</div>
+          <div className="text-white text-3xl md:text-4xl font-bold tracking-tight">12.4k</div>
         </div>
-        <div className="bg-green-500/10 text-green-400 text-[10px] font-semibold px-2 py-1 rounded-md border border-green-500/20 flex items-center gap-1">
-          <ServiceIcon name="trending-up" className="w-3 h-3" /> +24%
+        <div className="bg-green-500/10 text-green-400 text-xs font-semibold px-2.5 py-1.5 rounded-md border border-green-500/20 flex items-center gap-1 shrink-0">
+          <ServiceIcon name="trending-up" className="w-3.5 h-3.5" /> +24%
         </div>
       </div>
 
-      <div className="relative h-40 w-full flex flex-col justify-end pb-6 border-b border-white/[0.06]">
-        <div className="absolute inset-0 bottom-6 left-0 right-0">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="organicChartGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#4ade80" stopOpacity="0.12" />
-                <stop offset="100%" stopColor="#4ade80" stopOpacity="0" />
-              </linearGradient>
-            </defs>
+      <div className="relative flex-1 min-h-[148px] flex flex-col justify-end">
+        <svg
+          viewBox={`0 0 ${chartW} ${chartH + 4}`}
+          className="w-full h-[120px] md:h-[132px]"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#4ade80" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#4ade80" stopOpacity="0" />
+            </linearGradient>
+          </defs>
 
-            <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-            <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-            <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-
-            <motion.path
-              d={`${linePath} L100 100 L0 100 Z`}
-              fill="url(#organicChartGradient)"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            />
-
-            <motion.path
-              d={linePath}
-              fill="none"
-              stroke="#4ade80"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          {[18, 36, 54].map((y) => (
+            <line
+              key={y}
+              x1={padX}
+              y1={y}
+              x2={chartW - padX}
+              y2={y}
+              stroke="rgba(255,255,255,0.06)"
+              strokeWidth="1"
               vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
             />
+          ))}
 
-            <motion.circle
-              cx="100"
-              cy="18"
-              r="2.5"
-              fill="#4ade80"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1, duration: 0.2 }}
-            />
-          </svg>
-        </div>
+          <motion.path
+            d={areaPath}
+            fill={`url(#${gradientId})`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          />
 
-        <div className="absolute bottom-0 left-0 right-0 flex justify-between px-1 pt-2">
+          <motion.path
+            d={linePath}
+            fill="none"
+            stroke="#4ade80"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          />
+
+          <motion.circle
+            cx={last.x}
+            cy={last.y}
+            r="3.5"
+            fill="#4ade80"
+            stroke="#121212"
+            strokeWidth="1.5"
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+          />
+        </svg>
+
+        <div className="flex justify-between mt-3 px-0.5">
           {months.map((month, i) => (
-            <div
+            <span
               key={month}
-              className={`text-[8px] font-mono uppercase tracking-widest ${i === months.length - 1 ? "text-green-400 font-semibold" : "text-gray-500"}`}
+              className={`text-[10px] md:text-xs font-mono uppercase tracking-wider ${
+                i === months.length - 1 ? "text-green-400 font-semibold" : "text-gray-500"
+              }`}
             >
               {month}
-            </div>
+            </span>
           ))}
         </div>
       </div>

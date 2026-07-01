@@ -248,11 +248,11 @@ export default function Home() {
  </section>
 
  {/* FAQ Section */}
- <section className="bg-[#0a0a0a] text-white py-16 md:py-40 relative overflow-hidden border-y border-white/[0.04]">
+ <section className="bg-sumac-dark text-white py-16 md:py-40 relative overflow-hidden">
  {/* Frosted Background Asset */}
  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center hidden md:flex">
- <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a] z-10" />
- <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] z-10" />
+ <div className="absolute inset-0 bg-gradient-to-b from-sumac-dark via-sumac-dark/60 to-sumac-dark z-10" />
+ <div className="absolute inset-0 bg-gradient-to-r from-sumac-dark via-transparent to-sumac-dark z-10" />
  <div className="w-full max-w-7xl h-[120%] relative opacity-30 mix-blend-screen blur-[12px]">
  <Image 
  src="/images/sumac/image7.webp" 
@@ -295,7 +295,7 @@ export default function Home() {
  </section>
 
  {/* About Section */}
- <section id="about" className="bg-sumac-dark text-white py-16 md:py-40 relative overflow-x-clip scroll-mt-[calc(var(--site-header-h)+1rem)]">
+ <section id="about" className="bg-sumac-dark text-white pt-10 pb-16 md:pt-16 md:pb-40 relative overflow-x-clip scroll-mt-[calc(var(--site-header-h)+0.5rem)]">
  <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>

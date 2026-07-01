@@ -14,11 +14,15 @@ export function Accordion({ items }: { items: Omit<AccordionItemProps, "index">[
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="border-t border-white/[0.06] mt-12 w-full">
+    <div className="mt-12 w-full">
       {items.map((item, i) => {
         const isOpen = openIndex === i;
+        const isLast = i === items.length - 1;
         return (
-          <div key={i} className="border-b border-white/[0.06] overflow-hidden">
+          <div
+            key={i}
+            className={`overflow-hidden ${isLast ? '' : 'border-b border-white/[0.06]'}`}
+          >
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="w-full py-8 md:py-10 flex items-center justify-between group text-left transition-colors hover:bg-white/[0.02] px-4 md:px-6 -mx-4 md:-mx-6 rounded-2xl"

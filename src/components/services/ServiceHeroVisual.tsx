@@ -4,9 +4,9 @@ import React from "react";
 import { motion } from "motion/react";
 
 /* ─── Web Design Visual (Browser Mockup) ─── */
-function WebDesignVisual() {
+function WebDesignVisual({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center">
+    <div className={`relative w-full h-full flex items-center justify-center ${compact ? 'p-3' : 'min-h-[min(58vh,560px)]'}`}>
       {/* Ambient glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/20 via-transparent to-sumac-brandy/5 rounded-3xl blur-xl" />
 
@@ -15,19 +15,19 @@ function WebDesignVisual() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-[75%] bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden z-10"
+        className={`relative bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden z-10 ${compact ? 'w-full' : 'w-[92%] max-w-xl'}`}
       >
         {/* Chrome bar */}
-        <div className="flex items-center px-3 py-2.5 gap-2 border-b border-white/[0.06] bg-[#222]">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80" />
-          <div className="ml-3 flex-1 max-w-[140px] px-3 py-1 text-[9px] font-mono text-white/30 bg-white/[0.04] rounded border border-white/[0.06]">
+        <div className="flex items-center px-4 py-3 gap-2 border-b border-white/[0.06] bg-[#222]">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]/80" />
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]/80" />
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]/80" />
+          <div className="ml-3 flex-1 max-w-[180px] px-3 py-1.5 text-[10px] font-mono text-white/30 bg-white/[0.04] rounded border border-white/[0.06]">
             yourbusiness.com
           </div>
         </div>
         {/* Content skeleton */}
-        <div className="p-4 space-y-3 bg-[#0d0d0d] h-[200px]">
+        <div className={`p-5 space-y-4 bg-[#0d0d0d] ${compact ? 'h-[120px]' : 'h-[280px]'}`}>
           <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.6 }} className="h-8 w-3/4 bg-white/[0.06] rounded-lg origin-left" />
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="h-3 w-full bg-white/[0.04] rounded" />
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }} className="h-3 w-5/6 bg-white/[0.04] rounded" />
@@ -48,15 +48,15 @@ function WebDesignVisual() {
         initial={{ opacity: 0, x: 30, scale: 0.9 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -right-3 md:-right-6 top-[10%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans"
+        className={`absolute bg-white rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans ${compact ? 'hidden' : '-right-2 md:-right-4 top-[8%] p-4'}`}
       >
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-full bg-green-500/10 border-2 border-green-500 flex items-center justify-center">
-            <span className="text-green-500 font-bold text-sm">100</span>
+          <div className="w-14 h-14 rounded-full bg-green-500/10 border-2 border-green-500 flex items-center justify-center">
+            <span className="text-green-500 font-bold text-base">100</span>
           </div>
           <div>
-            <div className="text-gray-900 font-bold text-xs">Performance</div>
-            <div className="text-gray-400 text-[10px]">Lighthouse Score</div>
+            <div className="text-gray-900 font-bold text-sm">Performance</div>
+            <div className="text-gray-400 text-xs">Lighthouse Score</div>
           </div>
         </div>
       </motion.div>
@@ -66,16 +66,16 @@ function WebDesignVisual() {
         initial={{ opacity: 0, y: 20, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 100, damping: 18 }}
-        className="absolute -left-2 md:-left-4 bottom-[15%] bg-white rounded-xl p-3 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-2.5"
+        className={`absolute bg-white rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-20 font-sans flex items-center gap-3 ${compact ? 'hidden' : '-left-1 md:left-0 bottom-[12%] p-4'}`}
       >
-        <div className="w-8 h-8 rounded-lg bg-sumac-brandy/10 flex items-center justify-center">
-          <svg className="w-4 h-4 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="w-10 h-10 rounded-lg bg-sumac-brandy/10 flex items-center justify-center">
+          <svg className="w-5 h-5 text-sumac-brandy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
           </svg>
         </div>
         <div>
-          <div className="text-gray-900 font-bold text-xs">Mobile First</div>
-          <div className="text-green-500 text-[10px] font-medium">✓ Responsive</div>
+          <div className="text-gray-900 font-bold text-sm">Mobile First</div>
+          <div className="text-green-500 text-xs font-medium">✓ Responsive</div>
         </div>
       </motion.div>
     </div>
@@ -83,9 +83,9 @@ function WebDesignVisual() {
 }
 
 /* ─── AI SEO Visual (SERP Ascending Rank) ─── */
-function AiSeoVisual() {
+function AiSeoVisual({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="relative w-full aspect-[4/3] flex flex-col pt-8 items-center bg-[#f8f9fa] rounded-2xl overflow-hidden shadow-inner border border-black/5">
+    <div className={`relative w-full h-full flex flex-col pt-8 items-center bg-[#f8f9fa] rounded-2xl overflow-hidden shadow-inner border border-black/5 ${compact ? 'min-h-full' : 'min-h-[min(58vh,560px)]'}`}>
       
       {/* Fake Search Header */}
       <div className="absolute top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 flex items-center px-6 shadow-sm z-20">
@@ -167,9 +167,9 @@ function AiSeoVisual() {
 }
 
 /* ─── Google Business Profile Visual (Minimal Map UI) ─── */
-function GbpVisual() {
+function GbpVisual({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="relative w-full aspect-[4/3] flex flex-col items-center justify-center bg-[#181820] overflow-hidden rounded-2xl border border-white/[0.08]">
+    <div className={`relative w-full h-full flex flex-col items-center justify-center bg-[#181820] overflow-hidden rounded-2xl border border-white/[0.08] ${compact ? 'min-h-full' : 'min-h-[min(58vh,560px)]'}`}>
       {/* Sleek Dark Map Background */}
       <div className="absolute inset-0 z-0">
          {/* Subtle radial gradient */}
@@ -266,7 +266,7 @@ function GbpVisual() {
 }
 
 /* ─── Automations Visual (Orbiting Nodes) ─── */
-function AutomationsVisual() {
+function AutomationsVisual({ compact = false }: { compact?: boolean }) {
   const nodes = [
     { label: "New Lead", angle: 0, icon: "user", color: "bg-blue-500" },
     { label: "CRM Sync", angle: 120, icon: "database", color: "bg-purple-500" },
@@ -274,7 +274,7 @@ function AutomationsVisual() {
   ];
 
   return (
-    <div className="relative w-full aspect-[4/3] flex items-center justify-center bg-[#0d0d0d] rounded-2xl overflow-hidden border border-white/[0.08]">
+    <div className={`relative w-full h-full flex items-center justify-center bg-[#0d0d0d] rounded-2xl overflow-hidden border border-white/[0.08] ${compact ? 'min-h-full' : 'min-h-[min(58vh,560px)]'}`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sumac-brandy/20 via-transparent to-transparent opacity-80" />
       
       {/* Central Hub */}
@@ -344,17 +344,27 @@ function AutomationsVisual() {
 }
 
 /* ─── Main Export ─── */
-export function ServiceHeroVisual({ slug }: { slug: string }) {
+export function ServiceHeroVisual({ slug, compact = false }: { slug: string; compact?: boolean }) {
+  let visual: React.ReactNode;
   switch (slug) {
     case "web-design":
-      return <WebDesignVisual />;
+      visual = <WebDesignVisual compact={compact} />;
+      break;
     case "ai-seo":
-      return <AiSeoVisual />;
+      visual = <AiSeoVisual compact={compact} />;
+      break;
     case "google-business-profile":
-      return <GbpVisual />;
+      visual = <GbpVisual compact={compact} />;
+      break;
     case "automations":
-      return <AutomationsVisual />;
+      visual = <AutomationsVisual compact={compact} />;
+      break;
     default:
-      return <WebDesignVisual />;
+      visual = <WebDesignVisual compact={compact} />;
   }
+  return (
+    <div className={`w-full h-full ${compact ? 'min-h-[240px]' : 'min-h-[min(58vh,560px)]'}`}>
+      {visual}
+    </div>
+  );
 }

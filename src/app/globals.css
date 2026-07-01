@@ -17,12 +17,12 @@
 
 :root {
   color-scheme: dark;
-  --site-header-h: 64px;
+  --site-header-h: 72px;
 }
 
 @media (min-width: 768px) {
   :root {
-    --site-header-h: 72px;
+    --site-header-h: 92px;
   }
 }
 

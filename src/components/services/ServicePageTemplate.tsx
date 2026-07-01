@@ -50,43 +50,51 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-10 md:py-16 w-full">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-4 md:py-8 w-full flex-1 flex flex-col justify-center">
+          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 xl:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="font-mono text-[10px] tracking-[0.3em] text-sumac-brandy uppercase mb-4 md:mb-6">
+              <p className="font-mono text-base md:text-sm tracking-[0.28em] text-sumac-brandy uppercase mb-6 md:mb-8">
                 {service.title}
               </p>
-              <h1 className="text-4xl sm:text-5xl md:text-[3.25rem] font-sans font-bold text-white tracking-tight leading-[1.1] text-balance">
+              <h1 className="text-[3.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-sans font-bold text-white tracking-tight leading-[1.02] text-balance max-w-none md:max-w-2xl">
                 {service.hero.headline}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-sumac-brandy to-[#a3401f] font-accent italic pr-2 pb-1.5">
                   {service.hero.headlineAccent}
                 </span>
               </h1>
-              <p className="mt-6 md:mt-8 text-white/55 font-body text-base md:text-lg leading-relaxed max-w-lg">
+              <p className="mt-7 md:mt-10 text-white/55 font-body text-2xl md:text-xl lg:text-2xl leading-relaxed max-w-none md:max-w-xl">
                 {service.hero.description}
               </p>
               
-              <div className="mt-8 md:mt-12 flex flex-wrap gap-4">
+              <div className="mt-9 md:mt-12 flex flex-wrap gap-4">
                 <Link
                   href={service.bottomCta.ctaHref}
-                  className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-sumac-brandy text-white rounded-full font-semibold text-sm overflow-hidden hover:shadow-[0_0_30px_rgba(136,47,24,0.5)] transition-all"
+                  className="group relative inline-flex w-full sm:w-auto items-center justify-center px-8 py-6 md:px-10 md:py-5 bg-sumac-brandy text-white rounded-full font-semibold text-xl md:text-lg overflow-hidden hover:shadow-[0_0_30px_rgba(136,47,24,0.5)] transition-all"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <span className="md:hidden">Book a Strategy Call</span>
-                  <span className="hidden md:inline">Book a Strategy Call</span>
+                  Book a Strategy Call
                 </Link>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="lg:hidden mt-10 w-full h-[min(38vh,340px)] overflow-hidden rounded-2xl border border-white/[0.08] bg-black/20"
+              >
+                <ServiceHeroVisual slug={service.slug} compact />
+              </motion.div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden lg:block lg:pl-8"
+              className="hidden lg:flex items-center justify-center min-h-[min(62vh,620px)]"
             >
               <ServiceHeroVisual slug={service.slug} />
             </motion.div>
@@ -95,18 +103,18 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 3. Benefits — mobile list */}
-      <section className="py-10 md:hidden border-b border-white/[0.06]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-sans font-bold text-white tracking-tight mb-6">What you get</h2>
-          <div className="space-y-4">
+      <section className="py-12 md:hidden border-b border-white/[0.06]">
+        <div className="max-w-6xl mx-auto px-5">
+          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">What you get</h2>
+          <div className="space-y-5">
             {service.benefits.slice(0, 3).map((benefit, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div className="w-10 h-10 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy shrink-0">
+              <div key={i} className="flex items-start gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <div className="w-14 h-14 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy shrink-0">
                   <ServiceIcon name={benefit.icon} />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-white mb-1">{benefit.title}</h3>
-                  <p className="text-white/50 font-body text-sm leading-relaxed">{benefit.tagline}</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">{benefit.title}</h3>
+                  <p className="text-white/50 font-body text-lg leading-relaxed">{benefit.tagline}</p>
                 </div>
               </div>
             ))}
@@ -207,18 +215,18 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 5. Process — mobile */}
-      <section className="py-10 md:hidden border-b border-white/[0.06]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-sans font-bold text-white tracking-tight mb-6">{service.process.title}</h2>
-          <ol className="space-y-4">
+      <section className="py-12 md:hidden border-b border-white/[0.06]">
+        <div className="max-w-6xl mx-auto px-5">
+          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">{service.process.title}</h2>
+          <ol className="space-y-5">
             {service.process.steps.map((step, i) => (
-              <li key={i} className="flex gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <span className="w-8 h-8 rounded-full bg-sumac-brandy/20 border border-sumac-brandy/30 flex items-center justify-center text-sumac-brandy font-mono text-xs shrink-0">
+              <li key={i} className="flex gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <span className="w-11 h-11 rounded-full bg-sumac-brandy/20 border border-sumac-brandy/30 flex items-center justify-center text-sumac-brandy font-mono text-base shrink-0">
                   {i + 1}
                 </span>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
-                  <p className="text-white/45 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                  <p className="text-white/45 text-lg leading-relaxed">{step.description}</p>
                 </div>
               </li>
             ))}
