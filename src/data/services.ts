@@ -111,7 +111,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Managed For You",
-        tagline: "Hosting, updates, and security handled completely — you focus on your business.",
+        tagline: "Hosting, updates, and security handled completely - you focus on your business.",
         icon: "shield"
       }
     ],
@@ -221,7 +221,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "What happens if I cancel?",
-        answer: "Our service is an ongoing package that includes hosting, active SEO, and software management. If you cancel, the website and its connected automations will be taken offline at the end of your billing cycle. However, we have a strict Business Continuity Safeguard — if Sumac ever permanently closes, we transfer full ownership of the code and domain directly to you at no cost."
+        answer: "Our service is an ongoing package that includes hosting, active SEO, and software management. If you cancel, the website and its connected automations will be taken offline at the end of your billing cycle. However, we have a strict Business Continuity Safeguard - if Sumac ever permanently closes, we transfer full ownership of the code and domain directly to you at no cost."
       }
     ],
     bottomCta: {
@@ -237,16 +237,16 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Get found on Google",
       headlineAccent: "& AI",
-      description: "Traditional SEO gets you on Google. AIEO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both — so no matter how people search, your business shows up first."
+      description: "Traditional SEO gets you on Google. AIEO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both - so no matter how people search, your business shows up first."
     },
     definition: {
       title: "What Is SEO & AIEO?",
       description: "SEO (Search Engine Optimization) gets your website ranking on Google. AIEO (AI Engine Optimization) structures your content so AI tools like ChatGPT and Perplexity recommend your business when people ask for services. Together, they cover every way modern customers find local businesses.",
       examples: [
-        '"Best roofer in Rochester" — Google',
-        '"Find me a reliable HVAC company" — ChatGPT',
-        '"Who does emergency plumbing near me?" — Perplexity',
-        '"Compare local landscapers" — Google AI Overview'
+        '"Best roofer in Rochester" - Google',
+        '"Find me a reliable HVAC company" - ChatGPT',
+        '"Who does emergency plumbing near me?" - Perplexity',
+        '"Compare local landscapers" - Google AI Overview'
       ]
     },
     approach: {
@@ -401,16 +401,16 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Dominate the local",
       headlineAccent: "map pack",
-      description: "Your Google Business Profile is often the first thing customers see — before your website. We optimize every detail so you show up in the map pack, look trustworthy, and get the call."
+      description: "Your Google Business Profile is often the first thing customers see - before your website. We optimize every detail so you show up in the map pack, look trustworthy, and get the call."
     },
     definition: {
       title: "What Is Google Business Profile Optimization?",
-      description: "It's making sure your Google Maps listing is fully optimized with the right categories, services, photos, posts, and reviews — so when someone searches 'near me,' your business appears in the top 3 map results with a profile that converts.",
+      description: "It's making sure your Google Maps listing is fully optimized with the right categories, services, photos, posts, and reviews - so when someone searches 'near me,' your business appears in the top 3 map results with a profile that converts.",
       examples: [
-        '"Roofer near me" — triggers map pack',
-        '"HVAC repair open now" — shows hours',
-        '"Best local contractor" — shows reviews',
-        '"Emergency plumbing" — shows phone number'
+        '"Roofer near me" - triggers map pack',
+        '"HVAC repair open now" - shows hours',
+        '"Best local contractor" - shows reviews',
+        '"Emergency plumbing" - shows phone number'
       ]
     },
     approach: {
@@ -434,7 +434,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Direct Calls",
-        tagline: "Click-to-call directly from search results — no website visit needed.",
+        tagline: "Click-to-call directly from search results - no website visit needed.",
         icon: "phone"
       },
       {
@@ -541,7 +541,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "What if I already have a Google Business Profile?",
-        answer: "Great — we will audit what you currently have, fix inconsistencies, expand your categories and services, and build out a strategy to consistently outrank competitors in the local map pack."
+        answer: "Great - we will audit what you currently have, fix inconsistencies, expand your categories and services, and build out a strategy to consistently outrank competitors in the local map pack."
       },
       {
         question: "Do I have to manage anything myself?",
@@ -565,11 +565,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Stop losing leads to",
       headlineAccent: "slow follow-up",
-      description: "When a lead fills out your form or calls and gets no answer, they move on in minutes. Our automation systems respond instantly with a personalized text, log the lead in your CRM, and queue up follow-ups — all without you lifting a finger."
+      description: "When a lead fills out your form or calls and gets no answer, they move on in minutes. Our automation systems respond instantly with a personalized text, log the lead in your CRM, and queue up follow-ups - all without you lifting a finger."
     },
     definition: {
       title: "What Are Business Automations?",
-      description: "Automations connect your website, phone system, CRM, and messaging tools into one seamless machine. When a customer interacts with your business, the system instantly responds, organizes their info, and follows up — so you never lose a lead to slow response time again.",
+      description: "Automations connect your website, phone system, CRM, and messaging tools into one seamless machine. When a customer interacts with your business, the system instantly responds, organizes their info, and follows up - so you never lose a lead to slow response time again.",
       examples: [
         'Missed call → instant text reply sent',
         'Form submitted → lead saved to CRM automatically',
@@ -588,7 +588,7 @@ export const services: ServiceDetail[] = [
     benefits: [
       {
         title: "Instant Response",
-        tagline: "Leads get a text within seconds of reaching out — even at 2 AM on a Saturday.",
+        tagline: "Leads get a text within seconds of reaching out - even at 2 AM on a Saturday.",
         icon: "zap"
       },
       {
