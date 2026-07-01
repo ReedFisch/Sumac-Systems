@@ -85,31 +85,38 @@ function SeoMiddleGraphic() {
       <div className="relative w-full max-w-3xl z-10 flex flex-col items-center justify-center px-4 md:px-8 h-full py-12">
         
         {/* Search Results Ascending */}
-        <div className="w-full max-w-xl flex flex-col gap-3">
-           {/* Result 3 */}
-           <motion.div initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 0.3 }} transition={{ delay: 0.2 }} viewport={{ once: true }} className="w-full bg-[#111] rounded-lg p-4 border border-white/5 blur-[2px]">
-             <div className="w-1/4 h-2 bg-blue-500/50 rounded mb-2" />
-             <div className="w-3/4 h-3 bg-white/40 rounded mb-2" />
-             <div className="w-2/3 h-2 bg-white/20 rounded" />
-           </motion.div>
-
-           {/* Result 2 */}
-           <motion.div initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 0.6 }} transition={{ delay: 0.4 }} viewport={{ once: true }} className="w-full bg-[#151515] rounded-lg p-4 border border-white/10 blur-[1px]">
+        <div className="w-full max-w-xl flex flex-col gap-3 relative h-[280px]">
+           
+           {/* Result 3 (Competitor) */}
+           <motion.div 
+             animate={{ y: [0, 80, 80, 0], opacity: [0.6, 0.2, 0.2, 0.6] }} 
+             transition={{ duration: 6, times: [0, 0.2, 0.8, 1], repeat: Infinity, ease: "easeInOut" }} 
+             className="absolute top-0 w-full bg-[#151515] rounded-lg p-4 border border-white/10 blur-[1px]"
+           >
              <div className="w-1/3 h-2 bg-blue-500/70 rounded mb-2" />
              <div className="w-5/6 h-3 bg-white/60 rounded mb-2" />
              <div className="w-3/4 h-2 bg-white/30 rounded" />
            </motion.div>
 
-           {/* Result 1 (Our Client) */}
+           {/* Result 2 (Competitor) */}
            <motion.div 
-             initial={{ y: 40, opacity: 0, scale: 0.95 }} 
-             whileInView={{ y: 0, opacity: 1, scale: 1 }} 
-             transition={{ type: "spring", delay: 0.8 }} 
-             viewport={{ once: true }} 
-             className="w-full bg-[#1a1a1a] rounded-xl p-5 border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] relative transform hover:scale-[1.02] transition-transform"
+             animate={{ y: [80, 160, 160, 80], opacity: [0.3, 0, 0, 0.3] }} 
+             transition={{ duration: 6, times: [0, 0.2, 0.8, 1], repeat: Infinity, ease: "easeInOut" }} 
+             className="absolute top-0 w-full bg-[#111] rounded-lg p-4 border border-white/5 blur-[2px]"
+           >
+             <div className="w-1/4 h-2 bg-blue-500/50 rounded mb-2" />
+             <div className="w-3/4 h-3 bg-white/40 rounded mb-2" />
+             <div className="w-2/3 h-2 bg-white/20 rounded" />
+           </motion.div>
+
+           {/* Result 1 (Our Client - Climbs to top) */}
+           <motion.div 
+             animate={{ y: [160, 0, 0, 160], scale: [0.95, 1.02, 1.02, 0.95], borderColor: ["rgba(59,130,246,0)", "rgba(59,130,246,0.3)", "rgba(59,130,246,0.3)", "rgba(59,130,246,0)"], boxShadow: ["0 0 0px rgba(59,130,246,0)", "0 0 30px rgba(59,130,246,0.15)", "0 0 30px rgba(59,130,246,0.15)", "0 0 0px rgba(59,130,246,0)"] }} 
+             transition={{ duration: 6, times: [0, 0.3, 0.7, 1], repeat: Infinity, ease: "backOut" }} 
+             className="absolute top-0 w-full bg-[#1a1a1a] rounded-xl p-5 border shadow-xl z-10"
            >
              <motion.div 
-               animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}
+               animate={{ opacity: [0, 1, 1, 0] }} transition={{ duration: 6, times: [0, 0.3, 0.7, 1], repeat: Infinity }}
                className="absolute -top-3 -right-3 bg-blue-500 text-white font-bold text-[10px] px-3 py-1 rounded-full shadow-lg"
              >
                #1 RANKING
@@ -192,7 +199,7 @@ function WebDesignMiddleGraphic() {
         {/* Step 1 */}
         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, type: "spring", stiffness: 100 }} className="flex flex-col items-center gap-3 w-full md:w-auto">
           <div className="relative w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shadow-lg">
-            <div className="text-white/40 w-8 h-8"><ServiceIcon name="users" /></div>
+            <div className="text-white/40 w-8 h-8 flex items-center justify-center"><ServiceIcon name="users" /></div>
             <motion.div className="absolute -top-1 -right-1 w-3 h-3 bg-sumac-brandy rounded-full" animate={{ scale: [1, 2], opacity: [1, 0] }} transition={{ duration: 2, repeat: Infinity }} />
           </div>
           <span className="text-[10px] font-mono uppercase tracking-widest text-white/50">Local Traffic</span>
@@ -208,7 +215,7 @@ function WebDesignMiddleGraphic() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }} className="relative w-full md:w-auto">
           <div className="bg-[#111] border border-sumac-brandy/30 rounded-2xl p-5 shadow-[0_0_30px_rgba(136,47,24,0.15)] flex flex-col items-center">
             <div className="w-12 h-12 bg-sumac-brandy/10 rounded-xl flex items-center justify-center mb-3 border border-sumac-brandy/20">
-              <div className="text-sumac-brandy w-6 h-6"><ServiceIcon name="zap" /></div>
+              <div className="text-sumac-brandy w-6 h-6 flex items-center justify-center"><ServiceIcon name="zap" /></div>
             </div>
             <div className="text-white font-bold text-sm mb-1 whitespace-nowrap">Built to Convert</div>
             <div className="flex gap-1">
@@ -226,7 +233,7 @@ function WebDesignMiddleGraphic() {
         {/* Step 3 */}
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4, type: "spring", stiffness: 100 }} className="flex flex-col items-center gap-3 w-full md:w-auto">
           <div className={`relative w-16 h-16 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center shadow-lg`}>
-            <div className={`text-green-500 w-8 h-8`}><ServiceIcon name="target" /></div>
+            <div className={`text-green-500 w-8 h-8 flex items-center justify-center`}><ServiceIcon name="target" /></div>
             <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ type: "spring", delay: 1, bounce: 0.6 }} className={`absolute -top-2 -right-2 bg-green-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full`}>
               +1
             </motion.div>

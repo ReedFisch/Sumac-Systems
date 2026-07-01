@@ -378,7 +378,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
                      transition={{ duration: 6, times: [0, 0.15, 1], repeat: Infinity }}
                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full"
                    />
-                   <div className="w-2.5 h-2.5"><ServiceIcon name="phone" /></div>
+                   <ServiceIcon name="phone" className="w-2.5 h-2.5" />
                    Call Now
                  </motion.div>
                  <div className="bg-gray-100 rounded-full py-1.5 flex justify-center"><div className="h-1 w-4 bg-gray-300 rounded" /></div>
@@ -408,7 +408,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
                    transition={{ duration: 1.5, repeat: Infinity }}
                    className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white"
                  >
-                   <div className="w-4 h-4"><ServiceIcon name="phone" /></div>
+                   <ServiceIcon name="phone" className="w-4 h-4" />
                  </motion.div>
                </div>
             </motion.div>
@@ -740,15 +740,114 @@ function FunnelGraphic({ benefit }: { benefit: BenefitType }) {
   );
 }
 
+/* ─── 9. Organic Traffic Graphic ─── */
+function OrganicTrafficGraphic({ benefit }: { benefit: BenefitType }) {
+  const bars = [30, 45, 40, 65, 85, 100];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+  return (
+    <div className="relative w-full h-full p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex flex-col justify-end gap-6">
+      <div className="absolute inset-0 bg-gradient-to-tr from-sumac-brandy/15 via-transparent to-transparent opacity-80" />
+      
+      <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-20">
+        <div>
+          <div className="text-gray-400 text-[10px] uppercase tracking-widest font-mono mb-1">Organic Visitors</div>
+          <div className="text-white text-3xl font-bold tracking-tight">12.4k</div>
+        </div>
+        <div className="bg-green-500/10 text-green-500 text-[10px] font-bold px-2 py-1 rounded border border-green-500/20 flex items-center gap-1">
+          <ServiceIcon name="trending-up" /> +24%
+        </div>
+      </div>
+
+      <div className="relative h-32 w-full flex items-end justify-between gap-2 z-10 px-2 mt-12">
+        {/* Grid Lines */}
+        <div className="absolute inset-x-0 bottom-0 top-0 pointer-events-none flex flex-col justify-between">
+          {[0, 1, 2].map(i => (
+            <div key={i} className="w-full h-px bg-white/5 border-dashed" />
+          ))}
+        </div>
+
+        {bars.map((height, i) => (
+          <div key={i} className="w-full flex flex-col items-center gap-2 group/bar">
+            <motion.div 
+              initial={{ height: 0 }} 
+              whileInView={{ height: `${height}%` }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8, delay: i * 0.1, type: "spring" }}
+              className={`w-full rounded-t-sm relative overflow-hidden ${i === bars.length - 1 ? 'bg-sumac-brandy shadow-[0_0_15px_#882F18]' : 'bg-white/10 group-hover/bar:bg-white/20'}`}
+            >
+              {i === bars.length - 1 && (
+                <motion.div animate={{ y: ["100%", "-100%"] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-gradient-to-t from-transparent via-white/30 to-transparent w-full" />
+              )}
+            </motion.div>
+            <div className={`text-[8px] font-mono uppercase tracking-widest ${i === bars.length - 1 ? 'text-sumac-brandy font-bold' : 'text-gray-500'}`}>
+              {months[i]}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── 10. AI Graphic (Recommendations) ─── */
+function AiGraphic({ benefit }: { benefit: BenefitType }) {
+  return (
+    <div className="relative w-full h-full p-6 bg-[#0a0f12] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex flex-col justify-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-60" />
+      
+      {/* AI Chat Window */}
+      <div className="w-full max-w-[300px] mx-auto bg-[#1a1f24] rounded-xl border border-white/10 overflow-hidden shadow-2xl relative z-10">
+        
+        {/* Header */}
+        <div className="bg-[#111518] px-3 py-2 border-b border-white/5 flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-red-500/50" />
+          <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+          <div className="w-2 h-2 rounded-full bg-green-500/50" />
+          <div className="mx-auto text-[9px] text-gray-400 font-mono">AI Search Overview</div>
+        </div>
+
+        {/* Chat Body */}
+        <div className="p-4 flex flex-col gap-4">
+          {/* User Prompt */}
+          <div className="flex gap-2 items-start self-end max-w-[85%]">
+            <div className="bg-[#2a3036] p-2.5 rounded-lg rounded-tr-sm text-[9px] text-white/80 leading-relaxed">
+              Who is the best local contractor near me?
+            </div>
+          </div>
+
+          {/* AI Response */}
+          <div className="flex gap-2 items-start">
+            <div className="w-6 h-6 rounded bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/30">
+              <ServiceIcon name="cpu" />
+            </div>
+            <div className="bg-blue-500/10 p-3 rounded-lg rounded-tl-sm text-[9px] text-white/90 leading-relaxed border border-blue-500/20 flex-1">
+              Based on top reviews, location, and a fully optimized profile, I highly recommend <strong className="text-blue-400 font-bold">Your Business</strong> for this job.
+              
+              <div className="mt-3 flex gap-2">
+                <div className="px-2 py-1 bg-[#111518] rounded text-[8px] text-gray-400 flex items-center gap-1 border border-white/5"><ServiceIcon name="star" /> 5.0 Rating</div>
+                <div className="px-2 py-1 bg-[#111518] rounded text-[8px] text-gray-400 flex items-center gap-1 border border-white/5"><ServiceIcon name="map-pin" /> 1.2 mi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main Export Component ─── */
 export function BenefitVisual({ benefit }: { benefit: BenefitType }) {
   const type = benefit.visualType || "dashboard";
 
   switch (type) {
     case "dashboard": 
+      if (benefit.icon === "bar-chart") return <OrganicTrafficGraphic benefit={benefit} />;
       if (benefit.icon === "target" && benefit.title.includes("Convert")) return <FunnelGraphic benefit={benefit} />;
       return <DashboardGraphic benefit={benefit} />;
-    case "code": return <CodeGraphic benefit={benefit} />;
+    case "code": 
+      if (benefit.icon === "cpu") return <AiGraphic benefit={benefit} />;
+      return <CodeGraphic benefit={benefit} />;
     case "network": 
       if (benefit.icon === "star") return <OrbitGraphic benefit={benefit} />;
       if (benefit.icon === "target") return <TargetGraphic benefit={benefit} />;
