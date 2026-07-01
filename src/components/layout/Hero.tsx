@@ -86,18 +86,18 @@ const Hero = () => {
  >
  <MagneticButton>
  <a
- href="#contact"
+ href="https://calendly.com/sumac-systems"
  className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-black rounded-full font-bold text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
- Book My Free Systems Audit
+ Book a Free Strategy Call
  </a>
  </MagneticButton>
  <a
- href="#what-we-do"
+ href="/#contact"
  className="hidden md:inline-flex px-8 py-4 bg-transparent text-white/70 border border-white/15 rounded-full font-medium text-base tracking-wide hover:text-white hover:border-white/30 hover:bg-white/[0.04] transition-all duration-300 items-center justify-center"
  >
- View Our Services
+ Calculate my ROI
  </a>
  </motion.div>
  </div>
