@@ -8,7 +8,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ScrollParallax } from "@/components/ui/ScrollParallax";
 
-const Aurora = dynamic(() => import("@/components/Aurora/Aurora"));
+
 const Particles = dynamic(() => import("@/components/ui/Particles"));
 const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
 import Script from "next/script";
