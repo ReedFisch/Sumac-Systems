@@ -63,10 +63,9 @@ export default function Home() {
  { 
  title: "Web Design", 
  slug: "web-design",
- desc: "Fast load times, clear structure, and layouts that drive action.",
- bullets: ["Mobile-first, responsive layouts", "Performance-optimized build for lightning-fast load times", "Clean, maintainable code architecture"],
+ desc: "Fast, mobile-first sites built to turn visitors into booked jobs.",
  icon: (
- <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+ <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
  </svg>
  )
@@ -74,10 +73,9 @@ export default function Home() {
  { 
  title: "AI & SEO", 
  slug: "ai-seo",
- desc: "Visibility where people actually search today, including LLMs and AI Overviews.",
- bullets: ["Comprehensive technical SEO audits and fixes", "Semantic content structuring for AI (ChatGPT)", "Schema markup for rich search results"],
+ desc: "Rank on Google and get recommended by AI search tools.",
  icon: (
- <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+ <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
  </svg>
  )
@@ -85,10 +83,9 @@ export default function Home() {
  { 
  title: "Google Business Profile", 
  slug: "google-business-profile",
- desc: "Optimize your Google presence to capture local intent and drive foot traffic.",
- bullets: ["Profile optimization and verification", "Review management strategies", "Local citation building"],
+ desc: "Show up in the map pack and turn local searches into calls.",
  icon: (
- <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+ <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
  </svg>
@@ -97,10 +94,9 @@ export default function Home() {
  { 
  title: "Automations", 
  slug: "automations",
- desc: "Catch every lead with instant text follow-ups and automated review requests.",
- bullets: ["Automated SMS follow-up sequences", "Frictionless Google review request workflows", "Seamless CRM lead routing"],
+ desc: "Instant follow-ups and review requests, running in the background.",
  icon: (
- <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+ <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
  </svg>
  )
@@ -114,97 +110,61 @@ export default function Home() {
  <Hero />
  
  {/* Services Section */}
- <section id="services" className="bg-sumac-dark text-white pt-48 pb-28 md:pt-72 md:pb-40 relative overflow-hidden">
- <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
- <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
+ <section id="services" className="bg-sumac-dark text-white py-24 md:py-32 relative overflow-hidden">
+ <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+ <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
  <Particles
- className="absolute inset-0 z-0 opacity-30 pointer-events-none"
- quantity={80}
+ className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+ quantity={40}
  ease={80}
  staticity={50}
  />
- 
- {/* Floating Decor */}
- <ScrollParallax offset={200} className="absolute top-40 right-10 w-72 h-72 pointer-events-none z-0">
- <motion.div variants={floatVariant(0, 12)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
- <Image src="/images/sumac/image6.webp" alt="" fill sizes="288px" className="object-contain opacity-10 animate-[float_10s_ease-in-out_infinite]" aria-hidden="true" />
- </motion.div>
- </ScrollParallax>
- <ScrollParallax offset={-150} className="absolute bottom-40 -left-10 w-56 h-56 pointer-events-none z-0">
- <motion.div variants={floatVariant(2, 10)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="w-full h-full relative">
- <Image src="/images/sumac/image2.webp" alt="" fill sizes="500px" className="object-contain opacity-30 animate-[float_8s_ease-in-out_infinite] scale-x-[-1]" aria-hidden="true" />
- </motion.div>
- </ScrollParallax>
 
  <motion.div 
  initial="hidden"
  whileInView="visible"
  viewport={{ once: true, margin: "-80px" }}
  variants={staggerContainer}
- className="max-w-6xl mx-auto px-6 w-full relative z-10"
+ className="max-w-5xl mx-auto px-6 w-full relative z-10"
  >
- <div className="text-center mb-20">
+ <div className="text-center mb-12 md:mb-16">
  <motion.div variants={fadeUpVariant}>
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">What We Do</span>
+ <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-3">What We Do</span>
  </motion.div>
- <h2 className="text-4xl md:text-6xl font-sans font-bold tracking-tight text-white">
+ <h2 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white">
  <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
- <motion.p variants={fadeUpVariant} className="text-white/40 text-lg font-body max-w-2xl mx-auto mt-6">
- We don't just build digital brochures. We engineer complete systems designed to actually convert traffic into revenue.
+ <motion.p variants={fadeUpVariant} className="text-white/45 text-base md:text-lg font-body max-w-lg mx-auto mt-4 leading-relaxed">
+ Four systems that work together to bring you more customers.
  </motion.p>
  </div>
 
- <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
- {services.map((service, i) => {
- const isWide = i === 0 || i === 3;
- return (
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+ {services.map((service, i) => (
  <motion.div 
  key={i} 
  variants={fadeUpVariant}
- whileHover={{ y: -6 }}
+ whileHover={{ y: -4 }}
  transition={{ type: "spring", stiffness: 400, damping: 25 }}
- className={isWide ? "md:col-span-7" : "md:col-span-5"}
  >
- <SpotlightCard className="bg-sumac-dark/40 backdrop-blur-md border border-white/5 hover:border-white/10 rounded-2xl p-8 md:p-10 transition-all duration-500 h-full flex flex-col justify-between group">
- {/* Glowing animated orb in the background */}
- <div className="absolute -top-24 -right-24 w-64 h-64 bg-sumac-brandy/10 rounded-full blur-[80px] group-hover:bg-sumac-brandy/20 group-hover:scale-150 transition-all duration-700 ease-in-out pointer-events-none" />
- 
- <div>
- <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:-translate-y-2 group-hover:rotate-3 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+ <SpotlightCard className="bg-sumac-dark/50 backdrop-blur-md border border-white/[0.06] hover:border-white/12 rounded-2xl p-6 md:p-7 transition-all duration-500 h-full flex flex-col group">
+ <div className="absolute -top-20 -right-20 w-48 h-48 bg-sumac-brandy/8 rounded-full blur-[60px] group-hover:bg-sumac-brandy/15 transition-all duration-700 pointer-events-none" />
+
+ <div className="w-11 h-11 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center mb-5 text-white/80 group-hover:text-white group-hover:border-white/15 transition-colors duration-300">
  {service.icon}
  </div>
- <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
- <p className="text-white/60 font-body leading-relaxed text-base relative z-10 mb-8 max-w-sm">{service.desc}</p>
- 
- <ul className="space-y-3 relative z-10 md:hidden">
- {service.bullets.slice(0, 1).map((bullet, idx) => (
- <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
- <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy mt-1.5 shrink-0 shadow-[0_0_8px_var(--color-sumac-brandy)]" />
- <span className="leading-relaxed">{bullet}</span>
- </li>
- ))}
- </ul>
- <ul className="hidden md:block space-y-4 relative z-10">
- {service.bullets.map((bullet, idx) => (
- <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
- <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy mt-1.5 shrink-0 shadow-[0_0_8px_var(--color-sumac-brandy)]" />
- <span className="leading-relaxed">{bullet}</span>
- </li>
- ))}
- </ul>
- </div>
 
- <Link href={`/services/${service.slug}`} className="mt-10 flex items-center gap-2 text-white/55 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
- <span className="text-xs font-bold tracking-wider uppercase">
-  Explore {service.title}
- </span>
- <svg className="w-4 h-4 group-hover/link:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+ <h3 className="text-xl md:text-2xl font-sans font-bold tracking-tight mb-2 group-hover:text-sumac-brandy transition-colors">{service.title}</h3>
+ <p className="text-white/50 font-body leading-relaxed text-sm md:text-[15px] flex-1">{service.desc}</p>
+
+ <Link href={`/services/${service.slug}`} className="mt-5 pt-5 border-t border-white/[0.06] flex items-center gap-2 text-white/40 group-hover:text-white/80 transition-colors duration-300 w-fit">
+ <span className="text-xs font-semibold tracking-wide uppercase">Learn more</span>
+ <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
  </Link>
  </SpotlightCard>
  </motion.div>
- )})}
+ ))}
  </div>
  </motion.div>
  </section>

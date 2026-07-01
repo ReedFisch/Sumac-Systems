@@ -46,33 +46,45 @@ const Header = () => {
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 md:py-6 flex items-center justify-between md:justify-between relative">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-4 md:py-6 flex items-center justify-between gap-4 relative min-h-[64px] md:min-h-0">
         <Link
           href="/"
           onClick={closeMenu}
-          className={`flex items-center group transition-all duration-500 shrink-0 ${scrolled ? 'gap-2 md:gap-4' : 'gap-2 md:gap-6'}`}
+          className="flex items-center group transition-all duration-500 shrink-0 min-w-0 gap-3 md:gap-4"
         >
-          <span className={`block md:hidden font-sans font-bold tracking-[0.12em] leading-tight text-white group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-base' : 'text-2xl'}`}>
-            SUMAC
-          </span>
+          {/* Mobile — compact, fixed size */}
+          <div className="relative w-9 h-9 shrink-0 md:hidden">
+            <Image
+              src="/images/sumac/image3.webp"
+              alt="Sumac Logo"
+              fill
+              sizes="36px"
+              className="object-contain"
+            />
+          </div>
+          <div className="flex flex-col min-w-0 md:hidden">
+            <span className="font-sans font-bold tracking-[0.1em] text-white text-sm leading-none group-hover:text-sumac-brandy transition-colors">
+              SUMAC
+            </span>
+            <span className="font-body tracking-[0.14em] text-white/40 uppercase text-[10px] mt-1">
+              Systems
+            </span>
+          </div>
 
+          {/* Desktop — scroll-responsive */}
           <div
-            className={`relative overflow-hidden flex items-center justify-center transition-all duration-500 ${
-              scrolled ? 'w-10 h-10 md:w-[88px] md:h-[88px]' : 'w-12 h-12 md:w-[220px] md:h-[220px]'
+            className={`hidden md:flex relative overflow-hidden items-center justify-center transition-all duration-500 ${
+              scrolled ? 'w-[88px] h-[88px]' : 'w-[220px] h-[220px]'
             }`}
           >
             <Image
               src="/images/sumac/image3.webp"
               alt="Sumac Logo"
               fill
-              sizes={scrolled ? '(max-width: 768px) 40px, 88px' : '(max-width: 768px) 48px, 220px'}
+              sizes={scrolled ? '88px' : '220px'}
               className="object-contain group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-
-          <span className={`block md:hidden font-body tracking-[0.15em] text-white/40 uppercase transition-all duration-500 ${scrolled ? 'text-[9px]' : 'text-xs'}`}>
-            SYS<br />TEMS
-          </span>
 
           <div className="hidden md:flex flex-col justify-center items-center transition-all duration-500">
             <span className={`font-sans font-bold tracking-[0.12em] leading-tight text-white group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-lg' : 'text-[42px]'}`}>
@@ -117,7 +129,7 @@ const Header = () => {
 
         <button
           type="button"
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition-colors"
+          className="md:hidden flex items-center justify-center w-11 h-11 shrink-0 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition-colors -mr-1"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMenuOpen((o) => !o)}
@@ -135,7 +147,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden border-t border-white/[0.06] bg-black/90 backdrop-blur-xl px-4 pb-6 pt-2">
+        <div className="md:hidden border-t border-white/[0.06] bg-black/90 backdrop-blur-xl px-5 pb-8 pt-3">
           <nav className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link
@@ -152,7 +164,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
-              className="py-4 flex items-center gap-2 text-base font-medium tracking-wide text-white/70 border-b border-white/[0.06] hover:text-white transition-colors"
+              className="py-4 flex items-center gap-2.5 text-base font-medium tracking-wide text-white/70 border-b border-white/[0.06] hover:text-white transition-colors"
             >
               <LoginIcon className="w-4 h-4" />
               Login
@@ -161,7 +173,7 @@ const Header = () => {
           <Link
             href="/thank-you"
             onClick={closeMenu}
-            className="mt-5 flex w-full items-center justify-center py-3.5 bg-white text-black rounded-full font-bold text-sm tracking-wider uppercase"
+            className="mt-6 flex w-full items-center justify-center py-4 bg-white text-black rounded-full font-bold text-sm tracking-wider uppercase"
           >
             Book Strategy Call
           </Link>

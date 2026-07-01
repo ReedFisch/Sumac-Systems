@@ -26,6 +26,9 @@ export default function ThankYouPage() {
  <div className="text-center mb-8">
  <h2 className="text-xl font-bold font-sans mb-3">The next step is a <span className="text-sumac-brandy">free</span> strategy call.</h2>
  <p className="text-white/40 font-body text-sm">Discuss your goals and see how a custom system can solve your current bottlenecks. No commitment required.</p>
+ <p className="mt-4 text-white/55 font-body text-sm leading-relaxed max-w-md mx-auto">
+  Please pick a time at least 1-2 business days out so we have time to review your business before the call.
+ </p>
  </div>
  
  {/* Calendly Embed */}

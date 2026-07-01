@@ -20,7 +20,7 @@ export interface ServiceDetail {
     tagline: string;
     icon: string;
     image?: string;
-    visualType?: 'dashboard' | 'code' | 'network' | 'mobile';
+    visualType?: 'dashboard' | 'code' | 'network' | 'mobile' | 'server';
   }[];
   struggles: {
     title: string;
@@ -118,7 +118,7 @@ export const services: ServiceDetail[] = [
         title: "Managed For You",
         tagline: "Hosting, updates, and security handled completely, so you can focus on your business.",
         icon: "shield",
-        visualType: "code"
+        visualType: "server"
       }
     ],
     struggles: {
@@ -220,14 +220,6 @@ export const services: ServiceDetail[] = [
       {
         question: "How does the pricing work?",
         answer: "There's a one-time fee to build the site, and then a flat monthly rate after that. The monthly fee covers all hosting, security updates, and ongoing management so you don't have to touch a thing. We'll go through the exact numbers on our strategy call."
-      },
-      {
-        question: "Will it look good on my phone?",
-        answer: "Yes. We build mobile-first because that's how most of your customers are finding you. It will look and feel sharp on every device."
-      },
-      {
-        question: "What happens if I want to cancel?",
-        answer: "The site comes down at the end of your billing cycle. That being said, we have a strict safeguard: if we ever shut down as a company, you get full ownership of the code and domain. You are never left stranded."
       }
     ],
     bottomCta: {
@@ -374,28 +366,20 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
-        question: "How long until I see results?",
-        answer: "Honest answer, it takes time. You might see some movement in a few weeks, but meaningful rankings usually take three to six months. Anyone promising page one in 30 days is just lying to you."
-      },
-      {
         question: "What even is AIO and why does it matter?",
         answer: "It stands for AI Optimization. When someone asks ChatGPT for a recommendation, it pulls from structured data on the web. If your site isn't built for these models to read, you're invisible to them. We fix that."
       },
       {
-        question: "Do I need a new website for this to work?",
-        answer: "Not necessarily, but your website is the foundation. If it's slow, poorly structured, or missing the right content, no SEO strategy will stick. We'll tell you upfront if a rebuild makes sense."
-      },
-      {
-        question: "Can this actually help my type of business?",
-        answer: "If people search for what you do online - and they do - then yes. Local service businesses especially have a massive opportunity here because most of your competitors haven't figured this out yet."
-      },
-      {
-        question: "How does pricing work?",
-        answer: "It's a one-time setup fee to build out the technical infrastructure, followed by a flat monthly rate for ongoing strategy and optimization. No retainer shock. We'll walk through the specifics on a call."
+        question: "How long until I see results?",
+        answer: "Honest answer, it takes time. You might see some movement in a few weeks, but meaningful rankings usually take three to six months. Anyone promising page one in 30 days is just lying to you."
       },
       {
         question: "What makes you different from every other SEO agency?",
         answer: "Most agencies send you a monthly PDF and call it a day. We build the actual technical infrastructure - schema markup, entity optimization, AI-readable content structure - and we tie it directly to your lead flow. Results you can measure."
+      },
+      {
+        question: "How does pricing work?",
+        answer: "It's a one-time setup fee to build out the technical infrastructure, followed by a flat monthly rate for ongoing strategy and optimization. No retainer shock. We'll walk through the specifics on a call."
       }
     ],
     bottomCta: {
@@ -546,10 +530,6 @@ export const services: ServiceDetail[] = [
         answer: "Optimizing your profile can move the needle fast, sometimes in just a few weeks. Consistently staying in the top three depends on your competition, but most clients see real movement within a month or two."
       },
       {
-        question: "Why do reviews matter so much?",
-        answer: "Reviews are one of the biggest signals Google uses for the map pack. Getting a steady stream of high-quality reviews is a combination that is really hard for your competitors to beat."
-      },
-      {
         question: "I already have a Google Business Profile - can you still help?",
         answer: "Almost always, yes. Most of the profiles we look at are missing key categories, have blank service descriptions, or lack good photos. There is usually a ton of room for improvement."
       },
@@ -560,10 +540,6 @@ export const services: ServiceDetail[] = [
       {
         question: "Does my Google profile affect my regular Google search rankings too?",
         answer: "Yes. A well-optimized GBP sends strong local authority signals to Google that lift both your map pack position and your organic rankings. It's connected."
-      },
-      {
-        question: "What if my business operates in multiple cities?",
-        answer: "We can build out a strategy that covers your full service area - creating local landing pages and citation signals for each location so you show up wherever your customers are searching."
       }
     ],
     bottomCta: {
@@ -714,10 +690,6 @@ export const services: ServiceDetail[] = [
         answer: "Within seconds. The moment someone calls and you don't pick up, the system fires a personalized text to keep them engaged. You'd be shocked how many jobs are won just by being the first one to respond."
       },
       {
-        question: "What tools do you integrate with?",
-        answer: "Pretty much anything with an API. We work with HubSpot, GoHighLevel, Zapier, Make, Twilio, Stripe, Google Calendar, and more. If you already use something, we'll connect it."
-      },
-      {
         question: "Is this going to be complicated to learn?",
         answer: "No. We build the whole thing and walk you through exactly how it works. Most clients are running it confidently within a day. The point is to make your life easier, not add another thing to manage."
       },
@@ -726,12 +698,8 @@ export const services: ServiceDetail[] = [
         answer: "The automations handle the mechanical stuff - the instant reply, the follow-up, the review ask. You still handle the real conversations. Think of it as having a reliable system working in the background while you focus on the actual relationship."
       },
       {
-        question: "How does pricing work?",
-        answer: "There's a one-time build fee to engineer the workflows, and then a flat monthly rate to keep the systems running and managed. No project sticker shock. We'll go through the specifics on a strategy call once we understand your current workflow."
-      },
-      {
-        question: "What do I need to provide to get started?",
-        answer: "We just need a clear picture of how you currently operate. How do leads come in, what happens next, and what is currently slipping through the cracks? We take it from there and build the system around how you actually work."
+        question: "What tools do you integrate with?",
+        answer: "Pretty much anything with an API. We work with HubSpot, GoHighLevel, Zapier, Make, Twilio, Stripe, Google Calendar, and more. If you already use something, we'll connect it."
       }
     ],
     bottomCta: {

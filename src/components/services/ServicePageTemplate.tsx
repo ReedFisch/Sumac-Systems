@@ -98,21 +98,47 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               </p>
             </FadeInView>
             <FadeInView delay={0.15}>
-              <div className="flex flex-col gap-3">
-                {service.definition.examples.map((example, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                    className="px-6 py-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center shadow-inner hover:border-sumac-brandy/30 hover:bg-white/[0.05] transition-all cursor-default"
-                  >
-                    <span className="text-sumac-brandy font-bold text-xl mr-4 opacity-50">&ldquo;</span>
-                    <span className="text-white/80 font-medium font-body italic text-sm">{example.replace(/"/g, '')}</span>
-                    <span className="text-sumac-brandy font-bold text-xl ml-4 opacity-50">&rdquo;</span>
-                  </motion.div>
-                ))}
+              <div className="relative">
+                {/* Decorative background blur */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-sumac-brandy/5 blur-[80px] rounded-full pointer-events-none" />
+                
+                <div className="grid grid-cols-1 gap-4 relative z-10">
+                  {service.definition.examples.map((example, i) => {
+                    let mainText = example.replace(/"/g, '');
+                    let subText = '';
+                    
+                    if (mainText.includes(' - ')) {
+                      const parts = mainText.split(' - ');
+                      mainText = parts[0];
+                      subText = parts[1];
+                    } else if (mainText.includes(' → ')) {
+                      const parts = mainText.split(' → ');
+                      mainText = parts[0];
+                      subText = parts[1];
+                    }
+
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                        className={`p-5 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-2xl flex items-start gap-4 hover:border-sumac-brandy/30 hover:bg-white/[0.04] transition-colors group ${i % 2 !== 0 ? 'md:ml-12' : 'md:mr-12'}`}
+                      >
+                         <div className="w-8 h-8 rounded-full bg-black/40 flex items-center justify-center shrink-0 border border-white/5 mt-0.5 group-hover:border-sumac-brandy/30 transition-colors">
+                           <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy/70 group-hover:bg-sumac-brandy group-hover:shadow-[0_0_8px_rgba(136,47,24,0.8)] transition-all" />
+                         </div>
+                         <div>
+                           <p className="text-white/90 font-medium font-sans text-[15px] leading-snug">{mainText}</p>
+                           {subText && (
+                             <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest mt-2">{subText}</p>
+                           )}
+                         </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </FadeInView>
           </div>
@@ -179,21 +205,21 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
            
            <div className="grid md:grid-cols-3 gap-12 md:gap-16 text-center">
              <FadeInView delay={0.1} className="flex flex-col items-center group">
-               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">75%</span>
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30 tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">75%</span>
                <h4 className="text-white font-bold text-xl mb-3">Credibility Judged by Design</h4>
                <p className="text-white/80 text-base leading-relaxed mb-6">Users judge a business&apos;s credibility directly based on their website design and speed.</p>
                <a href="https://exhibits.stanford.edu/fogg/catalog/yg466vx0159" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Stanford Research</a>
              </FadeInView>
              
              <FadeInView delay={0.2} className="flex flex-col items-center group">
-               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">27%</span>
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30 tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">27%</span>
                <h4 className="text-white font-bold text-xl mb-3">Clicks Go to Rank #1</h4>
                <p className="text-white/80 text-base leading-relaxed mb-6">The #1 organic result in Google captures over a quarter of all local search traffic.</p>
                <a href="https://backlinko.com/google-ctr-stats" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Backlinko SEO Study</a>
              </FadeInView>
              
              <FadeInView delay={0.3} className="flex flex-col items-center group">
-               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">5m</span>
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30 tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">5m</span>
                <h4 className="text-white font-bold text-xl mb-3">The Golden Window</h4>
                <p className="text-white/80 text-base leading-relaxed mb-6">Waiting longer than 5 minutes to reply to a lead drops contact rates by 10x.</p>
                <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-white/20 hover:border-sumac-brandy/50 pb-0.5 inline-block">— Harvard Business Review</a>
@@ -203,37 +229,36 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 4. Struggles Section */}
-      <section className="py-16 md:py-24 bg-[#0a0000] border-y border-white/[0.06] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-900/[0.06] rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
-          <FadeInView className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
+      <section className="py-16 md:py-28 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-sumac-brandy/[0.04] rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 relative">
+          <FadeInView className="text-center mb-12 md:mb-16">
+            <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-3">Sound Familiar?</span>
+            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight mb-4 text-balance max-w-2xl mx-auto">
               {service.struggles.title}
             </h2>
-            <p className="text-white/55 font-body text-lg md:text-xl leading-relaxed">
+            <p className="text-white/45 font-body text-base md:text-lg leading-relaxed max-w-lg mx-auto">
               {service.struggles.subtitle}
             </p>
           </FadeInView>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.struggles.items.map((item, i) => (
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            {service.struggles.items.slice(0, 4).map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
+                viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group p-6 rounded-2xl bg-[#180404]/60 border border-red-900/20 hover:border-red-800/40 hover:bg-[#1f0606]/70 transition-all duration-300 flex flex-col gap-4 items-start"
+                whileHover={{ y: -3 }}
+                className="group relative rounded-2xl p-6 md:p-7 bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] hover:border-white/12 hover:bg-white/[0.05] transition-all duration-400"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-red-500/15 text-red-400 flex items-center justify-center shrink-0 group-hover:bg-red-500/25 transition-colors">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                </div>
-                <p className="text-white/55 font-body text-sm leading-relaxed">{item.description}</p>
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-sumac-brandy/8 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <span className="font-mono text-[11px] tracking-widest text-sumac-brandy/50 mb-4 block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-base md:text-lg font-semibold text-white mb-2 tracking-tight">{item.title}</h3>
+                <p className="text-white/45 font-body text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -332,6 +357,9 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.middleCta.ctaLabel}
             </Link>
+            <FadeInView delay={0.2} className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10 mt-4 md:mt-8 bg-[#111] flex items-center justify-center p-8">
+              <ServiceHeroVisual slug={service.slug} />
+            </FadeInView>
           </FadeInView>
         </div>
       </section>
