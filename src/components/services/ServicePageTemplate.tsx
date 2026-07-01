@@ -306,20 +306,6 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               {service.middleCta.ctaLabel}
             </Link>
           </FadeInView>
-          
-          {service.middleCta.image && (
-            <FadeInView delay={0.2}>
-              <div className="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] bg-black">
-                <Image 
-                  src={service.middleCta.image}
-                  alt="Results"
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto opacity-80"
-                />
-              </div>
-            </FadeInView>
-          )}
         </div>
       </section>
 
