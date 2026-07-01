@@ -6,7 +6,6 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
 
-const Aurora = dynamic(() => import('../Aurora/Aurora'));
 const MagneticButton = dynamic(() => import('../ui/MagneticButton'));
 import { FlipText } from '../ui/FlipText';
 

@@ -13,7 +13,6 @@ import dynamic from "next/dynamic";
 const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
 const TiltCard = dynamic(() => import("@/components/ui/TiltCard"));
 const Particles = dynamic(() => import("@/components/ui/Particles"));
-const Aurora = dynamic(() => import("@/components/Aurora/Aurora"));
 import RevenueCalculator from "@/components/calculator/RevenueCalculator";
 import Link from "next/link";
 import { useRef } from "react";
@@ -204,7 +203,7 @@ export default function Home() {
  {/* AI Differentiator Section */}
  <section className="bg-gradient-to-b from-sumac-dark via-[#180000] to-sumac-dark text-white py-32 md:py-44 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-    <Aurora colorStops={['#47150C', '#350000', '#120000']} blend={0.6} amplitude={1.0} speed={0.4} />
+    <Particles className="absolute inset-0" quantity={50} ease={80} staticity={50} />
  </div>
  
  {/* Floating Decor */}

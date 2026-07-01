@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LazyMotion, domAnimation } from "motion/react";
+import Particles from "@/components/ui/Particles";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -77,10 +78,10 @@ export default function RootLayout({
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #120000;
+            background-color: #800000;
             background-image: 
-              linear-gradient(rgba(124, 255, 103, 0.03) 1px, transparent 1px), 
-              linear-gradient(90deg, rgba(124, 255, 103, 0.03) 1px, transparent 1px);
+              linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             background-position: center center;
             transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
@@ -165,6 +166,7 @@ export default function RootLayout({
             }, 1200);
           });
         `}} />
+        <Particles className="fixed inset-0 pointer-events-none -z-10" quantity={100} ease={80} />
         <LazyMotion features={domAnimation}>
           {children}
         </LazyMotion>
