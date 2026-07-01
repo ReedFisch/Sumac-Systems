@@ -77,7 +77,7 @@ export const services: ServiceDetail[] = [
     },
     definition: {
       title: "What Is Next-Gen Web Design?",
-      description: "It's not a Wix template or a WordPress theme. It's a hand-coded, custom-designed website built on a modern tech stack that loads instantly, ranks higher on Google, and is specifically structured to convert visitors into paying customers.",
+      description: "It's not a generic Wix template or a bloated WordPress theme. It's a custom, hand-coded website built on modern tech that actually loads instantly, ranks well on Google, and is specifically designed to turn your visitors into paying customers.",
       examples: [
         '"Why does my website look outdated?"',
         '"My site is slow on mobile"',
@@ -111,37 +111,37 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Managed For You",
-        tagline: "Hosting, updates, and security handled completely - you focus on your business.",
+        tagline: "Hosting, updates, and security handled completely, so you can focus on your business.",
         icon: "shield"
       }
     ],
     struggles: {
       title: "Why Many Local Businesses Struggle Online",
-      subtitle: "It usually comes down to a few missing pieces in their digital foundation.",
+      subtitle: "Usually, it comes down to a few missing pieces in their online setup.",
       items: [
         {
           title: "Outdated Website",
-          description: "A site that isn't mobile-friendly or optimized for local search terms."
+          description: "Having a site that looks bad on phones or just ignores local search completely."
         },
         {
           title: "Slow Load Times",
-          description: "Users leave before the site even loads, costing you valuable leads."
+          description: "People click away before the page even finishes loading, which directly costs you leads."
         },
         {
           title: "No Clear Conversion Path",
-          description: "Failing to guide visitors toward making a phone call or booking an appointment."
+          description: "Not making it glaringly obvious how a visitor should call or book an appointment."
         },
         {
           title: "Poor Online Presence",
-          description: "Inconsistent branding and messaging across the web."
+          description: "Having messy, inconsistent messaging scattered across the internet."
         },
         {
           title: "Limited Local Content",
-          description: "No dedicated pages targeting specific service areas."
+          description: "Missing pages that actually talk about the specific towns and services you offer."
         },
         {
           title: "Competitors Investing",
-          description: "Other local businesses are actively upgrading their digital storefronts."
+          description: "Other local businesses are actively upgrading their sites and pulling ahead."
         }
       ]
     },
@@ -193,7 +193,7 @@ export const services: ServiceDetail[] = [
     },
     middleCta: {
       title: "Web Design That Helps Customers Find Your Business",
-      subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our high-performance sites help improve your visibility, build trust, and generate more opportunities.",
+      subtitle: "When people in your area search for what you do, you need to be the obvious choice. We build high-performance sites that make you look like the most trusted option in town, which naturally drives more calls.",
       ctaLabel: "Get My Free Website Audit",
       ctaHref: "/#contact",
       image: "/images/titan-roofing.webp"
@@ -205,11 +205,11 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "What if I already have a website?",
-        answer: "We'll take a look at it honestly. Sometimes there are pieces worth keeping. More often, rebuilding from scratch is the right call - especially if we're wiring in automations and AI visibility from the ground up."
+        answer: "We'll take an honest look at it. Sometimes there are pieces worth keeping. Usually, rebuilding from scratch is the better move, especially if we're wiring in new automations and search features from the ground up."
       },
       {
         question: "Do I have to deal with hosting, updates, and all that?",
-        answer: "Nope. That's on us. Hosting, security patches, speed optimization - we handle it all. You run your business, we keep the site running."
+        answer: "Nope, that's entirely on us. We handle the hosting, security patches, and speed optimization. You run your business, and we'll keep the site running smoothly."
       },
       {
         question: "How does the pricing work?",
@@ -221,7 +221,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "What happens if I want to cancel?",
-        answer: "The site comes down at the end of your billing cycle. That said, we have a Business Continuity Safeguard - if we ever shut down as a company, you get full ownership of the code and domain. You're never left stranded."
+        answer: "The site comes down at the end of your billing cycle. That being said, we have a strict safeguard: if we ever shut down as a company, you get full ownership of the code and domain. You are never left stranded."
       }
     ],
     bottomCta: {
@@ -237,7 +237,7 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Get found on Google",
       headlineAccent: "& AI",
-      description: "Traditional SEO gets you on Google. AIO gets you recommended by ChatGPT, Perplexity, and Google AI Overviews. We do both - so no matter how people search, your business shows up first."
+      description: "Traditional SEO gets you on Google. AIO gets you recommended by tools like ChatGPT and Perplexity. We do both, so no matter how people are searching, your business shows up first."
     },
     definition: {
       title: "What Is SEO & AIO?",
@@ -281,19 +281,19 @@ export const services: ServiceDetail[] = [
     ],
     struggles: {
       title: "Why Many Local Businesses Struggle To Show Up On Google",
-      subtitle: "It usually comes down to a few missing pieces in their online foundation.",
+      subtitle: "It usually comes down to a few missing pieces in how they're set up online.",
       items: [
         {
           title: "Outdated Content Strategy",
-          description: "Relying on old SEO tactics that Google's AI now ignores or penalizes."
+          description: "Relying on outdated SEO tricks that Google now ignores completely."
         },
         {
           title: "Weak Technical Foundation",
-          description: "A slow, poorly structured site that prevents search engines from indexing pages."
+          description: "Having a slow, messy site that actually prevents search engines from reading your pages."
         },
         {
           title: "No Authority Building",
-          description: "Failing to consistently build high-quality local backlinks and citations."
+          description: "Not doing the ongoing work to build real local authority and backlinks."
         },
         {
           title: "Limited Local Content",
@@ -357,7 +357,7 @@ export const services: ServiceDetail[] = [
     },
     middleCta: {
       title: "Local SEO That Helps Customers Find Your Business",
-      subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our Local Authority System helps improve your visibility, build trust, and generate more opportunities from Google.",
+      subtitle: "When someone nearby needs your services, you should be the first name they see. Our approach builds real local authority that improves your visibility and actually generates phone calls from Google.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp"
@@ -365,11 +365,11 @@ export const services: ServiceDetail[] = [
     faqs: [
       {
         question: "How long until I see results?",
-        answer: "Honest answer - SEO takes time. You might see movement in a few weeks, but meaningful, lasting rankings usually take 3 to 6 months. Anyone promising page one in 30 days is lying to you."
+        answer: "Honest answer, it takes time. You might see some movement in a few weeks, but meaningful rankings usually take three to six months. Anyone promising page one in 30 days is just lying to you."
       },
       {
         question: "What even is AIO and why does it matter?",
-        answer: "AIO stands for AI Optimization. When someone asks ChatGPT or Perplexity to recommend a local business, those AI tools pull from structured content on the web. If your site isn't built to be read by those models, you're invisible to that entire channel. We fix that."
+        answer: "It stands for AI Optimization. When someone asks ChatGPT for a recommendation, it pulls from structured data on the web. If your site isn't built for these models to read, you're invisible to them. We fix that."
       },
       {
         question: "Do I need a new website for this to work?",
@@ -401,11 +401,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Dominate the local",
       headlineAccent: "map pack",
-      description: "Your Google Business Profile is often the first thing customers see - before your website. We optimize every detail so you show up in the map pack, look trustworthy, and get the call."
+      description: "Your Google Business Profile is usually the first thing customers see, even before your website. We optimize every single detail so you show up in the map pack, look highly trustworthy, and actually get the call."
     },
     definition: {
       title: "What Is Google Business Profile Optimization?",
-      description: "It's making sure your Google Maps listing is fully optimized with the right categories, services, photos, posts, and reviews - so when someone searches 'near me,' your business appears in the top 3 map results with a profile that converts.",
+      description: "It means making sure your Google Maps listing is perfectly dialed in with the right categories, photos, and reviews, so when someone searches for what you do, you show up in those top three map results.",
       examples: [
         '"Roofer near me" - triggers map pack',
         '"HVAC repair open now" - shows hours',
@@ -424,7 +424,7 @@ export const services: ServiceDetail[] = [
     benefits: [
       {
         title: "Map Pack Placement",
-        tagline: "Appear in the top 3 Google Maps results where 42% of local searchers click.",
+        tagline: "Show up in the top three Google Maps results where most local searchers actually click.",
         icon: "map-pin"
       },
       {
@@ -434,7 +434,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Direct Calls",
-        tagline: "Click-to-call directly from search results - no website visit needed.",
+        tagline: "Customers can call you directly from the search results without even visiting your website.",
         icon: "phone"
       },
       {
@@ -445,7 +445,7 @@ export const services: ServiceDetail[] = [
     ],
     struggles: {
       title: "Why Many Local Businesses Struggle To Show Up On Google",
-      subtitle: "It usually comes down to a few missing pieces in their online foundation.",
+      subtitle: "It almost always comes down to a few basic missing pieces.",
       items: [
         {
           title: "Outdated Website",
@@ -457,7 +457,7 @@ export const services: ServiceDetail[] = [
         },
         {
           title: "Not Enough Reviews",
-          description: "Failing to consistently collect reviews compared to competitors."
+          description: "Not having a system to consistently get new reviews compared to competitors."
         },
         {
           title: "Limited Local Content",
@@ -521,7 +521,7 @@ export const services: ServiceDetail[] = [
     },
     middleCta: {
       title: "Local SEO That Helps Customers Find Your Business",
-      subtitle: "When local customers search for your services, you want your business to be one of the first they find. Our Local Authority System helps improve your visibility, build trust, and generate more opportunities from Google.",
+      subtitle: "If you want local customers to call you, you need to dominate the map pack. We optimize your profile to build trust and get you in front of the people actively searching for your services.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp"
@@ -529,15 +529,15 @@ export const services: ServiceDetail[] = [
     faqs: [
       {
         question: "How long does it take to climb the map pack?",
-        answer: "Profile optimization can move the needle fast - sometimes within a few weeks. Climbing into the top 3 consistently depends on how competitive your area is, but most clients see real movement within 30 to 90 days."
+        answer: "Optimizing your profile can move the needle fast, sometimes in just a few weeks. Consistently staying in the top three depends on your competition, but most clients see real movement within a month or two."
       },
       {
         question: "Why do reviews matter so much?",
-        answer: "Reviews are one of the biggest signals Google uses to decide who shows up in the map pack. More reviews, higher rating, and steady velocity of new ones - that combo is hard for competitors to beat."
+        answer: "Reviews are one of the biggest signals Google uses for the map pack. Getting a steady stream of high-quality reviews is a combination that is really hard for your competitors to beat."
       },
       {
         question: "I already have a Google Business Profile - can you still help?",
-        answer: "Almost always, yes. Most profiles we audit are missing categories, have thin service descriptions, inconsistent hours, or no photos. There's usually a lot of room to improve without starting from scratch."
+        answer: "Almost always, yes. Most of the profiles we look at are missing key categories, have blank service descriptions, or lack good photos. There is usually a ton of room for improvement."
       },
       {
         question: "Do I have to post on it or manage it myself?",
@@ -565,11 +565,11 @@ export const services: ServiceDetail[] = [
     hero: {
       headline: "Stop losing leads to",
       headlineAccent: "slow follow-up",
-      description: "When a lead fills out your form or calls and gets no answer, they move on in minutes. Our automation systems respond instantly with a personalized text, log the lead in your CRM, and queue up follow-ups - all without you lifting a finger."
+      description: "When a lead reaches out and doesn't get an answer, they move on in minutes. Our systems respond instantly with a personalized text, log the lead, and queue up the follow-up, all without you lifting a finger."
     },
     definition: {
       title: "What Are Business Automations?",
-      description: "Automations connect your website, phone system, CRM, and messaging tools into one seamless machine. When a customer interacts with your business, the system instantly responds, organizes their info, and follows up - so you never lose a lead to slow response time again.",
+      description: "We connect your website, phone, and messaging tools into one smooth system. When a customer reaches out, the system instantly replies and organizes their information, ensuring you never lose a lead just because you were busy.",
       examples: [
         'Missed call → instant text reply sent',
         'Form submitted → lead saved to CRM automatically',
@@ -588,7 +588,7 @@ export const services: ServiceDetail[] = [
     benefits: [
       {
         title: "Instant Response",
-        tagline: "Leads get a text within seconds of reaching out - even at 2 AM on a Saturday.",
+        tagline: "Leads get a text within seconds of reaching out, even if it's two in the morning on a Saturday.",
         icon: "zap"
       },
       {
@@ -685,7 +685,7 @@ export const services: ServiceDetail[] = [
     },
     middleCta: {
       title: "Automations That Help You Close More Deals",
-      subtitle: "Stop doing repetitive manual tasks. Our automation systems ensure every lead is followed up with instantly and every happy customer is asked for a review.",
+      subtitle: "Stop wasting time on repetitive manual tasks. We build systems that ensure every single lead gets an instant reply and every happy customer gets asked for a review automatically.",
       ctaLabel: "Book a Strategy Call",
       ctaHref: "/#contact",
       image: "/images/sumac/image12-blurred.webp"
@@ -713,7 +713,7 @@ export const services: ServiceDetail[] = [
       },
       {
         question: "What do I need to provide to get started?",
-        answer: "Just a clear picture of how your business currently operates - how leads come in, what happens next, what's slipping through the cracks. We take it from there and build the system around your actual workflow."
+        answer: "We just need a clear picture of how you currently operate. How do leads come in, what happens next, and what is currently slipping through the cracks? We take it from there and build the system around how you actually work."
       }
     ],
     bottomCta: {
