@@ -223,33 +223,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* 6. Industries Section */}
-      <section className="py-16 md:py-24 bg-[#1a0505] border-y border-white/[0.06]">
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center">
-          <FadeInView>
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
-              {service.industries.title}
-            </h2>
-            <p className="text-white/55 font-body text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-              {service.industries.subtitle}
-            </p>
-          </FadeInView>
-          <div className="flex flex-wrap justify-center gap-4">
-            {service.industries.items.map((industry, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/80 font-medium hover:bg-sumac-brandy hover:text-white hover:border-sumac-brandy hover:shadow-[0_0_25px_rgba(136,47,24,0.3)] transition-all duration-300 cursor-default"
-              >
-                {industry}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* 7. Features Checklist Section */}
       <section className="py-16 md:py-24 relative overflow-hidden">
