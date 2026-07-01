@@ -19,6 +19,7 @@ export interface ServiceDetail {
     title: string;
     tagline: string;
     icon: string;
+    image?: string;
   }[];
   struggles: {
     title: string;
@@ -97,22 +98,26 @@ export const services: ServiceDetail[] = [
       {
         title: "Blazing Fast",
         tagline: "Lightning-fast load times that keep visitors on your site instead of bouncing to competitors.",
-        icon: "zap"
+        icon: "zap",
+        image: "/images/sumac/image12-blurred.webp"
       },
       {
         title: "Built to Convert",
         tagline: "Every layout decision is engineered to guide visitors toward calling or booking.",
-        icon: "target"
+        icon: "target",
+        image: "/images/sumac/image9.webp"
       },
       {
         title: "Fully Custom",
         tagline: "No templates. Hand-coded designs that look and feel premium on every device.",
-        icon: "code"
+        icon: "code",
+        image: "/images/sumac/image3.webp"
       },
       {
         title: "Managed For You",
         tagline: "Hosting, updates, and security handled completely, so you can focus on your business.",
-        icon: "shield"
+        icon: "shield",
+        image: "/images/sumac/image12-blurred.webp"
       }
     ],
     struggles: {
@@ -261,22 +266,26 @@ export const services: ServiceDetail[] = [
       {
         title: "Google Rankings",
         tagline: "Climb to the top of organic search results for your most valuable local keywords.",
-        icon: "trending-up"
+        icon: "trending-up",
+        image: "/images/sumac/image9.webp"
       },
       {
         title: "AI Recommendations",
         tagline: "Get your business recommended by ChatGPT, Perplexity, and Google AI Overviews.",
-        icon: "cpu"
+        icon: "cpu",
+        image: "/images/sumac/image3.webp"
       },
       {
         title: "Organic Traffic",
         tagline: "Drive a steady stream of high-intent visitors who are actively looking for your services.",
-        icon: "bar-chart"
+        icon: "bar-chart",
+        image: "/images/sumac/image12-blurred.webp"
       },
       {
         title: "Long-Term Authority",
         tagline: "Build lasting online authority that compounds over time, unlike paid ads.",
-        icon: "shield"
+        icon: "shield",
+        image: "/images/sumac/image9.webp"
       }
     ],
     struggles: {
@@ -425,22 +434,26 @@ export const services: ServiceDetail[] = [
       {
         title: "Map Pack Placement",
         tagline: "Show up in the top three Google Maps results where most local searchers actually click.",
-        icon: "map-pin"
+        icon: "map-pin",
+        image: "/images/sumac/image3.webp"
       },
       {
         title: "5-Star Reputation",
         tagline: "Systematic review collection that builds a wall of social proof competitors can't match.",
-        icon: "star"
+        icon: "star",
+        image: "/images/sumac/image12-blurred.webp"
       },
       {
         title: "Direct Calls",
         tagline: "Customers can call you directly from the search results without even visiting your website.",
-        icon: "phone"
+        icon: "phone",
+        image: "/images/sumac/image9.webp"
       },
       {
         title: "Local Authority",
         tagline: "Consistent citations and posts that signal to Google your business is active and relevant.",
-        icon: "badge"
+        icon: "badge",
+        image: "/images/sumac/image3.webp"
       }
     ],
     struggles: {
@@ -589,22 +602,26 @@ export const services: ServiceDetail[] = [
       {
         title: "Instant Response",
         tagline: "Leads get a text within seconds of reaching out, even if it's two in the morning on a Saturday.",
-        icon: "zap"
+        icon: "zap",
+        image: "/images/sumac/image12-blurred.webp"
       },
       {
         title: "Zero Leads Lost",
         tagline: "Every inquiry is captured, logged, and followed up with automatically.",
-        icon: "target"
+        icon: "target",
+        image: "/images/sumac/image9.webp"
       },
       {
         title: "More Reviews",
         tagline: "Happy customers automatically get a review request at the perfect moment.",
-        icon: "star"
+        icon: "star",
+        image: "/images/sumac/image3.webp"
       },
       {
         title: "Hours Saved Weekly",
         tagline: "Eliminate repetitive admin work so you can focus on the jobs that make money.",
-        icon: "clock"
+        icon: "clock",
+        image: "/images/sumac/image12-blurred.webp"
       }
     ],
     struggles: {

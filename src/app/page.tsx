@@ -178,6 +178,14 @@ export default function Home() {
  <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
  <p className="text-white/60 font-body leading-relaxed text-base relative z-10 mb-8 max-w-sm">{service.desc}</p>
  
+ <ul className="space-y-3 relative z-10 md:hidden">
+ {service.bullets.slice(0, 1).map((bullet, idx) => (
+ <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
+ <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy mt-1.5 shrink-0 shadow-[0_0_8px_var(--color-sumac-brandy)]" />
+ <span className="leading-relaxed">{bullet}</span>
+ </li>
+ ))}
+ </ul>
  <ul className="hidden md:block space-y-4 relative z-10">
  {service.bullets.map((bullet, idx) => (
  <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
@@ -188,7 +196,7 @@ export default function Home() {
  </ul>
  </div>
 
- <Link href={`/services/${service.slug}`} className="mt-10 flex items-center gap-2 text-white/40 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
+ <Link href={`/services/${service.slug}`} className="mt-10 flex items-center gap-2 text-white/55 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
  <span className="text-xs font-bold tracking-wider uppercase">
   Explore {service.title}
  </span>
@@ -264,12 +272,13 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-4xl mx-auto px-6 relative z-20"
  >
- <div className="text-center mb-10">
+ <div className="text-center mb-16 md:mb-20">
  <motion.div variants={fadeUpVariant}>
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Questions</span>
  </motion.div>
- <h2 className="text-4xl md:text-6xl font-sans font-bold tracking-tight text-white">
+ <h2 className="text-4xl md:text-6xl font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
  <TrueFocus sentence="Frequently Asked" manualMode={false} blurAmount={4} borderColor="#882F18" animationDuration={1.5} pauseBetweenAnimations={1} />
+ <span>Questions</span>
  </h2>
  </div>
  
@@ -352,7 +361,7 @@ export default function Home() {
  </section>
 
  {/* CurvedLoop Marquee Transition */}
- <section className="bg-sumac-dark overflow-hidden relative z-10 py-4">
+ <section className="bg-sumac-dark overflow-hidden relative z-10 py-7 md:py-8">
  <CurvedLoop 
  marqueeText="✦ STRATEGIC ARCHITECTURE ✦ SEAMLESS AUTOMATION ✦ AI SEARCH OPTIMIZATION ✦ HIGH PERFORMANCE ✦" 
  speed={1} 

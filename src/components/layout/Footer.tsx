@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Aurora from '../Aurora/Aurora';
 
 const Footer = () => {
  return (
@@ -58,7 +57,7 @@ const Footer = () => {
  <div className="flex gap-4 mt-6">
  <a href="tel:+15185514125" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">(518) 551-4125</a>
  <span className="text-white/30">·</span>
- <a href="mailto:hello@sumac-systems.com" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">hello@sumac-systems.com</a>
+ <a href="mailto:hello@sumac.systems" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">hello@sumac.systems</a>
  </div>
  </div>
  
@@ -69,7 +68,7 @@ const Footer = () => {
  <ul className="space-y-3">
  {[
  { label: 'Web Design', href: '/services/web-design' },
- { label: 'SEO & AI Search', href: '/services/ai-seo' },
+ { label: 'AI & SEO', href: '/services/ai-seo' },
  { label: 'Google Business Profile', href: '/services/google-business-profile' },
  { label: 'Automations', href: '/services/automations' }
  ].map((item) => (
@@ -85,7 +84,7 @@ const Footer = () => {
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Company</h4>
  <ul className="space-y-3">
  {[
- { label: 'About', href: '/#about' },
+ { label: 'Work with Reed', href: '/#about' },
  { label: 'Contact', href: '/#contact' },
  { label: 'Terms', href: '/terms' },
  { label: 'Privacy', href: '/privacy' },
@@ -105,8 +104,6 @@ const Footer = () => {
  <p className="text-white/40 text-[10px] uppercase tracking-widest font-mono">
  designed and built by Sumac Systems
  </p>
- <div className="flex items-center gap-4 text-white/50 text-xs">
- </div>
  </div>
  </div>
  </footer>

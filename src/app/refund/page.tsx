@@ -20,7 +20,7 @@ export default function RefundPage() {
 
             <section>
               <h2 className="text-2xl font-bold font-sans text-white mb-4">How to Cancel</h2>
-              <p>You may cancel your subscription at any time by emailing us at hello@sumac-systems.com. Please include your name, business name, and a clear request to terminate services. To ensure a smooth offboarding process, we require a 30-day notice for all cancellations.</p>
+              <p>You may cancel your subscription at any time by emailing us at hello@sumac.systems. Please include your name, business name, and a clear request to terminate services. To ensure a smooth offboarding process, we require a 30-day notice for all cancellations.</p>
             </section>
 
             <section>
@@ -48,7 +48,7 @@ export default function RefundPage() {
               <h2 className="text-2xl font-bold font-sans text-white mb-4">New Project Exception</h2>
               <p>If you are a new client, you may request a full cancellation and refund within three (3) business days of your initial payment, provided that no actual design work or technical setup has started. To qualify for this one-time exception:</p>
               <ul className="list-disc pl-5 mt-4 space-y-2">
-                <li>You must email hello@sumac-systems.com within three business days of the initial charge.</li>
+                <li>You must email hello@sumac.systems within three business days of the initial charge.</li>
                 <li>We must not have commenced any design iterations, SEO audits, or automation builds.</li>
               </ul>
             </section>

@@ -104,7 +104,7 @@ function AiSeoVisual() {
             <div className="text-gray-800 text-sm font-medium">roofer near me</div>
             <motion.div
               animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity, ease: "steps(1)" }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
               className="w-0.5 h-5 bg-sumac-brandy"
             />
           </div>

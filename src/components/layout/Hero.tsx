@@ -95,7 +95,7 @@ const Hero = () => {
  </MagneticButton>
  <a
  href="/#contact"
- className="hidden md:inline-flex px-8 py-4 bg-transparent text-white/70 border border-white/15 rounded-full font-medium text-base tracking-wide hover:text-white hover:border-white/30 hover:bg-white/[0.04] transition-all duration-300 items-center justify-center"
+ className="inline-flex px-6 py-3.5 md:px-8 md:py-4 bg-transparent text-white/75 border border-white/20 rounded-full font-medium text-sm md:text-base tracking-wide hover:text-white hover:border-white/35 hover:bg-white/[0.05] transition-all duration-300 items-center justify-center"
  >
  Calculate my ROI
  </a>

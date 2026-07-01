@@ -117,35 +117,92 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* 3. 4-Card Benefits Section */}
-      <section className="py-16 md:py-24 relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <FadeInView className="text-center mb-16">
+      {/* 3. Benefits Zig-Zag Section */}
+      <section className="py-16 md:py-32 relative">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10">
+          <FadeInView className="text-center mb-20 md:mb-32">
             <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
-              Your Customers Are Already Searching
+              Engineered For Results
             </h2>
-            <p className="text-white/55 font-body text-lg md:text-xl leading-relaxed">
-              If you aren&apos;t showing up, your competitors are getting the calls.
+            <p className="text-white/55 font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+              Everything we build is designed with one goal: turning local searchers into booked jobs for your business.
             </p>
           </FadeInView>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.benefits.map((benefit, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06] hover:border-sumac-brandy/40 hover:shadow-[0_0_30px_rgba(136,47,24,0.1)] transition-all duration-300 text-center flex flex-col items-center hover:-translate-y-1"
-              >
-                <div className="w-14 h-14 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-6 group-hover:bg-sumac-brandy/20 group-hover:border-sumac-brandy/40 transition-all">
-                  <ServiceIcon name={benefit.icon} />
+          <div className="space-y-24 md:space-y-40">
+            {service.benefits.map((benefit, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <div key={i} className={`flex flex-col gap-12 lg:gap-20 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                  <div className="flex-1 w-full relative">
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className="aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
+                    >
+                      {benefit.image ? (
+                        <Image src={benefit.image} alt={benefit.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                      ) : (
+                        <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                           <ServiceIcon name={benefit.icon} />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-sumac-dark/40 to-transparent pointer-events-none" />
+                    </motion.div>
+                  </div>
+                  <div className="flex-1 w-full space-y-6">
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                    >
+                      <div className="w-14 h-14 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-8 shadow-inner">
+                        <ServiceIcon name={benefit.icon} />
+                      </div>
+                      <h3 className="text-3xl md:text-4xl font-bold font-sans text-white mb-6 tracking-tight">{benefit.title}</h3>
+                      <p className="text-white/60 font-body text-lg leading-relaxed">{benefit.tagline}</p>
+                    </motion.div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
-                <p className="text-white/60 font-body leading-relaxed text-sm">{benefit.tagline}</p>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
+        </div>
+      </section>
+
+      {/* 3.5 Credibility Banner */}
+      <section className="py-20 md:py-28 border-y border-sumac-brandy/20 bg-[#120a06] relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-sumac-brandy/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
+           <FadeInView className="text-center mb-16 md:mb-20">
+            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight">The Numbers Speak For Themselves</h2>
+           </FadeInView>
+           
+           <div className="grid md:grid-cols-3 gap-12 md:gap-16 text-center">
+             <FadeInView delay={0.1} className="flex flex-col items-center group">
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">75%</span>
+               <h4 className="text-white font-bold text-xl mb-3">Credibility Judged by Design</h4>
+               <p className="text-white/50 text-base leading-relaxed mb-6">Users judge a business&apos;s credibility directly based on their website design and speed.</p>
+               <a href="https://exhibits.stanford.edu/fogg/catalog/yg466vx0159" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Stanford Research</a>
+             </FadeInView>
+             
+             <FadeInView delay={0.2} className="flex flex-col items-center group">
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">27%</span>
+               <h4 className="text-white font-bold text-xl mb-3">Clicks Go to Rank #1</h4>
+               <p className="text-white/50 text-base leading-relaxed mb-6">The #1 organic result in Google captures over a quarter of all local search traffic.</p>
+               <a href="https://backlinko.com/google-ctr-stats" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Backlinko SEO Study</a>
+             </FadeInView>
+             
+             <FadeInView delay={0.3} className="flex flex-col items-center group">
+               <span className="text-6xl md:text-8xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFE066] to-[#a3401f] tracking-tighter mb-6 group-hover:scale-110 transition-transform duration-500">5m</span>
+               <h4 className="text-white font-bold text-xl mb-3">The Golden Window</h4>
+               <p className="text-white/50 text-base leading-relaxed mb-6">Waiting longer than 5 minutes to reply to a lead drops contact rates by 10x.</p>
+               <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener noreferrer" className="text-xs text-sumac-brandy/70 hover:text-sumac-brandy transition-colors uppercase tracking-widest font-mono border-b border-sumac-brandy/30 pb-0.5 inline-block">— Harvard Business Review</a>
+             </FadeInView>
+           </div>
         </div>
       </section>
 

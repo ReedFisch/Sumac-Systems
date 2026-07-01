@@ -87,10 +87,10 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
                 Refresh Page
               </button>
               <a 
-                href="mailto:hello@sumac-systems.com"
+                href="mailto:hello@sumac.systems"
                 className="px-8 py-4 border border-white/30 text-white rounded-sm font-bold text-lg tracking-wide hover:bg-white/10 transition-colors text-center"
               >
-                Email hello@sumac-systems.com
+                Email hello@sumac.systems
               </a>
             </div>
 
