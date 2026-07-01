@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://sumac.io/sitemap.xml',
+    sitemap: 'https://sumac.systems/sitemap.xml',
   }
 }

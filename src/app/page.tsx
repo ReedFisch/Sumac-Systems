@@ -332,8 +332,10 @@ export default function Home() {
  </motion.div>
  <motion.div variants={fadeUpVariant} className="w-full md:w-7/12">
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Work with Reed</span>
- <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight">
- <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline-block mr-2" /> <span className="whitespace-nowrap"><span className="italic font-accent pr-2 text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,</span> <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline-block ml-2" />
+ <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight text-balance">
+ <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline" />{' '}
+ <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,{' '}
+ <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline" />
  </h2>
  <div className="space-y-4 md:space-y-5 text-white/50 font-body text-base leading-relaxed">
   <p>Hey, I'm Reed. I run a lean, independent operation. When you hire Sumac Systems, you work directly with me.</p>

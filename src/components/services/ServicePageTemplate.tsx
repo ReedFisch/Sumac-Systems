@@ -40,8 +40,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
 
   return (
     <div className="bg-sumac-dark">
-      {/* 1. Hero */}
-      <section className="relative border-b border-sumac-brandy/15 overflow-hidden">
+      {/* 1. Hero — full viewport */}
+      <section className="relative min-h-[100dvh] flex flex-col justify-center border-b border-sumac-brandy/15 overflow-hidden pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h))]">
         <div
           className="absolute inset-0 pointer-events-none"
           aria-hidden="true"
@@ -50,8 +50,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-32 pb-10 md:pb-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-10 md:py-16 w-full">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,68 +90,6 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             >
               <ServiceHeroVisual slug={service.slug} />
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Definition Section */}
-      <section className="py-10 md:py-24 border-b border-white/[0.06] relative overflow-hidden">
-        {/* Subtle radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-sumac-brandy/[0.04] rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <FadeInView>
-              <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-4 md:mb-6">
-                {service.definition.title}
-              </h2>
-              <p className="text-white/60 font-body text-base md:text-lg leading-relaxed">
-                {service.definition.description}
-              </p>
-            </FadeInView>
-            <FadeInView delay={0.15} className="hidden md:block">
-              <div className="relative">
-                {/* Decorative background blur */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-sumac-brandy/5 blur-[80px] rounded-full pointer-events-none" />
-                
-                <div className="grid grid-cols-1 gap-4 relative z-10">
-                  {service.definition.examples.slice(0, 3).map((example, i) => {
-                    let mainText = example.replace(/"/g, '');
-                    let subText = '';
-                    
-                    if (mainText.includes(' - ')) {
-                      const parts = mainText.split(' - ');
-                      mainText = parts[0];
-                      subText = parts[1];
-                    } else if (mainText.includes(' → ')) {
-                      const parts = mainText.split(' → ');
-                      mainText = parts[0];
-                      subText = parts[1];
-                    }
-
-                    return (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-                        className={`p-5 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/10 shadow-2xl flex items-start gap-4 hover:border-sumac-brandy/30 hover:bg-white/[0.04] transition-colors group ${i % 2 !== 0 ? 'md:ml-12' : 'md:mr-12'}`}
-                      >
-                         <div className="w-8 h-8 rounded-full bg-black/40 flex items-center justify-center shrink-0 border border-white/5 mt-0.5 group-hover:border-sumac-brandy/30 transition-colors">
-                           <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy/70 group-hover:bg-sumac-brandy group-hover:shadow-[0_0_8px_rgba(136,47,24,0.8)] transition-all" />
-                         </div>
-                         <div>
-                           <p className="text-white/90 font-medium font-sans text-[15px] leading-snug">{mainText}</p>
-                           {subText && (
-                             <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest mt-2">{subText}</p>
-                           )}
-                         </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
-            </FadeInView>
           </div>
         </div>
       </section>

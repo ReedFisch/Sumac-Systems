@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sumac.io' // Replace with actual domain once live
+  const baseUrl = 'https://sumac.systems'
   
   return [
     {

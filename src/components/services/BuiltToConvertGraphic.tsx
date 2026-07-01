@@ -141,47 +141,85 @@ function AutomationsMiddleGraphic() {
   return (
     <div className="relative w-full h-full min-h-[350px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden rounded-2xl">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent opacity-80" />
-      
-      <div className="relative w-full max-w-2xl z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 px-4 md:px-12 py-12">
-        
-        {/* Node 1: Lead */}
-        <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ type: "spring" }} viewport={{ once: true }} className="relative z-10 flex flex-col items-center gap-2">
-          <div className="w-14 h-14 bg-[#111] border border-white/20 rounded-xl flex items-center justify-center text-white/50 relative">
-            <ServiceIcon name="user" className="w-6 h-6" />
-            <motion.div animate={{ scale: [1, 1.5], opacity: [1, 0] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-white/20 rounded-xl -z-10" />
+
+      <div className="relative w-full max-w-2xl z-10 px-4 md:px-12 py-12">
+        <div className="relative flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-6">
+          {/* Connector — centered on icon row (w-16 / 2 = 2rem) */}
+          <div className="hidden md:block absolute left-16 right-[11.5rem] top-8 h-px bg-white/10 z-0 pointer-events-none">
+            <motion.div
+              className="absolute w-2 h-2 bg-sumac-brandy rounded-full -translate-x-1/2 -translate-y-1/2 top-1/2"
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute w-2 h-2 bg-purple-500 rounded-full -translate-x-1/2 -translate-y-1/2 top-1/2"
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 }}
+            />
           </div>
-          <span className="text-[10px] text-white/50 uppercase tracking-widest font-mono">New Lead</span>
-        </motion.div>
 
-        {/* Lines & Data Packets */}
-        <div className="hidden md:block absolute left-[12%] right-[12%] top-[40%] h-px bg-white/10 z-0">
-           {/* Top Branch */}
-           <motion.div className="absolute w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]" animate={{ left: ["0%", "50%", "100%"], top: ["0px", "0px", "-40px"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
-           {/* Bottom Branch */}
-           <motion.div className="absolute w-2 h-2 bg-sumac-brandy rounded-full shadow-[0_0_10px_#882F18]" animate={{ left: ["0%", "50%", "100%"], top: ["0px", "0px", "40px"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 }} />
-        </div>
-
-        {/* Center Node: CRM */}
-        <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }} viewport={{ once: true }} className="relative z-10 flex flex-col items-center gap-2">
-          <div className="w-16 h-16 bg-[#1a1a1a] border border-purple-500/50 rounded-2xl flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
-            <ServiceIcon name="database" className="w-7 h-7" />
-          </div>
-          <span className="text-[10px] text-purple-400 uppercase tracking-widest font-mono font-bold">Auto-Sync</span>
-        </motion.div>
-
-        {/* Right Nodes: Actions */}
-        <div className="flex flex-col gap-6 relative z-10">
-          <motion.div initial={{ x: 20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.6 }} viewport={{ once: true }} className="flex items-center gap-3 bg-[#111] border border-white/10 px-4 py-3 rounded-xl transform md:-translate-y-4">
-            <div className="text-purple-400"><ServiceIcon name="message-square" className="w-5 h-5" /></div>
-            <div className="text-[11px] font-bold text-white uppercase tracking-wider">Send SMS</div>
+          {/* Node 1: Lead */}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ type: "spring" }}
+            viewport={{ once: true }}
+            className="relative z-10 flex flex-col items-center gap-2 shrink-0"
+          >
+            <div className="w-16 h-16 bg-[#111] border border-white/20 rounded-xl flex items-center justify-center text-white/50 relative">
+              <ServiceIcon name="user" className="w-6 h-6" />
+              <motion.div
+                animate={{ scale: [1, 1.5], opacity: [1, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute inset-0 bg-white/20 rounded-xl -z-10"
+              />
+            </div>
+            <span className="text-[10px] text-white/50 uppercase tracking-widest font-mono">New Lead</span>
           </motion.div>
 
-          <motion.div initial={{ x: 20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.8 }} viewport={{ once: true }} className="flex items-center gap-3 bg-[#111] border border-white/10 px-4 py-3 rounded-xl transform md:translate-y-4">
-            <div className="text-sumac-brandy"><ServiceIcon name="zap" className="w-5 h-5" /></div>
-            <div className="text-[11px] font-bold text-white uppercase tracking-wider">Notify Team</div>
+          {/* Center Node: CRM */}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ type: "spring", delay: 0.3 }}
+            viewport={{ once: true }}
+            className="relative z-10 flex flex-col items-center gap-2 shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2"
+          >
+            <div className="w-16 h-16 bg-[#1a1a1a] border border-purple-500/50 rounded-2xl flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+              <ServiceIcon name="database" className="w-7 h-7" />
+            </div>
+            <span className="text-[10px] text-purple-400 uppercase tracking-widest font-mono font-bold">Auto-Sync</span>
           </motion.div>
-        </div>
 
+          {/* Right Nodes: Actions */}
+          <div className="flex flex-col gap-4 relative z-10 shrink-0 md:ml-auto">
+            <motion.div
+              initial={{ x: 20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 bg-[#111] border border-white/10 px-4 py-3 rounded-xl"
+            >
+              <div className="text-purple-400">
+                <ServiceIcon name="message-square" className="w-5 h-5" />
+              </div>
+              <div className="text-[11px] font-bold text-white uppercase tracking-wider">Send SMS</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: 20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 bg-[#111] border border-white/10 px-4 py-3 rounded-xl"
+            >
+              <div className="text-sumac-brandy">
+                <ServiceIcon name="zap" className="w-5 h-5" />
+              </div>
+              <div className="text-[11px] font-bold text-white uppercase tracking-wider">Notify Team</div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

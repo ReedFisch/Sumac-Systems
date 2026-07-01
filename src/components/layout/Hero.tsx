@@ -21,7 +21,11 @@ const Hero = () => {
  return (
  <section ref={containerRef} className="relative min-h-0 md:min-h-screen flex flex-col justify-center pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-32 pb-6 md:pb-8 overflow-visible bg-sumac-dark">
  {/* Background Aurora */}
- <div className="absolute inset-0 z-0 opacity-30">
+ <motion.div
+ className="absolute inset-0 z-0 opacity-30"
+ animate={{ scale: [1.1, 1.12, 1.1], y: [0, -12, 0] }}
+ transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+ >
  <Image
  src="/images/sumac/image12-blurred.webp"
  alt=""
@@ -33,7 +37,7 @@ const Hero = () => {
  aria-hidden="true"
  />
  <div className="absolute inset-0 bg-gradient-to-b from-sumac-dark/60 via-transparent to-sumac-dark pointer-events-none" />
- </div>
+ </motion.div>
 
  {/* Subtle noise texture overlay */}
  <div className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat' }} />
@@ -41,36 +45,43 @@ const Hero = () => {
  {/* Floating Branches — slowed down for premium feel */}
  <motion.div 
  className="absolute top-0 -left-4 z-0 opacity-25 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none"
- animate={{ y: [0, -20, 0], x: [0, 8, 0], rotate: [0, 4, 0] }}
- transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+ animate={{ y: [0, -28, 0], x: [0, 12, 0], rotate: [0, 6, 0] }}
+ transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
  >
  <Image src="/images/sumac/image2.webp" alt="" fill sizes="280px" className="object-contain" aria-hidden="true" />
  </motion.div>
+ <motion.div
+ className="absolute bottom-24 -right-6 z-0 opacity-20 w-[140px] h-[140px] pointer-events-none md:hidden"
+ animate={{ y: [0, 16, 0], x: [0, -8, 0], rotate: [0, -5, 0] }}
+ transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+ >
+ <Image src="/images/sumac/image3.webp" alt="" fill sizes="140px" className="object-contain scale-x-[-1]" aria-hidden="true" />
+ </motion.div>
  <motion.div 
  className="absolute bottom-10 -right-10 z-0 opacity-30 w-[260px] h-[260px] pointer-events-none hidden md:block"
- animate={{ y: [0, 25, 0], x: [0, -8, 0], rotate: [0, -3, 0] }}
- transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+ animate={{ y: [0, 32, 0], x: [0, -12, 0], rotate: [0, -5, 0] }}
+ transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
  >
  <Image src="/images/sumac/image4.webp" alt="" fill sizes="260px" className="object-contain scale-x-[-1]" aria-hidden="true" />
  </motion.div>
  <motion.div 
  className="absolute top-[20%] right-4 md:right-16 z-0 opacity-40 w-[300px] h-[300px] md:w-[450px] md:h-[450px] md:-right-20 pointer-events-none hidden md:block"
- animate={{ y: [0, -15, 0], x: [0, -12, 0], rotate: [0, 10, 0] }}
- transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+ animate={{ y: [0, -22, 0], x: [0, -16, 0], rotate: [0, 12, 0] }}
+ transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 3 }}
  >
  <Image src="/images/sumac/image7.webp" alt="" fill sizes="450px" className="object-contain scale-x-[-1]" aria-hidden="true" />
  </motion.div>
  <motion.div 
  className="absolute top-[55%] -left-10 z-0 opacity-25 w-[450px] h-[450px] md:-left-20 pointer-events-none hidden md:block"
- animate={{ y: [0, -30, 0], rotate: [0, -6, 0] }}
- transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+ animate={{ y: [0, -38, 0], rotate: [0, -8, 0] }}
+ transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 4 }}
  >
  <Image src="/images/sumac/image8.webp" alt="" fill sizes="450px" className="object-contain rotate-45" aria-hidden="true" />
  </motion.div>
  <motion.div 
  className="absolute bottom-16 left-[10%] md:left-[22%] z-0 opacity-30 w-[250px] h-[250px] md:w-[350px] md:h-[350px] md:left-[10%] pointer-events-none hidden md:block"
- animate={{ y: [0, 18, 0], x: [0, 10, 0], rotate: [0, -10, 0] }}
- transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+ animate={{ y: [0, 24, 0], x: [0, 14, 0], rotate: [0, -12, 0] }}
+ transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
  >
  <Image src="/images/sumac/image9.webp" alt="" fill sizes="350px" className="object-contain scale-x-[-1]" aria-hidden="true" />
  </motion.div>
@@ -120,14 +131,22 @@ const Hero = () => {
  className="relative z-20 w-[92%] max-w-5xl mx-auto mt-6 md:mt-16 -mb-14 md:-mb-48 pointer-events-none"
  >
   {/* Glow behind mockup */}
-  <div className="absolute -inset-8 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" />
+  <motion.div
+ className="absolute -inset-8 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none"
+ animate={{ opacity: [0.6, 1, 0.6], y: [0, -10, 0] }}
+ transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+ />
 
   {/* Floating Chips (Mockup Level) */}
   {/* Lead Card (Top Left) */}
   <motion.div
     initial={{ opacity: 0, y: 40, scale: 0.9 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 1.0, delay: 1.2, type: "spring", stiffness: 80, damping: 15 }}
+    animate={{ opacity: 1, y: [0, -8, 0], scale: 1 }}
+    transition={{
+      opacity: { duration: 1.0, delay: 1.2, type: 'spring', stiffness: 80, damping: 15 },
+      scale: { duration: 1.0, delay: 1.2, type: 'spring', stiffness: 80, damping: 15 },
+      y: { duration: 7, delay: 2.2, repeat: Infinity, ease: 'easeInOut' },
+    }}
     className="absolute -left-4 md:-left-12 top-[10%] md:top-[15%] bg-white rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.25)] w-[260px] flex gap-4 items-center z-40 font-sans pointer-events-auto hidden md:flex border border-white/10"
   >
     <div className="w-10 h-10 rounded-full bg-sumac-brandy/10 flex items-center justify-center shrink-0">
@@ -144,8 +163,13 @@ const Hero = () => {
   {/* Maps Ranking Card (Right) */}
   <motion.div
     initial={{ opacity: 0, x: 40, scale: 0.9 }}
-    animate={{ opacity: 1, x: 0, scale: 1 }}
-    transition={{ duration: 1.0, delay: 1.5, type: "spring", stiffness: 80, damping: 15 }}
+    animate={{ opacity: 1, x: [0, 6, 0], y: [0, -10, 0], scale: 1 }}
+    transition={{
+      opacity: { duration: 1.0, delay: 1.5, type: 'spring', stiffness: 80, damping: 15 },
+      scale: { duration: 1.0, delay: 1.5, type: 'spring', stiffness: 80, damping: 15 },
+      x: { duration: 8, delay: 2.5, repeat: Infinity, ease: 'easeInOut' },
+      y: { duration: 8, delay: 2.5, repeat: Infinity, ease: 'easeInOut' },
+    }}
     className="absolute -right-4 md:-right-12 top-[40%] md:top-[35%] bg-white rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-[280px] gap-4 items-center z-40 font-sans pointer-events-auto hidden md:flex border border-white/10"
   >
     <div className="w-12 h-12 rounded-full bg-sumac-brandy/10 flex items-center justify-center shrink-0">
@@ -166,8 +190,13 @@ const Hero = () => {
   {/* Review Card (Left) */}
   <motion.div
     initial={{ opacity: 0, x: -40, scale: 0.9 }}
-    animate={{ opacity: 1, x: 0, scale: 1 }}
-    transition={{ duration: 1.0, delay: 1.8, type: "spring", stiffness: 80, damping: 15 }}
+    animate={{ opacity: 1, x: [0, -6, 0], y: [0, 8, 0], scale: 1 }}
+    transition={{
+      opacity: { duration: 1.0, delay: 1.8, type: 'spring', stiffness: 80, damping: 15 },
+      scale: { duration: 1.0, delay: 1.8, type: 'spring', stiffness: 80, damping: 15 },
+      x: { duration: 9, delay: 2.8, repeat: Infinity, ease: 'easeInOut' },
+      y: { duration: 9, delay: 2.8, repeat: Infinity, ease: 'easeInOut' },
+    }}
     className="absolute -left-4 md:-left-8 bottom-[15%] md:bottom-[20%] bg-white rounded-2xl p-5 shadow-[0_30px_60px_rgba(0,0,0,0.4)] w-[280px] z-40 pointer-events-auto hidden md:block border border-white/10"
   >
     <div className="flex gap-1 mb-2">
@@ -182,7 +211,11 @@ const Hero = () => {
   </motion.div>
   
   {/* Browser Chrome */}
- <div className="relative w-full bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] overflow-hidden">
+ <motion.div
+ animate={{ y: [0, -10, 0] }}
+ transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+ className="relative w-full bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] overflow-hidden"
+ >
  <div className="flex items-center px-3 md:px-4 py-2 md:py-3 gap-2 border-b border-white/[0.06] bg-[#222]">
  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f56]/80" />
  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]/80" />
@@ -200,7 +233,7 @@ const Hero = () => {
  className="object-cover object-top opacity-90"
  />
  </div>
- </div>
+ </motion.div>
  </motion.div>
  </section>
  );
