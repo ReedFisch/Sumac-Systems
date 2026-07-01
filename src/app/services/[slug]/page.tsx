@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!service) return { title: 'Not Found' };
   
   return {
-    title: `${service.title} Services | Sumac Systems`,
+    title: `${service.title} | Sumac Systems`,
     description: service.hero.description,
     openGraph: {
-      title: `${service.title} Services | Sumac Systems`,
+      title: `${service.title} | Sumac Systems`,
       description: service.hero.description,
     }
   };

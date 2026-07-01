@@ -9,7 +9,6 @@ import { ServiceHeroVisual } from "@/components/services/ServiceHeroVisual";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
 import { BenefitVisual } from "@/components/services/BenefitVisual";
 import { BuiltToConvertGraphic } from "@/components/services/BuiltToConvertGraphic";
-import Image from "next/image";
 
 function FadeInView({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
@@ -29,7 +28,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
   const related = services.filter((s) => s.slug !== service.slug);
 
   return (
-    <div className="page-canvas bg-sumac-dark">
+    <div className="bg-sumac-dark">
       {/* 1. Hero */}
       <section className="relative border-b border-sumac-brandy/15 overflow-hidden">
         <div
@@ -40,7 +39,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               "radial-gradient(ellipse 60% 50% at 20% 30%, rgba(136, 47, 24, 0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 60%, rgba(71, 21, 12, 0.12) 0%, transparent 50%)",
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-[280px] pb-10 md:pb-24">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-32 pb-10 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -66,7 +65,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                   className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-sumac-brandy text-white rounded-full font-semibold text-sm overflow-hidden hover:shadow-[0_0_30px_rgba(136,47,24,0.5)] transition-all"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <span className="md:hidden">Book a Call</span>
+                  <span className="md:hidden">Book a Strategy Call</span>
                   <span className="hidden md:inline">Book a Strategy Call</span>
                 </Link>
               </div>
@@ -258,7 +257,27 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         </div>
       </section>
 
-      {/* 5. Process Flow Section */}
+      {/* 5. Process — mobile */}
+      <section className="py-10 md:hidden border-b border-white/[0.06]">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl font-sans font-bold text-white tracking-tight mb-6">{service.process.title}</h2>
+          <ol className="space-y-4">
+            {service.process.steps.map((step, i) => (
+              <li key={i} className="flex gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <span className="w-8 h-8 rounded-full bg-sumac-brandy/20 border border-sumac-brandy/30 flex items-center justify-center text-sumac-brandy font-mono text-xs shrink-0">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
+                  <p className="text-white/45 text-sm leading-relaxed">{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 5. Process Flow Section — desktop */}
       <section className="hidden md:block py-16 md:py-24 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-sumac-brandy/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
@@ -342,12 +361,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
           </FadeInView>
           
           <FadeInView delay={0.1}>
-            <div className="md:hidden">
-              <ServiceFaq faqs={service.faqs.slice(0, 2)} />
-            </div>
-            <div className="hidden md:block">
-              <ServiceFaq faqs={service.faqs} />
-            </div>
+            <ServiceFaq faqs={service.faqs} />
           </FadeInView>
         </div>
       </section>
@@ -357,9 +371,12 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="absolute inset-0 bg-gradient-to-b from-sumac-brandy/[0.03] via-transparent to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center relative">
           <FadeInView>
-            <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6 text-balance">
+            <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-3 md:mb-6 text-balance">
               {service.middleCta.title}
             </h2>
+            <p className="text-white/50 font-body text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto hidden md:block">
+              {service.middleCta.subtitle}
+            </p>
             <Link
               href={service.middleCta.ctaHref}
               className="group relative inline-flex items-center justify-center px-8 py-4 bg-sumac-brandy text-white rounded-full font-bold text-base overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.4)] transition-all md:mb-16"

@@ -16,12 +16,10 @@ const Hero = () => {
  offset: ["start start", "end start"]
  });
 
- const rotateX = useTransform(scrollYProgress, [0, 1], [0, 25]);
- const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
  const opacityScroll = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
  return (
- <section ref={containerRef} className="relative min-h-0 md:min-h-screen flex flex-col justify-center pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-[280px] pb-8 overflow-visible bg-sumac-dark">
+ <section ref={containerRef} className="relative min-h-0 md:min-h-screen flex flex-col justify-center pt-[calc(env(safe-area-inset-top,0px)+var(--site-header-h)+1.5rem)] md:pt-32 pb-6 md:pb-8 overflow-visible bg-sumac-dark">
  {/* Background Aurora */}
  <div className="absolute inset-0 z-0 opacity-30">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
@@ -82,7 +80,7 @@ const Hero = () => {
  initial={{ opacity: 0, y: 30 }}
  animate={{ opacity: 1, y: 0 }}
  transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
- className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-16 pb-8 md:pb-0 pointer-events-auto"
+ className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-16 pointer-events-auto"
  >
  <MagneticButton>
  <a
@@ -90,7 +88,7 @@ const Hero = () => {
  className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white text-black rounded-full font-bold text-base md:text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
- Book a Free Strategy Call
+ Book a Strategy Call
  </a>
  </MagneticButton>
  <a
@@ -111,7 +109,7 @@ const Hero = () => {
  opacity: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
  y: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }
  }}
- className="relative z-20 w-[88%] max-w-5xl mx-auto mt-16 -mb-24 md:-mb-48 pointer-events-none hidden md:block"
+ className="relative z-20 w-[92%] max-w-5xl mx-auto mt-8 md:mt-16 -mb-6 md:-mb-48 pointer-events-none"
  >
   {/* Glow behind mockup */}
   <div className="absolute -inset-8 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent rounded-3xl blur-2xl pointer-events-none" />
@@ -177,12 +175,12 @@ const Hero = () => {
   
   {/* Browser Chrome */}
  <div className="relative w-full bg-[#1a1a1a] rounded-xl border border-white/[0.08] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.9)] overflow-hidden">
- <div className="flex items-center px-4 py-3 gap-2 border-b border-white/[0.06] bg-[#222]">
- <div className="w-3 h-3 rounded-full bg-[#ff5f56]/80" />
- <div className="w-3 h-3 rounded-full bg-[#ffbd2e]/80" />
- <div className="w-3 h-3 rounded-full bg-[#27c93f]/80" />
- <div className="ml-4 flex-1 max-w-xs px-4 py-1.5 text-[11px] font-mono text-white/30 bg-white/[0.04] rounded-md border border-white/[0.06]">
- sumacwebdesign.com/dashboard
+ <div className="flex items-center px-3 md:px-4 py-2 md:py-3 gap-2 border-b border-white/[0.06] bg-[#222]">
+ <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f56]/80" />
+ <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]/80" />
+ <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27c93f]/80" />
+ <div className="ml-2 md:ml-4 flex-1 min-w-0 px-2 md:px-4 py-1 md:py-1.5 text-[9px] md:text-[11px] font-mono text-white/30 bg-white/[0.04] rounded-md border border-white/[0.06] truncate">
+ sumac.systems/dashboard
  </div>
  </div>
  <div className="relative aspect-[16/9] bg-black">

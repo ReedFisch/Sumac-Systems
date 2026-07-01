@@ -71,7 +71,7 @@ export interface ServiceDetail {
 export const services: ServiceDetail[] = [
   {
     slug: "web-design",
-    title: "Next-Gen Web Design",
+    title: "Web Design",
     hero: {
       headline: "Websites engineered for",
       headlineAccent: "growth",
@@ -135,7 +135,7 @@ export const services: ServiceDetail[] = [
         },
         {
           title: "No Clear Conversion Path",
-          description: "Not making it glaringly obvious how a visitor should call or book an appointment."
+          description: "Not making it obvious how a visitor should call or book an appointment."
         },
         {
           title: "Poor Online Presence",
@@ -231,7 +231,7 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "ai-seo",
-    title: "SEO & AIO",
+    title: "AI & SEO",
     hero: {
       headline: "Get found on Google",
       headlineAccent: "& AI",
@@ -442,20 +442,16 @@ export const services: ServiceDetail[] = [
       }
     ],
     struggles: {
-      title: "Why Many Local Businesses Struggle To Show Up On Google",
+      title: "Why Many Local Businesses Struggle on Google Maps",
       subtitle: "It almost always comes down to a few basic missing pieces.",
       items: [
         {
-          title: "Outdated Website",
-          description: "A site that isn't mobile-friendly or optimized for local search terms."
-        },
-        {
-          title: "Weak Google Business Profile",
-          description: "Incomplete profiles missing categories, services, and photos."
+          title: "Incomplete Profile",
+          description: "Missing categories, photos, or service descriptions that Google uses to rank you."
         },
         {
           title: "Not Enough Reviews",
-          description: "Not having a system to consistently get new reviews compared to competitors."
+          description: "No system to consistently collect reviews compared to competitors."
         },
         {
           title: "Limited Local Content",

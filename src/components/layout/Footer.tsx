@@ -33,7 +33,7 @@ const Footer = () => {
  </div>
 
  <div className="max-w-6xl mx-auto px-6 relative z-20">
- <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-8 md:mb-16">
+ <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-8 md:mb-16 md:items-end">
  {/* Brand column */}
  <div className="col-span-1 md:col-span-5">
  <Link href="/" className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6 group">
@@ -51,7 +51,7 @@ const Footer = () => {
  <span className="font-body text-sm tracking-[0.2em] text-white/60 uppercase mt-2">Systems</span>
  </div>
  </Link>
- <p className="hidden md:block text-white/50 text-sm max-w-xs font-body leading-relaxed">
+ <p className="text-white/50 text-sm max-w-xs font-body leading-relaxed">
  High-performance websites and automated marketing systems for businesses that want to grow.
  </p>
  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mt-5 md:mt-6">
@@ -61,7 +61,7 @@ const Footer = () => {
  </div>
  </div>
  
- <div className="col-span-1 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6 md:gap-8 pt-2 md:pt-[120px]">
+ <div className="col-span-1 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6 md:gap-8 md:items-end">
  {/* Services column */}
  <div>
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Services</h4>

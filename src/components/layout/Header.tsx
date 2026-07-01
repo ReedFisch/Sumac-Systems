@@ -8,7 +8,7 @@ const PORTAL_URL = 'https://portal.sumac.systems/';
 
 const NAV_LINKS = [
   { label: 'Services', href: '/#services' },
-  { label: 'Work with Reed', href: '/#about' },
+  { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -21,7 +21,7 @@ function LoginIcon({ className }: { className?: string }) {
 }
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -40,68 +40,43 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 pt-[env(safe-area-inset-top,0px)] ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
         scrolled || menuOpen
           ? 'bg-black/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 h-16 md:h-auto md:py-6 flex items-center justify-between gap-3 md:gap-4 relative">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 h-[var(--site-header-h)] flex items-center justify-between gap-4">
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex items-center group transition-all duration-500 shrink-0 min-w-0 gap-3 md:gap-4"
+          className="flex items-center group shrink-0 min-w-0 gap-2.5 md:gap-3"
         >
-          {/* Mobile — compact, fixed size */}
-          <div className="relative w-9 h-9 shrink-0 md:hidden">
+          <div className="relative w-9 h-9 md:w-10 md:h-10 shrink-0">
             <Image
               src="/images/sumac/image3.webp"
               alt="Sumac Logo"
               fill
-              sizes="36px"
+              sizes="40px"
               className="object-contain"
             />
           </div>
-          <div className="flex flex-col min-w-0 md:hidden">
-            <span className="font-sans font-bold tracking-[0.1em] text-white text-sm leading-none group-hover:text-sumac-brandy transition-colors">
+          <div className="flex flex-col min-w-0">
+            <span className="font-sans font-bold tracking-[0.1em] text-white text-sm md:text-base leading-none group-hover:text-sumac-brandy transition-colors">
               SUMAC
             </span>
-            <span className="font-body tracking-[0.14em] text-white/40 uppercase text-[10px] mt-1">
-              Systems
-            </span>
-          </div>
-
-          {/* Desktop — scroll-responsive */}
-          <div
-            className={`hidden md:flex relative overflow-hidden items-center justify-center transition-all duration-500 ${
-              scrolled ? 'w-[88px] h-[88px]' : 'w-[220px] h-[220px]'
-            }`}
-          >
-            <Image
-              src="/images/sumac/image3.webp"
-              alt="Sumac Logo"
-              fill
-              sizes={scrolled ? '88px' : '220px'}
-              className="object-contain group-hover:scale-110 transition-transform duration-500"
-            />
-          </div>
-
-          <div className="hidden md:flex flex-col justify-center items-center transition-all duration-500">
-            <span className={`font-sans font-bold tracking-[0.12em] leading-tight text-white group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-lg' : 'text-[42px]'}`}>
-              SUMAC
-            </span>
-            <span className={`font-body tracking-[0.2em] text-white/40 uppercase transition-all duration-500 ${scrolled ? 'text-[9px] mt-0' : 'text-sm mt-1'}`}>
+            <span className="font-body tracking-[0.14em] text-white/40 uppercase text-[9px] md:text-[10px] mt-0.5 md:mt-1">
               Systems
             </span>
           </div>
         </Link>
 
-        <nav className={`hidden md:flex items-center transition-all duration-500 ${scrolled ? 'gap-8' : 'gap-10'}`}>
+        <nav className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`relative font-medium tracking-wider uppercase text-white/40 hover:text-white transition-all duration-500 group ${scrolled ? 'text-xs' : 'text-base'}`}
+              className="relative text-xs font-medium tracking-wider uppercase text-white/40 hover:text-white transition-colors whitespace-nowrap group"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-sumac-brandy group-hover:w-full transition-all duration-300" />
@@ -109,19 +84,19 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3 lg:gap-4">
+        <div className="hidden md:flex items-center gap-4 shrink-0">
           <a
             href={PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1.5 font-medium tracking-wider uppercase text-white/40 hover:text-white transition-all duration-500 group ${scrolled ? 'text-xs' : 'text-sm'}`}
+            className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase text-white/40 hover:text-white transition-colors whitespace-nowrap group"
           >
             <LoginIcon className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             Login
           </a>
           <Link
             href="/thank-you"
-            className={`bg-white text-black rounded-full font-bold tracking-wider uppercase hover:bg-white/90 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.06)] hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] hover:-translate-y-px ${scrolled ? 'px-5 py-2 text-xs' : 'px-6 py-2.5 text-sm'}`}
+            className="bg-white text-black rounded-full font-bold tracking-wide uppercase hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.06)] hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] px-5 py-2.5 text-xs whitespace-nowrap"
           >
             Book Strategy Call
           </Link>

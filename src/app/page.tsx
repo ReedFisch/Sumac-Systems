@@ -3,9 +3,8 @@
 import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
 import Footer from "@/components/layout/Footer";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import BlurText from "@/components/ui/BlurText/BlurText";
-import ShinyText from "@/components/ui/ShinyText/ShinyText";
 import TrueFocus from "@/components/ui/TrueFocus/TrueFocus";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -19,14 +18,32 @@ import { useRef } from "react";
 
 import { ScrollParallax } from "@/components/ui/ScrollParallax";
 import CurvedLoop from "@/components/ui/CurvedLoop";
-
-import AnimatedContent from "@/components/ui/AnimatedContent";
-import CircularText from "@/components/ui/CircularText";
 import { Accordion } from "@/components/ui/Accordion";
 
+const HOME_FAQ = [
+  {
+    title: "How does pricing work?",
+    desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.",
+    items: [] as string[],
+  },
+  {
+    title: "How long does it actually take to launch?",
+    desc: "Usually a few weeks from our first call to launch. We move fast, but we aren't going to rush the build just to hit an arbitrary date. Every site we ship has to be built right.",
+    items: [] as string[],
+  },
+  {
+    title: "What happens if I want to cancel?",
+    desc: "The site and its connected automations come down at the end of your billing cycle. That being said, we have a strict safeguard: if we ever shut down as a company, you get full ownership of the code and domain. You're never left stranded.",
+    items: [] as string[],
+  },
+  {
+    title: "Do I have to deal with hosting and updates?",
+    desc: "Nope, that's on us. Hosting, security patches, speed optimization - we handle all of it. You run your business, we keep the site running smoothly.",
+    items: [] as string[],
+  },
+];
+
 export default function Home() {
- const { scrollYProgress } = useScroll();
- const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
  const pageRef = useRef<HTMLDivElement>(null);
 
  const fadeUpVariant = {
@@ -114,7 +131,7 @@ export default function Home() {
  <Hero />
  
  {/* Services Section */}
- <section id="services" className="bg-sumac-dark text-white pt-32 pb-16 md:pt-72 md:pb-40 relative overflow-hidden">
+ <section id="services" className="bg-sumac-dark text-white pt-16 pb-16 md:pt-72 md:pb-40 relative overflow-hidden">
  <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
  <div className="absolute inset-0 bg-cover bg-center scale-110" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
  </div>
@@ -151,7 +168,7 @@ export default function Home() {
  <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white">
  <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
- <motion.p variants={fadeUpVariant} className="hidden md:block text-white/40 text-lg font-body max-w-2xl mx-auto mt-6">
+ <motion.p variants={fadeUpVariant} className="text-white/60 text-base md:text-lg font-body max-w-2xl mx-auto mt-4 md:mt-6">
  We don't just build digital brochures. We engineer complete systems designed to actually convert traffic into revenue.
  </motion.p>
  </div>
@@ -221,7 +238,7 @@ export default function Home() {
  className="max-w-3xl mx-auto px-6 text-center relative z-10"
  >
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-6">Our Approach</span>
- <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
+ <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
  <BlurText text="Most SEO advice is" delay={30} animateBy="words" direction="bottom" className="inline-block md:block" />{" "}
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2016.</span>
  </h2>
@@ -273,47 +290,8 @@ export default function Home() {
  </h2>
  </div>
  
- <motion.div variants={fadeUpVariant} className="md:hidden">
- <Accordion 
- items={[
- { 
- title: "How does pricing work?", 
- desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.", 
- items: [] 
- },
- { 
- title: "How long does it actually take to launch?", 
- desc: "Usually a few weeks from our first call to launch. We move fast, but we aren't going to rush the build just to hit an arbitrary date. Every site we ship has to be built right.", 
- items: [] 
- }
- ]} 
- />
- </motion.div>
- <motion.div variants={fadeUpVariant} className="hidden md:block">
- <Accordion 
- items={[
- { 
- title: "How does pricing work?", 
- desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.", 
- items: [] 
- },
- { 
- title: "How long does it actually take to launch?", 
- desc: "Usually a few weeks from our first call to launch. We move fast, but we aren't going to rush the build just to hit an arbitrary date. Every site we ship has to be built right.", 
- items: [] 
- },
- { 
- title: "What happens if I want to cancel?", 
- desc: "The site and its connected automations come down at the end of your billing cycle. That being said, we have a strict safeguard: if we ever shut down as a company, you get full ownership of the code and domain. You're never left stranded.", 
- items: [] 
- },
- { 
- title: "Do I have to deal with hosting and updates?", 
- desc: "Nope, that's on us. Hosting, security patches, speed optimization - we handle all of it. You run your business, we keep the site running smoothly.", 
- items: [] 
- }
- ]} 
- />
+ <motion.div variants={fadeUpVariant}>
+ <Accordion items={HOME_FAQ} />
  </motion.div>
  </motion.div>
  </section>
@@ -342,10 +320,10 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16 md:gap-20"
  >
- <motion.div variants={fadeUpVariant} className="hidden md:block w-full md:w-5/12">
+ <motion.div variants={fadeUpVariant} className="w-full max-w-[280px] md:max-w-none mx-auto md:w-5/12 mb-10 md:mb-0">
  <TiltCard rotationIntensity={15} className="w-full">
  <div className="relative aspect-[4/5] max-w-sm mx-auto rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_20px_80px_rgba(0,0,0,0.4)] group">
- <Image src="/images/founder.webp" alt="Reed" fill sizes="(max-width: 768px) 100vw, 384px" className="object-cover group-hover:scale-[1.03] transition-all duration-700 pointer-events-none select-none" />
+ <Image src="/images/founder.webp" alt="Reed Fisch, founder of Sumac Systems" fill sizes="(max-width: 768px) 100vw, 384px" className="object-cover group-hover:scale-[1.03] transition-all duration-700 pointer-events-none select-none" />
  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
  </div>
  </TiltCard>
@@ -356,9 +334,9 @@ export default function Home() {
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline-block mr-2" /> <span className="whitespace-nowrap"><span className="italic font-accent pr-2 text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,</span> <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline-block ml-2" />
  </h2>
  <div className="space-y-4 md:space-y-5 text-white/50 font-body text-base leading-relaxed">
-  <p>Hey, I'm Reed. I run a lean, independent operation — when you hire Sumac Systems, you work directly with me.</p>
-  <p className="hidden md:block">I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
-  <p className="hidden md:block">I don't outsource the development, and I don't rely on bloated templates.</p>
+  <p>Hey, I'm Reed. I run a lean, independent operation. When you hire Sumac Systems, you work directly with me.</p>
+  <p>I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
+  <p>I don't outsource the development, and I don't rely on bloated templates.</p>
   <div className="pt-4 md:pt-5 border-t border-white/[0.06] mt-4 md:mt-6">
   <p className="font-accent text-lg md:text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I'm genuinely proud of.&rdquo;</p>
   </div>
@@ -368,7 +346,7 @@ export default function Home() {
  </section>
 
  {/* CurvedLoop Marquee Transition */}
- <section className="bg-sumac-dark overflow-hidden relative z-10 py-7 md:py-8 hidden md:block">
+ <section className="bg-sumac-dark overflow-hidden relative z-10 py-5 md:py-8">
  <CurvedLoop 
  marqueeText="✦ STRATEGIC ARCHITECTURE ✦ SEAMLESS AUTOMATION ✦ AI SEARCH OPTIMIZATION ✦ HIGH PERFORMANCE ✦" 
  speed={1} 

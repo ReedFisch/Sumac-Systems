@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${playfairDisplay.variable} scroll-smooth`}
+      className={`${spaceGrotesk.variable} ${playfairDisplay.variable}`}
       suppressHydrationWarning
     >
       <head>
