@@ -201,15 +201,27 @@ export const services: ServiceDetail[] = [
     faqs: [
       {
         question: "How long does a new website take to build?",
-        answer: "Timelines vary depending on the scope of the project, but typical engagements range from 4-8 weeks."
+        answer: "Because we build custom layouts instead of relying on generic templates, a standard build takes a few weeks from our kickoff call to launch. We move quickly because we know every day you are stuck with an outdated site is a missed opportunity, but we never rush the technical foundation."
       },
       {
-        question: "Do I own my website?",
-        answer: "Yes, once the final payment is made, you own the website entirely."
+        question: "How does pricing work?",
+        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems. We walk through the exact numbers on our strategy call once we understand your specific needs."
+      },
+      {
+        question: "What if I already have a website?",
+        answer: "We will look at what you currently have and figure out what is working and what needs rebuilding. In most cases, it makes sense to rebuild from the ground up so we can properly integrate modern AI search visibility and lead automations. We handle the transition so you do not lose any existing traffic."
+      },
+      {
+        question: "Do I have to manage the technical updates?",
+        answer: "No. You are hiring us so you can focus on running your business. We handle the web hosting, security updates, site speed optimization, and ongoing technical maintenance."
       },
       {
         question: "Will my website be mobile-friendly?",
         answer: "Absolutely. All of our websites are built mobile-first, ensuring they look and perform flawlessly on any device."
+      },
+      {
+        question: "What happens if I cancel?",
+        answer: "Our service is an ongoing package that includes hosting, active SEO, and software management. If you cancel, the website and its connected automations will be taken offline at the end of your billing cycle. However, we have a strict Business Continuity Safeguard — if Sumac ever permanently closes, we transfer full ownership of the code and domain directly to you at no cost."
       }
     ],
     bottomCta: {
@@ -221,14 +233,14 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "ai-seo",
-    title: "AI-Powered SEO",
+    title: "SEO & AIEO",
     hero: {
       headline: "Dominate search with",
       headlineAccent: "AI",
       description: "Leverage advanced AI to uncover hidden opportunities and outrank your competitors."
     },
     definition: {
-      title: "What Is AI-Powered SEO?",
+      title: "What Is SEO & AIEO?",
       description: "It's using modern algorithms to optimize your online presence so your business appears when customers search for services in your area.",
       examples: [
         '"Emergency plumber near me"',
@@ -356,12 +368,24 @@ export const services: ServiceDetail[] = [
         answer: "SEO is a long-term strategy. While you might see initial improvements in weeks, substantial and lasting growth typically takes 3 to 6 months of consistent effort."
       },
       {
+        question: "What exactly is AI Search Optimization?",
+        answer: "Traditional SEO focuses on getting you to the top of a standard Google search page. That is still important, but people are increasingly using tools like ChatGPT, Perplexity, and Google AI Overviews to find businesses. We structure your website code and content specifically so those AI models can easily read, understand, and recommend your services to potential clients."
+      },
+      {
         question: "Do I need a website for SEO?",
         answer: "Yes, a well-optimized website is the foundation of any successful SEO campaign. It is where you convert the traffic you earn."
       },
       {
         question: "Can local SEO help my type of business?",
         answer: "If you serve local customers within a specific geographic area, local SEO is essential to ensure you capture high-intent search traffic."
+      },
+      {
+        question: "How does pricing work?",
+        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems."
+      },
+      {
+        question: "What makes you different from other agencies?",
+        answer: "Most agencies just design a digital brochure, hand over the keys, and disappear. We build systems designed to capture leads and save you time. Every decision we make is backed by a focus on human behavior, technical performance, and making sure your business looks highly credible."
       }
     ],
     bottomCta: {
@@ -514,6 +538,18 @@ export const services: ServiceDetail[] = [
       {
         question: "How does the audit work?",
         answer: "We analyze your current Google Business Profile, compare it against local competitors, and identify exactly what steps are needed to dominate your area."
+      },
+      {
+        question: "What if I already have a Google Business Profile?",
+        answer: "Great — we will audit what you currently have, fix inconsistencies, expand your categories and services, and build out a strategy to consistently outrank competitors in the local map pack."
+      },
+      {
+        question: "Do I have to manage anything myself?",
+        answer: "No. You are hiring us so you can focus on running your business. We handle the profile updates, review responses, Google Posts, and ongoing optimization."
+      },
+      {
+        question: "Can local SEO help my type of business?",
+        answer: "If you serve local customers within a specific geographic area, local SEO is essential to ensure you capture high-intent search traffic."
       }
     ],
     bottomCta: {
@@ -656,6 +692,10 @@ export const services: ServiceDetail[] = [
     },
     faqs: [
       {
+        question: "How do the automated text follow-ups work?",
+        answer: "When someone interacts with your business online, you have a very short window to reply before they move on to a competitor. We connect your website forms and phone lines to an automated system. If a lead submits a form or calls and you miss it, the system instantly sends them a customized text message to keep them engaged until you can personally reply."
+      },
+      {
         question: "What kind of tools do you integrate?",
         answer: "We integrate with CRMs, Zapier, Make, Twilio, and almost any modern software with an API."
       },
@@ -666,6 +706,14 @@ export const services: ServiceDetail[] = [
       {
         question: "Will this replace my employees?",
         answer: "No, automations empower your employees to focus on high-value, creative work instead of robotic data entry."
+      },
+      {
+        question: "How does pricing work?",
+        answer: "We operate on a flat monthly subscription rather than charging a massive upfront fee. Your monthly rate covers the custom design, development, high-speed hosting, and the ongoing management of your automated systems."
+      },
+      {
+        question: "Do I need to provide anything to get started?",
+        answer: "Yes, you know your business better than anyone. We ask that you provide core details about your workflows, the tools you currently use, and the pain points you want solved. We handle the technical architecture from there."
       }
     ],
     bottomCta: {

@@ -376,19 +376,19 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* 11. Bottom CTA */}
-      <section className="py-16 md:py-24 bg-sumac-brandy border-t border-white/[0.06] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-transparent to-black/10 pointer-events-none" />
+      <section className="py-16 md:py-24 bg-[#0a0000] border-t border-white/[0.06] relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/[0.08] via-transparent to-sumac-brandy/[0.04] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-6 text-center relative">
           <FadeInView>
             <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-4 text-balance">
               {service.bottomCta.title}
             </h2>
-            <p className="text-white/80 font-body text-lg md:text-xl mb-10 max-w-xl mx-auto">{service.bottomCta.description}</p>
+            <p className="text-white/60 font-body text-lg md:text-xl mb-10 max-w-xl mx-auto">{service.bottomCta.description}</p>
             <Link
               href={service.bottomCta.ctaHref}
-              className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-sumac-brandy rounded-full font-bold text-lg overflow-hidden hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all"
+              className="group relative inline-flex items-center justify-center px-10 py-5 bg-sumac-brandy text-white rounded-full font-bold text-lg overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.5)] transition-all"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.bottomCta.ctaLabel}
             </Link>
           </FadeInView>
