@@ -60,7 +60,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               <p className="font-mono text-base md:text-sm tracking-[0.28em] text-sumac-brandy uppercase mb-6 md:mb-8">
                 {service.title}
               </p>
-              <h1 className="text-[3.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-sans font-bold text-white tracking-tight leading-[1.02] text-balance max-w-none md:max-w-2xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.02] text-balance max-w-none md:max-w-2xl">
                 {service.hero.headline}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-sumac-brandy to-[#a3401f] font-accent italic pr-2 pb-1.5">
                   {service.hero.headlineAccent}
