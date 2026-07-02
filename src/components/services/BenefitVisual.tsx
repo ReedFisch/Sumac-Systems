@@ -39,7 +39,7 @@ function DashboardGraphic({ benefit }: { benefit: BenefitType }) {
   const suffix = label === "Traffic Growth" ? "%" : label === "Weekly Saved" ? "h" : "";
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group">
+    <div className="relative w-full h-full flex items-center justify-center p-8 rounded-2xl overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-sumac-brandy/10 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
       
       <motion.div 
@@ -129,7 +129,7 @@ function DashboardGraphic({ benefit }: { benefit: BenefitType }) {
 /* ─── 2. Code Graphic (Custom Development) ─── */
 function CodeGraphic({ benefit }: { benefit: BenefitType }) {
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-8 bg-[#111] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl">
+    <div className="relative w-full h-full flex items-center justify-center p-8 rounded-2xl overflow-hidden">
        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sumac-brandy/10 via-transparent to-transparent opacity-60" />
        
        <div className="w-full max-w-[380px] grid grid-cols-2 gap-4 z-10">
@@ -278,7 +278,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
   const isPhone = benefit.icon === "phone";
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group">
+    <div className="relative w-full h-full flex items-center justify-center p-8 rounded-2xl overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-t from-sumac-brandy/10 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
 
       {/* Phone Mockup */}
@@ -693,7 +693,7 @@ function TargetGraphic({ benefit }: { benefit: BenefitType }) {
 /* ─── 8. Funnel Graphic (Conversion) ─── */
 function FunnelGraphic({ benefit }: { benefit: BenefitType }) {
   return (
-    <div className="relative w-full h-full p-8 bg-[#151515] rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group flex flex-col justify-center gap-6">
+    <div className="relative w-full h-full p-8 rounded-2xl overflow-hidden group flex flex-col justify-center gap-6">
       <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 via-transparent to-transparent opacity-60" />
       
       {/* Funnel Container */}
@@ -762,7 +762,7 @@ function OrganicTrafficGraphic({ benefit }: { benefit: BenefitType }) {
   const last = points[points.length - 1];
 
   return (
-    <div className="relative w-full h-full p-6 md:p-8 bg-[#121212] rounded-2xl overflow-hidden border border-white/[0.08] flex flex-col gap-5">
+    <div className="relative w-full h-full p-6 md:p-8 rounded-2xl overflow-hidden flex flex-col gap-5">
       <div className="flex justify-between items-start gap-4">
         <div>
           <div className="text-gray-500 text-xs uppercase tracking-widest font-mono mb-1.5">Organic Visitors</div>
