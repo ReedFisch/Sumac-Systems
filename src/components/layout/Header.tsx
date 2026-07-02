@@ -98,7 +98,7 @@ const Header = () => {
           : ''
       }`}
     >
-      <div className={`max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? 'h-[60px] md:h-[72px]' : 'h-[80px] md:h-[120px]'}`}>
+      <div className={`max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? 'h-[72px] md:h-[100px]' : 'h-[100px] md:h-[150px]'}`}>
         {showMobileBack ? (
           <button
             type="button"
@@ -122,7 +122,7 @@ const Header = () => {
           onClick={closeMenu}
           className={`flex items-center group shrink-0 min-w-0 gap-3 md:gap-4 ${showMobileBack ? 'hidden md:flex' : ''}`}
         >
-          <div className={`relative shrink-0 transition-all duration-500 ${scrolled ? 'w-9 h-9 md:w-10 md:h-10' : 'w-12 h-12 md:w-[72px] md:h-[72px]'}`}>
+          <div className={`relative shrink-0 transition-all duration-500 ${scrolled ? 'w-10 h-10 md:w-14 md:h-14' : 'w-16 h-16 md:w-[96px] md:h-[96px]'}`}>
             <Image
               src="/images/sumac/image3.webp"
               alt="Sumac Logo"
@@ -132,10 +132,10 @@ const Header = () => {
             />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className={`font-sans font-bold tracking-[0.1em] text-white leading-none group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-sm md:text-base' : 'text-lg md:text-2xl'}`}>
+            <span className={`font-sans font-bold tracking-[0.1em] text-white leading-none group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-base md:text-xl' : 'text-2xl md:text-4xl'}`}>
               SUMAC
             </span>
-            <span className={`font-body tracking-[0.14em] text-white/40 uppercase mt-0.5 md:mt-1 transition-all duration-500 ${scrolled ? 'text-[8px] md:text-[10px]' : 'text-[10px] md:text-sm'}`}>
+            <span className={`font-body tracking-[0.14em] text-white/40 uppercase mt-0.5 md:mt-1 transition-all duration-500 ${scrolled ? 'text-[10px] md:text-xs' : 'text-xs md:text-base'}`}>
               Systems
             </span>
           </div>
@@ -146,7 +146,7 @@ const Header = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-sm font-medium tracking-wider uppercase text-white/50 hover:text-white transition-colors whitespace-nowrap group"
+              className={`relative font-medium tracking-wider uppercase text-white/50 hover:text-white transition-all duration-500 whitespace-nowrap group ${scrolled ? 'text-xs md:text-sm' : 'text-sm md:text-lg'}`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-sumac-brandy group-hover:w-full transition-all duration-300" />
@@ -159,14 +159,14 @@ const Header = () => {
             href={PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase text-white/50 hover:text-white transition-colors whitespace-nowrap group"
+            className={`flex items-center gap-2 text-white/50 hover:text-white transition-all duration-500 font-mono tracking-widest uppercase ${scrolled ? 'text-[10px] md:text-xs' : 'text-xs md:text-sm'}`}
           >
             <LoginIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             Login
           </a>
           <Link
             href="/thank-you"
-            className="bg-white text-black rounded-full font-bold tracking-wide uppercase hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.06)] hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] px-6 py-3 text-sm whitespace-nowrap"
+            className={`inline-flex items-center justify-center font-bold tracking-wider uppercase text-sumac-dark bg-white rounded-full hover:bg-gray-100 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 ${scrolled ? 'px-5 py-2.5 md:px-7 md:py-3 text-[10px] md:text-xs' : 'px-6 py-3 md:px-10 md:py-4 text-xs md:text-sm'}`}
           >
             Book Strategy Call
           </Link>
