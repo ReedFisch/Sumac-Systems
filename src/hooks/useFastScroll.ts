@@ -30,7 +30,7 @@ export function useFastScroll() {
       const startY = window.scrollY;
       const targetY = element.getBoundingClientRect().top + window.scrollY;
       const difference = targetY - startY;
-      const duration = 300; // Fast 300ms scroll
+      const duration = 700; // 700ms scroll duration
       const startTime = performance.now();
 
       function step(currentTime: number) {

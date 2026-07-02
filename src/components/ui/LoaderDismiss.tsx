@@ -20,7 +20,7 @@ export default function LoaderDismiss() {
       }
     };
 
-    const timer = window.setTimeout(dismissLoader, 1200);
+    const timer = window.setTimeout(dismissLoader, 600);
 
     return () => window.clearTimeout(timer);
   }, []);
