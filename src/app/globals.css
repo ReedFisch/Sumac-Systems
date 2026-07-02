@@ -26,9 +26,8 @@
   }
 }
 
-/* Smooth scroll only on focus to fix Next.js back button scroll restoration */
-html:focus-within {
-  scroll-behavior: smooth;
+html {
+  background: #090909;
 }
 
 body {

@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 const MagneticButton = dynamic(() => import('../ui/MagneticButton'));
@@ -103,13 +104,13 @@ const Hero = () => {
  className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6 md:mt-16 pointer-events-auto"
  >
  <MagneticButton>
- <a
+ <Link
  href="/thank-you"
  className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white text-black rounded-full font-bold text-base md:text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
  Book a Strategy Call
- </a>
+ </Link>
  </MagneticButton>
  <a
  href="/#contact"

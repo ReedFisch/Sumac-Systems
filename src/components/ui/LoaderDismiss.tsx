@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useFastScroll } from '@/hooks/useFastScroll';
 
 export default function LoaderDismiss() {
+  useFastScroll();
+  
   useEffect(() => {
     if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
