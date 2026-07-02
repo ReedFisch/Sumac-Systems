@@ -134,31 +134,30 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             {service.benefits.slice(0, 3).map((benefit, i) => {
               const isEven = i % 2 === 0;
               return (
-                <div key={i} className={`flex flex-col gap-12 lg:gap-20 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                <div key={i} className={`flex flex-col gap-12 lg:gap-16 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className="flex-1 w-full relative">
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className="aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
+                      className="aspect-[4/3] rounded-2xl overflow-hidden relative"
                     >
                       <BenefitVisual benefit={benefit as any} />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-sumac-dark/40 to-transparent pointer-events-none" />
                     </motion.div>
                   </div>
-                  <div className="flex-1 w-full space-y-6">
+                  <div className="flex-1 w-full flex flex-col justify-center">
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? 30 : -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-8 shadow-inner">
+                      <div className="w-12 h-12 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-6 shadow-inner">
                         <ServiceIcon name={benefit.icon} />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold font-sans text-white mb-4 tracking-tight">{benefit.title}</h3>
-                      <p className="text-white/55 font-body text-base leading-relaxed">{benefit.tagline}</p>
+                      <h3 className="text-2xl md:text-3xl font-bold font-sans text-white mb-3 tracking-tight">{benefit.title}</h3>
+                      <p className="text-white/55 font-body text-base leading-relaxed max-w-md">{benefit.tagline}</p>
                     </motion.div>
                   </div>
                 </div>
