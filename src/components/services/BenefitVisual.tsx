@@ -287,7 +287,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className="relative w-[180px] h-[340px] bg-[#0d0d0d] rounded-[2rem] border-4 border-[#2a2a2a] shadow-2xl z-10 overflow-hidden flex flex-col"
+        className="relative w-[180px] h-[340px] bg-[#0d0d0d] rounded-[2rem] border-4 border-[#2a2a2a] shadow-2xl z-10 overflow-hidden flex flex-col scale-[1.25] lg:scale-[1.45] origin-center"
       >
         {/* Dynamic Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#2a2a2a] rounded-b-xl z-30" />
