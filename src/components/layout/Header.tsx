@@ -98,7 +98,7 @@ const Header = () => {
           : ''
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 h-[var(--site-header-h)] flex items-center justify-between gap-4">
+      <div className={`max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? 'h-[60px] md:h-[72px]' : 'h-[72px] md:h-[100px]'}`}>
         {showMobileBack ? (
           <button
             type="button"
@@ -122,7 +122,7 @@ const Header = () => {
           onClick={closeMenu}
           className={`flex items-center group shrink-0 min-w-0 gap-3 md:gap-4 ${showMobileBack ? 'hidden md:flex' : ''}`}
         >
-          <div className="relative w-11 h-11 md:w-14 md:h-14 shrink-0">
+          <div className={`relative shrink-0 transition-all duration-500 ${scrolled ? 'w-9 h-9 md:w-10 md:h-10' : 'w-11 h-11 md:w-14 md:h-14'}`}>
             <Image
               src="/images/sumac/image3.webp"
               alt="Sumac Logo"
@@ -132,10 +132,10 @@ const Header = () => {
             />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="font-sans font-bold tracking-[0.1em] text-white text-base md:text-xl leading-none group-hover:text-sumac-brandy transition-colors">
+            <span className={`font-sans font-bold tracking-[0.1em] text-white leading-none group-hover:text-sumac-brandy transition-all duration-500 ${scrolled ? 'text-sm md:text-base' : 'text-base md:text-xl'}`}>
               SUMAC
             </span>
-            <span className="font-body tracking-[0.14em] text-white/40 uppercase text-[10px] md:text-xs mt-0.5 md:mt-1">
+            <span className={`font-body tracking-[0.14em] text-white/40 uppercase mt-0.5 md:mt-1 transition-all duration-500 ${scrolled ? 'text-[8px] md:text-[10px]' : 'text-[10px] md:text-xs'}`}>
               Systems
             </span>
           </div>
