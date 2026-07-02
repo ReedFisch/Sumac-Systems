@@ -90,7 +90,7 @@ const Hero = () => {
  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center md:flex-1">
 
 
- <h1 className="text-6xl sm:text-7xl md:text-[7rem] lg:text-[9.5rem] font-sans font-bold text-white tracking-tight leading-[0.95] mb-6 md:mb-8 text-balance">
+ <h1 className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-6 md:mb-8 text-balance">
  <FlipText text="We build websites and the" eager /> <span className="font-accent italic text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy via-[#7cff67] to-sumac-slate pr-2">systems</span> <FlipText text="around them" eager />
  </h1>
 

@@ -60,7 +60,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               <p className="font-mono text-base md:text-sm tracking-[0.28em] text-sumac-brandy uppercase mb-6 md:mb-8">
                 {service.title}
               </p>
-              <h1 className="text-6xl sm:text-7xl md:text-[6rem] lg:text-[7.5rem] xl:text-[8.5rem] font-sans font-bold text-white tracking-tight leading-[0.95] text-balance max-w-none md:max-w-3xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-sans font-bold text-white tracking-tight leading-[1.02] text-balance max-w-none md:max-w-2xl">
                 {service.hero.headline}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-sumac-brandy to-[#a3401f] font-accent italic pr-2 pb-1.5">
                   {service.hero.headlineAccent}
@@ -105,7 +105,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 3. Benefits — mobile list */}
       <section className="py-12 md:hidden border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-5xl md:text-[4.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight mb-8">What you get</h2>
+          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">What you get</h2>
           <div className="space-y-5">
             {service.benefits.slice(0, 3).map((benefit, i) => (
               <div key={i} className="flex items-start gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
@@ -126,7 +126,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       <section className="hidden md:block py-16 md:py-32 relative">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <FadeInView className="text-center mb-16 md:mb-24">
-            <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight">
               Engineered For Results
             </h2>
           </FadeInView>
@@ -174,7 +174,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="max-w-5xl mx-auto px-6 lg:px-10 relative">
           <FadeInView className="text-center mb-12 md:mb-16">
             <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-3">Sound Familiar?</span>
-            <h2 className="text-4xl md:text-6xl lg:text-[5rem] leading-[1.05] font-sans font-bold text-white tracking-tight text-balance max-w-3xl mx-auto mb-4">
+            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight text-balance max-w-2xl mx-auto mb-4">
               {service.struggles.title}
             </h2>
             <p className="text-white/45 font-body text-base md:text-lg leading-relaxed max-w-xl mx-auto">
@@ -216,7 +216,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 5. Process — mobile */}
       <section className="py-12 md:hidden border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-5xl md:text-[4.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight mb-8">{service.process.title}</h2>
+          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">{service.process.title}</h2>
           <ol className="space-y-5">
             {service.process.steps.map((step, i) => (
               <li key={i} className="flex gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
@@ -238,7 +238,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-sumac-brandy/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
           <FadeInView className="text-center mb-16">
-            <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight mb-6">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
               {service.process.title}
             </h2>
           </FadeInView>
@@ -276,7 +276,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-sumac-brandy/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 relative">
           <FadeInView className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
               {service.features.title}
             </h2>
           </FadeInView>
@@ -311,7 +311,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       <section className="py-10 md:py-24 border-t border-white/[0.06]">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
           <FadeInView className="text-center mb-8 md:mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-[1.05] font-sans font-bold text-white tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight">
               Frequently Asked Questions
             </h2>
           </FadeInView>
@@ -327,7 +327,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="absolute inset-0 bg-gradient-to-b from-sumac-brandy/[0.03] via-transparent to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center relative">
           <FadeInView>
-            <h2 className="text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight mb-3 md:mb-6 text-balance">
+            <h2 className="text-2xl md:text-5xl font-sans font-bold text-white tracking-tight mb-3 md:mb-6 text-balance">
               {service.middleCta.title}
             </h2>
             <p className="text-white/50 font-body text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto hidden md:block">
@@ -351,7 +351,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       <section className="hidden md:block py-16 md:py-24 border-t border-white/[0.06] bg-[#0e0202]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <FadeInView className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] leading-[1.05] font-sans font-bold text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
               Related Services
             </h2>
           </FadeInView>
