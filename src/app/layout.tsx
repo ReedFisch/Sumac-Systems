@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://sumac.systems'),
   title: "Sumac Systems & Development",
   description: "Stop losing leads to outdated templates. We custom code lightning-fast websites with built-in automation to turn local traffic into booked jobs.",
+  icons: {
+    icon: '/images/sumac/image3.webp',
+    apple: '/images/sumac/image3.webp',
+  },
   keywords: ["web design", "local business websites", "SEO for contractors", "automated lead follow-up", "custom web development", "local SEO", "service business software"],
   openGraph: {
     title: "Sumac Systems & Development",
