@@ -164,7 +164,7 @@ export default function Home() {
  <motion.div variants={fadeUpVariant}>
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">What We Do</span>
  </motion.div>
- <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white">
+ <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-sans font-bold tracking-tight text-white">
  <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
  <motion.p variants={fadeUpVariant} className="text-white/60 text-base md:text-lg font-body max-w-2xl mx-auto mt-4 md:mt-6">
@@ -237,7 +237,7 @@ export default function Home() {
  className="max-w-3xl mx-auto px-6 text-center relative z-10"
  >
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-6">Our Approach</span>
- <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
+ <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.05]">
  <BlurText text="Most SEO advice is" delay={30} animateBy="words" direction="bottom" className="inline-block md:block" />{" "}
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2016.</span>
  </h2>
@@ -282,7 +282,7 @@ export default function Home() {
  <motion.div variants={fadeUpVariant}>
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Questions</span>
  </motion.div>
- <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+ <h2 className="text-4xl md:text-6xl lg:text-[5rem] leading-[1.05] font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
  <TrueFocus sentence="Frequently Asked" manualMode={false} blurAmount={4} borderColor="#882F18" animationDuration={1.5} pauseBetweenAnimations={1} />
  <span>Questions</span>
  </h2>
@@ -332,7 +332,7 @@ export default function Home() {
  </motion.div>
  <motion.div variants={fadeUpVariant} className="w-full md:w-7/12">
  <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Work with Reed</span>
- <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight text-balance">
+ <h2 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold font-sans mb-8 tracking-tight leading-[1.05] text-balance">
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline" />{' '}
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,{' '}
  <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline" />
