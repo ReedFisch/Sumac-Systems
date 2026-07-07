@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.1, // Low priority for thank you page
     },
+    {
+      url: `${baseUrl}/client-portal`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.2,
+    },
     // Dynamic service pages
     {
       url: `${baseUrl}/services/web-design`,

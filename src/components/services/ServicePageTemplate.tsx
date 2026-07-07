@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import type { ServiceDetail } from "@/data/services";
+import type { BenefitType } from "@/components/services/BenefitVisual";
 import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
@@ -73,6 +74,10 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               <div className="mt-9 md:mt-12 flex flex-wrap gap-4">
                 <Link
                   href={service.bottomCta.ctaHref}
+                  data-analytics-event="booking_click"
+                  data-analytics-location="service_hero"
+                  data-analytics-label="Book a Strategy Call"
+                  data-analytics-service={service.slug}
                   className="group relative inline-flex w-full sm:w-auto items-center justify-center px-8 py-6 md:px-10 md:py-5 bg-sumac-brandy text-white rounded-full font-semibold text-xl md:text-lg overflow-hidden hover:shadow-[0_0_30px_rgba(136,47,24,0.5)] transition-all"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -143,7 +148,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                       className="aspect-[4/3] rounded-2xl overflow-hidden relative"
                     >
-                      <BenefitVisual benefit={benefit as any} />
+                      <BenefitVisual benefit={benefit as BenefitType} />
                     </motion.div>
                   </div>
                   <div className="flex-1 w-full flex flex-col justify-center">
@@ -335,6 +340,10 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             </p>
             <Link
               href={service.middleCta.ctaHref}
+              data-analytics-event="booking_click"
+              data-analytics-location="service_middle_cta"
+              data-analytics-label={service.middleCta.ctaLabel}
+              data-analytics-service={service.slug}
               className="group relative inline-flex items-center justify-center px-8 py-4 bg-sumac-brandy text-white rounded-full font-bold text-base overflow-hidden hover:shadow-[0_0_40px_rgba(136,47,24,0.4)] transition-all md:mb-16"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -364,7 +373,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Link href={`/services/${s.slug}`} className="block group h-full">
+                <Link href={`/services/${s.slug}`} data-analytics-event="service_click" data-analytics-location="related_services" data-analytics-label={s.title} data-analytics-service={s.slug} className="block group h-full">
                   <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.05] hover:border-sumac-brandy/40 hover:shadow-[0_0_30px_rgba(136,47,24,0.1)] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sumac-brandy transition-colors">{s.title}</h3>
                     <p className="text-white/50 font-body text-sm leading-relaxed mb-6 flex-grow">{s.definition.description}</p>

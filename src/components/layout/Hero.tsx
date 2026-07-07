@@ -106,18 +106,24 @@ const Hero = () => {
  <MagneticButton>
  <Link
  href="/thank-you"
+ data-analytics-event="booking_click"
+ data-analytics-location="home_hero"
+ data-analytics-label="Book a Strategy Call"
  className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white text-black rounded-full font-bold text-base md:text-lg tracking-wide overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] transition-all duration-500"
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
  Book a Strategy Call
  </Link>
  </MagneticButton>
- <a
+ <Link
  href="/#contact"
+ data-analytics-event="roi_calculator_click"
+ data-analytics-location="home_hero"
+ data-analytics-label="Calculate my ROI"
  className="inline-flex px-6 py-3.5 md:px-8 md:py-4 bg-transparent text-white/75 border border-white/20 rounded-full font-medium text-sm md:text-base tracking-wide hover:text-white hover:border-white/35 hover:bg-white/[0.05] transition-all duration-300 items-center justify-center"
  >
  Calculate my ROI
- </a>
+ </Link>
  </motion.div>
  </div>
 
@@ -207,7 +213,7 @@ const Hero = () => {
         </svg>
       ))}
     </div>
-    <div className="text-gray-900 font-bold text-[15px] mb-1">"Highly recommend!"</div>
+    <div className="text-gray-900 font-bold text-[15px] mb-1">&quot;Highly recommend!&quot;</div>
     <div className="text-gray-500 text-xs">New 5-star review received</div>
   </motion.div>
   

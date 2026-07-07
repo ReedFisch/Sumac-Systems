@@ -5,15 +5,15 @@ const isProd = process.env.NODE_ENV === "production";
 const contentSecurityPolicy = [
   "default-src 'self'",
   isProd
-    ? "script-src 'self' 'unsafe-inline' https://assets.calendly.com"
-    : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com",
+    ? "script-src 'self' 'unsafe-inline' https://assets.calendly.com https://www.googletagmanager.com"
+    : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   isProd
     ? "connect-src 'self' https:"
     : "connect-src 'self' https: ws: wss: http://localhost:* http://127.0.0.1:*",
-  "frame-src https://calendly.com https://*.calendly.com",
+  "frame-src https://calendly.com https://*.calendly.com https://lookerstudio.google.com https://datastudio.google.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

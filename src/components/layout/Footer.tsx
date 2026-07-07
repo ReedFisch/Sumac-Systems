@@ -56,9 +56,9 @@ const Footer = () => {
  High-performance websites and automated marketing systems for businesses that want to grow.
  </p>
  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mt-5 md:mt-6">
- <a href="tel:+15185514125" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">(518) 551-4125</a>
+ <a href="tel:+15185514125" data-analytics-event="phone_click" data-analytics-location="footer" data-analytics-label="Footer phone" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">(518) 551-4125</a>
  <span className="hidden sm:inline text-white/30">·</span>
- <a href="mailto:hello@sumac.systems" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider break-all">hello@sumac.systems</a>
+ <a href="mailto:hello@sumac.systems" data-analytics-event="email_click" data-analytics-location="footer" data-analytics-label="Footer email" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider break-all">hello@sumac.systems</a>
  </div>
  </div>
  
@@ -74,7 +74,7 @@ const Footer = () => {
  { label: 'Automations', href: '/services/automations' }
  ].map((item) => (
  <li key={item.label}>
- <Link href={item.href} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
+ <Link href={item.href} data-analytics-event="service_click" data-analytics-location="footer_services" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
  </li>
  ))}
  </ul>
@@ -86,13 +86,14 @@ const Footer = () => {
  <ul className="space-y-3">
  {[
  { label: 'Work with Reed', href: '/#about' },
+ { label: 'Client Portal', href: '/client-portal' },
  { label: 'Contact', href: '/#contact' },
  { label: 'Terms', href: '/terms' },
  { label: 'Privacy', href: '/privacy' },
  { label: 'Refund Policy', href: '/refund' },
  ].map((item) => (
  <li key={item.label}>
- <Link href={item.href} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
+ <Link href={item.href} data-analytics-event={item.label === 'Client Portal' ? 'portal_click' : 'navigation_click'} data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
  </li>
  ))}
  </ul>

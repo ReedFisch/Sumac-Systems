@@ -5,6 +5,8 @@ import "./globals.css";
 import { LazyMotion, domAnimation } from "motion/react";
 import GlobalParticles from "@/components/ui/GlobalParticles";
 import LoaderDismiss from "@/components/ui/LoaderDismiss";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import AnalyticsEvents from "@/components/analytics/AnalyticsEvents";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -21,6 +23,13 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const socialPreviewImage = {
+  url: "/images/sumac/image12.webp",
+  width: 2048,
+  height: 1143,
+  alt: "Red sumac fruit and green leaves in the forest",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://sumac.systems'),
   title: "Sumac Systems & Development",
@@ -35,14 +44,7 @@ export const metadata: Metadata = {
     description: "Lightning-fast, custom websites designed to convert local traffic into booked jobs.",
     url: 'https://sumac.systems',
     siteName: 'Sumac',
-    images: [
-      {
-        url: '/images/sumac/image1.webp',
-        width: 800,
-        height: 600,
-        alt: 'Sumac Systems',
-      },
-    ],
+    images: [socialPreviewImage],
     locale: 'en_US',
     type: 'website',
   },
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sumac Systems',
     description: 'Lightning-fast, custom websites designed to convert local traffic into booked jobs.',
-    images: ['/images/sumac/image1.webp'],
+    images: [socialPreviewImage],
   },
   robots: {
     index: true,
@@ -100,6 +102,8 @@ export default function RootLayout({
         </div>
         <LoaderDismiss />
         <GlobalParticles />
+        <GoogleAnalytics />
+        <AnalyticsEvents />
         <LazyMotion features={domAnimation}>
           {children}
         </LazyMotion>

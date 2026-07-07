@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "motion/react";
 import { ServiceIcon } from "./ServiceIcons";
 
-type BenefitType = {
+export type BenefitType = {
   title: string;
   tagline: string;
   icon: string;
