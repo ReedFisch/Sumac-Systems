@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-const PORTAL_URL = process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL || '/client-portal';
+const PORTAL_URL = 'https://sumacsystems.myassembly.com';
 const IS_PORTAL_EXTERNAL = PORTAL_URL.startsWith('http');
 
 const NAV_LINKS = [

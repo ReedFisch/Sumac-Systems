@@ -3,6 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
+ const companyLinks = [
+ { label: 'Work with Reed', href: '/#about' },
+ { label: 'Client Portal', href: 'https://sumacsystems.myassembly.com', external: true },
+ { label: 'Contact', href: '/#contact' },
+ { label: 'Terms', href: '/terms' },
+ { label: 'Privacy', href: '/privacy' },
+ { label: 'Refund Policy', href: '/refund' },
+ ];
+
  return (
  <footer className="relative pt-12 md:pt-20 pb-8 overflow-hidden">
  {/* Animated Dots Strip */}
@@ -84,16 +93,13 @@ const Footer = () => {
  <div>
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Company</h4>
  <ul className="space-y-3">
- {[
- { label: 'Work with Reed', href: '/#about' },
- { label: 'Client Portal', href: '/client-portal' },
- { label: 'Contact', href: '/#contact' },
- { label: 'Terms', href: '/terms' },
- { label: 'Privacy', href: '/privacy' },
- { label: 'Refund Policy', href: '/refund' },
- ].map((item) => (
+ {companyLinks.map((item) => (
  <li key={item.label}>
+ {item.external ? (
+ <a href={item.href} target="_blank" rel="noopener noreferrer" data-analytics-event="portal_click" data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</a>
+ ) : (
  <Link href={item.href} data-analytics-event={item.label === 'Client Portal' ? 'portal_click' : 'navigation_click'} data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
+ )}
  </li>
  ))}
  </ul>
@@ -102,10 +108,14 @@ const Footer = () => {
  </div>
 
  {/* Bottom bar */}
- <div className="border-t border-white/[0.04] pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+ <div className="border-t border-white/[0.04] pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
  <p className="text-white/40 text-[10px] uppercase tracking-widest font-mono">
  designed and built by Sumac Systems
  </p>
+ <address className="not-italic text-white/40 text-[10px] uppercase tracking-widest font-mono leading-relaxed md:text-right">
+ 111 Hudson Ave<br className="md:hidden" />
+ <span className="hidden md:inline"> · </span>Chatham, NY 12037
+ </address>
  </div>
  </div>
  </footer>
