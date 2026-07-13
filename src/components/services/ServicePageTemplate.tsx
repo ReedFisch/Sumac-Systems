@@ -8,7 +8,8 @@ import type { BenefitType } from "@/components/services/BenefitVisual";
 import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
-import { CalendlyPopupLink } from "@/components/scheduling/CalendlyWidget";
+
+const BOOKING_URL = "https://www.sumac.systems/thank-you";
 
 const ServiceHeroVisual = dynamic(
   () => import("@/components/services/ServiceHeroVisual").then((m) => ({ default: m.ServiceHeroVisual })),
@@ -73,8 +74,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               </p>
               
               <div className="mt-9 md:mt-12 flex flex-wrap gap-4">
-                <CalendlyPopupLink
-                  fallbackHref={service.bottomCta.ctaHref}
+                <a
+                  href={BOOKING_URL}
                   data-analytics-event="booking_click"
                   data-analytics-location="service_hero"
                   data-analytics-label="Book a Strategy Call"
@@ -83,7 +84,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                   Book a Strategy Call
-                </CalendlyPopupLink>
+                </a>
               </div>
 
               <motion.div
@@ -343,8 +344,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             <p className="text-white/50 font-body text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto hidden md:block">
               {service.middleCta.subtitle}
             </p>
-            <CalendlyPopupLink
-              fallbackHref={service.middleCta.ctaHref}
+            <a
+              href={BOOKING_URL}
               data-analytics-event="booking_click"
               data-analytics-location="service_middle_cta"
               data-analytics-label={service.middleCta.ctaLabel}
@@ -353,7 +354,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.middleCta.ctaLabel}
-            </CalendlyPopupLink>
+            </a>
             <FadeInView delay={0.2} className="hidden md:flex relative w-full aspect-[21/9] rounded-2xl border border-white/10 mt-8 items-center justify-center p-8">
               <BuiltToConvertGraphic slug={service.slug} />
             </FadeInView>

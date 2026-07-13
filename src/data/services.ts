@@ -201,7 +201,7 @@ export const services: ServiceDetail[] = [
       title: "Get Found When Customers Search",
       subtitle: "High-performance sites that make you the obvious local choice.",
       ctaLabel: "Get My Free Website Audit",
-      ctaHref: "/thank-you",
+      ctaHref: "https://www.sumac.systems/thank-you",
       image: "/images/titan-roofing.webp"
     },
     faqs: [
@@ -226,7 +226,7 @@ export const services: ServiceDetail[] = [
       title: "Ready for a new website?",
       description: "Book a free strategy call.",
       ctaLabel: "Get Started",
-      ctaHref: "/thank-you"
+      ctaHref: "https://www.sumac.systems/thank-you"
     }
   },
   {
@@ -361,7 +361,7 @@ export const services: ServiceDetail[] = [
       title: "Rank Where Your Customers Search",
       subtitle: "Local authority that drives calls from Google and AI tools.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "/thank-you",
+      ctaHref: "https://www.sumac.systems/thank-you",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -386,7 +386,7 @@ export const services: ServiceDetail[] = [
       title: "Want more organic traffic?",
       description: "Start ranking higher today.",
       ctaLabel: "Get a Free Audit",
-      ctaHref: "/thank-you"
+      ctaHref: "https://www.sumac.systems/thank-you"
     }
   },
   {
@@ -517,7 +517,7 @@ export const services: ServiceDetail[] = [
       title: "Own the Local Map Pack",
       subtitle: "A profile optimized to build trust and drive calls.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "/thank-you",
+      ctaHref: "https://www.sumac.systems/thank-you",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -542,7 +542,7 @@ export const services: ServiceDetail[] = [
       title: "Need more local customers?",
       description: "Let's optimize your profile.",
       ctaLabel: "Start Now",
-      ctaHref: "/thank-you"
+      ctaHref: "https://www.sumac.systems/thank-you"
     }
   },
   {
@@ -677,7 +677,7 @@ export const services: ServiceDetail[] = [
       title: "Close More Deals on Autopilot",
       subtitle: "Instant replies and review requests without the manual work.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "/thank-you",
+      ctaHref: "https://www.sumac.systems/thank-you",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -702,7 +702,7 @@ export const services: ServiceDetail[] = [
       title: "Ready to scale efficiently?",
       description: "Automate your business today.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "/thank-you"
+      ctaHref: "https://www.sumac.systems/thank-you"
     }
   }
 ];

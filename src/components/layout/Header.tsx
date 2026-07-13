@@ -7,11 +7,12 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const PORTAL_URL = 'https://sumacsystems.myassembly.com';
 const IS_PORTAL_EXTERNAL = PORTAL_URL.startsWith('http');
+const BOOKING_URL = 'https://www.sumac.systems/thank-you';
 
 const NAV_LINKS = [
   { label: 'Services', href: '/#services' },
   { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: BOOKING_URL },
 ];
 
 const SECTION_HASHES = new Set(['#services', '#about', '#contact']);
@@ -143,19 +144,41 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              data-analytics-event="navigation_click"
-              data-analytics-location="desktop_header"
-              data-analytics-label={link.label}
-              className={`relative font-medium tracking-wider uppercase text-white/50 hover:text-white transition-all duration-500 whitespace-nowrap group ${scrolled ? 'text-xs md:text-sm' : 'text-sm md:text-lg'}`}
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-sumac-brandy group-hover:w-full transition-all duration-300" />
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isExternalLink = link.href.startsWith('http');
+            const eventName = link.label === 'Contact' ? 'booking_click' : 'navigation_click';
+            const className = `relative font-medium tracking-wider uppercase text-white/50 hover:text-white transition-all duration-500 whitespace-nowrap group ${scrolled ? 'text-xs md:text-sm' : 'text-sm md:text-lg'}`;
+            const content = (
+              <>
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-sumac-brandy group-hover:w-full transition-all duration-300" />
+              </>
+            );
+
+            return isExternalLink ? (
+              <a
+                key={link.href}
+                href={link.href}
+                data-analytics-event={eventName}
+                data-analytics-location="desktop_header"
+                data-analytics-label={link.label}
+                className={className}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-analytics-event={eventName}
+                data-analytics-location="desktop_header"
+                data-analytics-label={link.label}
+                className={className}
+              >
+                {content}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-5 shrink-0">
@@ -171,15 +194,15 @@ const Header = () => {
             <LoginIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             Login
           </a>
-          <Link
-            href="/thank-you"
+          <a
+            href={BOOKING_URL}
             data-analytics-event="booking_click"
             data-analytics-location="desktop_header"
             data-analytics-label="Book Strategy Call"
             className={`inline-flex items-center justify-center font-bold tracking-wider uppercase text-sumac-dark bg-white rounded-full hover:bg-gray-100 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 ${scrolled ? 'px-5 py-2.5 md:px-7 md:py-3 text-[10px] md:text-xs' : 'px-6 py-3 md:px-10 md:py-4 text-xs md:text-sm'}`}
           >
             Book Strategy Call
-          </Link>
+          </a>
         </div>
 
         <button
@@ -204,19 +227,37 @@ const Header = () => {
       {menuOpen && (
         <div className="md:hidden border-t border-white/[0.06] bg-black px-5 pb-8 pt-3">
           <nav className="flex flex-col">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={closeMenu}
-                data-analytics-event="navigation_click"
-                data-analytics-location="mobile_menu"
-                data-analytics-label={link.label}
-                className="py-4 text-base font-medium tracking-wide text-white/70 border-b border-white/[0.06] hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isExternalLink = link.href.startsWith('http');
+              const eventName = link.label === 'Contact' ? 'booking_click' : 'navigation_click';
+              const className = "py-4 text-base font-medium tracking-wide text-white/70 border-b border-white/[0.06] hover:text-white transition-colors";
+
+              return isExternalLink ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  data-analytics-event={eventName}
+                  data-analytics-location="mobile_menu"
+                  data-analytics-label={link.label}
+                  className={className}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  data-analytics-event={eventName}
+                  data-analytics-location="mobile_menu"
+                  data-analytics-label={link.label}
+                  className={className}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <a
               href={PORTAL_URL}
               target={IS_PORTAL_EXTERNAL ? "_blank" : undefined}
@@ -231,8 +272,8 @@ const Header = () => {
               Login
             </a>
           </nav>
-          <Link
-            href="/thank-you"
+          <a
+            href={BOOKING_URL}
             onClick={closeMenu}
             data-analytics-event="booking_click"
             data-analytics-location="mobile_menu"
@@ -240,7 +281,7 @@ const Header = () => {
             className="mt-6 flex w-full items-center justify-center py-4 bg-white text-black rounded-full font-bold text-sm tracking-wider uppercase"
           >
             Book Strategy Call
-          </Link>
+          </a>
         </div>
       )}
     </header>

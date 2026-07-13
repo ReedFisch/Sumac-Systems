@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import BlurText from "@/components/ui/BlurText/BlurText";
 import "./revenue-calculator.css";
@@ -547,15 +546,15 @@ function StepThree({
         <p className="text-white/40 font-body text-sm mb-8">
           Let&apos;s plug the leaks. Book a free, no-pressure systems audit to see exactly how we can automate your growth.
         </p>
-        <Link
-          href="/thank-you"
+        <a
+          href="https://www.sumac.systems/thank-you"
           data-analytics-event="booking_click"
           data-analytics-location="roi_calculator_results"
           data-analytics-label="Book my free systems audit"
           className="inline-block w-full py-4 bg-sumac-brandy text-white font-bold text-base tracking-wider rounded-full hover:brightness-110 transition-all shadow-[0_0_30px_rgba(136,47,24,0.35)] hover:shadow-[0_0_50px_rgba(136,47,24,0.5)] text-center"
         >
           Book my free systems audit →
-        </Link>
+        </a>
       </div>
 
       <button

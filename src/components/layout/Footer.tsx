@@ -2,11 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const BOOKING_URL = 'https://www.sumac.systems/thank-you';
+
 const Footer = () => {
  const companyLinks = [
  { label: 'Work with Reed', href: '/#about' },
  { label: 'Client Portal', href: 'https://sumacsystems.myassembly.com', external: true },
- { label: 'Contact', href: 'mailto:hello@sumac.systems', event: 'email_click' },
+ { label: 'Contact', href: BOOKING_URL, event: 'booking_click' },
  { label: 'Terms', href: '/terms' },
  { label: 'Privacy', href: '/privacy' },
  { label: 'Refund Policy', href: '/refund' },
@@ -94,7 +96,7 @@ const Footer = () => {
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Company</h4>
  <ul className="space-y-3">
  {companyLinks.map((item) => {
- const isAnchor = item.external || item.href.startsWith('mailto:') || item.href.startsWith('tel:');
+ const isAnchor = item.external || item.href.startsWith('http') || item.href.startsWith('mailto:') || item.href.startsWith('tel:');
 
  return (
  <li key={item.label}>

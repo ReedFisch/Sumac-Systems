@@ -10,6 +10,8 @@ import dynamic from 'next/dynamic';
 const MagneticButton = dynamic(() => import('../ui/MagneticButton'));
 import { FlipText } from '../ui/FlipText';
 
+const BOOKING_URL = "https://www.sumac.systems/thank-you";
+
 const Hero = () => {
  const containerRef = useRef<HTMLDivElement>(null);
  const { scrollYProgress } = useScroll({
@@ -104,8 +106,8 @@ const Hero = () => {
  className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6 md:mt-16 pointer-events-auto"
  >
  <MagneticButton>
- <Link
- href="/thank-you"
+ <a
+ href={BOOKING_URL}
  data-analytics-event="booking_click"
  data-analytics-location="home_hero"
  data-analytics-label="Book a Strategy Call"
@@ -113,7 +115,7 @@ const Hero = () => {
  >
  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sumac-brandy/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
  Book a Strategy Call
- </Link>
+ </a>
  </MagneticButton>
  <Link
  href="/#contact"
