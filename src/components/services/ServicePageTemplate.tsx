@@ -8,6 +8,7 @@ import type { BenefitType } from "@/components/services/BenefitVisual";
 import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
+import { CalendlyPopupLink } from "@/components/scheduling/CalendlyWidget";
 
 const ServiceHeroVisual = dynamic(
   () => import("@/components/services/ServiceHeroVisual").then((m) => ({ default: m.ServiceHeroVisual })),
@@ -72,8 +73,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
               </p>
               
               <div className="mt-9 md:mt-12 flex flex-wrap gap-4">
-                <Link
-                  href={service.bottomCta.ctaHref}
+                <CalendlyPopupLink
+                  fallbackHref={service.bottomCta.ctaHref}
                   data-analytics-event="booking_click"
                   data-analytics-location="service_hero"
                   data-analytics-label="Book a Strategy Call"
@@ -82,7 +83,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                   Book a Strategy Call
-                </Link>
+                </CalendlyPopupLink>
               </div>
 
               <motion.div
@@ -138,6 +139,10 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
           <div className="space-y-20 md:space-y-32">
             {service.benefits.slice(0, 3).map((benefit, i) => {
               const isEven = i % 2 === 0;
+              const visualFrameClass = benefit.visualType === "mobile"
+                ? "min-h-[430px] lg:min-h-[500px] xl:min-h-[520px]"
+                : "aspect-[4/3]";
+
               return (
                 <div key={i} className={`flex flex-col gap-12 lg:gap-16 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className="flex-1 w-full relative">
@@ -146,7 +151,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className="aspect-[4/3] rounded-2xl overflow-hidden relative"
+                      className={`${visualFrameClass} rounded-2xl overflow-hidden relative`}
                     >
                       <BenefitVisual benefit={benefit as BenefitType} />
                     </motion.div>
@@ -338,8 +343,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             <p className="text-white/50 font-body text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto hidden md:block">
               {service.middleCta.subtitle}
             </p>
-            <Link
-              href={service.middleCta.ctaHref}
+            <CalendlyPopupLink
+              fallbackHref={service.middleCta.ctaHref}
               data-analytics-event="booking_click"
               data-analytics-location="service_middle_cta"
               data-analytics-label={service.middleCta.ctaLabel}
@@ -348,7 +353,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               {service.middleCta.ctaLabel}
-            </Link>
+            </CalendlyPopupLink>
             <FadeInView delay={0.2} className="hidden md:flex relative w-full aspect-[21/9] rounded-2xl border border-white/10 mt-8 items-center justify-center p-8">
               <BuiltToConvertGraphic slug={service.slug} />
             </FadeInView>

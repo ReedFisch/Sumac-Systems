@@ -6,7 +6,7 @@ const Footer = () => {
  const companyLinks = [
  { label: 'Work with Reed', href: '/#about' },
  { label: 'Client Portal', href: 'https://sumacsystems.myassembly.com', external: true },
- { label: 'Contact', href: '/#contact' },
+ { label: 'Contact', href: 'mailto:hello@sumac.systems', event: 'email_click' },
  { label: 'Terms', href: '/terms' },
  { label: 'Privacy', href: '/privacy' },
  { label: 'Refund Policy', href: '/refund' },
@@ -93,15 +93,19 @@ const Footer = () => {
  <div>
  <h4 className="text-white/70 font-sans font-semibold mb-5 uppercase tracking-[0.2em] text-[10px]">Company</h4>
  <ul className="space-y-3">
- {companyLinks.map((item) => (
+ {companyLinks.map((item) => {
+ const isAnchor = item.external || item.href.startsWith('mailto:') || item.href.startsWith('tel:');
+
+ return (
  <li key={item.label}>
- {item.external ? (
- <a href={item.href} target="_blank" rel="noopener noreferrer" data-analytics-event="portal_click" data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</a>
+ {isAnchor ? (
+ <a href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} data-analytics-event={item.event || 'portal_click'} data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</a>
  ) : (
- <Link href={item.href} data-analytics-event={item.label === 'Client Portal' ? 'portal_click' : 'navigation_click'} data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
+ <Link href={item.href} data-analytics-event={item.event || 'navigation_click'} data-analytics-location="footer_company" data-analytics-label={item.label} className="text-white/50 hover:text-white transition-colors text-sm font-body">{item.label}</Link>
  )}
  </li>
- ))}
+ );
+ })}
  </ul>
  </div>
  </div>
