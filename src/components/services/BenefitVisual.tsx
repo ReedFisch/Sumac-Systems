@@ -283,11 +283,11 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
 
       {/* Phone Mockup */}
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ y: 82, opacity: 0 }}
+        whileInView={{ y: 46, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className="relative w-[180px] h-[340px] bg-[#0d0d0d] rounded-[2rem] border-4 border-[#2a2a2a] shadow-2xl z-10 overflow-hidden flex flex-col scale-[1.05] lg:scale-[1.18] xl:scale-[1.24] origin-center"
+        className="relative w-[180px] h-[340px] bg-[#0d0d0d] rounded-[2rem] border-4 border-[#2a2a2a] shadow-2xl z-10 overflow-hidden flex flex-col scale-[0.9] lg:scale-[0.96] xl:scale-[1] origin-center"
       >
         {/* Dynamic Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#2a2a2a] rounded-b-xl z-30" />
@@ -415,14 +415,14 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
           </div>
         ) : (
           // Chat / Notification Interface
-          <div className="flex-1 bg-[#111] p-3 pt-12 flex flex-col gap-3 relative">
+          <div className="flex-1 bg-[#111] p-3 pt-14 pb-7 flex flex-col gap-3 relative">
              <div className="text-[10px] text-center text-white/40 font-mono mb-2">Today</div>
              
              {/* Push Notification (Drops in from notch) */}
              <motion.div
-                animate={{ y: [-60, -30, -30, -60], opacity: [0, 1, 1, 0] }}
+                animate={{ y: [-56, 0, 0, -56], opacity: [0, 1, 1, 0] }}
                 transition={{ duration: 7, times: [0, 0.07, 0.9, 1], repeat: Infinity, ease: "easeOut" }}
-                className="absolute top-12 left-1/2 -translate-x-1/2 w-[85%] bg-[#222]/90 backdrop-blur-md rounded-lg p-2 border border-white/10 shadow-xl flex items-center gap-2 z-40"
+                className="absolute top-10 left-1/2 -translate-x-1/2 w-[85%] bg-[#222]/90 backdrop-blur-md rounded-lg p-2 border border-white/10 shadow-xl flex items-center gap-2 z-40"
              >
                 <div className="w-5 h-5 bg-green-500/20 rounded flex items-center justify-center shrink-0">
                   <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
@@ -437,7 +437,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
              <motion.div 
                animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.9, 0.9, 1, 1, 0.9] }}
                transition={{ duration: 7, times: [0, 0.2, 0.25, 0.9, 1], repeat: Infinity, ease: "backOut" }}
-               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 mt-4 origin-bottom-left"
+               className="bg-[#222] p-2.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 mt-6 origin-bottom-left"
              >
                <div className="h-1.5 w-16 bg-white/60 rounded mb-1.5" />
                <div className="h-1.5 w-24 bg-white/40 rounded" />
@@ -471,7 +471,7 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
              <motion.div
                animate={{ opacity: [0, 0, 1, 1, 0], y: [10, 10, 0, 0, 10] }}
                transition={{ duration: 7, times: [0, 0.65, 0.7, 0.9, 1], repeat: Infinity, ease: "easeOut" }}
-               className="mt-auto mx-auto bg-white/10 px-3 py-1.5 rounded-full flex items-center justify-center gap-1.5 border border-white/10"
+               className="mt-auto mb-1 mx-auto bg-white/10 px-3 py-1.5 rounded-full flex items-center justify-center gap-1.5 border border-white/10"
              >
                <svg className="w-2.5 h-2.5 text-sumac-brandy mt-[0.5px]" fill="currentColor" viewBox="0 0 16 16">
                  <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
