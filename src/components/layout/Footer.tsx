@@ -64,7 +64,7 @@ const Footer = () => {
  </div>
  </Link>
  <p className="text-white/50 text-sm max-w-xs font-body leading-relaxed">
- Websites, search visibility, and follow-up systems for local service businesses.
+ High-performance websites and automated marketing systems for businesses that want to grow.
  </p>
  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mt-5 md:mt-6">
  <a href="tel:+15185514125" data-analytics-event="phone_click" data-analytics-location="footer" data-analytics-label="Footer phone" className="text-white/50 hover:text-white transition-colors text-xs font-mono tracking-wider">(518) 551-4125</a>

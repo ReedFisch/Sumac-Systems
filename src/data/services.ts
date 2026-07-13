@@ -24,6 +24,7 @@ export interface ServiceDetail {
   }[];
   struggles: {
     title: string;
+    subtitle: string;
     items: {
       title: string;
       description: string;
@@ -72,9 +73,9 @@ export const services: ServiceDetail[] = [
     slug: "web-design",
     title: "Web Design",
     hero: {
-      headline: "A website that makes the next step",
-      headlineAccent: "obvious",
-      description: "Custom-coded, fast, and built around the calls and bookings you want more of."
+      headline: "Websites engineered for",
+      headlineAccent: "growth",
+      description: "Custom-coded sites with built-in lead capture. No templates, just fast code that converts."
     },
     definition: {
       title: "What Is Next-Gen Web Design?",
@@ -96,7 +97,7 @@ export const services: ServiceDetail[] = [
     },
     benefits: [
       {
-        title: "Fast by default",
+        title: "Blazing Fast",
         tagline: "Load times that keep visitors on your site, not your competitor's.",
         icon: "zap",
         visualType: "dashboard"
@@ -121,7 +122,8 @@ export const services: ServiceDetail[] = [
       }
     ],
     struggles: {
-      title: "Common web gaps",
+      title: "Why Many Local Businesses Struggle Online",
+      subtitle: "Usually, it comes down to a few missing pieces in their online setup.",
       items: [
         {
           title: "Outdated Website",
@@ -150,7 +152,7 @@ export const services: ServiceDetail[] = [
       ]
     },
     process: {
-      title: "How we build your site",
+      title: "How We Build High-Converting Sites",
       steps: [
         {
           title: "UX Strategy & Wireframing",
@@ -162,7 +164,7 @@ export const services: ServiceDetail[] = [
         },
         {
           title: "Modern Development",
-          description: "Building with Next.js for fast, dependable performance."
+          description: "Coding with Next.js for lightning-fast performance."
         },
         {
           title: "Launch & Iterate",
@@ -196,8 +198,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "See where your site is losing leads",
-      subtitle: "We'll review the path from first visit to booked job.",
+      title: "Get Found When Customers Search",
+      subtitle: "High-performance sites that make you the obvious local choice.",
       ctaLabel: "Get My Free Website Audit",
       ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/titan-roofing.webp"
@@ -231,9 +233,9 @@ export const services: ServiceDetail[] = [
     slug: "ai-seo",
     title: "AI & SEO",
     hero: {
-      headline: "Be present where customers",
-      headlineAccent: "search",
-      description: "Google, AI answers, and the local results that influence the next call."
+      headline: "Get found on Google",
+      headlineAccent: "& AI",
+      description: "SEO for Google. AIO for ChatGPT and Perplexity. We cover both.",
     },
     definition: {
       title: "What Is SEO & AIO?",
@@ -280,7 +282,8 @@ export const services: ServiceDetail[] = [
       }
     ],
     struggles: {
-      title: "Common visibility gaps",
+      title: "Why Many Local Businesses Struggle To Show Up On Google",
+      subtitle: "It usually comes down to a few missing pieces in how they're set up online.",
       items: [
         {
           title: "Outdated Content Strategy",
@@ -309,7 +312,7 @@ export const services: ServiceDetail[] = [
       ]
     },
     process: {
-      title: "How we improve visibility",
+      title: "How We Improve Local Visibility",
       steps: [
         {
           title: "Technical Audit",
@@ -355,8 +358,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "See what is holding your visibility back",
-      subtitle: "We'll show you the clearest path to stronger local search coverage.",
+      title: "Rank Where Your Customers Search",
+      subtitle: "Local authority that drives calls from Google and AI tools.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"
@@ -390,9 +393,9 @@ export const services: ServiceDetail[] = [
     slug: "google-business-profile",
     title: "Google Business Profile",
     hero: {
-      headline: "Show up when nearby customers",
-      headlineAccent: "search",
-      description: "Your Google profile should make it easy to find you, trust you, and call."
+      headline: "Dominate the local",
+      headlineAccent: "map pack",
+      description: "Your Google profile is often the first thing customers see. We optimize it so you show up in the map pack and get the call.",
     },
     definition: {
       title: "What Is Google Business Profile Optimization?",
@@ -439,7 +442,8 @@ export const services: ServiceDetail[] = [
       }
     ],
     struggles: {
-      title: "Common map pack gaps",
+      title: "Why Many Local Businesses Struggle on Google Maps",
+      subtitle: "It almost always comes down to a few basic missing pieces.",
       items: [
         {
           title: "Incomplete Profile",
@@ -464,7 +468,7 @@ export const services: ServiceDetail[] = [
       ]
     },
     process: {
-      title: "How we improve your profile",
+      title: "How We Optimize Your Profile",
       steps: [
         {
           title: "Profile Audit",
@@ -510,8 +514,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "See what your profile is missing",
-      subtitle: "We'll review the signals that affect your local visibility and calls.",
+      title: "Own the Local Map Pack",
+      subtitle: "A profile optimized to build trust and drive calls.",
       ctaLabel: "Get My Free Google Audit",
       ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"
@@ -545,9 +549,9 @@ export const services: ServiceDetail[] = [
     slug: "automations",
     title: "Business Automations",
     hero: {
-      headline: "Reply before the lead",
-      headlineAccent: "moves on",
-      description: "Instant responses and follow-up that keep every inquiry from slipping away."
+      headline: "Stop losing leads to",
+      headlineAccent: "slow follow-up",
+      description: "Leads move on fast when no one responds. Our systems reply instantly, log the lead, and handle follow-up automatically.",
     },
     definition: {
       title: "What Are Business Automations?",
@@ -594,7 +598,8 @@ export const services: ServiceDetail[] = [
       }
     ],
     struggles: {
-      title: "Common workflow gaps",
+      title: "Why Many Local Businesses Struggle to Scale",
+      subtitle: "It usually comes down to manual processes slowing everything down.",
       items: [
         {
           title: "Missed Follow-Ups",
@@ -623,7 +628,7 @@ export const services: ServiceDetail[] = [
       ]
     },
     process: {
-      title: "How we build the workflow",
+      title: "How We Automate Your Workflows",
       steps: [
         {
           title: "Process Mapping",
@@ -639,7 +644,7 @@ export const services: ServiceDetail[] = [
         },
         {
           title: "Testing & Handover",
-          description: "Testing the workflow and walking your team through it."
+          description: "Ensuring flawless execution and training your team."
         }
       ]
     },
@@ -669,8 +674,8 @@ export const services: ServiceDetail[] = [
       ]
     },
     middleCta: {
-      title: "See what can run without you",
-      subtitle: "We'll identify the follow-up and admin work worth automating first.",
+      title: "Close More Deals on Autopilot",
+      subtitle: "Instant replies and review requests without the manual work.",
       ctaLabel: "Book a Strategy Call",
       ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"

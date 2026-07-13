@@ -57,16 +57,16 @@ function GbpMiddleGraphic() {
           <motion.div initial={{ x: 30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.4 }} viewport={{ once: true }} className="bg-[#111] p-4 rounded-xl border border-white/10 flex items-center gap-4 max-w-xs">
             <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center shrink-0"><ServiceIcon name="target" /></div>
             <div>
-              <div className="text-white font-semibold text-sm">Be easier to find</div>
-              <div className="text-white/50 text-[10px] mt-1">Show up when customers search nearby.</div>
+              <div className="text-white font-bold text-sm">Dominate Local Maps</div>
+              <div className="text-white/50 text-[10px] mt-1">Show up first when customers search nearby.</div>
             </div>
           </motion.div>
 
           <motion.div initial={{ x: 30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.6 }} viewport={{ once: true }} className="bg-[#111] p-4 rounded-xl border border-white/10 flex items-center gap-4 max-w-xs md:-ml-8">
             <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-500 flex items-center justify-center shrink-0"><ServiceIcon name="star" /></div>
             <div>
-              <div className="text-white font-semibold text-sm">Make a strong first impression</div>
-              <div className="text-white/50 text-[10px] mt-1">Keep your profile complete, current, and credible.</div>
+              <div className="text-white font-bold text-sm">Build Instant Trust</div>
+              <div className="text-white/50 text-[10px] mt-1">Stand out with a fully optimized, 5-star profile.</div>
             </div>
           </motion.div>
         </div>
