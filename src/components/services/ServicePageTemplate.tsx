@@ -69,7 +69,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                   {service.hero.headlineAccent}
                 </span>
               </h1>
-              <p className="mt-7 md:mt-10 text-white/55 font-body text-2xl md:text-xl lg:text-2xl leading-relaxed max-w-none md:max-w-xl">
+              <p className="mt-7 md:mt-10 text-white/55 font-body text-lg md:text-xl leading-relaxed max-w-none md:max-w-xl">
                 {service.hero.description}
               </p>
               
@@ -112,7 +112,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 3. Benefits — mobile list */}
       <section className="py-12 md:hidden border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">What you get</h2>
+          <h2 className="text-2xl font-sans font-semibold text-white tracking-tight mb-6">What changes</h2>
           <div className="space-y-5">
             {service.benefits.slice(0, 3).map((benefit, i) => (
               <div key={i} className="flex items-start gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
@@ -132,9 +132,9 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 3. Benefits Zig-Zag Section — desktop */}
       <section className="hidden md:block py-16 md:py-32 relative">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <FadeInView className="text-center mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight">
-              Engineered For Results
+          <FadeInView className="mb-14 md:mb-20">
+            <h2 className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase">
+              What changes
             </h2>
           </FadeInView>
           <div className="space-y-20 md:space-y-32">
@@ -167,7 +167,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                       <div className="w-12 h-12 rounded-full bg-sumac-brandy/10 border border-sumac-brandy/20 flex items-center justify-center text-sumac-brandy mb-6 shadow-inner">
                         <ServiceIcon name={benefit.icon} />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold font-sans text-white mb-3 tracking-tight">{benefit.title}</h3>
+                      <h3 className="text-2xl font-semibold font-sans text-white mb-3 tracking-tight">{benefit.title}</h3>
                       <p className="text-white/55 font-body text-base leading-relaxed max-w-md">{benefit.tagline}</p>
                     </motion.div>
                   </div>
@@ -183,14 +183,10 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-cover bg-center" style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sumac-brandy/[0.06] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 lg:px-10 relative">
-          <FadeInView className="text-center mb-12 md:mb-16">
-            <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-3">Sound Familiar?</span>
-            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight text-balance max-w-2xl mx-auto mb-4">
+          <FadeInView className="mb-10 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold text-white tracking-tight text-balance max-w-2xl">
               {service.struggles.title}
             </h2>
-            <p className="text-white/45 font-body text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-              {service.struggles.subtitle}
-            </p>
           </FadeInView>
           
           <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
@@ -227,7 +223,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 5. Process — mobile */}
       <section className="py-12 md:hidden border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-4xl font-sans font-bold text-white tracking-tight mb-8">{service.process.title}</h2>
+          <h2 className="text-2xl font-sans font-semibold text-white tracking-tight mb-6">{service.process.title}</h2>
           <ol className="space-y-5">
             {service.process.steps.map((step, i) => (
               <li key={i} className="flex gap-5 p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]">
@@ -248,8 +244,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       <section className="hidden md:block py-16 md:py-24 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-sumac-brandy/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
-          <FadeInView className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white tracking-tight mb-6">
+          <FadeInView className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold text-white tracking-tight">
               {service.process.title}
             </h2>
           </FadeInView>
@@ -286,8 +282,8 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       <section className="hidden md:block py-16 md:py-24 relative overflow-hidden">
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-sumac-brandy/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-10 relative">
-          <FadeInView className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
+          <FadeInView className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold text-white tracking-tight">
               {service.features.title}
             </h2>
           </FadeInView>
@@ -321,9 +317,9 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 8. FAQ Accordion */}
       <section className="py-10 md:py-24 border-t border-white/[0.06]">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <FadeInView className="text-center mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-tight">
-              Frequently Asked Questions
+          <FadeInView className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold text-white tracking-tight">
+              Questions
             </h2>
           </FadeInView>
           
@@ -365,9 +361,9 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
       {/* 10. Related Services */}
       <section className="hidden md:block py-16 md:py-24 border-t border-white/[0.06] bg-[#0e0202]">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <FadeInView className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white tracking-tight">
-              Related Services
+          <FadeInView className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold text-white tracking-tight">
+              Related services
             </h2>
           </FadeInView>
           <div className="grid md:grid-cols-3 gap-6">
@@ -384,7 +380,7 @@ export function ServicePageTemplate({ service }: { service: ServiceDetail }) {
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sumac-brandy transition-colors">{s.title}</h3>
                     <p className="text-white/50 font-body text-sm leading-relaxed mb-6 flex-grow">{s.definition.description}</p>
                     <div className="flex items-center text-sumac-brandy font-medium text-sm">
-                      Learn More 
+                      View service
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>

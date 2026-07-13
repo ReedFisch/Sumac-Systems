@@ -17,13 +17,10 @@ export default function ThankYouPage() {
 
  <div className="text-center mb-8">
  <h1 className="text-3xl md:text-5xl font-bold font-sans mb-3 tracking-tight text-balance">
- Book your <span className="text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">free strategy call</span>
+ Pick a time to <span className="text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">talk strategy</span>
  </h1>
  <p className="text-white/50 font-body text-sm md:text-base max-w-md mx-auto leading-relaxed">
- Pick a time below. We review your business before the call, so come ready to talk specifics.
- </p>
- <p className="mt-3 text-white/40 font-body text-xs md:text-sm">
- Please choose a slot at least 1-2 business days out.
+ Choose a slot 1-2 business days out. We&apos;ll review your business before the call so we can talk specifics.
  </p>
  </div>
 

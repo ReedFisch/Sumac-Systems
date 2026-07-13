@@ -10,7 +10,6 @@ import { useRef } from "react";
 
 const Footer = dynamic(() => import("@/components/layout/Footer"));
 const BlurText = dynamic(() => import("@/components/ui/BlurText/BlurText"));
-const TrueFocus = dynamic(() => import("@/components/ui/TrueFocus/TrueFocus"));
 const SpotlightCard = dynamic(() => import("@/components/ui/SpotlightCard"));
 const TiltCard = dynamic(() => import("@/components/ui/TiltCard"));
 const Particles = dynamic(() => import("@/components/ui/Particles"), { ssr: false });
@@ -22,7 +21,7 @@ const Accordion = dynamic(() => import("@/components/ui/Accordion").then(mod => 
 const HOME_FAQ = [
   {
     title: "How does pricing work?",
-    desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers engineering your custom site and systems. After that, your monthly rate takes care of hosting, ongoing SEO, and managing all the automations so you don't have to worry about them.",
+    desc: "There is a one-time build fee, followed by a flat monthly rate. The build fee covers your site and systems. The monthly rate covers hosting, ongoing SEO, and automation management.",
     items: [] as string[],
   },
   {
@@ -79,8 +78,7 @@ export default function Home() {
  { 
  title: "Web Design", 
  slug: "web-design",
- desc: "Fast load times, clear structure, and layouts that drive action.",
- bullets: ["Mobile-first, responsive layouts", "Performance-optimized build for lightning-fast load times", "Clean, maintainable code architecture"],
+ desc: "Fast pages, clear structure, and a path to contact you.",
  icon: (
  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
@@ -90,8 +88,7 @@ export default function Home() {
  { 
  title: "AI & SEO", 
  slug: "ai-seo",
- desc: "Visibility where people actually search today, including LLMs and AI Overviews.",
- bullets: ["Comprehensive technical SEO audits and fixes", "Semantic content structuring for AI (ChatGPT)", "Schema markup for rich search results"],
+ desc: "Visibility across Google, local results, and AI answers.",
  icon: (
  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
@@ -101,8 +98,7 @@ export default function Home() {
  { 
  title: "Google Business Profile", 
  slug: "google-business-profile",
- desc: "Optimize your Google presence to capture local intent and drive foot traffic.",
- bullets: ["Profile optimization and verification", "Review management strategies", "Local citation building"],
+ desc: "A profile that helps nearby customers find and call you.",
  icon: (
  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -113,8 +109,7 @@ export default function Home() {
  { 
  title: "Automations", 
  slug: "automations",
- desc: "Catch every lead with instant text follow-ups and automated review requests.",
- bullets: ["Automated SMS follow-up sequences", "Frictionless Google review request workflows", "Seamless CRM lead routing"],
+ desc: "Fast follow-up and fewer leads lost to manual work.",
  icon: (
  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -160,16 +155,10 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-6xl mx-auto px-6 w-full relative z-10"
  >
- <div className="text-center mb-10 md:mb-20">
- <motion.div variants={fadeUpVariant}>
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">What We Do</span>
- </motion.div>
- <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white">
- <BlurText text="Core Services" delay={50} animateBy="words" direction="top" className="justify-center" />
+ <div className="text-center mb-10 md:mb-16">
+ <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight text-white">
+ <BlurText text="Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
- <motion.p variants={fadeUpVariant} className="text-white/60 text-base md:text-lg font-body max-w-2xl mx-auto mt-4 md:mt-6">
- We don't just build digital brochures. We engineer complete systems designed to actually convert traffic into revenue.
- </motion.p>
  </div>
 
  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
@@ -190,17 +179,9 @@ export default function Home() {
  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center mb-5 md:mb-8 relative z-10 group-hover:-translate-y-2 group-hover:rotate-3 transition-transform duration-500 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
  {service.icon}
  </div>
- <h3 className="text-xl md:text-3xl font-sans font-bold tracking-tight mb-2 md:mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
+ <h3 className="text-xl md:text-2xl font-sans font-semibold tracking-tight mb-2 md:mb-4 group-hover:text-sumac-brandy transition-colors relative z-10">{service.title}</h3>
  <p className="text-white/60 font-body leading-relaxed text-sm md:text-base relative z-10 mb-0 md:mb-8 max-w-sm">{service.desc}</p>
  
- <ul className="hidden md:block space-y-4 relative z-10">
- {service.bullets.map((bullet, idx) => (
- <li key={idx} className="flex items-start gap-3 text-white/50 text-sm">
- <div className="w-1.5 h-1.5 rounded-full bg-sumac-brandy mt-1.5 shrink-0 shadow-[0_0_8px_var(--color-sumac-brandy)]" />
- <span className="leading-relaxed">{bullet}</span>
- </li>
- ))}
- </ul>
  </div>
 
  <Link href={`/services/${service.slug}`} className="mt-5 md:mt-10 flex items-center gap-2 text-white/55 group-hover:text-white transition-all duration-500 relative z-10 w-fit group/link">
@@ -236,13 +217,11 @@ export default function Home() {
  variants={fadeUpVariant}
  className="max-w-3xl mx-auto px-6 text-center relative z-10"
  >
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-6">Our Approach</span>
- <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
- <BlurText text="Most SEO advice is" delay={30} animateBy="words" direction="bottom" className="inline-block md:block" />{" "}
- <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2016.</span>
+ <h2 className="text-3xl md:text-5xl font-semibold font-sans mb-4 md:mb-6 tracking-tight leading-[1.1]">
+ <BlurText text="Search has changed." delay={30} animateBy="words" direction="bottom" className="inline-block" />
  </h2>
- <p className="text-lg md:text-xl font-body leading-relaxed text-white/50 max-w-2xl mx-auto">
-  We optimize for what actually matters now: structuring your content so it makes sense to humans, search engines, and <span className="text-white font-medium">AI tools like ChatGPT and Perplexity.</span>
+ <p className="text-base md:text-lg font-body leading-relaxed text-white/50 max-w-xl mx-auto">
+  We make your services legible to customers, search engines, and AI answers.
   </p>
  </motion.div>
  </section>
@@ -278,13 +257,9 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-4xl mx-auto px-6 relative z-20"
  >
- <div className="text-center mb-10 md:mb-20">
- <motion.div variants={fadeUpVariant}>
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Questions</span>
- </motion.div>
- <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
- <TrueFocus sentence="Frequently Asked" manualMode={false} blurAmount={4} borderColor="#882F18" animationDuration={1.5} pauseBetweenAnimations={1} />
- <span>Questions</span>
+ <div className="text-center mb-10 md:mb-14">
+ <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight text-white">
+ Questions
  </h2>
  </div>
  
@@ -331,18 +306,17 @@ export default function Home() {
  </TiltCard>
  </motion.div>
  <motion.div variants={fadeUpVariant} className="w-full md:w-7/12">
- <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">Work with Reed</span>
- <h2 className="text-3xl md:text-5xl font-bold font-sans mb-8 tracking-tight leading-tight text-balance">
+ <h2 className="text-3xl md:text-4xl font-semibold font-sans mb-6 tracking-tight leading-tight text-balance">
  <BlurText text="Websites should be" delay={30} animateBy="words" direction="top" className="inline" />{' '}
  <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy to-[#7cff67]">assets</span>,{' '}
  <BlurText text="not obligations." delay={30} animateBy="words" direction="bottom" className="inline" />
  </h2>
  <div className="space-y-4 md:space-y-5 text-white/50 font-body text-base leading-relaxed">
-  <p>Hey, I'm Reed. I run a lean, independent operation. When you hire Sumac Systems, you work directly with me.</p>
-  <p>I'm young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
-  <p>I don't outsource the development, and I don't rely on bloated templates.</p>
+  <p>Hey, I&apos;m Reed. I run a lean, independent operation. When you hire Sumac Systems, you work directly with me.</p>
+  <p>I&apos;m young, and honestly, I consider that a huge advantage in this industry. I grew up native to the technology that older agencies are just now trying to figure out.</p>
+  <p>I don&apos;t outsource the development, and I don&apos;t rely on bloated templates.</p>
   <div className="pt-4 md:pt-5 border-t border-white/[0.06] mt-4 md:mt-6">
-  <p className="font-accent text-lg md:text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I'm genuinely proud of.&rdquo;</p>
+  <p className="font-accent text-lg md:text-xl text-white/80 italic">&ldquo;I only launch systems and charge for work that I&apos;m genuinely proud of.&rdquo;</p>
   </div>
   </div>
  </motion.div>
@@ -352,7 +326,7 @@ export default function Home() {
  {/* CurvedLoop Marquee Transition */}
  <section className="bg-sumac-dark overflow-hidden relative z-10 py-5 md:py-8">
  <CurvedLoop 
- marqueeText="✦ STRATEGIC ARCHITECTURE ✦ SEAMLESS AUTOMATION ✦ AI SEARCH OPTIMIZATION ✦ HIGH PERFORMANCE ✦" 
+ marqueeText="WEB DESIGN ✦ LOCAL SEARCH ✦ AUTOMATIONS ✦"
  speed={1} 
  curveAmount={80} 
  />
