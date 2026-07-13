@@ -7,7 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const PORTAL_URL = 'https://sumacsystems.myassembly.com';
 const IS_PORTAL_EXTERNAL = PORTAL_URL.startsWith('http');
-const BOOKING_URL = 'https://www.sumac.systems/thank-you';
+const BOOKING_URL = 'https://www.sumac.systems/book-a-strategy-call';
 
 const NAV_LINKS = [
   { label: 'Services', href: '/#services' },

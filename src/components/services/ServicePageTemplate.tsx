@@ -9,7 +9,7 @@ import { services } from "@/data/services";
 import { ServiceIcon } from "@/components/services/ServiceIcons";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
 
-const BOOKING_URL = "https://www.sumac.systems/thank-you";
+const BOOKING_URL = "https://www.sumac.systems/book-a-strategy-call";
 
 const ServiceHeroVisual = dynamic(
   () => import("@/components/services/ServiceHeroVisual").then((m) => ({ default: m.ServiceHeroVisual })),

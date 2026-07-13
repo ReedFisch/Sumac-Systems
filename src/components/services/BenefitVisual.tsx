@@ -283,8 +283,8 @@ function MobileGraphic({ benefit }: { benefit: BenefitType }) {
 
       {/* Phone Mockup */}
       <motion.div
-        initial={{ y: 82, opacity: 0 }}
-        whileInView={{ y: 46, opacity: 1 }}
+        initial={{ y: 32, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         className="relative w-[180px] h-[340px] bg-[#0d0d0d] rounded-[2rem] border-4 border-[#2a2a2a] shadow-2xl z-10 overflow-hidden flex flex-col scale-[0.9] lg:scale-[0.96] xl:scale-[1] origin-center"

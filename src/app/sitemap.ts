@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/thank-you`,
+      url: `${baseUrl}/book-a-strategy-call`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.1, // Low priority for thank you page

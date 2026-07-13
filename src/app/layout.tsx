@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LazyMotion, domAnimation } from "motion/react";
 import GlobalParticles from "@/components/ui/GlobalParticles";
-import LoaderDismiss from "@/components/ui/LoaderDismiss";
+import SiteBehavior from "@/components/ui/SiteBehavior";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import AnalyticsEvents from "@/components/analytics/AnalyticsEvents";
 
@@ -32,7 +31,7 @@ const socialPreviewImage = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sumac.systems'),
-  title: "Sumac Systems & Development",
+  title: "Sumac Systems",
   description: "Stop losing leads to outdated templates. We custom code lightning-fast websites with built-in automation to turn local traffic into booked jobs.",
   icons: {
     icon: '/images/sumac/image3.webp',
@@ -40,10 +39,10 @@ export const metadata: Metadata = {
   },
   keywords: ["web design", "local business websites", "SEO for contractors", "automated lead follow-up", "custom web development", "local SEO", "service business software"],
   openGraph: {
-    title: "Sumac Systems & Development",
+    title: "Sumac Systems",
     description: "Lightning-fast, custom websites designed to convert local traffic into booked jobs.",
     url: 'https://sumac.systems',
-    siteName: 'Sumac',
+    siteName: 'Sumac Systems',
     images: [socialPreviewImage],
     locale: 'en_US',
     type: 'website',
@@ -78,29 +77,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${playfairDisplay.variable}`}
       suppressHydrationWarning
     >
-      <body className="loader-active min-h-full flex flex-col">
-        <div id="global-loader">
-          <div className="loader-content">
-            <div className="loader-center">
-              <div className="loader-ring loader-ring-1" />
-              <div className="loader-ring loader-ring-2" />
-              <Image
-                src="/images/sumac/image3.webp"
-                alt="Sumac Logo"
-                width={135}
-                height={135}
-                priority
-                className="svg-glow relative z-10 object-contain"
-              />
-            </div>
-            <div className="boot-sequence">
-              <div className="boot-line" style={{ animationDelay: '0.2s' }}>INITIALIZING PROTOCOLS...</div>
-              <div className="boot-line" style={{ animationDelay: '0.7s', color: 'rgba(255,255,255,0.4)' }}>COMPILING DIGITAL ASSETS...</div>
-              <div className="boot-line" style={{ animationDelay: '1.2s', color: '#882F18', fontWeight: 'bold' }}>SYSTEMS ONLINE</div>
-            </div>
-          </div>
-        </div>
-        <LoaderDismiss />
+      <body className="min-h-full flex flex-col">
+        <SiteBehavior />
         <GlobalParticles />
         <GoogleAnalytics />
         <AnalyticsEvents />

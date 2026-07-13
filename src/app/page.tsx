@@ -155,8 +155,8 @@ export default function Home() {
  variants={staggerContainer}
  className="max-w-6xl mx-auto px-6 w-full relative z-10"
  >
- <div className="text-center mb-10 md:mb-16">
- <h2 className="text-2xl md:text-3xl font-sans font-semibold tracking-tight text-white">
+ <div className="text-center mb-10 md:mb-20">
+ <h2 className="text-3xl md:text-6xl font-sans font-bold tracking-tight text-white">
  <BlurText text="Services" delay={50} animateBy="words" direction="top" className="justify-center" />
  </h2>
  </div>
@@ -217,11 +217,13 @@ export default function Home() {
  variants={fadeUpVariant}
  className="max-w-3xl mx-auto px-6 text-center relative z-10"
  >
- <h2 className="text-3xl md:text-5xl font-semibold font-sans mb-4 md:mb-6 tracking-tight leading-[1.1]">
- <BlurText text="Search has changed." delay={30} animateBy="words" direction="bottom" className="inline-block" />
+ <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-6">Our Approach</span>
+ <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans mb-4 md:mb-8 tracking-tight leading-[1.1]">
+ <BlurText text="Most SEO advice is" delay={30} animateBy="words" direction="bottom" className="inline-block md:block" />{" "}
+ <span className="italic font-accent text-transparent bg-clip-text bg-gradient-to-r from-white via-sumac-brandy to-[#7cff67]">stuck in 2016.</span>
  </h2>
- <p className="text-base md:text-lg font-body leading-relaxed text-white/50 max-w-xl mx-auto">
-  We make your services legible to customers, search engines, and AI answers.
+ <p className="text-lg md:text-xl font-body leading-relaxed text-white/50 max-w-2xl mx-auto">
+  We optimize for what actually matters now: structuring your content so it makes sense to humans, search engines, and <span className="text-white font-medium">AI tools like ChatGPT and Perplexity.</span>
   </p>
  </motion.div>
  </section>

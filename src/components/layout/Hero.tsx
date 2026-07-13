@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 const MagneticButton = dynamic(() => import('../ui/MagneticButton'));
 import { FlipText } from '../ui/FlipText';
 
-const BOOKING_URL = "https://www.sumac.systems/thank-you";
+const BOOKING_URL = "https://www.sumac.systems/book-a-strategy-call";
 
 const Hero = () => {
  const containerRef = useRef<HTMLDivElement>(null);
@@ -93,7 +93,7 @@ const Hero = () => {
  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center md:flex-1">
 
 
- <h1 className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] mb-6 md:mb-8 text-balance">
+ <h1 className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-sans font-bold text-white tracking-tight leading-[1.05] text-balance">
  <FlipText text="We build websites and the" eager /> <span className="font-accent italic text-transparent bg-clip-text bg-gradient-to-r from-sumac-brandy via-[#7cff67] to-sumac-slate pr-2">systems</span> <FlipText text="around them" eager />
  </h1>
 
@@ -103,7 +103,7 @@ const Hero = () => {
  initial={{ opacity: 0, y: 30 }}
  animate={{ opacity: 1, y: 0 }}
  transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
- className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-6 md:mt-16 pointer-events-auto"
+ className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-10 pointer-events-auto"
  >
  <MagneticButton>
  <a

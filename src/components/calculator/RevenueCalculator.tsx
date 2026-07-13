@@ -531,7 +531,7 @@ function StepThree({
           Book a free audit and we&apos;ll walk through the highest-impact fixes for your business.
         </p>
         <a
-          href="https://www.sumac.systems/thank-you"
+          href="https://www.sumac.systems/book-a-strategy-call"
           data-analytics-event="booking_click"
           data-analytics-location="roi_calculator_results"
           data-analytics-label="Book my free systems audit"

@@ -74,8 +74,8 @@ export async function createOneTimeCheckoutSession({
 }: CreateCheckoutSessionInput): Promise<CreateCheckoutSessionResult> {
   const stripeClient = getStripeClient();
   const { priceId, productId } = await getCheckoutPrice();
-  const successUrl = `${origin}/thank-you?checkout=success&session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${origin}/thank-you?checkout=cancelled`;
+  const successUrl = `${origin}/book-a-strategy-call?checkout=success&session_id={CHECKOUT_SESSION_ID}`;
+  const cancelUrl = `${origin}/book-a-strategy-call?checkout=cancelled`;
 
   const session = await stripeClient.checkout.sessions.create({
     line_items: [

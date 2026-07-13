@@ -80,6 +80,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/thank-you",
+        destination: "/book-a-strategy-call",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

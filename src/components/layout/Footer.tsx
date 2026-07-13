@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const BOOKING_URL = 'https://www.sumac.systems/thank-you';
+const BOOKING_URL = 'https://www.sumac.systems/book-a-strategy-call';
 
 const Footer = () => {
  const companyLinks = [

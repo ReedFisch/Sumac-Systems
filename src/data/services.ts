@@ -199,7 +199,7 @@ export const services: ServiceDetail[] = [
       title: "See where your site is losing leads",
       subtitle: "We'll review the path from first visit to booked job.",
       ctaLabel: "Get My Free Website Audit",
-      ctaHref: "https://www.sumac.systems/thank-you",
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/titan-roofing.webp"
     },
     faqs: [
@@ -224,7 +224,7 @@ export const services: ServiceDetail[] = [
       title: "Ready for a new website?",
       description: "Book a free strategy call.",
       ctaLabel: "Get Started",
-      ctaHref: "https://www.sumac.systems/thank-you"
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call"
     }
   },
   {
@@ -358,7 +358,7 @@ export const services: ServiceDetail[] = [
       title: "See what is holding your visibility back",
       subtitle: "We'll show you the clearest path to stronger local search coverage.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "https://www.sumac.systems/thank-you",
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -383,7 +383,7 @@ export const services: ServiceDetail[] = [
       title: "Want more organic traffic?",
       description: "Start ranking higher today.",
       ctaLabel: "Get a Free Audit",
-      ctaHref: "https://www.sumac.systems/thank-you"
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call"
     }
   },
   {
@@ -513,7 +513,7 @@ export const services: ServiceDetail[] = [
       title: "See what your profile is missing",
       subtitle: "We'll review the signals that affect your local visibility and calls.",
       ctaLabel: "Get My Free Google Audit",
-      ctaHref: "https://www.sumac.systems/thank-you",
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -538,7 +538,7 @@ export const services: ServiceDetail[] = [
       title: "Need more local customers?",
       description: "Let's optimize your profile.",
       ctaLabel: "Start Now",
-      ctaHref: "https://www.sumac.systems/thank-you"
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call"
     }
   },
   {
@@ -672,7 +672,7 @@ export const services: ServiceDetail[] = [
       title: "See what can run without you",
       subtitle: "We'll identify the follow-up and admin work worth automating first.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "https://www.sumac.systems/thank-you",
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call",
       image: "/images/sumac/image12-blurred.webp"
     },
     faqs: [
@@ -697,7 +697,7 @@ export const services: ServiceDetail[] = [
       title: "Ready to scale efficiently?",
       description: "Automate your business today.",
       ctaLabel: "Book a Strategy Call",
-      ctaHref: "https://www.sumac.systems/thank-you"
+      ctaHref: "https://www.sumac.systems/book-a-strategy-call"
     }
   }
 ];

@@ -125,7 +125,7 @@ type CalendlyPopupLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>
 export function CalendlyPopupLink({
   children,
   url = CALENDLY_EVENT_URL,
-  fallbackHref = "/thank-you",
+  fallbackHref = "/book-a-strategy-call",
   onClick,
   onFocus,
   onPointerEnter,
@@ -198,7 +198,6 @@ type CalendlyInlineWidgetProps = {
 
 export function CalendlyInlineWidget({ url = CALENDLY_EVENT_URL, className }: CalendlyInlineWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
@@ -208,18 +207,8 @@ export function CalendlyInlineWidget({ url = CALENDLY_EVENT_URL, className }: Ca
     if (!parentElement) return;
 
     parentElement.innerHTML = "";
-    setIsLoaded(false);
     setHasError(false);
     ensureCalendlyStylesheet();
-
-    const observer = new MutationObserver(() => {
-      if (parentElement.querySelector("iframe")) {
-        setIsLoaded(true);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(parentElement, { childList: true, subtree: true });
 
     loadCalendlyScript()
       .then(() => {
@@ -237,24 +226,16 @@ export function CalendlyInlineWidget({ url = CALENDLY_EVENT_URL, className }: Ca
       .catch(() => {
         if (!cancelled) {
           setHasError(true);
-          setIsLoaded(true);
         }
       });
 
     return () => {
       cancelled = true;
-      observer.disconnect();
     };
   }, [url]);
 
   return (
     <div className={`relative min-h-[620px] md:min-h-[700px] ${className ?? ""}`}>
-      {!isLoaded ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-white text-sumac-dark">
-          <div className="h-10 w-10 rounded-full border-4 border-sumac-brandy/25 border-t-sumac-brandy animate-spin" />
-          <p className="text-sm font-semibold tracking-wide">Loading available times...</p>
-        </div>
-      ) : null}
       <div ref={widgetRef} className="h-[min(700px,75vh)] min-h-[620px] w-full" />
       {hasError ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-white p-8 text-center text-sumac-dark">
