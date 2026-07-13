@@ -89,7 +89,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
+      className={`fixed top-0 w-full z-50 pt-[env(safe-area-inset-top,0px)] ${menuOpen ? 'transition-none' : 'transition-all duration-300'} ${
         menuOpen
           ? 'bg-black backdrop-blur-none border-b border-white/[0.06]'
           : scrolled
@@ -101,7 +101,7 @@ const Header = () => {
           : ''
       }`}
     >
-      <div className={`max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 transition-all duration-300 ${compactHeader ? 'h-[72px] md:h-[100px]' : 'h-[100px] md:h-[150px]'}`}>
+      <div className={`max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 ${menuOpen ? 'transition-none' : 'transition-all duration-300'} ${compactHeader ? 'h-[72px] md:h-[100px]' : 'h-[100px] md:h-[150px]'}`}>
         {showMobileBack ? (
           <button
             type="button"
@@ -125,7 +125,7 @@ const Header = () => {
           onClick={closeMenu}
           className={`flex items-center group shrink-0 min-w-0 gap-3 md:gap-4 ${showMobileBack ? 'hidden md:flex' : ''}`}
         >
-          <div className={`relative shrink-0 transition-all duration-300 ${compactHeader ? 'w-10 h-10 md:w-14 md:h-14' : 'w-16 h-16 md:w-[96px] md:h-[96px]'}`}>
+          <div className={`relative shrink-0 ${menuOpen ? 'transition-none' : 'transition-all duration-300'} ${compactHeader ? 'w-10 h-10 md:w-14 md:h-14' : 'w-16 h-16 md:w-[96px] md:h-[96px]'}`}>
             <Image
               src="/images/sumac/image3.webp"
               alt="Sumac Logo"
@@ -135,10 +135,10 @@ const Header = () => {
             />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className={`font-sans font-bold tracking-[0.1em] text-white leading-none group-hover:text-sumac-brandy transition-all duration-300 ${compactHeader ? 'text-base md:text-xl' : 'text-2xl md:text-4xl'}`}>
+            <span className={`font-sans font-bold tracking-[0.1em] text-white leading-none group-hover:text-sumac-brandy ${menuOpen ? 'transition-none' : 'transition-all duration-300'} ${compactHeader ? 'text-base md:text-xl' : 'text-2xl md:text-4xl'}`}>
               SUMAC
             </span>
-            <span className={`font-body tracking-[0.14em] text-white/40 uppercase mt-0.5 md:mt-1 transition-all duration-300 ${compactHeader ? 'text-[10px] md:text-xs' : 'text-xs md:text-base'}`}>
+            <span className={`font-body tracking-[0.14em] text-white/40 uppercase mt-0.5 md:mt-1 ${menuOpen ? 'transition-none' : 'transition-all duration-300'} ${compactHeader ? 'text-[10px] md:text-xs' : 'text-xs md:text-base'}`}>
               Systems
             </span>
           </div>
