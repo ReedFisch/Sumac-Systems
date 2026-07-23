@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
 const localDashboardUrl = "http://127.0.0.1:8080";
+const macDownloadUrl = "/downloads/lead-scout-mac-beta.zip";
 
 export const metadata: Metadata = {
   title: "Lead Scout | Sumac Systems",
@@ -38,10 +39,29 @@ const signals = [
 ];
 
 const workflow = [
-  "Open Lead Scout.app if it is not already running.",
-  "Click Open Local Dashboard from this page.",
+  "Download the Mac beta zip if Lead Scout is not already installed.",
+  "Unzip it, then run Install Lead Scout.command from the folder.",
+  "Come back here and click Open Local Dashboard.",
   "Run a city + trade search, then open leads when the job finishes.",
-  "Delete old failed rows when they are just stale test searches.",
+];
+
+const installSteps = [
+  {
+    title: "Download the app package",
+    copy: "This is not the source code. It is a ready-to-run Mac package with the app, installer, stop command, README, and Lead Scout binary.",
+  },
+  {
+    title: "Unzip the folder",
+    copy: "Keep the files together. The installer expects the bin folder and Lead Scout.app to stay in the same unzipped folder.",
+  },
+  {
+    title: "Run the installer",
+    copy: "Double-click Install Lead Scout.command. If macOS blocks it, right-click the command, choose Open, then confirm.",
+  },
+  {
+    title: "Open the dashboard",
+    copy: "The installer starts the local background service. The dashboard opens at 127.0.0.1:8080 and this page links there.",
+  },
 ];
 
 export default function LeadScoutPage() {
@@ -84,6 +104,13 @@ export default function LeadScoutPage() {
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
+                href={macDownloadUrl}
+                download
+                className="inline-flex items-center justify-center rounded-full bg-sumac-brandy px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_0_30px_rgba(136,47,24,0.18)] transition hover:scale-[1.02] hover:bg-[#a64628] active:scale-[0.98]"
+              >
+                Download Mac Beta
+              </a>
+              <a
                 href={localDashboardUrl}
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-sumac-dark shadow-[0_0_30px_rgba(255,255,255,0.12)] transition hover:scale-[1.02] hover:bg-gray-100 active:scale-[0.98]"
               >
@@ -98,8 +125,9 @@ export default function LeadScoutPage() {
             </div>
 
             <p className="mt-5 max-w-xl text-sm leading-6 text-white/45">
-              If the dashboard does not open, start the local Lead Scout app
-              first, then come back and press the button again.
+              If this Mac already has Lead Scout installed, skip the download
+              and open the dashboard. If it is a new Mac, download the package
+              and run the installer first.
             </p>
           </div>
 
@@ -119,6 +147,7 @@ export default function LeadScoutPage() {
             </div>
 
             <div className="mt-5 rounded-xl border border-white/10 bg-black/30 p-4 font-mono text-sm leading-7 text-white/70">
+              <div>Download: lead-scout-mac-beta.zip</div>
               <div>URL: {localDashboardUrl}</div>
               <div>Mode: local web dashboard</div>
               <div>Data: local app storage</div>
@@ -141,6 +170,61 @@ export default function LeadScoutPage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 border-t border-white/[0.06] bg-[#180000]/45 px-6 py-14 md:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
+                Install Steps
+              </span>
+              <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
+                No code clone needed.
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-white/55 md:text-base">
+                A user does not need GitHub, Go, npm, or the source code. They
+                download the packaged Mac beta, run the installer, then use the
+                browser dashboard locally.
+              </p>
+            </div>
+
+            <div className="mt-9 grid gap-4 md:grid-cols-4">
+              {installSteps.map((step, index) => (
+                <article
+                  key={step.title}
+                  className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-sumac-brandy">
+                    Step {index + 1}
+                  </span>
+                  <h3 className="mt-4 text-lg font-bold tracking-tight text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-white/55">
+                    {step.copy}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-white/[0.07] bg-sumac-dark/50 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                  Current Download
+                </p>
+                <p className="mt-2 text-sm text-white/65">
+                  Lead Scout Mac Beta, zip file, about 30 MB.
+                </p>
+              </div>
+              <a
+                href={macDownloadUrl}
+                download
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-sumac-dark transition hover:bg-gray-100"
+              >
+                Download Package
+              </a>
             </div>
           </div>
         </section>
