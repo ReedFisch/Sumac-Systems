@@ -1,247 +1,178 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+
+const localDashboardUrl = "http://127.0.0.1:8080";
 
 export const metadata: Metadata = {
-  title: "Lead Scout Local Beta | Sumac Systems",
-  description:
-    "Learn how the Lead Scout local beta finds local businesses with missing or weak websites from your own computer.",
+  title: "Lead Scout | Sumac Systems",
+  description: "Internal Lead Scout launcher for Sumac Systems.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
-const steps = [
+const signals = [
   {
-    title: "Download the local beta",
-    copy: "Install Lead Scout like a normal desktop app. No Google API key is needed for the local beta.",
+    label: "Local App",
+    value: "Runs on this Mac",
+    copy: "Uses the Lead Scout app already installed locally.",
   },
   {
-    title: "Open the dashboard",
-    copy: "The app starts a private server on your computer and opens the dashboard at 127.0.0.1:8080.",
+    label: "Dashboard",
+    value: "127.0.0.1:8080",
+    copy: "Opens the full search, lead cards, map, filters, and CSV tools.",
   },
   {
-    title: "Run a search",
-    copy: "Pick a trade, city, and radius. Lead Scout searches public Google Maps results from your machine.",
-  },
-  {
-    title: "Filter the best leads",
-    copy: "Use filters for no website, bad website, weak Google profile, and high-rating opportunities.",
-  },
-];
-
-const platformRows = [
-  {
-    platform: "Mac",
-    status: "Best beta target",
-    detail:
-      "The first downloadable beta will be built for macOS. It runs locally and opens the web dashboard in your browser.",
-  },
-  {
-    platform: "Windows",
-    status: "Planned",
-    detail:
-      "A Windows build can work the same way, but it needs separate packaging and testing before sharing widely.",
-  },
-  {
-    platform: "ChromeOS",
-    status: "Limited",
-    detail:
-      "Works only on Chromebooks that support Linux apps. Standard school-managed or locked-down Chromebooks usually cannot run it.",
-  },
-  {
-    platform: "iPhone / Android",
-    status: "View only",
-    detail:
-      "Phones can read this page, but they cannot run the local scraper app. Mobile use would need a hosted cloud version later.",
+    label: "Search Mode",
+    value: "Internal beta",
+    copy: "Built for testing and agency use before public packaging.",
   },
 ];
 
-const benefits = [
-  "No server cost for beta searches",
-  "Search jobs run from the user's computer",
-  "Less cloud-hosting complexity",
-  "CSV exports stay local",
-  "Good enough for early testers and influencer demos",
+const workflow = [
+  "Open Lead Scout.app if it is not already running.",
+  "Click Open Local Dashboard from this page.",
+  "Run a city + trade search, then open leads when the job finishes.",
+  "Delete old failed rows when they are just stale test searches.",
 ];
 
 export default function LeadScoutPage() {
   return (
-    <main className="min-h-screen bg-[#090707] text-white">
-      <section className="mx-auto grid min-h-[92vh] w-full max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:px-8">
-        <div>
-          <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-[#c98d58]">
-            Sumac Systems Local Beta
-          </p>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Lead Scout runs on your computer.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/65 md:text-lg">
-            Download the local app, open the browser dashboard, and find local
-            businesses with missing or weak websites without paying for a cloud
-            scraper server.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a
-              href="#setup"
-              className="rounded-md bg-[#c98d58] px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#090707] transition hover:bg-[#e2ad75]"
-            >
-              See Setup
-            </a>
-            <a
-              href="#platforms"
-              className="rounded-md border border-white/10 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white/65 transition hover:border-white/25 hover:text-white"
-            >
-              Device Support
-            </a>
-          </div>
+    <div className="flex min-h-screen flex-col bg-sumac-dark text-white">
+      <Header />
+      <main className="relative flex-1 overflow-hidden pt-[var(--site-header-h)]">
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <div
+            className="absolute inset-0 scale-110 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-sumac-dark via-sumac-dark/80 to-sumac-dark" />
         </div>
 
-        <div className="rounded-lg border border-white/10 bg-white/[0.035] p-5 md:p-6">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#c98d58]">
-            How it opens
-          </p>
-          <div className="mt-5 rounded-md border border-white/10 bg-black/35 p-4 font-mono text-sm leading-7 text-white/75">
-            <div>1. Open Lead Scout.app</div>
-            <div>2. Browser opens automatically</div>
-            <div>3. Dashboard runs at 127.0.0.1:8080</div>
-            <div>4. Results export to CSV</div>
-          </div>
-          <p className="mt-5 text-sm leading-6 text-white/55">
-            The public website is the instruction page. The actual tool runs
-            locally on the tester&apos;s device, so beta searches do not depend
-            on Vercel or a free cloud server staying awake.
-          </p>
+        <div className="absolute right-[-90px] top-24 z-0 hidden h-[420px] w-[420px] opacity-20 md:block">
+          <Image
+            src="/images/sumac/image2.webp"
+            alt=""
+            fill
+            sizes="420px"
+            className="object-contain"
+            aria-hidden="true"
+          />
         </div>
-      </section>
 
-      <section
-        id="setup"
-        className="border-t border-white/10 bg-[#0e0b0b] px-6 py-16 md:px-8"
-      >
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-[#c98d58]">
-              Setup Tutorial
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              What beta testers will do
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {steps.map((step, index) => (
-              <article
-                key={step.title}
-                className="rounded-lg border border-white/10 bg-white/[0.035] p-5"
-              >
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#c98d58]">
-                  Step {index + 1}
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/55">
-                  {step.copy}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-white/10 px-6 py-16 md:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
+        <section className="relative z-10 mx-auto grid min-h-[calc(100vh-var(--site-header-h))] w-full max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
           <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-[#c98d58]">
-              Why Local
+            <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-5">
+              Internal Tool
+            </span>
+            <h1 className="max-w-3xl text-4xl font-sans font-bold tracking-tight md:text-6xl">
+              Lead Scout
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
+              Open the local Lead Scout dashboard for Sumac Systems lead
+              research. Searches run from the local app we already set up, so
+              this page is just the internal launcher.
             </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Cheaper and faster for beta testing.
-            </h2>
-            <p className="mt-5 text-sm leading-7 text-white/60">
-              A cloud version is better later, but a local beta is the fastest
-              way to make Lead Scout useful without paying for everyone&apos;s
-              browser automation.
-            </p>
-          </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit}
-                className="rounded-md border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white/75"
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={localDashboardUrl}
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-sumac-dark shadow-[0_0_30px_rgba(255,255,255,0.12)] transition hover:scale-[1.02] hover:bg-gray-100 active:scale-[0.98]"
               >
-                {benefit}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="platforms"
-        className="border-t border-white/10 bg-[#0e0b0b] px-6 py-16 md:px-8"
-      >
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-[#c98d58]">
-              Device Support
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Desktop first. Mobile later.
-            </h2>
-            <p className="mt-5 text-sm leading-7 text-white/60">
-              Lead Scout needs to run a desktop process in the background.
-              Phones and locked-down Chromebooks cannot do that, so they need a
-              hosted cloud version later.
-            </p>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-lg border border-white/10">
-            {platformRows.map((row) => (
-              <div
-                key={row.platform}
-                className="grid gap-3 border-b border-white/10 bg-white/[0.025] p-5 last:border-b-0 md:grid-cols-[160px_160px_1fr]"
+                Open Local Dashboard
+              </a>
+              <Link
+                href="/"
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white/65 transition hover:border-white/25 hover:text-white"
               >
-                <strong className="text-white">{row.platform}</strong>
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#c98d58]">
-                  {row.status}
-                </span>
-                <p className="text-sm leading-6 text-white/58">{row.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                Back to Sumac
+              </Link>
+            </div>
 
-      <section className="border-t border-white/10 px-6 py-16 md:px-8">
-        <div className="mx-auto max-w-6xl rounded-lg border border-white/10 bg-white/[0.035] p-6 md:p-8">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-[#c98d58]">
-            Beta Status
-          </p>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
-            Download link is coming next.
-          </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-white/60">
-            The local dashboard is working internally. The next step is
-            packaging it into a clean downloadable app, then putting the Mac
-            download link here for beta testers.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button
-              type="button"
-              disabled
-              className="rounded-md bg-white/10 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white/45"
-            >
-              Mac Download Coming Soon
-            </button>
-            <Link
-              href="/"
-              className="rounded-md border border-white/10 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white/65 transition hover:border-white/25 hover:text-white"
-            >
-              Sumac Systems
-            </Link>
+            <p className="mt-5 max-w-xl text-sm leading-6 text-white/45">
+              If the dashboard does not open, start the local Lead Scout app
+              first, then come back and press the button again.
+            </p>
           </div>
-        </div>
-      </section>
-    </main>
+
+          <div className="rounded-2xl border border-white/10 bg-sumac-dark/55 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.35)] backdrop-blur-md md:p-6">
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                  Current Target
+                </p>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight">
+                  Localhost dashboard
+                </h2>
+              </div>
+              <span className="rounded-full border border-[#7cff67]/20 bg-[#7cff67]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#9bff8a]">
+                Internal
+              </span>
+            </div>
+
+            <div className="mt-5 rounded-xl border border-white/10 bg-black/30 p-4 font-mono text-sm leading-7 text-white/70">
+              <div>URL: {localDashboardUrl}</div>
+              <div>Mode: local web dashboard</div>
+              <div>Data: local app storage</div>
+            </div>
+
+            <div className="mt-5 grid gap-3">
+              {signals.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-4"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-sumac-brandy">
+                      {item.label}
+                    </span>
+                    <strong className="text-sm text-white/85">{item.value}</strong>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-white/48">
+                    {item.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 border-t border-white/[0.06] bg-sumac-dark/80 px-6 py-14 md:px-8">
+          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
+                Workflow
+              </span>
+              <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
+                Use what already works.
+              </h2>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {workflow.map((item, index) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-sumac-brandy">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 text-sm leading-6 text-white/60">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
