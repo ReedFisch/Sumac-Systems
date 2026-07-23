@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { ServiceIcon } from "@/components/services/ServiceIcons";
 
 const localDashboardUrl = "http://127.0.0.1:8080";
 const macDownloadUrl = "/downloads/lead-scout-mac-beta.zip";
@@ -13,277 +13,287 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
+    googleBot: { index: false, follow: false },
   },
 };
 
-const osCards = [
+type Platform = {
+  id: string;
+  name: string;
+  icon: string;
+  status: string;
+  statusTone: "ready" | "soon" | "limited" | "cloud";
+  summary: string;
+  action: string;
+  detail: string;
+};
+
+const platforms: Platform[] = [
   {
     id: "mac",
     name: "Mac",
-    status: "Works now",
-    badge: "macOS",
-    copy: "Download, unzip, install, then open the local dashboard.",
+    icon: "cpu",
+    status: "Ready now",
+    statusTone: "ready",
+    summary: "Install the beta and run searches on your Mac.",
+    action: "Get the Mac beta",
+    detail: "The only one-click package available today.",
   },
   {
     id: "windows",
     name: "Windows",
-    status: "Needs build",
-    badge: "WIN",
-    copy: "The app can support Windows later, but there is no Windows package yet.",
+    icon: "database",
+    status: "Package next",
+    statusTone: "soon",
+    summary: "The local dashboard needs a Windows build first.",
+    action: "See Windows path",
+    detail: "No Windows download is published yet.",
   },
   {
     id: "chromeos",
     name: "ChromeOS",
-    status: "Limited",
-    badge: "CrOS",
-    copy: "Only possible on Chromebooks with Linux apps enabled. Not ready as a simple download.",
+    icon: "code",
+    status: "Linux mode",
+    statusTone: "limited",
+    summary: "Possible through Linux mode, but not a simple install.",
+    action: "See ChromeOS path",
+    detail: "Best for technical users with Linux enabled.",
   },
   {
     id: "mobile",
-    name: "iOS / Android",
-    status: "Not local",
-    badge: "MOB",
-    copy: "Phones cannot run the local scraper app. Mobile needs a hosted cloud version.",
+    name: "iPhone / Android",
+    icon: "phone",
+    status: "Cloud later",
+    statusTone: "cloud",
+    summary: "Read this guide on mobile; run searches on a computer.",
+    action: "See mobile path",
+    detail: "A hosted version is needed for phone searches.",
   },
 ];
 
 const macSteps = [
-  "Download the Mac beta zip.",
-  "Unzip the folder.",
-  "Open Install Lead Scout.command.",
-  "If macOS blocks it, right-click the installer, choose Open, then confirm.",
-  "When Terminal opens, leave it alone until the browser opens.",
-  "Use the dashboard at 127.0.0.1:8080.",
+  ["Download", "Download the Mac beta zip."],
+  ["Unzip", "Open the zip so the Lead Scout folder appears."],
+  ["Install", "Open Install Lead Scout.command and confirm if macOS asks."],
+  ["Run", "Leave Terminal open while the local service starts."],
+  ["Search", "Use the dashboard at 127.0.0.1:8080."],
 ];
 
-const supportRows = [
-  {
-    platform: "Mac",
-    result: "Available now",
-    detail: "Current download works for macOS and runs the app locally.",
-  },
-  {
-    platform: "Windows",
-    result: "Not packaged yet",
-    detail: "Needs a Windows build, installer, and testing before it is one-click usable.",
-  },
-  {
-    platform: "ChromeOS",
-    result: "Linux-only later",
-    detail: "Could work through ChromeOS Linux mode, but not as a normal Chromebook app yet.",
-  },
-  {
-    platform: "iOS / Android",
-    result: "Needs cloud version",
-    detail: "Mobile browsers cannot run the local background scraper. They need a hosted server.",
-  },
-];
+const statusStyles = {
+  ready: "border-emerald-300/20 bg-emerald-300/10 text-emerald-200",
+  soon: "border-sumac-brandy/35 bg-sumac-brandy/10 text-orange-200",
+  limited: "border-sky-300/20 bg-sky-300/10 text-sky-200",
+  cloud: "border-white/15 bg-white/[0.06] text-white/65",
+};
+
+function PlatformIcon({ name }: { name: string }) {
+  return (
+    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/25 text-sumac-brandy">
+      <ServiceIcon name={name} className="h-5 w-5" />
+    </span>
+  );
+}
 
 export default function LeadScoutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-sumac-dark text-white">
       <Header />
       <main className="relative flex-1 overflow-hidden pt-[var(--site-header-h)]">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-25">
           <div
             className="absolute inset-0 scale-110 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/sumac/image12-blurred.webp')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-sumac-dark via-sumac-dark/85 to-sumac-dark" />
+          <div className="absolute inset-0 bg-[#120000]/80" />
         </div>
 
-        <div className="absolute right-[-80px] top-24 z-0 hidden h-[360px] w-[360px] opacity-20 md:block">
-          <Image
-            src="/images/sumac/image2.webp"
-            alt=""
-            fill
-            sizes="360px"
-            className="object-contain"
-            aria-hidden="true"
-          />
-        </div>
+        <section className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-12 pt-12 sm:px-6 md:px-8 md:pb-16 md:pt-20">
+          <div className="grid items-end gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="max-w-2xl">
+              <div className="mb-5 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">
+                <span className="h-px w-8 bg-sumac-brandy" />
+                Internal beta access
+              </div>
+              <h1 className="max-w-xl text-4xl font-sans font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+                Lead Scout, set up for your device.
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-7 text-white/60 md:text-lg md:leading-8">
+                Choose your operating system below. The website is the guide;
+                the search dashboard runs on the computer that installs it.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs font-medium uppercase tracking-[0.14em] text-white/45">
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-300" />
+                  Local search
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-sumac-brandy" />
+                  Internal beta
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-sky-300" />
+                  No code required
+                </span>
+              </div>
+            </div>
 
-        <section className="relative z-10 mx-auto w-full max-w-6xl px-6 py-14 md:px-8 md:py-20">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-5">
-              Internal Tool Setup
-            </span>
-            <h1 className="text-4xl font-sans font-bold tracking-tight md:text-6xl">
-              Choose your device first.
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/60 md:text-lg">
-              Lead Scout is a local app. The Sumac page gives instructions and
-              a launcher, but the actual search dashboard runs on the computer
-              that installs Lead Scout.
-            </p>
+            <div className="relative min-h-[250px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0b0b0b]/80 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.38)] sm:p-7">
+              <div className="absolute right-0 top-0 h-44 w-44 opacity-20">
+                <Image src="/images/sumac/image2.webp" alt="" fill sizes="176px" className="object-contain" aria-hidden="true" />
+              </div>
+              <div className="relative">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.16em] text-white/45">
+                    <span className="h-2 w-2 rounded-full bg-emerald-300" />
+                    Local workspace
+                  </div>
+                  <span className="text-xs text-white/35">Lead Scout</span>
+                </div>
+                <div className="mt-7 grid grid-cols-3 gap-3">
+                  {[
+                    ["01", "Choose", "device"],
+                    ["02", "Install", "locally"],
+                    ["03", "Find", "leads"],
+                  ].map(([number, title, detail]) => (
+                    <div key={number} className="border-l border-white/10 pl-3">
+                      <span className="font-mono text-[10px] text-sumac-brandy">{number}</span>
+                      <p className="mt-3 text-sm font-semibold text-white/85">{title}</p>
+                      <p className="mt-1 text-xs text-white/40">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-2/3 rounded-full bg-sumac-brandy" />
+                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/40">Ready when installed</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {osCards.map((os) => (
+          <div className="mt-12 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">01 / Pick a route</p>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">What are you using?</h2>
+            </div>
+            <p className="hidden max-w-xs text-right text-sm leading-6 text-white/40 sm:block">Every card tells you the fastest realistic next step.</p>
+          </div>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {platforms.map((platform) => (
               <a
-                key={os.id}
-                href={`#${os.id}`}
-                className="group rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055]"
+                key={platform.id}
+                href={`#${platform.id}`}
+                className="group flex min-h-[220px] flex-col rounded-2xl border border-white/10 bg-black/25 p-5 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06]"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/25 font-mono text-[11px] font-bold tracking-[0.14em] text-sumac-brandy">
-                    {os.badge}
-                  </div>
-                  <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white/45">
-                    {os.status}
+                <div className="flex items-start justify-between gap-3">
+                  <PlatformIcon name={platform.icon} />
+                  <span className={`rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${statusStyles[platform.statusTone]}`}>
+                    {platform.status}
                   </span>
                 </div>
-                <h2 className="mt-5 text-xl font-bold tracking-tight text-white">
-                  {os.name}
-                </h2>
-                <p className="mt-3 text-sm leading-6 text-white/55">
-                  {os.copy}
-                </p>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{platform.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-white/55">{platform.summary}</p>
+                <span className="mt-auto pt-5 text-xs font-bold uppercase tracking-[0.14em] text-white/45 transition group-hover:text-sumac-brandy">
+                  {platform.action} <span aria-hidden="true">↗</span>
+                </span>
               </a>
             ))}
           </div>
         </section>
 
-        <section
-          id="mac"
-          className="relative z-10 border-t border-white/[0.06] bg-[#180000]/45 px-6 py-14 md:px-8"
-        >
-          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <section id="mac" className="relative z-10 scroll-mt-24 border-y border-white/[0.08] bg-[#1a0703]/70 px-5 py-14 sm:px-6 md:px-8 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
-              <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
-                Mac Setup
-              </span>
-              <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
-                Download. Install. Open dashboard.
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-white/55 md:text-base">
-                No GitHub, no code clone, no Go install, no npm. The zip is the
-                packaged app for internal Mac use.
+              <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">
+                <span className="h-px w-8 bg-sumac-brandy" />
+                Mac / available now
+              </div>
+              <h2 className="mt-5 max-w-lg text-3xl font-bold tracking-tight md:text-5xl">The fastest path to your first search.</h2>
+              <p className="mt-5 max-w-lg text-sm leading-7 text-white/55 md:text-base">
+                This package does the setup for you. You do not need GitHub,
+                Go, npm, or a code editor.
               </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={macDownloadUrl}
-                  download
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-sumac-dark shadow-[0_0_30px_rgba(255,255,255,0.12)] transition hover:scale-[1.02] hover:bg-gray-100 active:scale-[0.98]"
-                >
-                  Download Mac Beta
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                <a href={macDownloadUrl} download className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-sumac-dark shadow-[0_0_30px_rgba(255,255,255,0.1)] transition hover:bg-gray-100">
+                  <ServiceIcon name="database" className="h-4 w-4" />
+                  Download Mac beta
                 </a>
-                <a
-                  href={localDashboardUrl}
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white/70 transition hover:border-white/25 hover:text-white"
-                >
-                  Open Local Dashboard
+                <a href={localDashboardUrl} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white/75 transition hover:border-white/30 hover:text-white">
+                  <ServiceIcon name="zap" className="h-4 w-4" />
+                  Open local dashboard
                 </a>
               </div>
+              <p className="mt-4 text-xs leading-5 text-white/35">Use the second button after installation. It opens on the same computer.</p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-sumac-dark/55 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.35)] backdrop-blur-md md:p-6">
-              <div className="grid gap-3">
-                {macSteps.map((step, index) => (
-                  <div
-                    key={step}
-                    className="grid grid-cols-[40px_1fr] gap-4 rounded-xl border border-white/[0.07] bg-white/[0.03] p-4"
-                  >
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sumac-brandy/20 font-mono text-xs font-bold text-sumac-brandy">
-                      {index + 1}
-                    </div>
-                    <p className="self-center text-sm leading-6 text-white/65">
-                      {step}
-                    </p>
+            <div className="rounded-2xl border border-white/10 bg-[#0b0b0b]/75 p-4 shadow-[0_25px_80px_rgba(0,0,0,0.3)] sm:p-6">
+              <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/60">Mac setup</p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-200">5 minutes</span>
+              </div>
+              <div className="grid gap-2">
+                {macSteps.map(([label, detail], index) => (
+                  <div key={label} className="grid grid-cols-[32px_74px_1fr] items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] px-3 py-3 sm:grid-cols-[38px_88px_1fr] sm:px-4">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-sumac-brandy/20 font-mono text-[10px] font-bold text-sumac-brandy">0{index + 1}</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.1em] text-white/75">{label}</span>
+                    <span className="text-xs leading-5 text-white/45">{detail}</span>
                   </div>
                 ))}
               </div>
+              <div className="mt-4 flex gap-3 rounded-xl border border-sumac-brandy/20 bg-sumac-brandy/[0.08] p-4">
+                <ServiceIcon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-sumac-brandy" />
+                <p className="text-xs leading-5 text-white/55"><strong className="text-white/80">Terminal is expected.</strong> It starts the local service. Leave it open while Lead Scout is running.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 border-t border-white/[0.06] px-6 py-14 md:px-8">
-          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
-                What Terminal Means
-              </span>
-              <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
-                A small setup window is normal.
-              </h2>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-5 font-mono text-sm leading-7 text-white/68 md:p-6">
-              <div>$ installing Lead Scout local service</div>
-              <div>$ starting dashboard at 127.0.0.1:8080</div>
-              <div>$ opening browser</div>
-              <p className="mt-5 font-body text-sm leading-7 text-white/52">
-                The installer uses Terminal because this internal beta starts a
-                background service on the Mac. When it finishes, the browser
-                opens. After install, normal use is just the dashboard button.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="windows"
-          className="relative z-10 border-t border-white/[0.06] bg-sumac-dark/80 px-6 py-14 md:px-8"
-        >
+        <section id="windows" className="relative z-10 border-b border-white/[0.08] px-5 py-14 sm:px-6 md:px-8 md:py-20">
           <div className="mx-auto max-w-6xl">
-            <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
-              Other Devices
-            </span>
-            <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
-              What works today
-            </h2>
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p className="text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">02 / Other computers</p>
+                <h2 className="mt-4 max-w-xl text-3xl font-bold tracking-tight md:text-5xl">Clear answers for every screen.</h2>
+              </div>
+              <div className="hidden rounded-xl border border-white/10 bg-white/[0.03] p-3 text-white/50 sm:block"><ServiceIcon name="target" className="h-5 w-5" /></div>
+            </div>
 
-            <div className="mt-9 overflow-hidden rounded-2xl border border-white/[0.08]">
-              {supportRows.map((row) => (
-                <div
-                  key={row.platform}
-                  id={row.platform === "ChromeOS" ? "chromeos" : row.platform === "iOS / Android" ? "mobile" : undefined}
-                  className="grid gap-3 border-b border-white/[0.07] bg-white/[0.025] p-5 last:border-b-0 md:grid-cols-[160px_190px_1fr]"
-                >
-                  <strong className="text-white">{row.platform}</strong>
-                  <span className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-sumac-brandy">
-                    {row.result}
-                  </span>
-                  <p className="text-sm leading-6 text-white/55">
-                    {row.detail}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-9 grid gap-3 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+                <div className="flex items-center justify-between"><PlatformIcon name="database" /><span className="text-xs font-mono text-white/35">WINDOWS</span></div>
+                <h3 className="mt-6 text-xl font-bold">Use the Windows build when it is packaged.</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">There is no Windows download in this beta yet. The app needs a Windows binary and installer before this becomes a simple click-to-run path.</p>
+                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: Windows package</div>
+              </div>
+              <div id="chromeos" className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+                <div className="flex items-center justify-between"><PlatformIcon name="code" /><span className="text-xs font-mono text-white/35">CHROMEOS</span></div>
+                <h3 className="mt-6 text-xl font-bold">Linux mode is the advanced route.</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">A Chromebook may run Lead Scout through its Linux development environment, but this beta has no Chromebook installer. It is not a normal Chrome extension.</p>
+                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: Linux build</div>
+              </div>
+              <div id="mobile" className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+                <div className="flex items-center justify-between"><PlatformIcon name="phone" /><span className="text-xs font-mono text-white/35">MOBILE</span></div>
+                <h3 className="mt-6 text-xl font-bold">Use your phone as the control screen later.</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">You can open this guide from iPhone or Android, but the current scraper runs locally and cannot stay running inside a mobile browser.</p>
+                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: hosted cloud version</div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 border-t border-white/[0.06] px-6 py-14 md:px-8">
-          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.85fr_1.15fr]">
+        <section className="relative z-10 px-5 py-14 sm:px-6 md:px-8 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
             <div>
-              <span className="inline-block text-xs font-mono tracking-[0.2em] text-sumac-brandy uppercase mb-4">
-                How It Works
-              </span>
-              <h2 className="text-3xl font-sans font-bold tracking-tight md:text-5xl">
-                The website is not the scraper.
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-white/55">
-                Vercel hosts this instruction page and the zip. The downloaded
-                app runs the dashboard and searches locally on the Mac.
-              </p>
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">03 / The simple version</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">The page explains. Your device runs.</h2>
             </div>
-
-            <div className="grid gap-3 sm:grid-cols-4">
-              {["Download", "Install", "Localhost", "Leads"].map((item, index) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5 text-center"
-                >
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/25 font-mono text-xs font-bold text-sumac-brandy">
-                    {index + 1}
-                  </div>
-                  <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-white/70">
-                    {item}
-                  </p>
+            <div className="grid gap-2 sm:grid-cols-4">
+              {["Pick your OS", "Install locally", "Open dashboard", "Find leads"].map((item, index) => (
+                <div key={item} className="flex items-center gap-3 border-t border-white/10 py-4 sm:block sm:border-l sm:border-t-0 sm:pl-4">
+                  <span className="font-mono text-xs text-sumac-brandy">0{index + 1}</span>
+                  <p className="text-sm font-semibold text-white/75 sm:mt-4">{item}</p>
                 </div>
               ))}
             </div>
