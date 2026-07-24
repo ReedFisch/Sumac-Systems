@@ -28,8 +28,9 @@ const platforms = [
     download: downloads.mac,
     button: "Download Mac",
     command: "Double-click Install Lead Scout.command",
+    terminalCommands: [],
     steps: ["Get", "Unzip", "Open"],
-    note: "If macOS asks, right-click the installer and choose Open.",
+    note: "No Terminal needed. If macOS asks, right-click the installer and choose Open.",
   },
   {
     id: "windows",
@@ -38,8 +39,9 @@ const platforms = [
     download: downloads.windows,
     button: "Download Windows",
     command: "Double-click Start Lead Scout.bat",
+    terminalCommands: [],
     steps: ["Get", "Unzip", "Start"],
-    note: "For Windows 10/11 on Intel or AMD. Windows may ask you to confirm the beta.",
+    note: "No Terminal needed. For Windows 10/11 on Intel or AMD. Windows may ask you to confirm the beta.",
   },
   {
     id: "linux",
@@ -47,9 +49,10 @@ const platforms = [
     icon: "code",
     download: downloads.linux,
     button: "Download Linux + ChromeOS",
-    command: "./start-lead-scout.sh",
+    command: "Open Terminal in the unzipped folder",
+    terminalCommands: ["chmod +x start-lead-scout.sh", "chmod +x stop-lead-scout.sh", "./start-lead-scout.sh"],
     steps: ["Get", "Unzip", "Run"],
-    note: "ChromeOS needs Linux development mode. Intel/AMD only; run chmod +x first.",
+    note: "ChromeOS needs Linux development mode. Intel/AMD only. Run the commands in order.",
   },
 ];
 
@@ -94,6 +97,19 @@ function PlatformCard({ platform }: { platform: (typeof platforms)[number] }) {
       </div>
 
       <p className="mt-6 text-sm font-semibold leading-6 text-white/90">{platform.command}</p>
+      {platform.terminalCommands.length > 0 ? (
+        <div className="mt-4">
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-orange-200">Run in Terminal, in order</p>
+          <div className="mt-2 space-y-2">
+            {platform.terminalCommands.map((command, index) => (
+              <div key={command} className="flex min-w-0 items-center gap-2">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.06] text-[10px] font-bold text-white/70">{index + 1}</span>
+                <code className="min-w-0 flex-1 select-all overflow-x-auto whitespace-nowrap rounded-lg border border-white/[0.1] bg-[#0b0000] px-3 py-2 font-mono text-[11px] leading-5 text-orange-100">{command}</code>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <p className="mt-2 min-h-10 text-xs leading-5 text-white/60">{platform.note}</p>
       <a href={platform.download} download className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sumac-brandy/30 bg-sumac-brandy px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_8px_24px_rgba(136,47,24,0.2)] transition hover:bg-[#a64022] hover:shadow-[0_10px_28px_rgba(136,47,24,0.32)]">
         <ServiceIcon name="database" className="h-4 w-4" />
