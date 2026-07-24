@@ -133,21 +133,6 @@ export default function LeadScoutPage() {
             <p className="mt-4 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">
               Pick your computer, download the file, and start the app.
             </p>
-
-            <div className="mt-8 max-w-4xl rounded-2xl border border-white/[0.1] bg-gradient-to-br from-white/[0.075] to-white/[0.02] p-4 text-white shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur-md sm:p-5">
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-1.5 w-1.5 rounded-full bg-sumac-brandy" aria-hidden="true" />
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/65">How it works</p>
-              </div>
-              <div className="grid gap-2 sm:grid-cols-3 sm:gap-4">
-                {["Choose your computer", "Download the package", "Start Lead Scout"].map((label, index) => (
-                  <div key={label} className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-3 sm:block sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sumac-brandy/35 bg-sumac-brandy/25 text-xs font-bold text-orange-100">{index + 1}</span>
-                    <p className="text-sm font-bold leading-5 sm:mt-3">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
