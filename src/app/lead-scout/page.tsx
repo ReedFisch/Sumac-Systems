@@ -6,6 +6,8 @@ import { ServiceIcon } from "@/components/services/ServiceIcons";
 
 const localDashboardUrl = "http://127.0.0.1:8080";
 const macDownloadUrl = "/downloads/lead-scout-mac-beta.zip";
+const windowsDownloadUrl = "/downloads/lead-scout-windows-beta.zip";
+const linuxDownloadUrl = "/downloads/lead-scout-linux-beta.zip";
 
 export const metadata: Metadata = {
   title: "Lead Scout Setup | Sumac Systems",
@@ -22,7 +24,7 @@ type Platform = {
   name: string;
   icon: string;
   status: string;
-  statusTone: "ready" | "soon" | "limited" | "cloud";
+  statusTone: "ready";
   summary: string;
   action: string;
   detail: string;
@@ -43,31 +45,21 @@ const platforms: Platform[] = [
     id: "windows",
     name: "Windows",
     icon: "database",
-    status: "Package next",
-    statusTone: "soon",
-    summary: "The local dashboard needs a Windows build first.",
-    action: "See Windows path",
-    detail: "No Windows download is published yet.",
+    status: "Ready now",
+    statusTone: "ready",
+    summary: "Download the Windows package and start the local dashboard.",
+    action: "Get the Windows beta",
+    detail: "The first run sets up the browser engine automatically.",
   },
   {
-    id: "chromeos",
-    name: "ChromeOS",
+    id: "linux",
+    name: "Linux",
     icon: "code",
-    status: "Linux mode",
-    statusTone: "limited",
-    summary: "Possible through Linux mode, but not a simple install.",
-    action: "See ChromeOS path",
-    detail: "Best for technical users with Linux enabled.",
-  },
-  {
-    id: "mobile",
-    name: "iPhone / Android",
-    icon: "phone",
-    status: "Cloud later",
-    statusTone: "cloud",
-    summary: "Read this guide on mobile; run searches on a computer.",
-    action: "See mobile path",
-    detail: "A hosted version is needed for phone searches.",
+    status: "Ready now",
+    statusTone: "ready",
+    summary: "Run the Linux launcher and open the local dashboard.",
+    action: "Get the Linux beta",
+    detail: "Works on common x86_64 Linux distributions.",
   },
 ];
 
@@ -81,9 +73,6 @@ const macSteps = [
 
 const statusStyles = {
   ready: "border-emerald-300/20 bg-emerald-300/10 text-emerald-200",
-  soon: "border-sumac-brandy/35 bg-sumac-brandy/10 text-orange-200",
-  limited: "border-sky-300/20 bg-sky-300/10 text-sky-200",
-  cloud: "border-white/15 bg-white/[0.06] text-white/65",
 };
 
 function PlatformIcon({ name }: { name: string }) {
@@ -180,7 +169,7 @@ export default function LeadScoutPage() {
             <p className="hidden max-w-xs text-right text-sm leading-6 text-white/40 sm:block">Every card tells you the fastest realistic next step.</p>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {platforms.map((platform) => (
               <a
                 key={platform.id}
@@ -255,29 +244,29 @@ export default function LeadScoutPage() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="text-xs font-mono uppercase tracking-[0.2em] text-sumac-brandy">02 / Other computers</p>
-                <h2 className="mt-4 max-w-xl text-3xl font-bold tracking-tight md:text-5xl">Clear answers for every screen.</h2>
+                <h2 className="mt-4 max-w-xl text-3xl font-bold tracking-tight md:text-5xl">Windows and Linux are ready.</h2>
               </div>
               <div className="hidden rounded-xl border border-white/10 bg-white/[0.03] p-3 text-white/50 sm:block"><ServiceIcon name="target" className="h-5 w-5" /></div>
             </div>
 
-            <div className="mt-9 grid gap-3 md:grid-cols-3">
+            <div className="mt-9 grid gap-3 md:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
                 <div className="flex items-center justify-between"><PlatformIcon name="database" /><span className="text-xs font-mono text-white/35">WINDOWS</span></div>
-                <h3 className="mt-6 text-xl font-bold">Use the Windows build when it is packaged.</h3>
-                <p className="mt-3 text-sm leading-6 text-white/50">There is no Windows download in this beta yet. The app needs a Windows binary and installer before this becomes a simple click-to-run path.</p>
-                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: Windows package</div>
+                <h3 className="mt-6 text-xl font-bold">Download, start, search.</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">Unzip the package and double-click <code className="text-white/75">Start Lead Scout.bat</code>. The first run downloads the local browser engine, then opens the dashboard.</p>
+                <a href={windowsDownloadUrl} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-sumac-dark transition hover:bg-gray-100">
+                  <ServiceIcon name="database" className="h-4 w-4" />
+                  Download Windows beta
+                </a>
               </div>
-              <div id="chromeos" className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-                <div className="flex items-center justify-between"><PlatformIcon name="code" /><span className="text-xs font-mono text-white/35">CHROMEOS</span></div>
-                <h3 className="mt-6 text-xl font-bold">Linux mode is the advanced route.</h3>
-                <p className="mt-3 text-sm leading-6 text-white/50">A Chromebook may run Lead Scout through its Linux development environment, but this beta has no Chromebook installer. It is not a normal Chrome extension.</p>
-                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: Linux build</div>
-              </div>
-              <div id="mobile" className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-                <div className="flex items-center justify-between"><PlatformIcon name="phone" /><span className="text-xs font-mono text-white/35">MOBILE</span></div>
-                <h3 className="mt-6 text-xl font-bold">Use your phone as the control screen later.</h3>
-                <p className="mt-3 text-sm leading-6 text-white/50">You can open this guide from iPhone or Android, but the current scraper runs locally and cannot stay running inside a mobile browser.</p>
-                <div className="mt-6 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-sumac-brandy">Next: hosted cloud version</div>
+              <div id="linux" className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
+                <div className="flex items-center justify-between"><PlatformIcon name="code" /><span className="text-xs font-mono text-white/35">LINUX</span></div>
+                <h3 className="mt-6 text-xl font-bold">Run the launcher from Terminal.</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">Unzip the package, make <code className="text-white/75">start-lead-scout.sh</code> executable, and run it. It installs the browser engine on first run and opens the dashboard.</p>
+                <a href={linuxDownloadUrl} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-sumac-dark transition hover:bg-gray-100">
+                  <ServiceIcon name="code" className="h-4 w-4" />
+                  Download Linux beta
+                </a>
               </div>
             </div>
           </div>
