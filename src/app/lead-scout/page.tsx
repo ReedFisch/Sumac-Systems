@@ -39,17 +39,17 @@ const platforms = [
     button: "Download Windows",
     command: "Double-click Start Lead Scout.bat",
     steps: ["Get", "Unzip", "Start"],
-    note: "Windows may ask you to confirm the internal beta.",
+    note: "For Windows 10/11 on Intel or AMD. Windows may ask you to confirm the beta.",
   },
   {
     id: "linux",
-    name: "Linux",
+    name: "Linux + ChromeOS",
     icon: "code",
     download: downloads.linux,
-    button: "Download Linux",
+    button: "Download Linux + ChromeOS",
     command: "./start-lead-scout.sh",
     steps: ["Get", "Unzip", "Run"],
-    note: "Run chmod +x first if your system asks for permission.",
+    note: "ChromeOS needs Linux development mode. Intel/AMD only; run chmod +x first.",
   },
 ];
 
